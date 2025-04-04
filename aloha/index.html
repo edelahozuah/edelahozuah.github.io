@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización Aloha Puro (Paso a Paso)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        canvas { border: 1px solid #ccc; background-color: #f8f8f8; }
+        .input-group label { min-width: 160px; font-weight: 500; }
+        /* Estilo para etiquetas de backoff */
+        .input-group label.backoff-label { min-width: 100px; margin-left: 10px; }
+        .input-group input, .input-group textarea {
+            border-radius: 0.375rem; border: 1px solid #d1d5db; padding: 0.5rem 0.75rem;
+        }
+        .input-group textarea { min-height: 40px; }
+        /* Ancho específico para inputs de listas de backoff */
+        .input-group textarea.backoff-list-input { min-width: 120px; }
+
+        button { transition: background-color 0.3s ease; }
+        button:disabled { background-color: #9ca3af; cursor: not-allowed; }
+        /* Clases de color */
+        .station-a { background-color: rgba(59, 130, 246, 0.7); border: 1px solid #1d4ed8; } /* Azul */
+        .station-b { background-color: rgba(234, 179, 8, 0.7); border: 1px solid #a16207; } /* Amarillo */
+        .station-c { background-color: rgba(34, 197, 94, 0.7); border: 1px solid #15803d; } /* Verde */
+        .station-d { background-color: rgba(249, 115, 22, 0.7); border: 1px solid #c2410c; } /* Naranja */
+        .collision { background-color: rgba(239, 68, 68, 0.8); border: 1px solid #b91c1c; } /* Rojo */
+        .successful { background-color: rgba(134, 239, 172, 0.7); border: 1px solid #16a34a; } /* Verde claro (éxito) */
+        .dropped { background-color: rgba(156, 163, 175, 0.7); border: 1px solid #4b5563; } /* Gris (descartado) */
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6 md:p-10">
+    <div class="container mx-auto max-w-6xl bg-white p-6 md:p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">Simulador de Aloha Puro (Paso a Paso)</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="space-y-4 p-4 border rounded-lg bg-gray-50">
+                <h2 class="text-lg font-semibold text-gray-700 mb-3">Parámetros de Simulación</h2>
+                <div class="flex items-center space-x-3 input-group">
+                    <label for="transmissionSlots" class="text-gray-600">Retardo Transmisión (T<sub>t</sub>):</label>
+                    <input type="number" id="transmissionSlots" value="5" min="1" class="w-20 param-input">
+                    <span class="text-gray-500">slots</span>
+                </div>
+                <div class="flex items-center space-x-3 input-group">
+                    <label for="propagationSlots" class="text-gray-600">Retardo Propagación (T<sub>p</sub>):</label>
+                    <input type="number" id="propagationSlots" value="1" min="0" class="w-20 param-input">
+                    <span class="text-gray-500">slots</span>
+                </div>
+                 <div class="flex items-center space-x-3 input-group">
+                    <label for="maxSlots" class="text-gray-600">Slots a Visualizar:</label>
+                    <input type="number" id="maxSlots" value="50" min="10" class="w-20 param-input">
+                     <span class="text-gray-500">slots</span>
+                </div>
+                <div class="flex items-center space-x-3 input-group">
+                    <label for="maxRetransmissions" class="text-gray-600">Máx. Intentos (total):</label>
+                    <input type="number" id="maxRetransmissions" value="5" min="1" class="w-20 param-input">
+                </div>
+            </div>
+
+            <div class="space-y-4 p-4 border rounded-lg bg-gray-50">
+                 <h2 class="text-lg font-semibold text-gray-700 mb-3">Configuración por Estación</h2>
+                 <p class="text-xs text-gray-500 mb-3">Instantes de inicio y lista de backoffs (slots, separados por comas).</p>
+                <div class="input-group flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <label for="stationA" class="block text-blue-600">Estación A (Arriba):</label>
+                    <textarea id="stationA" rows="1" class="flex-grow min-w-[150px] param-input" placeholder="Ej: 0, 15, 30">0, 18</textarea>
+                    <label for="backoffListA" class="text-gray-600 backoff-label">Backoffs A:</label>
+                    <textarea id="backoffListA" rows="1" class="backoff-list-input param-input" placeholder="Ej: 10, 25, 40">10, 20, 35, 50</textarea>
+                </div>
+                 <div class="input-group flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <label for="stationB" class="block text-yellow-600">Estación B (Arriba):</label>
+                    <textarea id="stationB" rows="1" class="flex-grow min-w-[150px] param-input" placeholder="Ej: 5, 25">5</textarea>
+                     <label for="backoffListB" class="text-gray-600 backoff-label">Backoffs B:</label>
+                     <textarea id="backoffListB" rows="1" class="backoff-list-input param-input" placeholder="Ej: 8, 18, 30">8, 18, 30, 45</textarea>
+                </div>
+                 <div class="input-group flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <label for="stationC" class="block text-green-600">Estación C (Abajo):</label>
+                    <textarea id="stationC" rows="1" class="flex-grow min-w-[150px] param-input" placeholder="Ej: 2, 20">2, 22</textarea>
+                     <label for="backoffListC" class="text-gray-600 backoff-label">Backoffs C:</label>
+                     <textarea id="backoffListC" rows="1" class="backoff-list-input param-input" placeholder="Ej: 12, 22, 38">12, 22, 38, 55</textarea>
+                </div>
+                 <div class="input-group flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <label for="stationD" class="block text-orange-600">Estación D (Abajo):</label>
+                    <textarea id="stationD" rows="1" class="flex-grow min-w-[150px] param-input" placeholder="Ej: 10, 35">10</textarea>
+                     <label for="backoffListD" class="text-gray-600 backoff-label">Backoffs D:</label>
+                     <textarea id="backoffListD" rows="1" class="backoff-list-input param-input" placeholder="Ej: 5, 15, 30">5, 15, 30, 48</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-8 flex justify-center space-x-4">
+            <button id="resetButton" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow">
+                Iniciar / Reiniciar
+            </button>
+            <button id="nextStepButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow" disabled>
+                Siguiente Paso
+            </button>
+        </div>
+
+        <div class="w-full overflow-x-auto">
+             <canvas id="alohaCanvas" width="1200" height="350"></canvas> </div>
+
+         <div id="messageArea" class="mt-6 text-sm text-gray-700 bg-gray-50 p-4 rounded-lg border min-h-[100px]">
+            <p>Configura los parámetros y haz clic en "Iniciar / Reiniciar".</p>
+            <p id="currentTimeDisplay" class="font-semibold mt-2"></p>
+            <div id="eventLog" class="mt-2 max-h-40 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- Constantes y Configuración ---
+        const canvas = document.getElementById('alohaCanvas');
+        const ctx = canvas.getContext('2d');
+        const resetButton = document.getElementById('resetButton');
+        const nextStepButton = document.getElementById('nextStepButton');
+        const messageArea = document.getElementById('messageArea');
+        const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+        const eventLog = document.getElementById('eventLog');
+        const paramInputs = document.querySelectorAll('.param-input'); // Para deshabilitar durante simulación
+
+        const TOP_LINE_Y = 70; // Más espacio aún
+        const BOTTOM_LINE_Y = 240; // Más espacio aún
+        const SLOT_HEIGHT = BOTTOM_LINE_Y - TOP_LINE_Y;
+        const TICK_HEIGHT = 10;
+        const FRAME_HEIGHT = 18; // Ligeramente más pequeño
+        const LINE_PADDING = 50;
+
+        const STATION_COLORS = { /* Sin cambios */ };
+
+        // --- Estado Global de la Simulación ---
+        let simulationInitialized = false;
+        let allFrames = []; // Todos los objetos Frame creados
+        let eventQueue = []; // Cola de eventos { time: number, type: string, frameId: string, relatedFrameId?: string }
+        let currentTime = 0;
+        let originalFrameState = {}; // { frameId: { attempts: number, backoffIndex: number, successful: boolean, dropped: boolean } }
+        let backoffLists = {}; // { stationId: [number] }
+        let frameCounter = 0;
+        let simulationParams = {}; // Almacena Tt, Tp, maxSlots, maxRetransmissions
+        let activeCollisions = new Set(); // Guarda IDs de tramas actualmente en colisión
+
+        // --- Clases y Funciones de Ayuda ---
+
+        class Frame {
+            constructor(id, station, startTime, transmissionSlots, propagationSlots, attempt = 1, originalFrameId = null) {
+                this.id = id;
+                this.originalFrameId = originalFrameId || id;
+                this.station = station;
+                this.startTime = startTime; // Cuándo empezó (o empezará) a transmitir
+                this.transmissionSlots = transmissionSlots;
+                this.propagationSlots = propagationSlots;
+                this.endTime = startTime + transmissionSlots; // Cuándo termina de transmitir
+                this.attempt = attempt;
+
+                // Estado dinámico
+                this.status = 'idle'; // idle, transmitting, finished_tx, receiving, successful, collided, dropped
+                this.collisionDetected = false; // Si ha estado involucrada en alguna colisión
+                this.visible = false; // Si debe dibujarse en el estado actual
+
+                this.topLineOccupation = null;
+                this.bottomLineOccupation = null;
+                this.calculateOccupation();
+            }
+
+            calculateOccupation() {
+                if (this.station === 'A' || this.station === 'B') { // Origen arriba
+                    this.topLineOccupation = { start: this.startTime, end: this.endTime };
+                    this.bottomLineOccupation = { start: this.startTime + this.propagationSlots, end: this.endTime + this.propagationSlots };
+                } else { // Origen abajo
+                    this.bottomLineOccupation = { start: this.startTime, end: this.endTime };
+                    this.topLineOccupation = { start: this.startTime + this.propagationSlots, end: this.endTime + this.propagationSlots };
+                }
+            }
+
+            // Dibuja la trama si es visible y según su estado
+            draw(ctx, slotWidth, currentSimTime) {
+                 if (!this.visible || this.startTime > currentSimTime) return; // No dibujar si no es visible o es futura
+
+                 const startX = LINE_PADDING + this.startTime * slotWidth;
+                 // El fin visual depende del tiempo actual
+                 const currentEndTime = Math.min(this.endTime, currentSimTime);
+                 const endX = LINE_PADDING + currentEndTime * slotWidth;
+
+                 const arrivalStartTime = this.startTime + this.propagationSlots;
+                 const currentArrivalEndTime = Math.min(this.endTime + this.propagationSlots, currentSimTime);
+
+                 const propStartX = LINE_PADDING + arrivalStartTime * slotWidth;
+                 const arrivalEndX = LINE_PADDING + currentArrivalEndTime * slotWidth;
+
+
+                 // Determinar color basado en el estado final si ya se conoce, o estado actual
+                 let colorClass = STATION_COLORS[this.station];
+                 if (this.status === 'successful') {
+                     colorClass = 'successful';
+                 } else if (this.status === 'collided' || this.collisionDetected) { // Mostrar rojo si colisionó en algún momento
+                     colorClass = 'collision';
+                 } else if (this.status === 'dropped') {
+                      colorClass = 'dropped';
+                 }
+
+                 // Obtener colores (igual que antes)
+                 let tempDiv = document.createElement('div');
+                 tempDiv.className = colorClass;
+                 document.body.appendChild(tempDiv);
+                 let bgColor = window.getComputedStyle(tempDiv).backgroundColor;
+                 let borderColor = window.getComputedStyle(tempDiv).borderColor || 'black';
+                 document.body.removeChild(tempDiv);
+
+                 ctx.fillStyle = bgColor || 'rgba(128, 128, 128, 0.5)';
+                 ctx.strokeStyle = borderColor || 'black';
+                 ctx.lineWidth = 1;
+
+                 // Dibujar la porción visible de la transmisión/propagación
+                 ctx.beginPath();
+                 if (this.station === 'A' || this.station === 'B') { // Arriba -> Abajo
+                     // Parte en línea superior (hasta currentEndTime)
+                     if (currentEndTime > this.startTime) {
+                        ctx.moveTo(startX, TOP_LINE_Y - FRAME_HEIGHT / 2);
+                        ctx.lineTo(endX, TOP_LINE_Y - FRAME_HEIGHT / 2);
+                        ctx.lineTo(endX, TOP_LINE_Y + FRAME_HEIGHT / 2);
+                        ctx.lineTo(startX, TOP_LINE_Y + FRAME_HEIGHT / 2);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.stroke();
+                     }
+                      // Parte en propagación/línea inferior (hasta currentArrivalEndTime)
+                     if (currentArrivalEndTime > arrivalStartTime && currentSimTime >= arrivalStartTime) {
+                         ctx.beginPath();
+                         ctx.moveTo(propStartX, BOTTOM_LINE_Y - FRAME_HEIGHT / 2);
+                         ctx.lineTo(arrivalEndX, BOTTOM_LINE_Y - FRAME_HEIGHT / 2);
+                         ctx.lineTo(arrivalEndX, BOTTOM_LINE_Y + FRAME_HEIGHT / 2);
+                         ctx.lineTo(propStartX, BOTTOM_LINE_Y + FRAME_HEIGHT / 2);
+                         ctx.closePath();
+                         ctx.fill();
+                         ctx.stroke();
+
+                         // Dibujar línea diagonal de conexión (simplificado)
+                         ctx.beginPath();
+                         ctx.moveTo(startX, TOP_LINE_Y);
+                         ctx.lineTo(propStartX, BOTTOM_LINE_Y);
+                         ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
+                         ctx.stroke();
+                     }
+
+                 } else { // Abajo -> Arriba
+                     // Parte en línea inferior
+                     if (currentEndTime > this.startTime) {
+                         ctx.moveTo(startX, BOTTOM_LINE_Y - FRAME_HEIGHT / 2);
+                         ctx.lineTo(endX, BOTTOM_LINE_Y - FRAME_HEIGHT / 2);
+                         ctx.lineTo(endX, BOTTOM_LINE_Y + FRAME_HEIGHT / 2);
+                         ctx.lineTo(startX, BOTTOM_LINE_Y + FRAME_HEIGHT / 2);
+                         ctx.closePath();
+                         ctx.fill();
+                         ctx.stroke();
+                     }
+                     // Parte en propagación/línea superior
+                     if (currentArrivalEndTime > arrivalStartTime && currentSimTime >= arrivalStartTime) {
+                           ctx.beginPath();
+                           ctx.moveTo(propStartX, TOP_LINE_Y - FRAME_HEIGHT / 2);
+                           ctx.lineTo(arrivalEndX, TOP_LINE_Y - FRAME_HEIGHT / 2);
+                           ctx.lineTo(arrivalEndX, TOP_LINE_Y + FRAME_HEIGHT / 2);
+                           ctx.lineTo(propStartX, TOP_LINE_Y + FRAME_HEIGHT / 2);
+                           ctx.closePath();
+                           ctx.fill();
+                           ctx.stroke();
+                           // Dibujar línea diagonal de conexión (simplificado)
+                           ctx.beginPath();
+                           ctx.moveTo(startX, BOTTOM_LINE_Y);
+                           ctx.lineTo(propStartX, TOP_LINE_Y);
+                           ctx.strokeStyle = 'rgba(150, 150, 150, 0.5)';
+                           ctx.stroke();
+                     }
+                 }
+
+
+                 // Etiqueta (solo si ha empezado)
+                 if (currentSimTime >= this.startTime) {
+                     ctx.fillStyle = 'black';
+                     ctx.font = '9px Arial'; // Más pequeño
+                     ctx.textAlign = 'center';
+                     const labelX = startX + Math.max(0, (endX - startX)) / 2; // Centrar en la parte visible
+                     const labelY = (this.station === 'A' || this.station === 'B') ? TOP_LINE_Y - FRAME_HEIGHT - 8 : BOTTOM_LINE_Y + FRAME_HEIGHT + 8;
+                     ctx.fillText(`${this.station}${this.originalFrameId}-${this.attempt}`, labelX, labelY);
+                 }
+            }
+             // getFallbackColor - sin cambios
+        }
+
+        // Parsea listas separadas por comas (para inicios y backoffs)
+        function parseCommaSeparatedNumbers(inputStr) {
+            if (!inputStr) return [];
+            return inputStr.split(',')
+                        .map(t => parseInt(t.trim(), 10))
+                        .filter(t => !isNaN(t) && t >= 0); // Permitir backoff 0
+        }
+
+        // Dibuja ejes (sin cambios significativos, usa maxSlots global)
+        function drawAxes(maxSlotsToDraw, slotWidth) {
+             const totalWidth = LINE_PADDING * 2 + maxSlotsToDraw * slotWidth;
+             if (canvas.width < totalWidth) {
+                 canvas.width = totalWidth;
+             }
+             ctx.clearRect(0, 0, canvas.width, canvas.height);
+             ctx.strokeStyle = '#999';
+             ctx.lineWidth = 1;
+             ctx.font = '10px Arial';
+             ctx.fillStyle = '#333';
+             ctx.textAlign = 'center';
+             ctx.textBaseline = 'middle';
+
+             // Líneas
+             ctx.beginPath();
+             ctx.moveTo(LINE_PADDING, TOP_LINE_Y);
+             ctx.lineTo(totalWidth - LINE_PADDING, TOP_LINE_Y);
+             ctx.stroke();
+             ctx.beginPath();
+             ctx.moveTo(LINE_PADDING, BOTTOM_LINE_Y);
+             ctx.lineTo(totalWidth - LINE_PADDING, BOTTOM_LINE_Y);
+             ctx.stroke();
+
+             // Ticks y números
+             for (let i = 0; i <= maxSlotsToDraw; i++) {
+                 const x = LINE_PADDING + i * slotWidth;
+                 ctx.beginPath();
+                 ctx.moveTo(x, TOP_LINE_Y - TICK_HEIGHT / 2);
+                 ctx.lineTo(x, TOP_LINE_Y + TICK_HEIGHT / 2);
+                 ctx.stroke();
+                 ctx.beginPath();
+                 ctx.moveTo(x, BOTTOM_LINE_Y - TICK_HEIGHT / 2);
+                 ctx.lineTo(x, BOTTOM_LINE_Y + TICK_HEIGHT / 2);
+                 ctx.stroke();
+                 ctx.fillText(i, x, TOP_LINE_Y - TICK_HEIGHT - 5);
+                 ctx.fillText(i, x, BOTTOM_LINE_Y + TICK_HEIGHT + 5);
+             }
+        }
+
+        // Añade un evento a la cola y la mantiene ordenada por tiempo
+        function addEvent(event) {
+            eventQueue.push(event);
+            eventQueue.sort((a, b) => a.time - b.time);
+        }
+
+        // Registra un mensaje en el log visual
+         function logEventMessage(message) {
+            const logEntry = document.createElement('p');
+            logEntry.textContent = `[T=${currentTime.toFixed(1)}] ${message}`;
+            // Insertar al principio para ver los más recientes arriba
+            eventLog.insertBefore(logEntry, eventLog.firstChild);
+            // Limitar el número de entradas (opcional)
+            // while (eventLog.children.length > 50) {
+            //     eventLog.removeChild(eventLog.lastChild);
+            // }
+        }
+
+        // Comprueba si dos intervalos [start1, end1) y [start2, end2) se solapan
+        function intervalsOverlap(start1, end1, start2, end2) {
+            return start1 < end2 && end1 > start2;
+        }
+
+        // --- Lógica Principal de Simulación ---
+
+        function initializeSimulation() {
+            console.log("Initializing simulation...");
+            // 1. Leer Parámetros y Validar
+            simulationParams = {
+                Tt: parseInt(document.getElementById('transmissionSlots').value, 10),
+                Tp: parseInt(document.getElementById('propagationSlots').value, 10),
+                maxSlots: parseInt(document.getElementById('maxSlots').value, 10),
+                maxRetransmissions: parseInt(document.getElementById('maxRetransmissions').value, 10)
+            };
+            backoffLists = {
+                'A': parseCommaSeparatedNumbers(document.getElementById('backoffListA').value),
+                'B': parseCommaSeparatedNumbers(document.getElementById('backoffListB').value),
+                'C': parseCommaSeparatedNumbers(document.getElementById('backoffListC').value),
+                'D': parseCommaSeparatedNumbers(document.getElementById('backoffListD').value)
+            };
+
+            let isValid = true;
+            let errorMessages = [];
+            if (isNaN(simulationParams.Tt) || simulationParams.Tt <= 0) { isValid = false; errorMessages.push("Tt debe ser > 0."); }
+            if (isNaN(simulationParams.Tp) || simulationParams.Tp < 0) { isValid = false; errorMessages.push("Tp debe ser >= 0."); }
+            if (isNaN(simulationParams.maxSlots) || simulationParams.maxSlots <= 0) { isValid = false; errorMessages.push("Slots a Visualizar debe ser > 0."); }
+            if (isNaN(simulationParams.maxRetransmissions) || simulationParams.maxRetransmissions < 1) { isValid = false; errorMessages.push("Máx. Intentos debe ser >= 1."); }
+            // Validación de listas de backoff podría ser más exhaustiva (ej: no vacías si se usa la estación)
+
+            if (!isValid) {
+                messageArea.firstChild.textContent = `Error en los parámetros: ${errorMessages.join(' ')}`;
+                currentTimeDisplay.textContent = "";
+                eventLog.innerHTML = "";
+                return;
+            }
+
+            // 2. Resetear Estado Global
+            allFrames = [];
+            eventQueue = [];
+            currentTime = 0;
+            originalFrameState = {};
+            frameCounter = 0;
+            simulationInitialized = false; // Se pondrá a true al final
+            eventLog.innerHTML = ""; // Limpiar log visual
+            activeCollisions.clear();
+
+            // 3. Crear Tramas Iniciales y Eventos
+            const stations = ['A', 'B', 'C', 'D'];
+            stations.forEach(stationId => {
+                const startTimes = parseCommaSeparatedNumbers(document.getElementById(`station${stationId}`).value);
+                startTimes.forEach(startTime => {
+                     if (startTime < simulationParams.maxSlots) {
+                         const frameId = `F${++frameCounter}`;
+                         const originalId = frameId; // Para la primera trama, id === originalId
+                         const newFrame = new Frame(frameId, stationId, startTime, simulationParams.Tt, simulationParams.Tp, 1, originalId);
+                         allFrames.push(newFrame);
+                         // Estado inicial para la trama original
+                         originalFrameState[originalId] = { attempts: 1, backoffIndex: 0, successful: false, dropped: false };
+                         // Añadir evento inicial de transmisión
+                         addEvent({ time: startTime, type: 'start_tx', frameId: frameId });
+                     }
+                });
+            });
+
+            if (allFrames.length === 0) {
+                 messageArea.firstChild.textContent = "No hay tramas iniciales programadas.";
+                 currentTimeDisplay.textContent = "";
+                 nextStepButton.disabled = true;
+                 paramInputs.forEach(input => input.disabled = false);
+                 resetButton.disabled = false;
+                 return;
+            }
+
+            // 4. Preparar UI
+            simulationInitialized = true;
+            nextStepButton.disabled = false;
+            resetButton.disabled = false; // O cambiar texto a "Reiniciar"
+            paramInputs.forEach(input => input.disabled = true); // Deshabilitar params durante simulación
+            messageArea.firstChild.textContent = "Simulación iniciada. Pulsa 'Siguiente Paso'.";
+            currentTimeDisplay.textContent = `Tiempo Actual: ${currentTime.toFixed(1)}`;
+            logEventMessage("Simulación inicializada.");
+
+            // 5. Dibujar Estado Inicial (solo ejes)
+            const slotWidth = Math.max(15, (canvas.width - 2 * LINE_PADDING) / simulationParams.maxSlots);
+            drawAxes(simulationParams.maxSlots, slotWidth);
+
+            console.log("Initial Frames:", allFrames);
+            console.log("Initial Event Queue:", eventQueue);
+            console.log("Initial Original Frame State:", originalFrameState);
+        }
+
+        function executeNextStep() {
+            if (!simulationInitialized || eventQueue.length === 0) {
+                logEventMessage("La simulación ha terminado o no está inicializada.");
+                nextStepButton.disabled = true;
+                paramInputs.forEach(input => input.disabled = false); // Habilitar params
+                return;
+            }
+
+            // 1. Obtener Siguiente(s) Evento(s)
+            const nextEventTime = eventQueue[0].time;
+            if (nextEventTime >= simulationParams.maxSlots) {
+                 logEventMessage("Se alcanzó el tiempo máximo de simulación.");
+                 currentTime = simulationParams.maxSlots; // Avanzar hasta el final
+                 nextStepButton.disabled = true;
+                 paramInputs.forEach(input => input.disabled = false);
+                 updateVisualization(); // Dibujar estado final
+                 return;
+            }
+
+            // Avanzar tiempo
+            currentTime = nextEventTime;
+            currentTimeDisplay.textContent = `Tiempo Actual: ${currentTime.toFixed(1)}`;
+
+            // Procesar TODOS los eventos en este instante de tiempo
+            const eventsToProcess = [];
+            while (eventQueue.length > 0 && eventQueue[0].time === currentTime) {
+                eventsToProcess.push(eventQueue.shift()); // Sacar evento de la cola
+            }
+
+            console.log(`Processing events at T=${currentTime}:`, eventsToProcess);
+
+            // 2. Procesar cada evento
+            let collisionCheckNeeded = false; // Flag para verificar colisiones después de procesar eventos
+            eventsToProcess.forEach(event => {
+                const frame = allFrames.find(f => f.id === event.frameId);
+                if (!frame || frame.status === 'dropped' || frame.status === 'successful') {
+                    console.log(`Skipping event for frame ${event.frameId} (not found, dropped or successful)`);
+                    return; // Saltar si la trama no existe o ya terminó
+                }
+
+                logEventMessage(`Evento: ${event.type} para Trama ${frame.station}${frame.originalFrameId}-${frame.attempt}`);
+
+                switch (event.type) {
+                    case 'start_tx':
+                        frame.status = 'transmitting';
+                        frame.visible = true; // Hacerla visible
+                        // Programar fin de transmisión y llegadas
+                        addEvent({ time: frame.endTime, type: 'end_tx', frameId: frame.id });
+                        const arrivalTime = frame.startTime + simulationParams.Tp;
+                        addEvent({ time: arrivalTime, type: 'start_rx', frameId: frame.id });
+                        addEvent({ time: arrivalTime + simulationParams.Tt, type: 'end_rx', frameId: frame.id });
+                        collisionCheckNeeded = true; // Podría empezar a colisionar
+                        break;
+
+                    case 'end_tx':
+                        frame.status = 'finished_tx';
+                        // Ya no está transmitiendo activamente, pero sigue propagándose
+                        break;
+
+                    case 'start_rx':
+                        frame.status = 'receiving';
+                        collisionCheckNeeded = true; // Podría empezar a colisionar al llegar
+                        break;
+
+                    case 'end_rx':
+                        // La trama ha terminado de llegar. Ahora determinamos su destino final.
+                        // La detección de colisión se hará después de procesar todos los eventos de este tiempo.
+                        // Marcamos como 'potentially_finished' para el chequeo posterior.
+                        frame.status = 'potentially_finished';
+                        collisionCheckNeeded = true;
+                        break;
+                }
+            });
+
+            // 3. Detección de Colisiones (después de procesar todos los eventos del instante)
+            if (collisionCheckNeeded) {
+                activeCollisions.clear(); // Resetear colisiones activas en este instante
+                const potentiallyActiveFrames = allFrames.filter(f => f.visible && f.status !== 'successful' && f.status !== 'dropped');
+
+                 for (let i = 0; i < potentiallyActiveFrames.length; i++) {
+                     for (let j = i + 1; j < potentiallyActiveFrames.length; j++) {
+                         const f1 = potentiallyActiveFrames[i];
+                         const f2 = potentiallyActiveFrames[j];
+
+                         // Comprobar solapamiento en la línea superior en el tiempo actual
+                         const topOverlap = f1.topLineOccupation && f2.topLineOccupation &&
+                                            intervalsOverlap(f1.topLineOccupation.start, f1.topLineOccupation.end,
+                                                             f2.topLineOccupation.start, f2.topLineOccupation.end);
+
+                         // Comprobar solapamiento en la línea inferior en el tiempo actual
+                         const bottomOverlap = f1.bottomLineOccupation && f2.bottomLineOccupation &&
+                                               intervalsOverlap(f1.bottomLineOccupation.start, f1.bottomLineOccupation.end,
+                                                                f2.bottomLineOccupation.start, f2.bottomLineOccupation.end);
+
+                         if (topOverlap || bottomOverlap) {
+                             // Marcar ambas como que han detectado colisión *en algún momento*
+                             f1.collisionDetected = true;
+                             f2.collisionDetected = true;
+                             activeCollisions.add(f1.id);
+                             activeCollisions.add(f2.id);
+                             console.log(`Collision detected between ${f1.id} and ${f2.id}`);
+                         }
+                     }
+                 }
+            }
+
+            // 4. Procesar Tramas que Terminaron de Llegar ('potentially_finished')
+            allFrames.forEach(frame => {
+                if (frame.status === 'potentially_finished') {
+                    const originalState = originalFrameState[frame.originalFrameId];
+
+                    if (activeCollisions.has(frame.id)) {
+                        // ¡Colisión!
+                        frame.status = 'collided'; // Estado final de este intento
+                        logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} COLISIONÓ.`);
+
+                        // Intentar retransmitir si no se ha alcanzado el límite de intentos
+                        if (originalState.attempts < simulationParams.maxRetransmissions) {
+                            const backoffList = backoffLists[frame.station];
+                            const backoffIndex = originalState.backoffIndex;
+
+                            if (backoffIndex < backoffList.length) {
+                                const backoffSlots = backoffList[backoffIndex];
+                                const newStartTime = frame.endTime + backoffSlots; // Retransmitir después de terminar + backoff
+
+                                if (newStartTime < simulationParams.maxSlots) {
+                                    const newFrameId = `F${++frameCounter}`;
+                                    const newAttempt = originalState.attempts + 1;
+                                    const retransmissionFrame = new Frame(newFrameId, frame.station, newStartTime, simulationParams.Tt, simulationParams.Tp, newAttempt, frame.originalFrameId);
+                                    allFrames.push(retransmissionFrame);
+                                    // Programar inicio de la retransmisión
+                                    addEvent({ time: newStartTime, type: 'start_tx', frameId: newFrameId });
+                                    // Actualizar estado de la trama original
+                                    originalState.attempts = newAttempt;
+                                    originalState.backoffIndex = backoffIndex + 1;
+                                    logEventMessage(`Programada retransmisión ${newAttempt} para Trama Original ${frame.originalFrameId} en T=${newStartTime.toFixed(1)} (Backoff: ${backoffSlots} slots).`);
+                                } else {
+                                    logEventMessage(`Retransmisión para ${frame.originalFrameId} descartada (inicio >= maxSlots).`);
+                                    originalState.dropped = true; // Marcar como descartada
+                                    frame.status = 'dropped'; // También el intento actual
+                                }
+                            } else {
+                                logEventMessage(`Lista de backoffs agotada para ${frame.originalFrameId}. Trama descartada.`);
+                                originalState.dropped = true;
+                                frame.status = 'dropped';
+                            }
+                        } else {
+                            logEventMessage(`Máximo de intentos (${simulationParams.maxRetransmissions}) alcanzado para ${frame.originalFrameId}. Trama descartada.`);
+                            originalState.dropped = true;
+                            frame.status = 'dropped';
+                        }
+                    } else {
+                        // ¡Éxito!
+                        frame.status = 'successful';
+                        originalState.successful = true; // Marcar la original como exitosa
+                        logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} LLEGÓ CON ÉXITO.`);
+                         // Cancelar futuras retransmisiones si las hubiera (no debería haberlas programado aún)
+                    }
+                }
+            });
+
+
+            // 5. Actualizar Visualización
+            updateVisualization();
+
+            // 6. Comprobar Fin de Simulación
+            if (eventQueue.length === 0 || eventQueue[0].time >= simulationParams.maxSlots) {
+                logEventMessage("Fin de la simulación (no hay más eventos o se alcanzó el tiempo límite).");
+                nextStepButton.disabled = true;
+                paramInputs.forEach(input => input.disabled = false);
+                // Marcar tramas que no terminaron como 'incompletas' o 'descartadas' si aplica
+                 allFrames.forEach(f => {
+                     if (!['successful', 'collided', 'dropped'].includes(f.status)) {
+                         // Si una trama original no tuvo éxito ni fue descartada explícitamente, marcarla como descartada al final
+                         const originalState = originalFrameState[f.originalFrameId];
+                         if (!originalState.successful && !originalState.dropped) {
+                             originalState.dropped = true;
+                             // Marcar también el último intento como dropped si existe
+                              const lastAttemptFrame = allFrames.reverse().find(frame => frame.originalFrameId === f.originalFrameId);
+                              if(lastAttemptFrame && !['successful', 'collided', 'dropped'].includes(lastAttemptFrame.status)) {
+                                  lastAttemptFrame.status = 'dropped';
+                              }
+                         }
+                     }
+                 });
+                 updateVisualization(); // Último dibujo
+            }
+        }
+
+        function updateVisualization() {
+            const slotWidth = Math.max(15, (canvas.width - 2 * LINE_PADDING) / simulationParams.maxSlots);
+             if (slotWidth * simulationParams.maxSlots + 2 * LINE_PADDING > canvas.width) {
+                 canvas.width = slotWidth * simulationParams.maxSlots + 2 * LINE_PADDING;
+             }
+            drawAxes(simulationParams.maxSlots, slotWidth);
+            // Dibujar todas las tramas que deberían ser visibles hasta el tiempo actual
+            allFrames.forEach(frame => frame.draw(ctx, slotWidth, currentTime));
+        }
+
+
+        // --- Event Listeners ---
+        resetButton.addEventListener('click', initializeSimulation);
+        nextStepButton.addEventListener('click', executeNextStep);
+
+        // --- Inicialización al Cargar ---
+        drawAxes(parseInt(document.getElementById('maxSlots').value, 10) || 50, 15); // Dibujo inicial
+
+    </script>
+</body>
+</html>
