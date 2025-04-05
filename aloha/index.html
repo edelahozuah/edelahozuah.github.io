@@ -9,8 +9,8 @@
         html, body { height: 100%; margin: 0; font-family: 'Inter', sans-serif; }
         body { display: flex; }
         #controls-sidebar { width: 320px; flex-shrink: 0; }
-        #main-content { flex-grow: 1; display: flex; flex-direction: column; }
-        #canvas-container { flex-grow: 1; overflow-x: auto; overflow-y: hidden; padding: 1rem; background-color: #f0f4f8; border-radius: 0.5rem; margin: 1rem; }
+        #main-content { flex-grow: 1; display: flex; flex-direction: column; padding: 1rem; }
+        #canvas-container { flex-grow: 1; overflow-x: auto; overflow-y: hidden; background-color: #f0f4f8; border-radius: 0.5rem; }
         canvas { border: 1px solid #d1d5db; background-color: #ffffff; display: block; }
         .input-group label { min-width: 140px; }
         .input-group label.backoff-label { min-width: auto; margin-left: 5px; }
@@ -26,6 +26,7 @@
         .collided-status { background-color: rgba(220, 38, 38, 0.9); border: 1px solid #991b1b; color: #991b1b; }
         .successful { background-color: rgba(134, 239, 172, 0.7); border: 1px solid #16a34a; color: #16a34a; }
         .dropped { background-color: rgba(156, 163, 175, 0.7); border: 1px solid #4b5563; color: #4b5563; }
+        #messageArea { margin-top: 1rem; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,17 +60,15 @@
              <button id="prevStepButton" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3 rounded-lg shadow text-xs" disabled> Paso Anterior </button>
             <button id="nextStepButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-lg shadow text-xs" disabled> Siguiente Paso </button>
         </div>
-        <div id="messageArea" class="text-xs text-gray-700 bg-gray-100 p-3 rounded-lg border min-h-[80px]">
-             <p>Configura parámetros y pulsa Iniciar.</p>
-             <p id="currentTimeDisplay" class="font-semibold mt-1"></p>
-             <div id="eventLog" class="mt-1 max-h-32 overflow-y-auto"></div>
-        </div>
-    </div>
-
-    <div id="main-content" class="h-full">
+    </div> <div id="main-content" class="h-full bg-gray-100">
         <div id="canvas-container">
              <canvas id="alohaCanvas" width="1200" height="350"></canvas>
         </div>
+         <div id="messageArea" class="text-xs text-gray-700 bg-white p-3 rounded-lg border shadow-sm mx-4 mb-4">
+             <p>Configura parámetros y pulsa Iniciar.</p>
+             <p id="currentTimeDisplay" class="font-semibold mt-1"></p>
+             <div id="eventLog" class="mt-1 max-h-24 overflow-y-auto"></div>
+         </div>
     </div>
 
 
@@ -94,164 +93,24 @@
         function logEventMessage(message, isHistoryLog = false) { if (!isHistoryLog) { eventLog.innerHTML = ''; } const logEntry = document.createElement('p'); logEntry.textContent = `[T=${currentTime.toFixed(1)}] ${message}`; eventLog.insertBefore(logEntry, eventLog.firstChild); }
         function intervalsOverlap(start1, end1, start2, end2) { return start1 < end2 && end1 > start2; }
         function precomputeColors() { /* ... (sin cambios) ... */ stationColorValues = {}; const colorKeys = { ...STATION_CLASSES, ...STATUS_CLASSES }; for (const key in colorKeys) { const className = colorKeys[key]; let tempDiv = document.createElement('div'); tempDiv.style.display = 'none'; tempDiv.className = className; document.body.appendChild(tempDiv); let computedStyle = window.getComputedStyle(tempDiv); stationColorValues[key] = { bg: computedStyle.backgroundColor || 'rgba(128, 128, 128, 0.5)', border: computedStyle.borderColor || 'black', text: computedStyle.color || '#333333' }; document.body.removeChild(tempDiv); } const statusColorKeys = Object.keys(STATUS_CLASSES); statusColorKeys.forEach(key => { if (!stationColorValues[key]) { const className = STATUS_CLASSES[key]; let tempDiv = document.createElement('div'); tempDiv.style.display = 'none'; tempDiv.className = className; document.body.appendChild(tempDiv); let computedStyle = window.getComputedStyle(tempDiv); stationColorValues[key] = { bg: computedStyle.backgroundColor || 'rgba(128, 128, 128, 0.5)', border: computedStyle.borderColor || 'black', text: computedStyle.color || '#333333' }; document.body.removeChild(tempDiv); } }); console.log("Precomputed colors:", stationColorValues); }
-        // deepCopy (MODIFICADO para loguear mejor el error)
-        function deepCopy(obj) {
-            let jsonString = '';
-            try {
-                // Manejar Map específicamente (JSON.stringify no lo soporta bien)
-                if (obj instanceof Map) {
-                    return new Map(JSON.parse(JSON.stringify(Array.from(obj.entries()))));
-                }
-                 // Manejar Set específicamente
-                 if (obj instanceof Set) {
-                    return new Set(JSON.parse(JSON.stringify(Array.from(obj.values()))));
-                 }
-                // Caso general
-                jsonString = JSON.stringify(obj);
-                return JSON.parse(jsonString);
-            } catch (e) {
-                console.error("Deep copy failed:", e);
-                // Intentar loguear el objeto directamente si falla stringify
-                if (e instanceof TypeError && e.message.includes('circular structure')) {
-                     console.error("Object contains circular references or unsupported types.");
-                } else if (jsonString) {
-                     console.error("Object that failed PARSE (approx):", jsonString.substring(0, 500));
-                } else {
-                     console.error("Object that failed STRINGIFY (structure might be complex/unsupported):", obj);
-                }
-                return null; // Indicar fallo
-            }
-        }
+        function deepCopy(obj) { let jsonString = ''; try { if (obj instanceof Map) { return new Map(JSON.parse(JSON.stringify(Array.from(obj.entries())))); } if (obj instanceof Set) { return new Set(JSON.parse(JSON.stringify(Array.from(obj.values())))); } jsonString = JSON.stringify(obj); return JSON.parse(jsonString); } catch (e) { console.error("Deep copy failed:", e); if (e instanceof TypeError && e.message.includes('circular structure')) { console.error("Object contains circular references or unsupported types."); } else if (jsonString) { console.error("Object that failed PARSE (approx):", jsonString.substring(0, 500)); } else { console.error("Object that failed STRINGIFY (structure might be complex/unsupported):", obj); } return null; } }
 
 
         // --- Lógica Principal ---
 
         // initializeSimulation (sin cambios)
-        function initializeSimulation() { console.log("Initializing simulation..."); precomputeColors(); simulationParams = { Tt: parseInt(document.getElementById('transmissionSlots').value, 10), Tp: parseInt(document.getElementById('propagationSlots').value, 10), maxSlots: parseInt(document.getElementById('maxSlots').value, 10), maxRetransmissions: parseInt(document.getElementById('maxRetransmissions').value, 10) }; backoffLists = { 'A': parseCommaSeparatedNumbers(document.getElementById('backoffListA').value), 'B': parseCommaSeparatedNumbers(document.getElementById('backoffListB').value), 'C': parseCommaSeparatedNumbers(document.getElementById('backoffListC').value), 'D': parseCommaSeparatedNumbers(document.getElementById('backoffListD').value) }; let isValid = true; let errorMessages = []; if (isNaN(simulationParams.Tt) || simulationParams.Tt <= 0) { isValid = false; errorMessages.push("Tt debe ser > 0."); } if (isNaN(simulationParams.Tp) || simulationParams.Tp < 0) { isValid = false; errorMessages.push("Tp debe ser >= 0."); } if (isNaN(simulationParams.maxSlots) || simulationParams.maxSlots <= 0) { isValid = false; errorMessages.push("Slots a Visualizar debe ser > 0."); } if (isNaN(simulationParams.maxRetransmissions) || simulationParams.maxRetransmissions < 1) { isValid = false; errorMessages.push("Máx. Intentos debe ser >= 1."); } if (!isValid) { messageArea.firstChild.textContent = `Error en los parámetros: ${errorMessages.join(' ')}`; currentTimeDisplay.textContent = ""; eventLog.innerHTML = ""; return; } allFrames = []; eventQueue = []; currentTime = 0; originalFrameState = {}; frameCounter = 0; simulationHistory = []; currentStepIndex = -1; simulationInitialized = false; eventLog.innerHTML = ""; const initialScheduledStarts = new Map(); const stations = ['A', 'B', 'C', 'D']; stations.forEach(stationId => { const startTimes = parseCommaSeparatedNumbers(document.getElementById(`station${stationId}`).value); startTimes.forEach(startTime => { if (startTime < simulationParams.maxSlots) { const frameId = `F${++frameCounter}`; const originalId = frameId; const newFrame = new Frame(frameId, stationId, startTime, simulationParams.Tt, simulationParams.Tp, 1, originalId); allFrames.push(newFrame); originalFrameState[originalId] = { attempts: 1, backoffIndex: 0, successful: false, dropped: false }; addEvent({ time: startTime, type: 'start_tx', frameId: frameId }); if (!initialScheduledStarts.has(startTime)) { initialScheduledStarts.set(startTime, new Set()); } initialScheduledStarts.get(startTime).add(stationId); } }); }); if (allFrames.length === 0) { messageArea.firstChild.textContent = "No hay tramas iniciales programadas."; currentTimeDisplay.textContent = ""; nextStepButton.disabled = true; paramInputs.forEach(input => input.disabled = false); resetButton.disabled = false; return; } simulationInitialized = true; messageArea.firstChild.textContent = "Simulación iniciada. Pulsa 'Siguiente Paso'."; logEventMessage("Simulación inicializada."); saveStateToHistory(); currentStepIndex = 0; updateButtons(); updateVisualization(); console.log("Initial State Saved. History length:", simulationHistory.length); }
+        function initializeSimulation() { console.log("Initializing simulation..."); precomputeColors(); simulationParams = { Tt: parseInt(document.getElementById('transmissionSlots').value, 10), Tp: parseInt(document.getElementById('propagationSlots').value, 10), maxSlots: parseInt(document.getElementById('maxSlots').value, 10), maxRetransmissions: parseInt(document.getElementById('maxRetransmissions').value, 10) }; backoffLists = { 'A': parseCommaSeparatedNumbers(document.getElementById('backoffListA').value), 'B': parseCommaSeparatedNumbers(document.getElementById('backoffListB').value), 'C': parseCommaSeparatedNumbers(document.getElementById('backoffListC').value), 'D': parseCommaSeparatedNumbers(document.getElementById('backoffListD').value) }; let isValid = true; let errorMessages = []; if (isNaN(simulationParams.Tt) || simulationParams.Tt <= 0) { isValid = false; errorMessages.push("Tt debe ser > 0."); } if (isNaN(simulationParams.Tp) || simulationParams.Tp < 0) { isValid = false; errorMessages.push("Tp debe ser >= 0."); } if (isNaN(simulationParams.maxSlots) || simulationParams.maxSlots <= 0) { isValid = false; errorMessages.push("Slots a Visualizar debe ser > 0."); } if (isNaN(simulationParams.maxRetransmissions) || simulationParams.maxRetransmissions < 1) { isValid = false; errorMessages.push("Máx. Intentos debe ser >= 1."); } if (!isValid) { messageArea.firstChild.textContent = `Error en los parámetros: ${errorMessages.join(' ')}`; currentTimeDisplay.textContent = ""; eventLog.innerHTML = ""; return; } allFrames = []; eventQueue = []; currentTime = 0; originalFrameState = {}; frameCounter = 0; simulationHistory = []; currentStepIndex = -1; simulationInitialized = false; eventLog.innerHTML = ""; const initialScheduledStarts = new Map(); const stations = ['A', 'B', 'C', 'D']; stations.forEach(stationId => { const startTimes = parseCommaSeparatedNumbers(document.getElementById(`station${stationId}`).value); startTimes.forEach(startTime => { if (startTime < simulationParams.maxSlots) { const frameId = `F${++frameCounter}`; const originalId = frameId; const newFrame = new Frame(frameId, stationId, startTime, simulationParams.Tt, simulationParams.Tp, 1, originalId); allFrames.push(newFrame); originalFrameState[originalId] = { attempts: 1, backoffIndex: 0, successful: false, dropped: false }; addEvent({ time: startTime, type: 'start_tx', frameId: frameId }); if (!initialScheduledStarts.has(startTime)) { initialScheduledStarts.set(startTime, new Set()); } initialScheduledStarts.get(startTime).add(stationId); } }); }); if (allFrames.length === 0) { messageArea.firstChild.textContent = "No hay tramas iniciales programadas."; currentTimeDisplay.textContent = ""; nextStepButton.disabled = true; paramInputs.forEach(input => input.disabled = false); resetButton.disabled = false; return; } simulationInitialized = true; messageArea.firstChild.textContent = "Simulación iniciada. Pulsa 'Siguiente Paso'."; logEventMessage("Simulación inicializada."); if (!saveStateToHistory()) { console.error("Failed to save initial state!"); simulationInitialized = false; updateButtons(); return; } currentStepIndex = 0; updateButtons(); updateVisualization(); console.log("Initial State Saved. History length:", simulationHistory.length); }
 
-        // executeNextStep (MODIFICADO para usar el retorno de saveStateToHistory)
-        function executeNextStep() {
-            console.log("Next Step Clicked. Current Index:", currentStepIndex, "History Length:", simulationHistory.length);
-            if (!simulationInitialized) { console.log("Sim not initialized"); return; }
+        // executeNextStep (sin cambios)
+        function executeNextStep() { console.log("Next Step Clicked. Current Index:", currentStepIndex, "History Length:", simulationHistory.length); if (!simulationInitialized) { console.log("Sim not initialized"); return; } if (currentStepIndex < simulationHistory.length - 1) { const targetIndex = currentStepIndex + 1; if (loadStateFromHistory(targetIndex)) { currentStepIndex = targetIndex; console.log(`Moved forward in history to step ${currentStepIndex}`); updateButtons(); updateVisualization(); } else { console.error("Failed to load next state from history."); simulationInitialized = false; updateButtons(); } return; } if (eventQueue.length === 0 || eventQueue[0].time >= simulationParams.maxSlots) { logEventMessage("Fin de la simulación (no hay más eventos o se alcanzó el tiempo límite)."); updateButtons(); return; } const nextEventTime = eventQueue[0].time; currentTime = nextEventTime; const eventsToProcess = []; while (eventQueue.length > 0 && eventQueue[0].time === currentTime) { eventsToProcess.push(eventQueue.shift()); } console.log(`Calculating Step ${currentStepIndex + 1} at T=${currentTime}:`, eventsToProcess); eventLog.innerHTML = ''; let collisionCheckNeeded = false; eventsToProcess.forEach(event => { const frame = allFrames.find(f => f.id === event.frameId); if (!frame || frame.status === 'dropped' || frame.status === 'successful') return; logEventMessage(`Evento: ${event.type} para Trama ${frame.station}${frame.originalFrameId}-${frame.attempt}`); switch (event.type) { case 'start_tx': frame.status = 'transmitting'; frame.visible = true; addEvent({ time: frame.endTime, type: 'end_tx', frameId: frame.id }); const arrivalTime = frame.startTime + simulationParams.Tp; addEvent({ time: arrivalTime, type: 'start_rx', frameId: frame.id }); addEvent({ time: arrivalTime + simulationParams.Tt, type: 'end_rx', frameId: frame.id }); collisionCheckNeeded = true; break; case 'end_tx': frame.status = 'finished_tx'; break; case 'start_rx': frame.status = 'receiving'; collisionCheckNeeded = true; break; case 'end_rx': frame.status = 'potentially_finished'; collisionCheckNeeded = true; break; } }); if (collisionCheckNeeded) { const potentiallyActiveFrames = allFrames.filter(f => f.visible && f.status !== 'successful' && f.status !== 'dropped'); for (let i = 0; i < potentiallyActiveFrames.length; i++) { for (let j = i + 1; j < potentiallyActiveFrames.length; j++) { const f1 = potentiallyActiveFrames[i]; const f2 = potentiallyActiveFrames[j]; if (!f1.physicalCollisionDetected || !f2.physicalCollisionDetected) { const topOverlap = f1.topLineOccupation && f2.topLineOccupation && intervalsOverlap(f1.topLineOccupation.start, f1.topLineOccupation.end, f2.topLineOccupation.start, f2.topLineOccupation.end); const bottomOverlap = f1.bottomLineOccupation && f2.bottomLineOccupation && intervalsOverlap(f1.bottomLineOccupation.start, f1.bottomLineOccupation.end, f2.bottomLineOccupation.start, f2.bottomLineOccupation.end); if (topOverlap || bottomOverlap) { if (!f1.physicalCollisionDetected) { f1.physicalCollisionDetected = true; console.log(`Physical overlap flag set for ${f1.id}`); } if (!f2.physicalCollisionDetected) { f2.physicalCollisionDetected = true; console.log(`Physical overlap flag set for ${f2.id}`); } } } } } } allFrames.forEach(frame => { if (frame.status === 'potentially_finished') { const originalState = originalFrameState[frame.originalFrameId]; if (!originalState) { console.error(`Missing original state for frame ${frame.originalFrameId}`); frame.status = 'dropped'; return; } if (originalState.successful || originalState.dropped) { frame.status = originalState.successful ? 'successful' : 'dropped'; return; } let isOfficiallyCollided = false; if (frame.physicalCollisionDetected) { for (const otherFrame of allFrames) { if (otherFrame.id === frame.id) continue; const physicalTopOverlap = frame.topLineOccupation && otherFrame.topLineOccupation && intervalsOverlap(frame.topLineOccupation.start, frame.topLineOccupation.end, otherFrame.topLineOccupation.start, otherFrame.topLineOccupation.end); const physicalBottomOverlap = frame.bottomLineOccupation && otherFrame.bottomLineOccupation && intervalsOverlap(frame.bottomLineOccupation.start, frame.bottomLineOccupation.end, otherFrame.bottomLineOccupation.start, otherFrame.bottomLineOccupation.end); if (!physicalTopOverlap && !physicalBottomOverlap) continue; const isFrameTop = (frame.station === 'A' || frame.station === 'B'); const isOtherFrameTop = (otherFrame.station === 'A' || otherFrame.station === 'B'); if (isFrameTop === isOtherFrameTop) { isOfficiallyCollided = true; logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} DETECTA COLISIÓN (Mismo Lado): Solapamiento físico con ${otherFrame.station}${otherFrame.originalFrameId}-${otherFrame.attempt}.`); break; } else { const arrivalStart = otherFrame.startTime + simulationParams.Tp; const arrivalEnd = otherFrame.endTime + simulationParams.Tp; if (intervalsOverlap(frame.startTime, frame.endTime, arrivalStart, arrivalEnd)) { isOfficiallyCollided = true; logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} DETECTA COLISIÓN (Regla Usuario): Trama ${otherFrame.station}${otherFrame.originalFrameId}-${otherFrame.attempt} llegó durante su transmisión.`); break; } } } } if (isOfficiallyCollided) { frame.status = 'collided'; if (originalState.attempts < simulationParams.maxRetransmissions) { const backoffList = backoffLists[frame.station]; const backoffIndex = originalState.backoffIndex; if (backoffIndex < backoffList.length) { const backoffSlots = backoffList[backoffIndex]; const newStartTime = frame.endTime + backoffSlots; if (newStartTime < simulationParams.maxSlots) { const newFrameId = `F${++frameCounter}`; const newAttempt = originalState.attempts + 1; const retransmissionFrame = new Frame(newFrameId, frame.station, newStartTime, simulationParams.Tt, simulationParams.Tp, newAttempt, frame.originalFrameId); allFrames.push(retransmissionFrame); addEvent({ time: newStartTime, type: 'start_tx', frameId: newFrameId }); originalState.attempts = newAttempt; originalState.backoffIndex = backoffIndex + 1; logEventMessage(`Programada retransmisión ${newAttempt} para Trama Original ${frame.originalFrameId} en T=${newStartTime.toFixed(1)} (Backoff: ${backoffSlots} slots).`); } else { logEventMessage(`Retransmisión para ${frame.originalFrameId} descartada (inicio >= maxSlots).`); originalState.dropped = true; frame.status = 'dropped'; } } else { logEventMessage(`Lista de backoffs agotada para ${frame.originalFrameId}. Trama descartada.`); originalState.dropped = true; frame.status = 'dropped'; } } else { logEventMessage(`Máximo de intentos (${simulationParams.maxRetransmissions}) alcanzado para ${frame.originalFrameId}. Trama descartada.`); originalState.dropped = true; frame.status = 'dropped'; } } else { frame.status = 'successful'; originalState.successful = true; if (frame.physicalCollisionDetected) { logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} ÉXITO (Regla Usuario: no detectó colisión a pesar de solapamiento físico).`); } else { logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} LLEGÓ CON ÉXITO.`); } } } }); if (saveStateToHistory()) { currentStepIndex++; } else { console.error("Failed to save current state to history. Stopping simulation."); simulationInitialized = false; updateButtons(); return; } updateButtons(); updateVisualization(); if (eventQueue.length === 0 || eventQueue[0].time >= simulationParams.maxSlots) { logEventMessage("Fin de la simulación (no hay más eventos o se alcanzó el tiempo límite)."); updateButtons(); } }
 
-            // Si estamos en medio del historial, simplemente avanzamos
-            if (currentStepIndex < simulationHistory.length - 1) {
-                const targetIndex = currentStepIndex + 1;
-                if (loadStateFromHistory(targetIndex)) {
-                    currentStepIndex = targetIndex;
-                    console.log(`Moved forward in history to step ${currentStepIndex}`);
-                    updateButtons();
-                    updateVisualization();
-                } else {
-                    console.error("Failed to load next state from history.");
-                    // Podríamos intentar invalidar el resto del historial o detener
-                    simulationInitialized = false; // Detener por seguridad
-                    updateButtons();
-                }
-                return;
-            }
+        // executePreviousStep (sin cambios)
+        function executePreviousStep() { console.log("Prev Step Clicked. Current Index:", currentStepIndex); if (!simulationInitialized || currentStepIndex <= 0) { console.log("Cannot go back further."); return; } const targetIndex = currentStepIndex - 1; if (loadStateFromHistory(targetIndex)) { currentStepIndex = targetIndex; console.log(`Moved back in history to step ${currentStepIndex}`); updateButtons(); updateVisualization(); } else { console.error("Failed to load previous state."); simulationInitialized = false; updateButtons(); } }
 
-            // Si estamos al final del historial, calculamos el siguiente paso
-            if (eventQueue.length === 0 || eventQueue[0].time >= simulationParams.maxSlots) {
-                logEventMessage("Fin de la simulación (no hay más eventos o se alcanzó el tiempo límite).");
-                updateButtons(); // Deshabilitar 'Siguiente'
-                return;
-            }
+        // saveStateToHistory (sin cambios)
+        function saveStateToHistory() { const framesCopy = deepCopy(allFrames); const queueCopy = deepCopy(eventQueue); const originalStateCopy = deepCopy(originalFrameState); if (framesCopy === null || queueCopy === null || originalStateCopy === null) { console.error("Failed to deep copy state for history save."); return false; } const stateSnapshot = { currentTime: currentTime, allFrames: framesCopy, eventQueue: queueCopy, originalFrameState: originalStateCopy, logHTML: eventLog.innerHTML }; simulationHistory.push(stateSnapshot); console.log(`State saved at step ${simulationHistory.length - 1}, T=${currentTime}`); return true; }
 
-            // --- Calcular el siguiente estado ---
-            const nextEventTime = eventQueue[0].time;
-            currentTime = nextEventTime;
-
-            const eventsToProcess = [];
-            while (eventQueue.length > 0 && eventQueue[0].time === currentTime) { eventsToProcess.push(eventQueue.shift()); }
-            console.log(`Calculating Step ${currentStepIndex + 1} at T=${currentTime}:`, eventsToProcess);
-            eventLog.innerHTML = ''; // Limpiar log para los mensajes de este nuevo paso
-
-            // Procesar eventos y detectar colisiones físicas (Paso 2 y 3)
-            let collisionCheckNeeded = false;
-            eventsToProcess.forEach(event => { /* ... (lógica igual que antes) ... */ });
-            // ... (código de procesamiento de eventos) ...
-            eventsToProcess.forEach(event => { const frame = allFrames.find(f => f.id === event.frameId); if (!frame || frame.status === 'dropped' || frame.status === 'successful') return; logEventMessage(`Evento: ${event.type} para Trama ${frame.station}${frame.originalFrameId}-${frame.attempt}`); switch (event.type) { case 'start_tx': frame.status = 'transmitting'; frame.visible = true; addEvent({ time: frame.endTime, type: 'end_tx', frameId: frame.id }); const arrivalTime = frame.startTime + simulationParams.Tp; addEvent({ time: arrivalTime, type: 'start_rx', frameId: frame.id }); addEvent({ time: arrivalTime + simulationParams.Tt, type: 'end_rx', frameId: frame.id }); collisionCheckNeeded = true; break; case 'end_tx': frame.status = 'finished_tx'; break; case 'start_rx': frame.status = 'receiving'; collisionCheckNeeded = true; break; case 'end_rx': frame.status = 'potentially_finished'; collisionCheckNeeded = true; break; } });
-
-            if (collisionCheckNeeded) { /* ... (detección colisión física igual que antes) ... */ }
-            // ... (código detección colisión física) ...
-             if (collisionCheckNeeded) { const potentiallyActiveFrames = allFrames.filter(f => f.visible && f.status !== 'successful' && f.status !== 'dropped'); for (let i = 0; i < potentiallyActiveFrames.length; i++) { for (let j = i + 1; j < potentiallyActiveFrames.length; j++) { const f1 = potentiallyActiveFrames[i]; const f2 = potentiallyActiveFrames[j]; if (!f1.physicalCollisionDetected || !f2.physicalCollisionDetected) { const topOverlap = f1.topLineOccupation && f2.topLineOccupation && intervalsOverlap(f1.topLineOccupation.start, f1.topLineOccupation.end, f2.topLineOccupation.start, f2.topLineOccupation.end); const bottomOverlap = f1.bottomLineOccupation && f2.bottomLineOccupation && intervalsOverlap(f1.bottomLineOccupation.start, f1.bottomLineOccupation.end, f2.bottomLineOccupation.start, f2.bottomLineOccupation.end); if (topOverlap || bottomOverlap) { if (!f1.physicalCollisionDetected) { f1.physicalCollisionDetected = true; console.log(`Physical overlap flag set for ${f1.id}`); } if (!f2.physicalCollisionDetected) { f2.physicalCollisionDetected = true; console.log(`Physical overlap flag set for ${f2.id}`); } } } } } }
-
-
-            // Procesar tramas terminadas y aplicar reglas (Paso 4)
-            allFrames.forEach(frame => { /* ... (lógica híbrida igual que antes) ... */ });
-             // ... (código procesamiento potentially_finished con regla híbrida) ...
-             allFrames.forEach(frame => { if (frame.status === 'potentially_finished') { const originalState = originalFrameState[frame.originalFrameId]; if (!originalState) { console.error(`Missing original state for frame ${frame.originalFrameId}`); frame.status = 'dropped'; return; } if (originalState.successful || originalState.dropped) { frame.status = originalState.successful ? 'successful' : 'dropped'; return; } let isOfficiallyCollided = false; if (frame.physicalCollisionDetected) { for (const otherFrame of allFrames) { if (otherFrame.id === frame.id) continue; const physicalTopOverlap = frame.topLineOccupation && otherFrame.topLineOccupation && intervalsOverlap(frame.topLineOccupation.start, frame.topLineOccupation.end, otherFrame.topLineOccupation.start, otherFrame.topLineOccupation.end); const physicalBottomOverlap = frame.bottomLineOccupation && otherFrame.bottomLineOccupation && intervalsOverlap(frame.bottomLineOccupation.start, frame.bottomLineOccupation.end, otherFrame.bottomLineOccupation.start, otherFrame.bottomLineOccupation.end); if (!physicalTopOverlap && !physicalBottomOverlap) continue; const isFrameTop = (frame.station === 'A' || frame.station === 'B'); const isOtherFrameTop = (otherFrame.station === 'A' || otherFrame.station === 'B'); if (isFrameTop === isOtherFrameTop) { isOfficiallyCollided = true; logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} DETECTA COLISIÓN (Mismo Lado): Solapamiento físico con ${otherFrame.station}${otherFrame.originalFrameId}-${otherFrame.attempt}.`); break; } else { const arrivalStart = otherFrame.startTime + simulationParams.Tp; const arrivalEnd = otherFrame.endTime + simulationParams.Tp; if (intervalsOverlap(frame.startTime, frame.endTime, arrivalStart, arrivalEnd)) { isOfficiallyCollided = true; logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} DETECTA COLISIÓN (Regla Usuario): Trama ${otherFrame.station}${otherFrame.originalFrameId}-${otherFrame.attempt} llegó durante su transmisión.`); break; } } } } if (isOfficiallyCollided) { frame.status = 'collided'; if (originalState.attempts < simulationParams.maxRetransmissions) { const backoffList = backoffLists[frame.station]; const backoffIndex = originalState.backoffIndex; if (backoffIndex < backoffList.length) { const backoffSlots = backoffList[backoffIndex]; const newStartTime = frame.endTime + backoffSlots; if (newStartTime < simulationParams.maxSlots) { const newFrameId = `F${++frameCounter}`; const newAttempt = originalState.attempts + 1; const retransmissionFrame = new Frame(newFrameId, frame.station, newStartTime, simulationParams.Tt, simulationParams.Tp, newAttempt, frame.originalFrameId); allFrames.push(retransmissionFrame); addEvent({ time: newStartTime, type: 'start_tx', frameId: newFrameId }); originalState.attempts = newAttempt; originalState.backoffIndex = backoffIndex + 1; logEventMessage(`Programada retransmisión ${newAttempt} para Trama Original ${frame.originalFrameId} en T=${newStartTime.toFixed(1)} (Backoff: ${backoffSlots} slots).`); } else { logEventMessage(`Retransmisión para ${frame.originalFrameId} descartada (inicio >= maxSlots).`); originalState.dropped = true; frame.status = 'dropped'; } } else { logEventMessage(`Lista de backoffs agotada para ${frame.originalFrameId}. Trama descartada.`); originalState.dropped = true; frame.status = 'dropped'; } } else { logEventMessage(`Máximo de intentos (${simulationParams.maxRetransmissions}) alcanzado para ${frame.originalFrameId}. Trama descartada.`); originalState.dropped = true; frame.status = 'dropped'; } } else { frame.status = 'successful'; originalState.successful = true; if (frame.physicalCollisionDetected) { logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} ÉXITO (Regla Usuario: no detectó colisión a pesar de solapamiento físico).`); } else { logEventMessage(`Trama ${frame.station}${frame.originalFrameId}-${frame.attempt} LLEGÓ CON ÉXITO.`); } } } });
-
-
-            // Guardar este nuevo estado calculado en el historial
-            if (saveStateToHistory()) { // Comprobar si el guardado fue exitoso
-                 currentStepIndex++; // Avanzar el índice actual SOLO si se guardó bien
-            } else {
-                 console.error("Failed to save current state to history. Stopping simulation.");
-                 simulationInitialized = false; // Detener por seguridad
-                 updateButtons();
-                 return; // No continuar si no se pudo guardar
-            }
-
-
-            // Actualizar UI
-            updateButtons();
-            updateVisualization(); // Dibuja el nuevo estado
-
-            // Comprobar fin de simulación después de guardar el estado
-            if (eventQueue.length === 0 || eventQueue[0].time >= simulationParams.maxSlots) {
-                logEventMessage("Fin de la simulación (no hay más eventos o se alcanzó el tiempo límite).");
-                updateButtons(); // Deshabilitar 'Siguiente'
-            }
-        }
-
-        // executePreviousStep (MODIFICADO para usar retorno de loadState)
-        function executePreviousStep() {
-            console.log("Prev Step Clicked. Current Index:", currentStepIndex);
-            if (!simulationInitialized || currentStepIndex <= 0) {
-                console.log("Cannot go back further.");
-                return; // No se puede retroceder más
-            }
-
-            const targetIndex = currentStepIndex - 1;
-            if (loadStateFromHistory(targetIndex)) { // Si la carga fue exitosa
-                currentStepIndex = targetIndex;
-                console.log(`Moved back in history to step ${currentStepIndex}`);
-                updateButtons();
-                updateVisualization();
-            } else {
-                console.error("Failed to load previous state.");
-                // Podríamos intentar invalidar el historial o detener
-                simulationInitialized = false; // Detener por seguridad
-                updateButtons();
-            }
-        }
-
-        // saveStateToHistory (MODIFICADO para retornar booleano)
-        function saveStateToHistory() {
-            const framesCopy = deepCopy(allFrames);
-            const queueCopy = deepCopy(eventQueue);
-            const originalStateCopy = deepCopy(originalFrameState);
-
-            if (framesCopy === null || queueCopy === null || originalStateCopy === null) {
-                console.error("Failed to deep copy state for history save.");
-                return false; // Indicar fallo
-            }
-
-            const stateSnapshot = {
-                currentTime: currentTime,
-                allFrames: framesCopy,
-                eventQueue: queueCopy,
-                originalFrameState: originalStateCopy,
-                logHTML: eventLog.innerHTML
-            };
-            simulationHistory.push(stateSnapshot);
-            console.log(`State saved at step ${simulationHistory.length - 1}, T=${currentTime}`);
-            return true; // Indicar éxito
-        }
-
-        // loadStateFromHistory (MODIFICADO para retornar booleano y verificar copia)
+        // loadStateFromHistory (CORREGIDO para re-instanciar Frames)
         function loadStateFromHistory(index) {
             if (index < 0 || index >= simulationHistory.length) {
                 console.error(`Invalid history index: ${index}`);
@@ -259,26 +118,52 @@
             }
             const snapshot = simulationHistory[index];
 
-            // Restaurar estado global desde las copias guardadas, verificando copias
-            const copiedFrames = deepCopy(snapshot.allFrames);
-            const copiedQueue = deepCopy(snapshot.eventQueue);
-            const copiedOriginalState = deepCopy(snapshot.originalFrameState);
-
-            if (copiedFrames === null || copiedQueue === null || copiedOriginalState === null) {
-                console.error(`Failed to deep copy state from history index ${index}. Aborting load.`);
-                return false; // Indicar fallo
-            }
-
+            // Restaurar valores simples
             currentTime = snapshot.currentTime;
-            allFrames = copiedFrames;
-            eventQueue = copiedQueue;
-            originalFrameState = copiedOriginalState;
-            eventLog.innerHTML = snapshot.logHTML; // Restaurar log
+            eventLog.innerHTML = snapshot.logHTML;
             currentTimeDisplay.textContent = `Tiempo Actual: ${currentTime.toFixed(1)}`;
+
+            // Restaurar estados complejos con verificación y re-instanciación
+            const copiedOriginalState = deepCopy(snapshot.originalFrameState);
+            if (copiedOriginalState === null) { console.error(`Failed to deep copy originalFrameState from history index ${index}. Aborting load.`); return false; }
+            originalFrameState = copiedOriginalState;
+
+            const copiedQueue = deepCopy(snapshot.eventQueue);
+             if (copiedQueue === null) { console.error(`Failed to deep copy eventQueue from history index ${index}. Aborting load.`); return false; }
+            eventQueue = copiedQueue;
+
+            // --- RE-INSTANCIACIÓN DE FRAMES ---
+            const copiedPlainFrames = deepCopy(snapshot.allFrames); // Array de objetos planos
+             if (copiedPlainFrames === null) { console.error(`Failed to deep copy allFrames from history index ${index}. Aborting load.`); return false; }
+
+            const restoredFrames = [];
+            for (const plainFrameData of copiedPlainFrames) {
+                // Crear nueva instancia de Frame
+                const frameInstance = new Frame(
+                    plainFrameData.id,
+                    plainFrameData.station,
+                    plainFrameData.startTime,
+                    // Usar parámetros globales actuales (asumiendo que no cambian durante la simulación)
+                    simulationParams.Tt,
+                    simulationParams.Tp,
+                    plainFrameData.attempt,
+                    plainFrameData.originalFrameId
+                );
+                // Copiar propiedades de estado desde el objeto plano
+                frameInstance.status = plainFrameData.status;
+                frameInstance.physicalCollisionDetected = plainFrameData.physicalCollisionDetected;
+                frameInstance.visible = plainFrameData.visible;
+                // La ocupación se recalcula en el constructor, no necesita copiarse
+
+                restoredFrames.push(frameInstance);
+            }
+            allFrames = restoredFrames; // Asignar el array de INSTANCIAS de Frame
+            // --- FIN RE-INSTANCIACIÓN ---
 
             console.log(`State loaded from step ${index}, T=${currentTime}`);
             return true; // Indicar éxito
         }
+
 
         // updateButtons (sin cambios)
         function updateButtons() { if (!simulationInitialized) { prevStepButton.disabled = true; nextStepButton.disabled = true; resetButton.disabled = false; paramInputs.forEach(input => input.disabled = false); } else { resetButton.disabled = false; paramInputs.forEach(input => input.disabled = true); prevStepButton.disabled = (currentStepIndex <= 0); const isAtEndOfHistory = currentStepIndex >= simulationHistory.length - 1; const simulationHasEnded = eventQueue.length === 0 || (eventQueue.length > 0 && eventQueue[0].time >= simulationParams.maxSlots); nextStepButton.disabled = (isAtEndOfHistory && simulationHasEnded); } }
@@ -288,18 +173,9 @@
 
 
         // --- Event Listeners ---
-        resetButton.addEventListener('click', () => {
-            console.log("Reset button clicked");
-            initializeSimulation();
-        });
-        prevStepButton.addEventListener('click', () => {
-            console.log("Prev step button clicked");
-            executePreviousStep();
-        });
-        nextStepButton.addEventListener('click', () => {
-             console.log("Next step button clicked");
-            executeNextStep();
-        });
+        resetButton.addEventListener('click', () => { console.log("Reset button clicked"); initializeSimulation(); });
+        prevStepButton.addEventListener('click', () => { console.log("Prev step button clicked"); executePreviousStep(); });
+        nextStepButton.addEventListener('click', () => { console.log("Next step button clicked"); executeNextStep(); });
 
         // --- Inicialización al Cargar ---
         document.addEventListener('DOMContentLoaded', () => {
