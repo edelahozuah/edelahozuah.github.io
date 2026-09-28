@@ -1,0 +1,23 @@
+---
+title: Publicaciones
+permalink: /publicaciones/
+entradilla: Lista generada a partir de ORCID y Google Scholar. Los títulos enlazan al DOI cuando existe.
+script: /assets/js/publicaciones.js
+---
+{% assign pubs = site.data.publicaciones %}
+<div class="filtros" role="group" aria-label="Filtrar por tipo" hidden>
+  <button type="button" aria-pressed="true" data-filtro="todas">Todas <span>{{ pubs | size }}</span></button>
+  {% assign cats = "revista:Revistas,congreso:Congresos,capitulo:Libros y capítulos,otros:Otros" | split: "," %}
+  {% for c in cats %}{% assign par = c | split: ":" %}{% assign n = pubs | where: "categoria", par[0] | size %}
+  <button type="button" aria-pressed="false" data-filtro="{{ par[0] }}">{{ par[1] }} <span>{{ n }}</span></button>
+  {% endfor %}
+</div>
+
+{% assign por_anio = pubs | group_by: "anio" %}
+{% for g in por_anio %}
+<section class="anio" data-anio>
+  <h2>{{ g.name | default: "Sin fecha" }}</h2>
+  <ul class="pubs">{% for p in g.items %}{% include publicacion.html p=p %}{% endfor %}</ul>
+</section>
+{% endfor %}
+{% if site.data.metricas %}<p class="nota">Citas según Google Scholar, actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}

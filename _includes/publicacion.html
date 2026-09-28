@@ -1,0 +1,18 @@
+{%- assign p = include.p -%}
+<li class="pub" data-categoria="{{ p.categoria }}">
+  <p class="pub__titulo">{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">{{ p.titulo }}</a>{% elsif p.url %}<a href="{{ p.url }}">{{ p.titulo }}</a>{% else %}{{ p.titulo }}{% endif %}</p>
+  <p class="pub__autores">
+    {%- if p.autores -%}
+      {%- for a in p.autores -%}
+        {%- assign minus = a | downcase -%}
+        {%- if minus contains 'hoz' -%}<strong>{{ a }}</strong>{%- else -%}{{ a }}{%- endif -%}{%- unless forloop.last -%}, {% endunless -%}
+      {%- endfor -%}
+    {%- elsif p.autores_txt -%}{{ p.autores_txt }}{%- endif -%}
+  </p>
+  <p class="pub__medio">
+    {%- if p.medio %}<em>{{ p.medio }}</em>{% if p.anio %}, {% endif %}{% endif %}{{ p.anio }}
+    {%- if p.citas and p.citas > 0 %} · <a href="{{ p.scholar }}" class="pub__citas">{{ p.citas }} {% if include.en %}citations{% else %}citas{% endif %}</a>{% endif -%}
+    {%- if p.arxiv %} · <a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
+    {%- if p.pdf %} · <a href="{{ p.pdf | relative_url }}">PDF</a>{% endif -%}
+  </p>
+</li>

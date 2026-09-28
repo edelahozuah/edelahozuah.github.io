@@ -1,0 +1,42 @@
+---
+layout: base
+lang: en
+title: Enrique de la Hoz
+permalink: /en/
+description: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
+---
+<section class="portada">
+  <p class="antetitulo">Associate Professor · University of Alcalá</p>
+  <h1>{{ site.autor.nombre }}</h1>
+  <p class="entradilla">I teach and do research on computer networks and cybersecurity at the Department of Automatics of the University of Alcalá (Spain), within the Telematics Engineering area and the NetIS (Networks and Intelligent Systems) research group.</p>
+  <p class="portada__enlaces">
+    <a class="boton" href="{{ '/publicaciones/' | relative_url }}">Publications</a>
+    <a class="boton boton--sec" href="mailto:{{ site.autor.email }}">Contact</a>
+  </p>
+</section>
+
+<section class="bloque">
+  <h2>Research</h2>
+  <ul class="lineas-en">
+    {% for l in site.data.lineas %}<li>{{ l.en }}</li>{% endfor %}
+  </ul>
+  <p>PhD, University of Alcalá, 2017: <em>Approaches to the application of consensus policies in complex automated negotiation scenarios</em>.</p>
+</section>
+
+<section class="bloque">
+  <h2>Teaching</h2>
+  <p>Networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. Some interactive resources are also available in English:</p>
+  <ul class="lista-simple">
+    {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos %}{% if r.en %}
+    <li><a href="{{ r.en | relative_url }}">{{ r.titulo_en | default: r.titulo }}</a></li>
+    {% endif %}{% endfor %}{% endfor %}{% endfor %}
+  </ul>
+</section>
+
+<section class="bloque">
+  <h2>Selected publications</h2>
+  <ul class="pubs">
+    {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+    {% for p in destacadas %}{% include publicacion.html p=p en=true %}{% endfor %}
+  </ul>
+</section>

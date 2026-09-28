@@ -1,0 +1,20 @@
+---
+title: Docencia
+permalink: /docencia/
+entradilla: Asignaturas que imparto en la Universidad de Alcalá. Las que tienen recursos publicados enlazan a su página, con las visualizaciones y materiales de cada tema.
+---
+<ul class="asignaturas">
+  {% for a in site.data.asignaturas %}
+  <li class="asignatura{% if a.pagina %} asignatura--con-recursos{% endif %}">
+    {% if a.pagina %}
+      <h2><a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a></h2>
+      {% assign temas = site.data.recursos[a.id] %}
+      {% assign total = 0 %}{% for t in temas %}{% assign total = total | plus: t.recursos.size %}{% endfor %}
+      <p>{{ total }} recurso{% if total != 1 %}s{% endif %} publicado{% if total != 1 %}s{% endif %}{% if a.resumen %} · {{ a.resumen }}{% endif %}</p>
+    {% else %}
+      <h2>{{ a.nombre }}</h2>
+    {% endif %}
+    {% if a.nivel %}<p class="nota">{{ a.nivel }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

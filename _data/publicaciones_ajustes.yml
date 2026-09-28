@@ -1,0 +1,51 @@
+# Correcciones manuales a las publicaciones que llegan de ORCID y Google Scholar.
+# scripts/actualizar_publicaciones.py las aplica cada vez que regenera
+# _data/publicaciones.yml. Cada publicación se identifica por su «id», que está
+# en ese fichero.
+
+# Se muestran en la portada.
+destacadas:
+  - surgicalimmunizationstrategiesagainstlateralmovementinactive
+  - channelselectioninuncoordinatedieee80211networksusinggraphco
+  - democraticwirelesschannelassignmentfairresourceallocationinw
+  - reactreactiveresilienceforcriticalinfrastructuresusinggraphc
+  - accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
+  - designandevaluationofalearningenvironmenttoeffectivelyprovid
+
+# Duplicados que la fusión automática no detecta (el título difiere).
+ocultar:
+  - herramientaparalageneraciondeescenariosdeapoyoaladocenciadel
+  - mecanismosdeseguridadparaunaredadhocenunentornourbano
+
+# Campos que se sobrescriben: titulo, anio, categoria (revista, congreso,
+# capitulo, otros), medio, autores, doi, arxiv, url, pdf, citas.
+corregir:
+  herramientaparalageneracioindeescenariosdeapoyoaladocenciade:
+    titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes
+    medio: I Jornadas de Innovación Educativa en Ingeniería Telemática (JIE 2010)
+    citas: 1
+  securitymechanismsforadhocnetworksinurbanenvironmentsmecanis:
+    titulo: Mecanismos de seguridad para una red ad hoc en un entorno urbano
+  consortiumformationusingaconsensuspolicybasednegotiationfram:
+    doi: 10.1007/978-3-642-30737-9_1
+  aninfocardbasedproposalforunifiedsinglesignon:
+    categoria: congreso
+  trendsinmultiagentnegotiationfrombilateralbargainingtoconsen:
+    categoria: capitulo
+  unaexperienciadeflippedclassroomeningenieriatelematica:
+    titulo: Una experiencia de «flipped classroom» en Ingeniería Telemática
+  wifigraphscorrespondingtothepolytechnicschooloftheuniversity:
+    medio: Conjunto de datos
+  automatednegotiationforresourceassignmentinwirelesssurveilla:
+    pdf: /files/sensors-15-29547.pdf
+  channelselectioninuncoordinatedieee80211networksusinggraphco:
+    pdf: /files/sensors-23-05932.pdf
+
+# Publicaciones que no están en ORCID ni en Scholar. Ejemplo:
+# anadir:
+#   - titulo: Título del trabajo
+#     anio: 2026
+#     categoria: revista
+#     medio: Nombre de la revista
+#     autores: [N. Apellido, E. de la Hoz]
+#     doi: 10.xxxx/xxxxx

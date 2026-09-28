@@ -1,0 +1,61 @@
+---
+layout: base
+title: Enrique de la Hoz
+description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
+---
+<section class="portada">
+  <p class="antetitulo">{{ site.autor.puesto }} · {{ site.autor.universidad }}</p>
+  <h1>{{ site.autor.nombre }}</h1>
+  <p class="entradilla">Enseño e investigo en redes de comunicaciones y ciberseguridad en el {{ site.autor.departamento }} de la {{ site.autor.universidad }}, dentro del área de {{ site.autor.area }} y del grupo {{ site.autor.grupo }}.</p>
+  <p class="portada__enlaces">
+    <a class="boton" href="{{ '/docencia/' | relative_url }}">Docencia y recursos</a>
+    <a class="boton boton--sec" href="{{ '/investigacion/' | relative_url }}">Investigación</a>
+  </p>
+</section>
+
+<div class="rejilla-2">
+  <section class="bloque">
+    <h2>Docencia</h2>
+    <p>Imparto asignaturas de redes y seguridad en los grados de Telecomunicación e Informática de la Escuela Politécnica Superior y en el Máster Universitario en Ciberseguridad.</p>
+    <ul class="lista-simple">
+      {% for a in site.data.asignaturas %}
+      <li>{% if a.pagina %}<a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a> <span class="etiqueta">recursos</span>{% else %}{{ a.nombre }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="bloque">
+    <h2>Investigación</h2>
+    <ul class="lista-simple">
+      {% for l in site.data.lineas %}<li><a href="{{ '/investigacion/' | relative_url }}#{{ l.id }}">{{ l.titulo }}</a></li>{% endfor %}
+    </ul>
+    {% assign m = site.data.metricas %}
+    {% if m %}
+    <dl class="cifras">
+      <div><dt>Publicaciones</dt><dd>{{ site.data.publicaciones | size }}</dd></div>
+      <div><dt>Citas</dt><dd>{{ m.citas }}</dd></div>
+      <div><dt>Índice h</dt><dd>{{ m.indice_h }}</dd></div>
+    </dl>
+    <p class="nota">Citas e índice h según <a href="{{ m.fuente }}">Google Scholar</a>, {{ m.fecha | date: "%-d/%-m/%Y" }}.</p>
+    {% endif %}
+  </section>
+</div>
+
+<section class="bloque">
+  <h2>Recursos recientes</h2>
+  <ul class="recursos">
+    {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos limit: 3 %}
+      {% include recurso.html r=r %}
+    {% endfor %}{% endfor %}{% endfor %}
+  </ul>
+  <p><a href="{{ '/recursos/' | relative_url }}">Todos los recursos →</a></p>
+</section>
+
+<section class="bloque">
+  <h2>Publicaciones destacadas</h2>
+  <ul class="pubs">
+    {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+    {% for p in destacadas %}{% include publicacion.html p=p %}{% endfor %}
+  </ul>
+  <p><a href="{{ '/publicaciones/' | relative_url }}">Todas las publicaciones →</a></p>
+</section>
