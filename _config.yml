@@ -19,8 +19,6 @@ autor:
   portal_uah: https://portalcientifico.uah.es/investigadores/2086881/detalle
   ficha_uah: https://www.uah.es/es/estudios/profesor/Enrique-de-la-Hoz-de-la-Hoz/
 
-  foto:   # p. ej. /assets/img/perfil.jpg; sin foto, la portada no muestra el hueco
-
 navegacion:
   - { titulo: sobre mí, url: / }
   - { titulo: investigación, url: /investigacion/ }
@@ -46,33 +44,3 @@ exclude:
   - Gemfile.lock
   - scripts
   - vendor
-  # Restos de la plantilla academicpages, pendientes de borrar:
-  - _pages
-  - _posts
-  - _drafts
-  - _publications
-  - _talks
-  - _teaching
-  - _portfolio
-  - _sass
-  - markdown_generator
-  - talkmap
-  - talkmap.py
-  - talkmap.ipynb
-  - Dockerfile
-  - package.json
-  - CONTRIBUTING.md
-  - images
-  - files/paper*.pdf
-  - files/slides*.pdf
-  - assets/css/main.scss
-  - assets/css/academicons.css
-  - assets/css/academicons.min.css
-  - assets/css/collapse.css
-  - assets/js/_main.js
-  - assets/js/main.min.js
-  - assets/js/collapse.js
-  - assets/js/plugins
-  - assets/fonts
-  - assets/webfonts
-  - aloha

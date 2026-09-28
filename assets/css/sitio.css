@@ -104,7 +104,6 @@ ul, ol { margin: 0 0 1rem; }
 
 /* Portada */
 .profile { float: right; width: 30%; margin: 0 0 1rem 1.5rem; }
-.profile img { display: block; width: 100%; border-radius: 4px; box-shadow: var(--global-shadow); margin-bottom: .5rem; }
 .profile .address { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: .8rem; color: var(--global-text-color-light); }
 .profile .address p { margin: 0; }
 .clearfix::after { content: ""; display: table; clear: both; }

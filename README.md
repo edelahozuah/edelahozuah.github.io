@@ -21,8 +21,6 @@ compilación propio.
 
 El aspecto sigue las convenciones del tema [al-folio](https://github.com/alshedivat/al-folio).
 El color de acento es la variable `--global-theme-color` de `assets/css/sitio.css`.
-Para poner foto en la portada, guárdala en `assets/img/` y rellena `autor.foto`
-en `_config.yml`.
 
 ## Añadir un recurso
 
