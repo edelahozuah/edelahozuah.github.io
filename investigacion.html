@@ -1,20 +1,22 @@
 ---
-title: Investigación
+title: investigación
 permalink: /investigacion/
-entradilla: Trabajo en el grupo de Redes y Sistemas Inteligentes (NetIS) del Departamento de Automática. Mi investigación une la optimización de redes, la seguridad y los sistemas multiagente.
+entradilla: Líneas de trabajo en el grupo NetIS (Redes y Sistemas Inteligentes) del Departamento de Automática.
 ---
 {% for l in site.data.lineas %}
 <section class="linea" id="{{ l.id }}">
   <h2>{{ l.titulo }}</h2>
   <p>{{ l.texto }}</p>
   <details>
-    <summary>Publicaciones sobre este tema</summary>
-    <ul class="pubs pubs--compacta">
-    {% for p in site.data.publicaciones %}
-      {% assign t = p.titulo | downcase %}
-      {% for w in l.palabras %}{% if t contains w %}{% include publicacion.html p=p %}{% break %}{% endif %}{% endfor %}
-    {% endfor %}
-    </ul>
+    <summary>Publicaciones relacionadas</summary>
+    <div class="publications">
+      <ol class="bibliography">
+      {% for p in site.data.publicaciones %}
+        {% assign t = p.titulo | downcase %}
+        {% for w in l.palabras %}{% if t contains w %}{% include publicacion.html p=p %}{% break %}{% endif %}{% endfor %}
+      {% endfor %}
+      </ol>
+    </div>
   </details>
 </section>
 {% endfor %}
@@ -26,7 +28,7 @@ entradilla: Trabajo en el grupo de Redes y Sistemas Inteligentes (NetIS) del Dep
 
 <section>
   <h2>Perfiles</h2>
-  <ul class="lista-limpia">
+  <ul>
     <li><a href="https://orcid.org/{{ site.autor.orcid }}">ORCID {{ site.autor.orcid }}</a></li>
     <li><a href="{{ site.autor.scholar }}">Google Scholar</a></li>
     <li><a href="{{ site.autor.portal_uah }}">Portal científico de la UAH</a></li>

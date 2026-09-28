@@ -3,58 +3,57 @@ layout: base
 title: Enrique de la Hoz
 description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
 ---
-<section class="portada">
-  <div class="portada__texto">
-    <h1>Enrique <span class="sin-corte">de la Hoz</span></h1>
-    <p class="entradilla">Soy {{ site.autor.puesto | downcase }} en el {{ site.autor.departamento }} de la {{ site.autor.universidad }}. Enseño redes de comunicaciones y ciberseguridad, e investigo en el grupo NetIS sobre cómo hacer que las redes funcionen mejor y resistan ataques.</p>
-    <p class="portada__enlaces">
-      <a class="boton" href="{{ '/recursos/' | relative_url }}">Recursos para clase</a>
-      <a class="enlace-fuerte" href="{{ '/investigacion/' | relative_url }}">Mi investigación</a>
-    </p>
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">Enrique</span> de la Hoz</h1>
+    <p class="desc">{{ site.autor.puesto }}. {{ site.autor.departamento }}, <a href="https://www.uah.es">{{ site.autor.universidad }}</a>.</p>
+  </header>
+
+  <div class="about">
+    <div class="profile">
+      {% if site.autor.foto %}<img src="{{ site.autor.foto | relative_url }}" alt="Enrique de la Hoz" width="300" height="300">{% endif %}
+      <div class="address">
+        <p>Escuela Politécnica Superior</p>
+        <p>Ctra. Madrid-Barcelona, km 33,600</p>
+        <p>28805 Alcalá de Henares, Madrid</p>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <p>Soy profesor titular en el Departamento de Automática de la Universidad de Alcalá, dentro del área de Ingeniería Telemática, y miembro del grupo de investigación <strong>NetIS</strong> (Redes y Sistemas Inteligentes).</p>
+      <p>Mi investigación se centra en la <a href="{{ '/investigacion/' | relative_url }}#seguridad">seguridad de redes y sistemas</a>, la <a href="{{ '/investigacion/' | relative_url }}#redes-inalambricas">optimización de redes inalámbricas</a> mediante coloración de grafos, la <a href="{{ '/investigacion/' | relative_url }}#resiliencia">resiliencia de infraestructuras críticas</a> y la <a href="{{ '/investigacion/' | relative_url }}#negociacion">negociación automática</a> en sistemas multiagente, el tema de mi tesis doctoral (2017).</p>
+      <p>Imparto asignaturas de redes y seguridad en los grados de Telecomunicación e Informática y en el Máster Universitario en Ciberseguridad. En <a href="{{ '/recursos/' | relative_url }}">recursos</a> publico las visualizaciones interactivas que uso en clase, empezando por <a href="{{ '/docencia/ar1/' | relative_url }}">Arquitectura de Redes I</a>.</p>
+    </div>
+
+    {% if site.data.noticias %}
+    <h2>noticias</h2>
+    <div class="news">
+      <table>
+        {% for n in site.data.noticias limit: 5 %}
+        <tr>
+          <th scope="row">{% include fecha.html fecha=n.fecha %}</th>
+          <td>{{ n.texto | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endif %}
+
+    <h2><a href="{{ '/publicaciones/' | relative_url }}" class="heredado">publicaciones destacadas</a></h2>
+    <div class="publications">
+      <ol class="bibliography">
+        {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+        {% for p in destacadas %}{% include publicacion.html p=p %}{% endfor %}
+      </ol>
+    </div>
+
+    <div class="social">
+      <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a>
+      <a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a>
+      <a href="{{ site.autor.scholar }}">Google Scholar</a>
+      <a href="{{ site.autor.portal_uah }}">Portal científico UAH</a>
+      <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
+      <p class="contact-note">La forma más rápida de contactar conmigo es el correo electrónico.</p>
+    </div>
   </div>
-  <figure class="portada__grafo">
-    {% include grafo.svg %}
-    <figcaption>Ningún par de nodos vecinos comparte color. Así se reparten los canales Wi‑Fi para que los puntos de acceso cercanos no se interfieran.</figcaption>
-  </figure>
-</section>
-
-<div class="dos-columnas">
-  <section>
-    <h2>Docencia</h2>
-    <p>Imparto asignaturas de redes y seguridad en los grados de Telecomunicación e Informática de la Escuela Politécnica Superior y en el Máster Universitario en Ciberseguridad.</p>
-    <ul class="lista-limpia">
-      {% for a in site.data.asignaturas %}
-      <li>{% if a.pagina %}<a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a> <em class="discreto">con recursos</em>{% else %}{{ a.nombre }}{% endif %}</li>
-      {% endfor %}
-    </ul>
-  </section>
-
-  <section>
-    <h2>Investigación</h2>
-    <ul class="lista-limpia">
-      {% for l in site.data.lineas %}<li><a href="{{ '/investigacion/' | relative_url }}#{{ l.id }}">{{ l.titulo }}</a></li>{% endfor %}
-    </ul>
-    {% assign m = site.data.metricas %}
-    {% if m %}<p class="discreto">{{ site.data.publicaciones | size }} publicaciones, con {{ m.citas }} citas e índice h {{ m.indice_h }} según <a href="{{ m.fuente }}">Google Scholar</a> ({{ m.fecha | date: "%-d/%-m/%Y" }}).</p>{% endif %}
-  </section>
-</div>
-
-<section>
-  <h2>Recursos para clase</h2>
-  <p>Visualizaciones interactivas para seguir las sesiones a tu ritmo. Funcionan en el navegador, también en el móvil.</p>
-  <ul class="recursos">
-    {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos limit: 3 %}
-      {% include recurso.html r=r %}
-    {% endfor %}{% endfor %}{% endfor %}
-  </ul>
-  <p><a class="enlace-fuerte" href="{{ '/recursos/' | relative_url }}">Ver todos los recursos</a></p>
-</section>
-
-<section>
-  <h2>Publicaciones destacadas</h2>
-  <ul class="pubs">
-    {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
-    {% for p in destacadas %}{% include publicacion.html p=p %}{% endfor %}
-  </ul>
-  <p><a class="enlace-fuerte" href="{{ '/publicaciones/' | relative_url }}">Ver todas las publicaciones</a></p>
-</section>
+</article>

@@ -5,43 +5,46 @@ title: Enrique de la Hoz
 permalink: /en/
 description: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
 ---
-<section class="portada">
-  <div class="portada__texto">
-  <h1>Enrique <span class="sin-corte">de la Hoz</span></h1>
-  <p class="entradilla">I am an associate professor at the University of Alcalá (Spain). I teach computer networks and cybersecurity, and my research with the NetIS group looks at making networks work better and withstand attacks.</p>
-  <p class="portada__enlaces">
-    <a class="boton" href="{{ '/publicaciones/' | relative_url }}">Publications</a>
-    <a class="enlace-fuerte" href="mailto:{{ site.autor.email }}">Get in touch</a>
-  </p>
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">Enrique</span> de la Hoz</h1>
+    <p class="desc">Associate Professor. Department of Automatics, <a href="https://www.uah.es/en/">University of Alcalá</a>.</p>
+  </header>
+
+  <div class="about">
+    <div class="profile">
+      {% if site.autor.foto %}<img src="{{ site.autor.foto | relative_url }}" alt="Enrique de la Hoz" width="300" height="300">{% endif %}
+      <div class="address">
+        <p>Escuela Politécnica Superior</p>
+        <p>Ctra. Madrid-Barcelona, km 33,600</p>
+        <p>28805 Alcalá de Henares, Spain</p>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <p>I am an associate professor at the University of Alcalá (Spain), in the Telematics Engineering area, and a member of the <strong>NetIS</strong> (Networks and Intelligent Systems) research group.</p>
+      <p>My research covers network and systems security, wireless network optimization through graph coloring, critical infrastructure resilience, and automated negotiation in multi-agent systems, the topic of my PhD thesis (2017).</p>
+      <p>I teach networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. Some of my interactive teaching resources are available in English:</p>
+      <ul>
+        {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos %}{% if r.en %}
+        <li><a href="{{ r.en | relative_url }}">{{ r.titulo_en | default: r.titulo }}</a></li>
+        {% endif %}{% endfor %}{% endfor %}{% endfor %}
+      </ul>
+    </div>
+
+    <h2><a href="{{ '/publicaciones/' | relative_url }}" class="heredado">selected publications</a></h2>
+    <div class="publications">
+      <ol class="bibliography">
+        {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+        {% for p in destacadas %}{% include publicacion.html p=p en=true %}{% endfor %}
+      </ol>
+    </div>
+
+    <div class="social">
+      <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a>
+      <a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a>
+      <a href="{{ site.autor.scholar }}">Google Scholar</a>
+      <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
+    </div>
   </div>
-  <figure class="portada__grafo">
-    {% include grafo.svg %}
-    <figcaption>No two neighbouring nodes share a colour. That is how Wi‑Fi channels are assigned so that nearby access points do not interfere.</figcaption>
-  </figure>
-</section>
-
-<section>
-  <h2>Research</h2>
-  <ul class="lista-limpia">
-    {% for l in site.data.lineas %}<li>{{ l.en }}</li>{% endfor %}
-  </ul>
-  <p>PhD, University of Alcalá, 2017: <em>Approaches to the application of consensus policies in complex automated negotiation scenarios</em>.</p>
-</section>
-
-<section>
-  <h2>Teaching</h2>
-  <p>Networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. Some interactive resources are also available in English:</p>
-  <ul class="lista-limpia">
-    {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos %}{% if r.en %}
-    <li><a href="{{ r.en | relative_url }}">{{ r.titulo_en | default: r.titulo }}</a></li>
-    {% endif %}{% endfor %}{% endfor %}{% endfor %}
-  </ul>
-</section>
-
-<section>
-  <h2>Selected publications</h2>
-  <ul class="pubs">
-    {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
-    {% for p in destacadas %}{% include publicacion.html p=p en=true %}{% endfor %}
-  </ul>
-</section>
+</article>

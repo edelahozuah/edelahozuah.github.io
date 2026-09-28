@@ -1,23 +1,25 @@
 ---
-title: Publicaciones
+title: publicaciones
 permalink: /publicaciones/
-entradilla: Artículos, ponencias y capítulos, del más reciente al más antiguo. Los títulos enlazan a la publicación original.
+entradilla: Publicaciones en orden cronológico inverso, reunidas desde ORCID y Google Scholar.
 script: /assets/js/publicaciones.js
 ---
 {% assign pubs = site.data.publicaciones %}
-<div class="filtros" role="group" aria-label="Filtrar por tipo" hidden>
-  <button type="button" aria-pressed="true" data-filtro="todas">Todas <span>{{ pubs | size }}</span></button>
-  {% assign cats = "revista:Revistas,congreso:Congresos,capitulo:Libros y capítulos,otros:Otros" | split: "," %}
-  {% for c in cats %}{% assign par = c | split: ":" %}{% assign n = pubs | where: "categoria", par[0] | size %}
-  <button type="button" aria-pressed="false" data-filtro="{{ par[0] }}">{{ par[1] }} <span>{{ n }}</span></button>
-  {% endfor %}
-</div>
+<div class="publications">
+  <div class="filtros" role="group" aria-label="Filtrar por tipo" hidden>
+    <button type="button" aria-pressed="true" data-filtro="todas">todas ({{ pubs | size }})</button>
+    {% assign cats = "revista:revistas,congreso:congresos,capitulo:libros y capítulos,otros:otros" | split: "," %}
+    {% for c in cats %}{% assign par = c | split: ":" %}{% assign n = pubs | where: "categoria", par[0] | size %}
+    <button type="button" aria-pressed="false" data-filtro="{{ par[0] }}">{{ par[1] }} ({{ n }})</button>
+    {% endfor %}
+  </div>
 
-{% assign por_anio = pubs | group_by: "anio" %}
-{% for g in por_anio %}
-<section class="anio" data-anio>
-  <h2 class="anio__num">{{ g.name | default: "Sin fecha" }}</h2>
-  <ul class="pubs">{% for p in g.items %}{% include publicacion.html p=p sin_anio=true %}{% endfor %}</ul>
-</section>
-{% endfor %}
-{% if site.data.metricas %}<p class="discreto">Lista reunida desde ORCID y Google Scholar. Citas actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}
+  {% assign por_anio = pubs | group_by: "anio" %}
+  {% for g in por_anio %}
+  <section data-anio>
+    <h2 class="bibliography">{{ g.name | default: "sin fecha" }}</h2>
+    <ol class="bibliography">{% for p in g.items %}{% include publicacion.html p=p %}{% endfor %}</ol>
+  </section>
+  {% endfor %}
+  {% if site.data.metricas %}<p class="nota">Citas según Google Scholar, actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}
+</div>

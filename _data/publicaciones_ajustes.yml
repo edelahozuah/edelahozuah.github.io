@@ -18,7 +18,8 @@ ocultar:
   - mecanismosdeseguridadparaunaredadhocenunentornourbano
 
 # Campos que se sobrescriben: titulo, anio, categoria (revista, congreso,
-# capitulo, otros), medio, autores, doi, arxiv, url, pdf, citas.
+# capitulo, otros), medio, abr (abreviatura junto al título), autores, doi,
+# arxiv, url, pdf, citas.
 corregir:
   herramientaparalageneracioindeescenariosdeapoyoaladocenciade:
     titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes

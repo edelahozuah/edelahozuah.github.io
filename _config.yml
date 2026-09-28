@@ -19,11 +19,14 @@ autor:
   portal_uah: https://portalcientifico.uah.es/investigadores/2086881/detalle
   ficha_uah: https://www.uah.es/es/estudios/profesor/Enrique-de-la-Hoz-de-la-Hoz/
 
+  foto:   # p. ej. /assets/img/perfil.jpg; sin foto, la portada no muestra el hueco
+
 navegacion:
-  - { titulo: Investigación, url: /investigacion/ }
-  - { titulo: Publicaciones, url: /publicaciones/ }
-  - { titulo: Docencia, url: /docencia/ }
-  - { titulo: Recursos, url: /recursos/ }
+  - { titulo: sobre mí, url: / }
+  - { titulo: investigación, url: /investigacion/ }
+  - { titulo: publicaciones, url: /publicaciones/ }
+  - { titulo: docencia, url: /docencia/ }
+  - { titulo: recursos, url: /recursos/ }
 
 markdown: kramdown
 permalink: pretty

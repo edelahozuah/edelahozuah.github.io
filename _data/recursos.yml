@@ -5,8 +5,8 @@
 #   - titulo:       (obligatorio)
 #     url:          ruta del HTML (obligatorio)
 #     descripcion:  una o dos frases
+#     imagen:       captura para la tarjeta (720 px de ancho), en assets/img/recursos/
 #     sesion:       "2.1"
-#     tipo:         Visualización (por defecto), Simulador, Ejercicio…
 #     en:           ruta de la versión en inglés, si existe
 #     titulo_en:    título en inglés (para /en/)
 
@@ -17,16 +17,19 @@ ar1:
     recursos:
       - titulo: "Anatomía de un nombre: de las etiquetas al árbol"
         url: /docencia/ar1/dns/dns_nombres.html
+        imagen: /assets/img/recursos/dns_nombres.jpg
         sesion: "2.1"
         descripcion: Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.
       - titulo: "Delegación de zonas: ceder una rama del árbol"
         url: /docencia/ar1/dns/dns_delegacion.html
+        imagen: /assets/img/recursos/dns_delegacion.jpg
         en: /docencia/ar1/dns/dns_delegation_en.html
         titulo_en: DNS zone delegation
         sesion: "2.1"
         descripcion: Paso a paso de la cadena IANA → Red.es → UAH → Departamento, con los ficheros de zona. En «Delega tú» creas dominios y hosts y los cedes tú mismo, con NS, pegamento y referencias.
       - titulo: "Consultas DNS: iterativa y recursiva"
         url: /docencia/ar1/dns/dns_consultas.html
+        imagen: /assets/img/recursos/dns_consultas.jpg
         en: /docencia/ar1/dns/dns_queries_en.html
         titulo_en: "DNS queries: iterative and recursive"
         sesion: "2.1"

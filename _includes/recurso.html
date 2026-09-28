@@ -1,10 +1,17 @@
 {%- assign r = include.r -%}
 {%- assign h = include.nivel | default: 3 -%}
-<li class="recurso">
-  <h{{ h }} class="recurso__titulo"><a href="{{ r.url | relative_url }}">{{ r.titulo }}</a></h{{ h }}>
-  {% if r.descripcion %}<p class="recurso__desc">{{ r.descripcion }}</p>{% endif %}
-  <p class="recurso__pie">
-    {%- if r.sesion %}<span>{{ r.tipo | default: 'Visualización' }} para la sesión {{ r.sesion }}</span>{% endif -%}
+<div class="card">
+  <a href="{{ r.url | relative_url }}" class="card__enlace">
+    {% if r.imagen %}<img class="card-img-top" src="{{ r.imagen | relative_url }}" alt="" width="720" height="458" loading="lazy">{% endif %}
+    <div class="card-body">
+      <h{{ h }} class="card-title">{{ r.titulo }}</h{{ h }}>
+      {% if r.descripcion %}<p class="card-text">{{ r.descripcion }}</p>{% endif %}
+    </div>
+  </a>
+  {% if r.sesion or r.en %}
+  <p class="card-pie">
+    {%- if r.sesion %}<span>Sesión {{ r.sesion }}</span>{% endif -%}
     {%- if r.en %}<a href="{{ r.en | relative_url }}" hreflang="en" lang="en">English version</a>{% endif -%}
   </p>
-</li>
+  {% endif %}
+</div>

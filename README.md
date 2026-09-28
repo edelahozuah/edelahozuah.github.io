@@ -12,19 +12,27 @@ compilación propio.
 | Asignaturas | `_data/asignaturas.yml` |
 | Recursos docentes (índice) | `_data/recursos.yml` |
 | Recursos docentes (los HTML) | `docencia/<asignatura>/<tema>/` |
+| Miniaturas de los recursos | `assets/img/recursos/` |
+| Noticias de la portada | `_data/noticias.yml` |
 | Líneas de investigación | `_data/lineas.yml` |
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
-| Estilos (papel, musgo, Alegreya) | `assets/css/sitio.css` |
+| Estilos (aspecto al-folio) | `assets/css/sitio.css` |
+
+El aspecto sigue las convenciones del tema [al-folio](https://github.com/alshedivat/al-folio).
+El color de acento es la variable `--global-theme-color` de `assets/css/sitio.css`.
+Para poner foto en la portada, guárdala en `assets/img/` y rellena `autor.foto`
+en `_config.yml`.
 
 ## Añadir un recurso
 
 1. Copia el HTML autocontenido en `docencia/<asignatura>/<tema>/`, por ejemplo
    `docencia/ar1/tcp/ventana.html`. Sin cabecera YAML: Jekyll lo publica tal cual.
-2. Añade una entrada en `_data/recursos.yml` (título, url, descripción, sesión y,
-   si la hay, versión en inglés).
+2. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
+3. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
+   sesión y, si la hay, versión en inglés).
 
-Aparece solo en la página de la asignatura, en `/recursos/` y en la portada.
+Aparece solo en la página de la asignatura y en `/recursos/`.
 
 ## Añadir una asignatura
 

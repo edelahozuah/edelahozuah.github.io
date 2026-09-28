@@ -46,6 +46,43 @@ PISTAS_CONGRESO = re.compile(r"proceedings|proc\.|conference|congreso|jornadas|w
                              re.I)
 # Arreglos de texto habituales en los metadatos de ORCID.
 SUSTITUCIONES = [(r"\s*\(including subseries[^)]*\)", ""), (r"\bIeee\b", "IEEE"), (r"\bDcnet\b", "DCNET")]
+# Abreviatura del medio que se muestra junto a cada publicación (gana la primera que casa).
+ABREVIATURAS = [
+    (r"Journal of Network and Computer Applications", "JNCA"),
+    (r"IEEE Internet Computing", "IEEE IC"),
+    (r"^Sensors", "Sensors"),
+    (r"Group Decision and Negotiation", "GDN"),
+    (r"Discrete Applied Mathematics", "DAM"),
+    (r"Wireless Communications and Mobile Computing", "WCMC"),
+    (r"^Symmetry", "Symmetry"),
+    (r"Computers (and|&) Education", "C&E"),
+    (r"^Computational Intelligence", "COIN"),
+    (r"Electronic Notes in Discrete Mathematics", "ENDM"),
+    (r"Multiagent and Grid Systems", "MAGS"),
+    (r"Autonomous Agents and Multi-?[Aa]gent|AAMAS", "AAMAS"),
+    (r"Cyber Conflict|cycon", "CyCon"),
+    (r"EDUCON|educon", "EDUCON"),
+    (r"PRICAI", "PRICAI"),
+    (r"PRIMA|Principles and Practice of Multi|Agents in Principle", "PRIMA"),
+    (r"JIE 2010", "JIE"),
+    (r"Ubiquitous Computing", "ICUC"),
+    (r"Pervasive Systems and Computing", "PSC"),
+    (r"CSN'03", "CSN"),
+    (r"CEUR", "CEUR"),
+    (r"SOCA|Service-Oriented Computing|soca\.", "SOCA"),
+    (r"SAINT|Saint|saint\.", "SAINT"),
+    (r"DCNET|ICETE", "ICETE"),
+    (r"JITEL|jitel", "JITEL"),
+    (r"Studies in Computational Intelligence", "SCI"),
+    (r"Lecture Notes in Networks and Systems", "LNNS"),
+    (r"Lecture Notes in Computer Science", "LNCS"),
+    (r"^Proceedings 10\.3390", "MDPI Proc."),
+]
+
+
+def abreviatura(p):
+    texto = " ".join(filter(None, [p.get("medio"), p.get("doi")]))
+    return next((abr for patron, abr in ABREVIATURAS if re.search(patron, texto)), None)
 
 
 def pedir(url, json_=False):
@@ -256,7 +293,12 @@ def main():
         except Exception as e:  # Scholar bloquea con frecuencia; no es motivo para fallar
             print(f"no disponible ({e}); se conservan las citas anteriores")
 
-    pubs = aplicar_ajustes(fusionar(orcid, scholar, previas))
+    pubs = fusionar(orcid, scholar, previas)
+    for p in pubs:
+        p.pop("abr", None)  # los trabajos que vienen de la ejecución anterior ya la traen
+        if abreviatura(p):
+            p["abr"] = abreviatura(p)
+    pubs = aplicar_ajustes(pubs)
     pubs.sort(key=lambda p: (-(p.get("anio") or 0), p["titulo"].lower()))
 
     cabecera = ("# Generado por scripts/actualizar_publicaciones.py; no editar a mano.\n"

@@ -23,6 +23,7 @@
   doi: 10.1016/j.jnca.2023.103810
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:70eg2SAEIzsC
+  abr: JNCA
   destacada: true
 - id: anarchitecturalsystemforautomaticpedagogicalinterventionsinm
   titulo: An Architectural System for Automatic Pedagogical Interventions in Massive Online Learning Environments
@@ -39,6 +40,7 @@
   - E. de la Hoz
   - S. Caballé
   doi: 10.1007/978-3-031-29056-5_20
+  abr: LNNS
 - id: channelselectioninuncoordinatedieee80211networksusinggraphco
   titulo: Channel Selection in Uncoordinated IEEE 802.11 Networks Using Graph Coloring
   anio: 2023
@@ -53,6 +55,7 @@
   doi: 10.3390/s23135932
   citas: 9
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:35N4QoGY0k4C
+  abr: Sensors
   pdf: /files/sensors-23-05932.pdf
   destacada: true
 - id: democraticwirelesschannelassignmentfairresourceallocationinw
@@ -70,6 +73,7 @@
   doi: 10.1109/mic.2022.3201454
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:vV6vV6tmYwMC
+  abr: IEEE IC
   destacada: true
 - id: nonlinearnegotiationapproachesforcomplexnetworkoptimizationa
   titulo: 'Nonlinear Negotiation Approaches for Complex-Network Optimization: A Study Inspired by Wi-Fi Channel Assignment'
@@ -86,6 +90,7 @@
   arxiv: '1902.09457'
   citas: 24
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IWHjjKOFINEC
+  abr: GDN
 - id: reactreactiveresilienceforcriticalinfrastructuresusinggraphc
   titulo: 'REACT: reactive resilience for critical infrastructures using graph-coloring techniques'
   anio: 2019
@@ -101,6 +106,7 @@
   arxiv: '1907.05117'
   citas: 12
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:j3f4tGmQtD8C
+  abr: JNCA
   destacada: true
 - id: spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo
   titulo: Spectrum graph coloring to improve Wi-Fi channel assignment in a real-world scenario via edge contraction
@@ -117,6 +123,7 @@
   arxiv: '1811.06832'
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_Qo2XoVZTnwC
+  abr: DAM
 - id: accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
   titulo: Access Control Mechanism for IoT Environments Based on Modelling Communication Procedures as Resources
   anio: 2018
@@ -131,6 +138,7 @@
   doi: 10.3390/s18030917
   citas: 100
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:R3hNpaxXUhUC
+  abr: Sensors
   destacada: true
 - id: onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali
   titulo: On the Goodness of Using Orthogonal Channels in WLAN IEEE 802.11 in Realistic Scenarios
@@ -147,6 +155,7 @@
   doi: 10.1155/2018/5742712
   citas: 14
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RHpTSmoSYBkC
+  abr: WCMC
 - id: spectrumgraphcoloringandapplicationstowifichannelassignment
   titulo: Spectrum Graph Coloring and Applications to Wi-Fi Channel Assignment
   anio: 2018
@@ -160,6 +169,7 @@
   doi: 10.3390/sym10030065
   citas: 42
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:QIV2ME_5wuYC
+  abr: Symmetry
 - id: acooperativeframeworkformediatedgroupdecisionmaking
   titulo: A cooperative framework for mediated group decision making
   anio: 2017
@@ -172,6 +182,7 @@
   doi: 10.1007/978-3-319-51563-2_3
   citas: 3
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:ZeXyd9-uunAC
+  abr: SCI
 - id: adistributedmultiagentapproachtoreactivenetworkresilience
   titulo: A distributed, multi-Agent approach to reactive network resilience
   anio: 2017
@@ -185,6 +196,7 @@
   - D. Orden
   citas: 11
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hC7cP41nSMkC
+  abr: AAMAS
 - id: competitivebeliefpropagationtoefficientlysolvecomplexmultiag
   titulo: Competitive Belief Propagation to Efficiently Solve Complex Multi-agent Negotiations with Network Structure
   anio: 2017
@@ -198,6 +210,7 @@
   doi: 10.1007/978-3-319-71679-4_1
   citas: 4
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:mB3voiENLucC
+  abr: LNCS
 - id: intelligenttrafficlightmanagementusingmultibehavioralagents
   titulo: Intelligent Traffic Light Management using Multi-Behavioral Agents
   anio: 2017
@@ -211,6 +224,7 @@
   doi: 10.4995/jitel2017.2017.6494
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:e5wmG9Sq2KIC
+  abr: JITEL
 - id: multiagentnonlinearnegotiationforwifichannelassignment
   titulo: Multi-Agent nonlinear negotiation for Wi-Fi channel assignment
   anio: 2017
@@ -224,6 +238,7 @@
   - M. Klein
   citas: 31
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:qUcmZB5y_30C
+  abr: AAMAS
 - id: optimizingvehicletripsusingagentnegotiationthroughatrafficma
   origen: scholar
   titulo: Optimizing vehicle trips using agent negotiation through a traffic matrix
@@ -248,6 +263,7 @@
   doi: 10.3390/proceedings1080801
   citas: 3
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:lSLTfruPkqcC
+  abr: MDPI Proc.
 - id: usinggraphpropertiesandclusteringtechniquestoselectdivisionm
   titulo: Using graph properties and clustering techniques to select division mechanisms for scalable negotiations
   anio: 2017
@@ -261,6 +277,7 @@
   doi: 10.1007/978-3-319-51563-2_5
   citas: 0
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:L8Ckcad2t8MC
+  abr: SCI
 - id: anewsdntrafficcontrolapplicationforsecurityroutingincritical
   titulo: A new SDN traffic control application for security routing in critical infrastructures
   anio: 2016
@@ -275,6 +292,7 @@
   - G.L. Civera
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RGFaLdJalmkC
+  abr: ICETE
 - id: anarchitectureforsecuringcommunicationsincriticalinfrastruct
   titulo: An Architecture for Securing Communications in Critical Infrastructure
   anio: 2016
@@ -298,6 +316,7 @@
   doi: 10.5220/0006016801110120
   citas: 5
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:bEWYMUwI8FkC
+  abr: ICETE
 - id: boundsonspectrumgraphcoloring
   titulo: Bounds on spectrum graph coloring
   anio: 2016
@@ -311,6 +330,7 @@
   doi: 10.1016/j.endm.2016.09.012
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:7PzlFSSx8tAC
+  abr: ENDM
 - id: datasetanalysisforanomalydetectiononcriticalinfrastructures
   titulo: Dataset Analysis for Anomaly Detection on Critical Infrastructures
   anio: 2016
@@ -329,6 +349,7 @@
   doi: 10.5220/0006017701510158
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hFOr9nPyWt4C
+  abr: ICETE
 - id: towertopologyoptimizationfornetworkenhancedresilience
   titulo: 'TOWER: Topology Optimization for netWork Enhanced Resilience'
   anio: 2016
@@ -350,6 +371,7 @@
   doi: 10.5220/0006017101210128
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:-f6ydRqryjwC
+  abr: ICETE
 - id: applyinganunifiedaccesscontrolforiotbasedintelligentagentsys
   titulo: Applying an unified access control for IoT-based Intelligent Agent Systems
   anio: 2015
@@ -365,6 +387,7 @@
   doi: 10.1109/soca.2015.40
   citas: 64
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:dhFuZR0502QC
+  abr: SOCA
 - id: automatednegotiationforresourceassignmentinwirelesssurveilla
   titulo: Automated Negotiation for Resource Assignment in Wireless Surveillance Sensor Networks
   anio: 2015
@@ -378,6 +401,7 @@
   doi: 10.3390/s151129547
   citas: 31
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:mVmsd5A6BfQC
+  abr: Sensors
   pdf: /files/sensors-15-29547.pdf
 - id: unaexperienciadeflippedclassroomeningenieriatelematica
   origen: scholar
@@ -418,6 +442,7 @@
   doi: 10.1007/978-4-431-54758-7_2
   citas: 3
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:qxL8FJ1GzNcC
+  abr: SCI
 - id: detectinganddefeatingadvancedmaninthemiddleattacksagainsttls
   titulo: Detecting and defeating advanced man-in-the-middle attacks against TLS
   anio: 2014
@@ -436,6 +461,7 @@
   doi: 10.1109/cycon.2014.6916404
   citas: 37
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Wp0gIr-vW9MC
+  abr: CyCon
 - id: novelinsightsinagentbasedcomplexautomatednegotiation
   titulo: Novel Insights in Agent-based Complex Automated Negotiation
   anio: 2014
@@ -448,6 +474,7 @@
   - Quan Bai
   - Katsuhide Fujita
   - Ivan Marsa-Maestre
+  abr: SCI
 - id: consortiumformationusingaconsensuspolicybasednegotiationfram
   titulo: Consortium formation using a consensus policy based negotiation framework
   anio: 2013
@@ -461,6 +488,7 @@
   doi: 10.1007/978-3-642-30737-9_1
   citas: 2
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:3fE2CSJIrl8C
+  abr: SCI
 - id: designandevaluationofalearningenvironmenttoeffectivelyprovid
   titulo: Design and evaluation of a learning environment to effectively provide network security skills
   anio: 2013
@@ -474,6 +502,7 @@
   doi: 10.1016/j.compedu.2013.07.022
   citas: 42
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_kc_bZDykSQC
+  abr: C&E
   destacada: true
 - id: negotiationtechniquesforcomplexsystemoptimizationwithselfint
   origen: scholar
@@ -514,6 +543,7 @@
   doi: 10.1007/978-3-642-32729-2_15
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:MXK_kJrjxJIC
+  abr: PRIMA
 - id: hierarchicalclusteringandlinguisticmediationrulesformultiage
   origen: scholar
   titulo: Hierarchical clustering and linguistic mediation rules for multiagent negotiation.
@@ -523,6 +553,7 @@
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:8k81kl-MbHgC
   autores_txt: E de la Hoz, MA López-Carmona, M Klein, I Marsa-Maestre
+  abr: AAMAS
 - id: mediatedheuristicapproachesandalternativesocialwelfaredefini
   titulo: Mediated Heuristic Approaches and Alternative Social Welfare Definitions for Complex Contract Negotiations Involving Highly Uncorrelated Utility Spaces
   anio: 2012
@@ -550,6 +581,7 @@
   doi: 10.1007/978-3-642-35612-4_7
   citas: 4
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:kNdYIx-mwKoC
+  abr: PRIMA
 - id: thecomparisonofstigmergystrategiesfordecentralizedtrafficcon
   titulo: 'The comparison of stigmergy strategies for decentralized traffic congestion control: Preliminary results'
   anio: 2012
@@ -564,6 +596,7 @@
   doi: 10.1007/978-3-642-32695-0_15
   citas: 26
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:KlAtU1dfN6UC
+  abr: PRICAI
 - id: usingascenariogenerationframeworkforeducationonsystemandinte
   titulo: Using a scenario generation framework for education on system and internet security
   anio: 2012
@@ -577,6 +610,7 @@
   doi: 10.1109/educon.2012.6201043
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:5nxA0vEk-isC
+  abr: EDUCON
 - id: aregionbasedmultiissuenegotiationprotocolfornonmonotonicutil
   titulo: A region-based multi-issue negotiation protocol for nonmonotonic utility spaces
   anio: 2011
@@ -590,6 +624,7 @@
   doi: 10.1111/j.1467-8640.2011.00377.x
   citas: 30
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:d1gkVwhDpl0C
+  abr: COIN
 - id: consensuspolicybasedmultiagentnegotiation
   titulo: Consensus policy based multi-agent negotiation
   anio: 2011
@@ -607,6 +642,7 @@
   doi: 10.1007/978-3-642-25044-6_14
   citas: 4
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:W7OEmFMy1HYC
+  abr: LNCS
 - id: extendingmatsimtoallowthesimulationofroutecoordinationmechan
   origen: scholar
   titulo: Extending matsim to allow the simulation of route coordination mechanisms
@@ -629,6 +665,7 @@
   doi: 10.1007/978-3-642-25044-6_34
   citas: 5
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Tyk-4Ss8FVUC
+  abr: PRIMA
 - id: amultiissuenegotiationframeworkfornonmonotonicpreferencespac
   titulo: A multi-issue negotiation framework for non-monotonic preference spaces (extended abstract)
   anio: 2010
@@ -641,6 +678,7 @@
   - E. De La Hoz
   citas: 5
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:zYLM7Y9cAGgC
+  abr: AAMAS
 - id: avoidingtheprisonersdilemmainauctionbasednegotiationsforhigh
   titulo: Avoiding the prisoner's dilemma in auction-based negotiations for highly rugged utility spaces
   anio: 2010
@@ -653,6 +691,7 @@
   - E. De La Hoz
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u-x6o8ySG0sC
+  abr: AAMAS
 - id: herramientaparalageneracioindeescenariosdeapoyoaladocenciade
   titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes
   anio: 2010
@@ -664,6 +703,7 @@
   - M. A. Lopez-Carmona
   - M. T. Lopez-Merayo
   citas: 1
+  abr: JIE
 - id: strategiesforoffergenerationandrelaxationinfuzzyconstraintba
   titulo: Strategies for offer generation and relaxation in fuzzy constraint-based negotiation models
   anio: 2010
@@ -676,6 +716,7 @@
   - E. De la Hoz
   - B. Alarcos
   doi: 10.3233/mgs-2010-0163
+  abr: MAGS
 - id: usingrfidtoenhancesecurityinoffsitedatastorage
   titulo: Using RFID to enhance security in off-site data storage.
   anio: 2010
@@ -689,6 +730,7 @@
   doi: 10.3390/s100908010
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:9yKSN-GCB0IC
+  abr: Sensors
 - id: aninfocardbasedproposalforunifiedsinglesignon
   titulo: An Infocard-Based Proposal for Unified Single Sign on
   anio: 2009
@@ -703,6 +745,7 @@
   doi: 10.1109/saint.2009.54
   citas: 2
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:WF5omc3nYNoC
+  abr: SAINT
 - id: effectivebiddinganddealidentificationfornegotiationsinhighly
   titulo: Effective bidding and deal identification for negotiations in highly nonlinear scenarios
   anio: 2009
@@ -715,6 +758,7 @@
   - E. De La Hoz
   citas: 78
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u5HHmVD_uO8C
+  abr: AAMAS
 - id: negoexploreraregionbasedrecursiveapproachtobilateralmultiatt
   titulo: 'NegoExplorer: A region-based recursive approach to bilateral multi-attribute negotiation'
   anio: 2009
@@ -733,6 +777,7 @@
   doi: 10.1007/978-3-642-11161-7_18
   citas: 2
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IjCSPb-OGe4C
+  abr: LNCS
 - id: usingclusteringtechniquestoimprovefuzzyconstraintbasedautoma
   titulo: Using clustering techniques to improve fuzzy constraint based automated purchase negotiations
   anio: 2009
@@ -746,6 +791,7 @@
   doi: 10.1007/978-3-642-03190-8_5
   citas: 0
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:UeHWp8X0CEIC
+  abr: SCI
 - id: dispositivosmovilesyespaciosinteligentespersonales
   origen: scholar
   titulo: Dispositivos móviles y Espacios Inteligentes Personales
@@ -774,6 +820,7 @@
   - J.R. Velasco
   citas: 25
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:eQOLeE2rZwMC
+  abr: ICUC
 - id: locationawareservicesandinterfacesinsmarthomesusingmultiagen
   titulo: Location-aware services and interfaces in smart homes using multiagent systems
   anio: 2005
@@ -790,6 +837,7 @@
   - M. Machuca
   citas: 30
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:YOwf2qJgpHMC
+  abr: PSC
 - id: securitymechanismsforadhocnetworksinurbanenvironmentsmecanis
   titulo: Mecanismos de seguridad para una red ad hoc en un entorno urbano
   anio: 2005
@@ -799,6 +847,7 @@
   - E. De La Hoz
   - I. Marsá
   - B. Alarcos
+  abr: CEUR
 - id: personalizaciondeserviciosmultimediaenelhogardigitalintelige
   origen: scholar
   titulo: Personalización de servicios multimedia en el hogar digital inteligente
@@ -820,3 +869,4 @@
   - M. Calderón
   citas: 2
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:ufrVoPGSRksC
+  abr: CSN

@@ -1,21 +1,22 @@
 ---
-title: Docencia
+title: docencia
 permalink: /docencia/
-entradilla: Asignaturas que imparto en la Universidad de Alcalá. Las que tienen recursos publicados enlazan a su página, con las visualizaciones y materiales de cada tema.
+entradilla: Asignaturas que imparto en la Universidad de Alcalá.
 ---
+<p>Imparto asignaturas de redes de comunicaciones y seguridad en los grados de Telecomunicación e Informática de la Escuela Politécnica Superior y en el Máster Universitario en Ciberseguridad. Las asignaturas con recursos publicados enlazan a su página, con las visualizaciones y los materiales de cada tema.</p>
+
 <ul class="asignaturas">
   {% for a in site.data.asignaturas %}
-  <li class="asignatura{% if a.pagina %} asignatura--con-recursos{% endif %}">
+  <li>
     {% if a.pagina %}
-      <h2><a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a></h2>
       {% assign temas = site.data.recursos[a.id] %}
       {% assign total = 0 %}{% for t in temas %}{% assign total = total | plus: t.recursos.size %}{% endfor %}
-      {% if a.resumen %}<p>{{ a.resumen }}</p>{% endif %}
-      <p class="discreto">{{ total }} recurso{% if total != 1 %}s{% endif %} publicado{% if total != 1 %}s{% endif %}</p>
+      <a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a>
+      <span class="nota">({{ total }} recurso{% if total != 1 %}s{% endif %})</span>
     {% else %}
-      <h2>{{ a.nombre }}</h2>
+      {{ a.nombre }}
     {% endif %}
-    {% if a.nivel %}<p class="discreto">{{ a.nivel }}</p>{% endif %}
+    {% if a.nivel %}<span class="nota">, {{ a.nivel }}</span>{% endif %}
   </li>
   {% endfor %}
 </ul>
