@@ -126,14 +126,36 @@ def asignaturas():
     return {a["id"]: a for a in datos}
 
 
-def barra(ruta, html, asigs):
+def pares_idioma():
+    """{url_es: url_en} y su inversa, leídos de _data/recursos.yml, para enlazar
+    cada visualización con su pareja en el otro idioma."""
+    datos = yaml.safe_load((RAIZ / "_data" / "recursos.yml").read_text(encoding="utf-8")) or {}
+    es_a_en = {}
+    for temas in datos.values():
+        for t in temas:
+            for r in t.get("recursos", []):
+                if r.get("en"):
+                    es_a_en[r["url"]] = r["en"]
+    en_a_es = {v: k for k, v in es_a_en.items()}
+    return es_a_en, en_a_es
+
+
+def barra(ruta, html, asigs, idiomas):
     partes = ruta.relative_to(RAIZ).parts  # docencia/<id>/…
     a = asigs.get(partes[1]) if len(partes) > 2 else None
     en = re.search(r'<html[^>]*lang="en', html) is not None
+    web = "/" + "/".join(partes)
+    es_a_en, en_a_es = idiomas
     enlace = ""
-    if a and a.get("pagina"):
-        texto = f'{a["nombre"]} (course page)' if en else a["nombre"]
-        enlace = f'<a href="{a["pagina"]}">{texto}</a>'
+    if a:
+        pagina = a.get("pagina_en") if en else a.get("pagina")
+        if pagina:
+            nombre = a.get("nombre_en") if en else a.get("nombre")
+            enlace = f'<a href="{pagina}">{nombre or a["nombre"]}</a>'
+    pareja = en_a_es.get(web) if en else es_a_en.get(web)
+    if pareja:
+        etiqueta = "Español" if en else "English"
+        enlace += f'<a href="{pareja}" hreflang="{"es" if en else "en"}" lang="{"es" if en else "en"}">{etiqueta}</a>'
     inicio = "/en/" if en else "/"
     return (f'{INI_BODY}<div class="sitio-barra" role="navigation" aria-label="{"Site" if en else "Sitio"}">'
             f'<a class="sitio-marca" href="{inicio}"><b>Enrique</b> de la Hoz</a>{enlace}</div>{FIN_BODY}')
@@ -144,7 +166,7 @@ def quitar(html):
     return re.sub(re.escape(INI_BODY) + r".*?" + re.escape(FIN_BODY) + r"\n?", "", html, flags=re.S)
 
 
-def adaptar(ruta, asigs):
+def adaptar(ruta, asigs, idiomas):
     html = quitar(ruta.read_text(encoding="utf-8"))
     fam = familia(html)
     if not fam:
@@ -159,10 +181,10 @@ def adaptar(ruta, asigs):
         html = html[:corte] + "\n" + cabeza + html[corte:]
     m = re.search(r"<body[^>]*>", html)
     if m:
-        html = html[:m.end()] + "\n" + barra(ruta, html, asigs) + "\n" + html[m.end():]
+        html = html[:m.end()] + "\n" + barra(ruta, html, asigs, idiomas) + "\n" + html[m.end():]
     else:  # sin <body>: la barra va justo después del bloque de estilo
         corte = html.find(FIN_HEAD) + len(FIN_HEAD)
-        html = html[:corte] + "\n" + barra(ruta, html, asigs) + html[corte:]
+        html = html[:corte] + "\n" + barra(ruta, html, asigs, idiomas) + html[corte:]
     ruta.write_text(html, encoding="utf-8")
     return fam
 
@@ -173,6 +195,7 @@ def main():
     ap.add_argument("--quitar", action="store_true", help="elimina el estilo y la barra añadidos")
     args = ap.parse_args()
     asigs = asignaturas()
+    idiomas = pares_idioma()
     for r in args.rutas:
         base = (RAIZ / r) if not Path(r).is_absolute() else Path(r)
         for f in sorted([base] if base.is_file() else base.rglob("*.html")):
@@ -183,7 +206,7 @@ def main():
                 f.write_text(quitar(texto), encoding="utf-8")
                 print(f"  sin estilo  {f.relative_to(RAIZ)}")
                 continue
-            fam = adaptar(f, asigs)
+            fam = adaptar(f, asigs, idiomas)
             print(f"  {fam or 'sin familia, no se toca':<10} {f.relative_to(RAIZ)}")
 
 

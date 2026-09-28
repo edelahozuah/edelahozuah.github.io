@@ -3,12 +3,13 @@ layout: base
 lang: en
 title: Enrique de la Hoz
 permalink: /en/
+lang_alt: /
 description: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
 ---
 <article class="post">
   <header class="post-header">
     <h1 class="post-title"><span class="negrita">Enrique</span> de la Hoz</h1>
-    <p class="desc">Associate Professor. Computer Science Department, <a href="https://www.uah.es/en/">University of Alcalá</a>.</p>
+    <p class="desc">{{ site.autor.puesto_en }}. {{ site.autor.departamento_en }}, <a href="https://www.uah.es/en/">University of Alcalá</a>.</p>
   </header>
 
   <div class="about">
@@ -22,16 +23,26 @@ description: Associate Professor at the University of Alcalá (Spain). Teaching 
 
     <div class="clearfix">
       <p>I am an associate professor at the University of Alcalá (Spain), in the Telematics Engineering area, and a member of the <strong>NetIS</strong> (Networks and Intelligent Systems) research group.</p>
-      <p>My research covers network and systems security, wireless network optimization through graph coloring, critical infrastructure resilience, and automated negotiation in multi-agent systems, the topic of my PhD thesis (2017).</p>
-      <p>I teach networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. Some of my interactive teaching resources are available in English:</p>
-      <ul>
-        {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos %}{% if r.en %}
-        <li><a href="{{ r.en | relative_url }}">{{ r.titulo_en | default: r.titulo }}</a></li>
-        {% endif %}{% endfor %}{% endfor %}{% endfor %}
-      </ul>
+      <p>My research covers <a href="{{ '/en/research/' | relative_url }}#seguridad">network and systems security</a>, <a href="{{ '/en/research/' | relative_url }}#redes-inalambricas">wireless network optimization</a> through graph coloring, <a href="{{ '/en/research/' | relative_url }}#resiliencia">critical infrastructure resilience</a>, and <a href="{{ '/en/research/' | relative_url }}#negociacion">automated negotiation</a> in multi-agent systems, the topic of my PhD thesis (2017).</p>
+      <p>I teach networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. In <a href="{{ '/en/resources/' | relative_url }}">resources</a> I publish the interactive visualizations I use in class, starting with <a href="{{ '/en/teaching/ar1/' | relative_url }}">Network Architecture I</a>.</p>
     </div>
 
-    <h2><a href="{{ '/publicaciones/' | relative_url }}" class="heredado">selected publications</a></h2>
+    {% assign noticias_en = site.data.noticias | where_exp: "n", "n.texto_en" %}
+    {% if noticias_en.size > 0 %}
+    <h2>news</h2>
+    <div class="news">
+      <table>
+        {% for n in noticias_en limit: 5 %}
+        <tr>
+          <th scope="row">{% include fecha.html fecha=n.fecha en=true %}</th>
+          <td>{{ n.texto_en | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endif %}
+
+    <h2><a href="{{ '/en/publications/' | relative_url }}" class="heredado">selected publications</a></h2>
     <div class="publications">
       <ol class="bibliography">
         {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
@@ -43,7 +54,9 @@ description: Associate Professor at the University of Alcalá (Spain). Teaching 
       <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a>
       <a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a>
       <a href="{{ site.autor.scholar }}">Google Scholar</a>
+      <a href="{{ site.autor.portal_uah }}">UAH research profile</a>
       <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
+      <p class="contact-note">The fastest way to reach me is by email.</p>
     </div>
   </div>
 </article>

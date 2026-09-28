@@ -1,0 +1,13 @@
+---
+lang: en
+title: resources
+permalink: /en/resources/
+lang_alt: /recursos/
+entradilla: Visualizations and course materials, by subject, in the units where an English version exists. The full catalog is in Spanish.
+---
+{% for a in site.data.asignaturas %}{% if site.data.recursos[a.id] %}
+<section>
+  <h2 class="asignatura"><a href="{{ a.pagina_en | default: a.pagina | relative_url }}">{{ a.nombre_en | default: a.nombre }}</a></h2>
+  {% include temas.html asignatura=a.id nivel=3 en=true %}
+</section>
+{% endif %}{% endfor %}
