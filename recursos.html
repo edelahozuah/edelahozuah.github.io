@@ -1,0 +1,11 @@
+---
+title: recursos
+permalink: /recursos/
+entradilla: Visualizaciones y materiales para clase, por asignatura. Cada uno funciona por sí solo en el navegador y puede enlazarse desde el aula virtual.
+---
+{% for a in site.data.asignaturas %}{% if site.data.recursos[a.id] %}
+<section>
+  <h2 class="asignatura"><a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a></h2>
+  {% include temas.html asignatura=a.id nivel=3 %}
+</section>
+{% endif %}{% endfor %}

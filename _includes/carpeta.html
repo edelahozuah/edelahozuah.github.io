@@ -1,0 +1,6 @@
+{%- comment -%}Tarjetas de todos los recursos cuya URL está dentro de include.carpeta.{%- endcomment -%}
+<div class="projects">
+{%- for t in site.data.recursos[include.asignatura] -%}{%- for r in t.recursos -%}
+  {%- if r.url contains include.carpeta -%}{% include recurso.html r=r nivel=2 %}{%- endif -%}
+{%- endfor -%}{%- endfor -%}
+</div>

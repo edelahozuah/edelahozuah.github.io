@@ -1,0 +1,17 @@
+{%- assign r = include.r -%}
+{%- assign h = include.nivel | default: 3 -%}
+<div class="card">
+  <a href="{{ r.url | relative_url }}" class="card__enlace">
+    {% if r.imagen %}<img class="card-img-top" src="{{ r.imagen | relative_url }}" alt="" width="720" height="458" loading="lazy">{% endif %}
+    <div class="card-body">
+      <h{{ h }} class="card-title">{{ r.titulo }}</h{{ h }}>
+      {% if r.descripcion %}<p class="card-text">{{ r.descripcion }}</p>{% endif %}
+    </div>
+  </a>
+  {% if r.sesion or r.etiqueta or r.en %}
+  <p class="card-pie">
+    {%- if r.etiqueta %}<span>{{ r.etiqueta }}</span>{% elsif r.sesion %}<span>Sesión {{ r.sesion }}</span>{% endif -%}
+    {%- if r.en %}<a href="{{ r.en | relative_url }}" hreflang="en" lang="en">English version</a>{% endif -%}
+  </p>
+  {% endif %}
+</div>

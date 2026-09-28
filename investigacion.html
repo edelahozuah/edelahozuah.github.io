@@ -1,0 +1,36 @@
+---
+title: investigación
+permalink: /investigacion/
+entradilla: Líneas de trabajo en el grupo NetIS (Redes y Sistemas Inteligentes) del Departamento de Automática.
+---
+{% for l in site.data.lineas %}
+<section class="linea" id="{{ l.id }}">
+  <h2>{{ l.titulo }}</h2>
+  <p>{{ l.texto }}</p>
+  <details>
+    <summary>Publicaciones relacionadas</summary>
+    <div class="publications">
+      <ol class="bibliography">
+      {% for p in site.data.publicaciones %}
+        {% assign t = p.titulo | downcase %}
+        {% for w in l.palabras %}{% if t contains w %}{% include publicacion.html p=p %}{% break %}{% endif %}{% endfor %}
+      {% endfor %}
+      </ol>
+    </div>
+  </details>
+</section>
+{% endfor %}
+
+<section>
+  <h2>Tesis doctoral</h2>
+  <p><em>Aproximaciones a la aplicación de políticas de consenso en escenarios de negociación automática compleja.</em> Universidad de Alcalá, 2017. Dirigida por Miguel Ángel López Carmona e Iván Marsá Maestre.</p>
+</section>
+
+<section>
+  <h2>Perfiles</h2>
+  <ul>
+    <li><a href="https://orcid.org/{{ site.autor.orcid }}">ORCID {{ site.autor.orcid }}</a></li>
+    <li><a href="{{ site.autor.scholar }}">Google Scholar</a></li>
+    <li><a href="{{ site.autor.portal_uah }}">Portal científico de la UAH</a></li>
+  </ul>
+</section>

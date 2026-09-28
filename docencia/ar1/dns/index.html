@@ -1,67 +1,8 @@
-<!doctype html>
-<html lang="es">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Visualizaciones DNS · AR1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
-<style>
-:root{
-  --bg:#EEF0F2; --surface:#FFFFFF; --ink:#1B2129; --muted:#5E6873; --line:#D5DAE0; --rust:#B5541F;
-  --f-disp:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ color-scheme:dark; --bg:#11151A; --surface:#1A2027; --ink:#E6E9ED; --muted:#9AA4AF; --line:#2E3740; --rust:#E27B45; }
-}
-:root[data-theme="dark"]{ color-scheme:dark; --bg:#11151A; --surface:#1A2027; --ink:#E6E9ED; --muted:#9AA4AF; --line:#2E3740; --rust:#E27B45; }
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);margin:0;padding:0 16px 40px}
-.wrap{max-width:900px;margin:0 auto}
-header{border-top:6px solid var(--rust);padding:22px 0 8px}
-.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-h1{font:800 clamp(24px,4vw,34px)/1.1 var(--f-disp);margin:0 0 10px;letter-spacing:-.01em}
-header p{color:var(--muted);margin:0;max-width:62ch}
-ol{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;counter-reset:v}
-li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:36px 1fr;gap:4px 14px;counter-increment:v}
-li::before{content:counter(v);grid-row:span 3;font:800 22px/36px var(--f-disp);width:36px;height:36px;border-radius:50%;background:var(--rust);color:#fff;text-align:center}
-h2{font:700 19px/1.25 var(--f-disp);margin:0}
-h2 a{color:var(--ink);text-decoration:none}
-h2 a:hover{text-decoration:underline;text-decoration-color:var(--rust);text-underline-offset:3px}
-li p{margin:0;color:var(--muted);font-size:15px}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.links a{font:600 14px var(--f-body);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;text-decoration:none}
-.links a.main{background:var(--rust);border-color:var(--rust);color:#fff}
-.links a:hover{border-color:var(--muted)}
-a:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
-footer{font-size:13px;color:var(--muted);margin-top:22px}
-</style>
-
-<div class="wrap">
-  <header>
-    <div class="eyebrow">Arquitectura de Redes I · Tema 2 · Sesión 2.1</div>
-    <h1>Visualizaciones interactivas del DNS</h1>
-    <p>Tres animaciones para seguir la sesión a tu ritmo: cómo se forma un nombre, cómo se reparte el árbol de nombres entre quienes lo gestionan y cómo se resuelve una consulta.</p>
-  </header>
-
-  <ol>
-    <li>
-      <h2><a href="dns_nombres.html">Anatomía de un nombre: de las etiquetas al árbol</a></h2>
-      <p>Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas: 63 caracteres, punto final, mayúsculas, punycode.</p>
-      <div class="links"><a class="main" href="dns_nombres.html">Abrir</a></div>
-    </li>
-    <li>
-      <h2><a href="dns_delegacion.html">Delegación de zonas: ceder una rama del árbol</a></h2>
-      <p>Paso a paso de la cadena IANA → Red.es → UAH → Departamento, con los ficheros de zona. En «Delega tú» creas dominios y hosts y los cedes tú mismo: NS, pegamento y referencias.</p>
-      <div class="links"><a class="main" href="dns_delegacion.html">Abrir</a><a href="dns_delegation_en.html" hreflang="en" lang="en">English version</a></div>
-    </li>
-    <li>
-      <h2><a href="dns_consultas.html">Consultas DNS: iterativa y recursiva</a></h2>
-      <p>Mensaje a mensaje, la resolución de gaia.cs.umass.edu con la caché vacía. Compara los dos modos y fíjate en quién tiene que recordar consultas ajenas.</p>
-      <div class="links"><a class="main" href="dns_consultas.html">Abrir</a><a href="dns_queries_en.html" hreflang="en" lang="en">English version</a></div>
-    </li>
-  </ol>
-
-  <footer>Universidad de Alcalá · Enrique de la Hoz. Funcionan en el navegador, también en el móvil, sin instalar nada.</footer>
-</div>
+---
+title: Visualizaciones interactivas del DNS
+permalink: /docencia/ar1/dns/
+description: Tres animaciones de la sesión 2.1 de Arquitectura de Redes I, sobre nombres, delegación de zonas y consultas DNS.
+volver: { url: /docencia/ar1/, texto: Arquitectura de Redes I }
+entradilla: "Tres animaciones para seguir la sesión 2.1 a tu ritmo: cómo se forma un nombre, cómo se reparte el árbol de nombres entre quienes lo gestionan y cómo se resuelve una consulta."
+---
+{% include carpeta.html asignatura="ar1" carpeta="/docencia/ar1/dns/" %}

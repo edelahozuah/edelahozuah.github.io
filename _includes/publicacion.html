@@ -1,0 +1,24 @@
+{%- assign p = include.p -%}
+<li class="pub" data-categoria="{{ p.categoria }}">
+  <div class="row">
+    <div class="abbr">{% if p.abr %}<abbr class="badge" title="{{ p.medio }}">{{ p.abr }}</abbr>{% endif %}</div>
+    <div class="cuerpo">
+      <div class="title">{{ p.titulo }}</div>
+      <div class="author">
+        {%- if p.autores -%}
+          {%- for a in p.autores -%}
+            {%- assign minus = a | downcase -%}
+            {%- if minus contains 'hoz' -%}<em>{{ a }}</em>{%- else -%}{{ a }}{%- endif -%}{%- unless forloop.last -%}{% if forloop.rindex == 2 %}, {% if include.en %}and{% else %}y{% endif %} {% else %}, {% endif %}{% endunless -%}
+          {%- endfor -%}
+        {%- elsif p.autores_txt -%}{{ p.autores_txt }}{%- endif -%}
+      </div>
+      <div class="periodical">{% if p.medio %}<em>{{ p.medio }}</em>, {% endif %}{{ p.anio }}</div>
+      <div class="links">
+        {%- if p.doi %}<a class="btn" href="https://doi.org/{{ p.doi }}">DOI</a>{% elsif p.url %}<a class="btn" href="{{ p.url }}">HTML</a>{% endif -%}
+        {%- if p.pdf %}<a class="btn" href="{{ p.pdf | relative_url }}">PDF</a>{% endif -%}
+        {%- if p.arxiv %}<a class="btn" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
+        {%- if p.citas and p.citas > 0 %}<a class="citas" href="{{ p.scholar }}" title="Google Scholar">{{ p.citas }} {% if include.en %}citations{% else %}citas{% endif %}</a>{% endif -%}
+      </div>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,872 @@
+# Generado por scripts/actualizar_publicaciones.py; no editar a mano.
+# Las correcciones van en _data/publicaciones_ajustes.yml.
+- id: wifigraphscorrespondingtothepolytechnicschooloftheuniversity
+  origen: scholar
+  titulo: Wi-Fi Graphs corresponding to the Polytechnic School of the University of Alcalá
+  anio: 2025
+  categoria: otros
+  medio: Conjunto de datos
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:dfsIfKJdRG4C
+  autores_txt: JM Gimenez-Guzman, I Marsa-Maestre, D Orden, E de la Hoz
+- id: surgicalimmunizationstrategiesagainstlateralmovementinactive
+  titulo: Surgical immunization strategies against lateral movement in Active Directory environments
+  anio: 2024
+  categoria: revista
+  medio: Journal of Network and Computer Applications
+  autores:
+  - David Herranz-Oliveros
+  - Ivan Marsa-Maestre
+  - Jose Manuel Gimenez-Guzman
+  - Marino Tejedor-Romero
+  - Enrique de la Hoz
+  doi: 10.1016/j.jnca.2023.103810
+  citas: 8
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:70eg2SAEIzsC
+  abr: JNCA
+  destacada: true
+- id: anarchitecturalsystemforautomaticpedagogicalinterventionsinm
+  titulo: An Architectural System for Automatic Pedagogical Interventions in Massive Online Learning Environments
+  anio: 2023
+  categoria: congreso
+  medio: Lecture Notes in Networks and Systems
+  autores:
+  - D. Rossi
+  - V. Ströele
+  - F. Campos
+  - J.F. de Souza
+  - R. Braga
+  - N. Capuano
+  - E. de la Hoz
+  - S. Caballé
+  doi: 10.1007/978-3-031-29056-5_20
+  abr: LNNS
+- id: channelselectioninuncoordinatedieee80211networksusinggraphco
+  titulo: Channel Selection in Uncoordinated IEEE 802.11 Networks Using Graph Coloring
+  anio: 2023
+  categoria: revista
+  medio: Sensors
+  autores:
+  - Jose Manuel Gimenez-Guzman
+  - Ivan Marsa-Maestre
+  - Enrique de la Hoz
+  - David Orden
+  - David Herranz-Oliveros
+  doi: 10.3390/s23135932
+  citas: 9
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:35N4QoGY0k4C
+  abr: Sensors
+  pdf: /files/sensors-23-05932.pdf
+  destacada: true
+- id: democraticwirelesschannelassignmentfairresourceallocationinw
+  titulo: 'Democratic Wireless Channel Assignment: Fair Resource Allocation in Wi-Fi Networks'
+  anio: 2023
+  categoria: revista
+  medio: IEEE Internet Computing
+  autores:
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - M. Tejedor-Romero
+  - E. De La Hoz
+  - P. Murukannaiah
+  - M.P. Singh
+  doi: 10.1109/mic.2022.3201454
+  citas: 8
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:vV6vV6tmYwMC
+  abr: IEEE IC
+  destacada: true
+- id: nonlinearnegotiationapproachesforcomplexnetworkoptimizationa
+  titulo: 'Nonlinear Negotiation Approaches for Complex-Network Optimization: A Study Inspired by Wi-Fi Channel Assignment'
+  anio: 2019
+  categoria: revista
+  medio: Group Decision and Negotiation
+  autores:
+  - Ivan Marsa-Maestre
+  - Enrique de la Hoz
+  - Jose Manuel Gimenez-Guzman
+  - David Orden
+  - Mark Klein
+  doi: 10.1007/s10726-018-9600-z
+  arxiv: '1902.09457'
+  citas: 24
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IWHjjKOFINEC
+  abr: GDN
+- id: reactreactiveresilienceforcriticalinfrastructuresusinggraphc
+  titulo: 'REACT: reactive resilience for critical infrastructures using graph-coloring techniques'
+  anio: 2019
+  categoria: revista
+  medio: Journal of Network and Computer Applications
+  autores:
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - D. Orden
+  - E. De La Hoz
+  - M. Klein
+  doi: 10.1016/j.jnca.2019.07.003
+  arxiv: '1907.05117'
+  citas: 12
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:j3f4tGmQtD8C
+  abr: JNCA
+  destacada: true
+- id: spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo
+  titulo: Spectrum graph coloring to improve Wi-Fi channel assignment in a real-world scenario via edge contraction
+  anio: 2019
+  categoria: revista
+  medio: Discrete Applied Mathematics
+  autores:
+  - D. Orden
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - E. De La Hoz
+  - A. Álvarez-Suárez
+  doi: 10.1016/j.dam.2018.12.009
+  arxiv: '1811.06832'
+  citas: 21
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_Qo2XoVZTnwC
+  abr: DAM
+- id: accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
+  titulo: Access Control Mechanism for IoT Environments Based on Modelling Communication Procedures as Resources
+  anio: 2018
+  categoria: revista
+  medio: Sensors
+  autores:
+  - Luis Cruz-Piris
+  - Diego Rivera
+  - Ivan Marsa-Maestre
+  - Enrique De la Hoz
+  - Juan Velasco
+  doi: 10.3390/s18030917
+  citas: 100
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:R3hNpaxXUhUC
+  abr: Sensors
+  destacada: true
+- id: onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali
+  titulo: On the Goodness of Using Orthogonal Channels in WLAN IEEE 802.11 in Realistic Scenarios
+  anio: 2018
+  categoria: revista
+  medio: Wireless Communications and Mobile Computing
+  autores:
+  - Jose Manuel Gimenez-Guzman
+  - Ivan Marsa-Maestre
+  - David Orden
+  - Enrique de la Hoz
+  - Takayuki Ito
+  - Laurie Cuthbert
+  doi: 10.1155/2018/5742712
+  citas: 14
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RHpTSmoSYBkC
+  abr: WCMC
+- id: spectrumgraphcoloringandapplicationstowifichannelassignment
+  titulo: Spectrum Graph Coloring and Applications to Wi-Fi Channel Assignment
+  anio: 2018
+  categoria: revista
+  medio: Symmetry
+  autores:
+  - David Orden
+  - Jose Gimenez-Guzman
+  - Ivan Marsa-Maestre
+  - Enrique De la Hoz
+  doi: 10.3390/sym10030065
+  citas: 42
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:QIV2ME_5wuYC
+  abr: Symmetry
+- id: acooperativeframeworkformediatedgroupdecisionmaking
+  titulo: A cooperative framework for mediated group decision making
+  anio: 2017
+  categoria: capitulo
+  medio: Studies in Computational Intelligence
+  autores:
+  - M.A. Lopez-Carmona
+  - I. Marsa-Maestre
+  - E. de la Hoz
+  doi: 10.1007/978-3-319-51563-2_3
+  citas: 3
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:ZeXyd9-uunAC
+  abr: SCI
+- id: adistributedmultiagentapproachtoreactivenetworkresilience
+  titulo: A distributed, multi-Agent approach to reactive network resilience
+  anio: 2017
+  categoria: congreso
+  medio: Proceedings of the International Joint Conference on Autonomous Agents and Multiagent Systems, AAMAS
+  autores:
+  - E. De La Hoz
+  - J.M. Gimenez-Guzman
+  - I. Marsa-Maestre
+  - L. Cruz-Piris
+  - D. Orden
+  citas: 11
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hC7cP41nSMkC
+  abr: AAMAS
+- id: competitivebeliefpropagationtoefficientlysolvecomplexmultiag
+  titulo: Competitive Belief Propagation to Efficiently Solve Complex Multi-agent Negotiations with Network Structure
+  anio: 2017
+  categoria: congreso
+  medio: Lecture Notes in Computer Science
+  autores:
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - E. de la Hoz
+  - D. Orden
+  doi: 10.1007/978-3-319-71679-4_1
+  citas: 4
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:mB3voiENLucC
+  abr: LNCS
+- id: intelligenttrafficlightmanagementusingmultibehavioralagents
+  titulo: Intelligent Traffic Light Management using Multi-Behavioral Agents
+  anio: 2017
+  categoria: congreso
+  autores:
+  - Luis Cruz-Piris
+  - Diego Rivera
+  - Ivan Marsa-Maestre
+  - Enrique De la Hoz
+  - Susel Fernandez
+  doi: 10.4995/jitel2017.2017.6494
+  citas: 6
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:e5wmG9Sq2KIC
+  abr: JITEL
+- id: multiagentnonlinearnegotiationforwifichannelassignment
+  titulo: Multi-Agent nonlinear negotiation for Wi-Fi channel assignment
+  anio: 2017
+  categoria: congreso
+  medio: Proceedings of the International Joint Conference on Autonomous Agents and Multiagent Systems, AAMAS
+  autores:
+  - E. De La Hoz
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - D. Orden
+  - M. Klein
+  citas: 31
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:qUcmZB5y_30C
+  abr: AAMAS
+- id: optimizingvehicletripsusingagentnegotiationthroughatrafficma
+  origen: scholar
+  titulo: Optimizing vehicle trips using agent negotiation through a traffic matrix
+  anio: 2017
+  categoria: otros
+  medio: Proceedings of the The Tenth International Workshop on Agent-based Complex …
+  citas: 1
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:GnPB-g6toBAC
+  autores_txt: L Cruz-Piris, D Rivera, I Marsa-Maestre, E de la Hoz
+- id: protectingsensorsinaniotenvironmentbymodellingcommunications
+  titulo: Protecting Sensors in an IoT Environment by Modelling Communications as Resources
+  anio: 2017
+  categoria: congreso
+  medio: Proceedings
+  autores:
+  - Luis Cruz-Piris
+  - Diego Rivera
+  - German Lopez-Civera
+  - Enrique De la Hoz
+  - Ivan Marsa-Maestre
+  - Juan R. Velasco
+  doi: 10.3390/proceedings1080801
+  citas: 3
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:lSLTfruPkqcC
+  abr: MDPI Proc.
+- id: usinggraphpropertiesandclusteringtechniquestoselectdivisionm
+  titulo: Using graph properties and clustering techniques to select division mechanisms for scalable negotiations
+  anio: 2017
+  categoria: capitulo
+  medio: Studies in Computational Intelligence
+  autores:
+  - I. Marsa-Maestre
+  - C.M. Jonker
+  - M. Klein
+  - E. de la Hoz
+  doi: 10.1007/978-3-319-51563-2_5
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:L8Ckcad2t8MC
+  abr: SCI
+- id: anewsdntrafficcontrolapplicationforsecurityroutingincritical
+  titulo: A new SDN traffic control application for security routing in critical infrastructures
+  anio: 2016
+  categoria: congreso
+  medio: ICETE 2016 - Proceedings of the 13th International Joint Conference on e-Business and Telecommunications
+  autores:
+  - D. Adami
+  - S. Giordano
+  - G. D'Amore
+  - M.A. Brignoli
+  - E. De La Hoz
+  - G.L. Civera
+  citas: 1
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RGFaLdJalmkC
+  abr: ICETE
+- id: anarchitectureforsecuringcommunicationsincriticalinfrastruct
+  titulo: An Architecture for Securing Communications in Critical Infrastructure
+  anio: 2016
+  categoria: congreso
+  medio: 'DCNET: Proceedings of the 13th International Joint Conference on E-Business and Telecommunications - Vol. 1'
+  autores:
+  - Christian Callegari
+  - Alessandro Cantelli Forti
+  - Giuseppe D'Amore
+  - Enrique de la Hoz
+  - David Echarri
+  - Ivan Garcia-Ferreira
+  - German Lopez-Civera
+  - C Callegari
+  - M VanSinderen
+  - P Sarigiannidis
+  - P Samarati
+  - E Cabello
+  - P Lorenz
+  - MS Obaidat
+  doi: 10.5220/0006016801110120
+  citas: 5
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:bEWYMUwI8FkC
+  abr: ICETE
+- id: boundsonspectrumgraphcoloring
+  titulo: Bounds on spectrum graph coloring
+  anio: 2016
+  categoria: revista
+  medio: Electronic Notes in Discrete Mathematics
+  autores:
+  - D. Orden
+  - I. Marsa-Maestre
+  - J.M. Gimenez-Guzman
+  - E. de la Hoz
+  doi: 10.1016/j.endm.2016.09.012
+  citas: 6
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:7PzlFSSx8tAC
+  abr: ENDM
+- id: datasetanalysisforanomalydetectiononcriticalinfrastructures
+  titulo: Dataset Analysis for Anomaly Detection on Critical Infrastructures
+  anio: 2016
+  categoria: congreso
+  medio: 'DCNET: Proceedings of the 13th International Joint Conference on E-Business and Telecommunications - Vol. 1'
+  autores:
+  - German Lopez-Civera
+  - Enrique de la Hoz
+  - C Callegari
+  - M VanSinderen
+  - P Sarigiannidis
+  - P Samarati
+  - E Cabello
+  - P Lorenz
+  - MS Obaidat
+  doi: 10.5220/0006017701510158
+  citas: 1
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hFOr9nPyWt4C
+  abr: ICETE
+- id: towertopologyoptimizationfornetworkenhancedresilience
+  titulo: 'TOWER: Topology Optimization for netWork Enhanced Resilience'
+  anio: 2016
+  categoria: congreso
+  medio: 'DCNET: Proceedings of the 13th International Joint Conference on E-Business and Telecommunications - Vol. 1'
+  autores:
+  - Enrique de la Hoz
+  - Jose Manuel Gimenez-Guzman
+  - German Lopez-Civera
+  - Ivan Marsa-Maestre
+  - David Orden
+  - C Callegari
+  - M VanSinderen
+  - P Sarigiannidis
+  - P Samarati
+  - E Cabello
+  - P Lorenz
+  - MS Obaidat
+  doi: 10.5220/0006017101210128
+  citas: 1
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:-f6ydRqryjwC
+  abr: ICETE
+- id: applyinganunifiedaccesscontrolforiotbasedintelligentagentsys
+  titulo: Applying an unified access control for IoT-based Intelligent Agent Systems
+  anio: 2015
+  categoria: congreso
+  medio: 2015 IEEE 8th International Conference on Service-Oriented Computing and Applications (Soca)
+  autores:
+  - Diego Rivera
+  - Luis Cruz-Piris
+  - German Lopez-Civera
+  - Enrique de la Hoz
+  - Ivan Marsa-Maestre
+  - IEEE
+  doi: 10.1109/soca.2015.40
+  citas: 64
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:dhFuZR0502QC
+  abr: SOCA
+- id: automatednegotiationforresourceassignmentinwirelesssurveilla
+  titulo: Automated Negotiation for Resource Assignment in Wireless Surveillance Sensor Networks
+  anio: 2015
+  categoria: revista
+  medio: Sensors
+  autores:
+  - Enrique de la Hoz
+  - Jose Manuel Gimenez-Guzman
+  - Ivan Marsa-Maestre
+  - David Orden
+  doi: 10.3390/s151129547
+  citas: 31
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:mVmsd5A6BfQC
+  abr: Sensors
+  pdf: /files/sensors-15-29547.pdf
+- id: unaexperienciadeflippedclassroomeningenieriatelematica
+  origen: scholar
+  titulo: Una experiencia de «flipped classroom» en Ingeniería Telemática
+  anio: 2015
+  categoria: otros
+  medio: Universitat De Les Illes Balears
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:JV2RwH3_ST0C
+  autores_txt: I Marsá Maestre, JR Velasco Pérez, E Hoz de la Hoz, ...
+- id: usinggraphpropertiestoenablebetternegotiationsincomplexselfi
+  origen: scholar
+  titulo: Using graph properties to enable better negotiations in complex self-interested networks
+  anio: 2015
+  categoria: otros
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:4DMP91E08xMC
+  autores_txt: I Marsa-Maestre, E de la Hoz, CM Jonker, M Klein
+- id: usodetecnicasdenegociacionautomaticaparalaasignaciondecanale
+  origen: scholar
+  titulo: Uso de técnicas de negociación automática para la asignación de canales en IEEE 802.11
+  anio: 2015
+  categoria: otros
+  medio: Universitat de les Illes Balears
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:YFjsv_pBGBYC
+  autores_txt: E Hoz de la Hoz, JM Giménez Guzmán, I Marsá Maestre, D Orden Martín
+- id: alternativesocialwelfaredefinitionsformultipartynegotiationp
+  titulo: Alternative socialwelfare definitions for multiparty negotiation protocols
+  anio: 2014
+  categoria: capitulo
+  medio: Studies in Computational Intelligence
+  autores:
+  - E. de la Hoz
+  - M.A. Lopez-Carmona
+  - M. Klein
+  - I. Marsa-Maestre
+  doi: 10.1007/978-4-431-54758-7_2
+  citas: 3
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:qxL8FJ1GzNcC
+  abr: SCI
+- id: detectinganddefeatingadvancedmaninthemiddleattacksagainsttls
+  titulo: Detecting and defeating advanced man-in-the-middle attacks against TLS
+  anio: 2014
+  categoria: congreso
+  medio: 2014 6th International Conference on Cyber Conflict (Cycon 2014)
+  autores:
+  - Enrique de la Hoz
+  - Rafael Paez-Reyes
+  - Gary Cochrane
+  - Ivan Marsa-Maestre
+  - Jose Manuel Moreira-Lemus
+  - Bernardo Alarcos
+  - P Brangetto
+  - M Maybaum
+  - J Stinissen
+  doi: 10.1109/cycon.2014.6916404
+  citas: 37
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Wp0gIr-vW9MC
+  abr: CyCon
+- id: novelinsightsinagentbasedcomplexautomatednegotiation
+  titulo: Novel Insights in Agent-based Complex Automated Negotiation
+  anio: 2014
+  categoria: otros
+  medio: Studies in Computational Intelligence,
+  autores:
+  - Miguel A. Lopez-Carmona
+  - Takayuki Ito
+  - Minjie Zhang
+  - Quan Bai
+  - Katsuhide Fujita
+  - Ivan Marsa-Maestre
+  abr: SCI
+- id: consortiumformationusingaconsensuspolicybasednegotiationfram
+  titulo: Consortium formation using a consensus policy based negotiation framework
+  anio: 2013
+  categoria: capitulo
+  medio: Studies in Computational Intelligence
+  autores:
+  - Enrique de la Hoz
+  - Miguel A. Lopez-Carmona
+  - Mark Klein
+  - Ivan Marsa-Maestre
+  doi: 10.1007/978-3-642-30737-9_1
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:3fE2CSJIrl8C
+  abr: SCI
+- id: designandevaluationofalearningenvironmenttoeffectivelyprovid
+  titulo: Design and evaluation of a learning environment to effectively provide network security skills
+  anio: 2013
+  categoria: revista
+  medio: Computers and Education
+  autores:
+  - I. Marsa-Maestre
+  - E. De La Hoz
+  - J.M. Gimenez-Guzman
+  - M.A. Lopez-Carmona
+  doi: 10.1016/j.compedu.2013.07.022
+  citas: 42
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_kc_bZDykSQC
+  abr: C&E
+  destacada: true
+- id: negotiationtechniquesforcomplexsystemoptimizationwithselfint
+  origen: scholar
+  titulo: 'Negotiation techniques for complex system optimization with self-interested parties: the challenges of ever-increasing scale and complexity'
+  anio: 2013
+  categoria: otros
+  medio: European Network for Social Intelligence
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:4TOpqqG69KYC
+  autores_txt: I Marsaa-Maestre, E de la Hoz, M Klein
+- id: trendsinmultiagentnegotiationfrombilateralbargainingtoconsen
+  titulo: 'Trends in multiagent negotiation: From bilateral bargaining to consensus policies'
+  anio: 2013
+  categoria: capitulo
+  medio: Agreement Technologies
+  autores:
+  - Enrique de la Hoz
+  - Miguel A. López-Carmona
+  - Iván Marsá-Maestre
+  doi: 10.1007/978-94-007-5583-3_22
+  citas: 3
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Zph67rFs4hoC
+- id: effectofanticipatorystigmergyondecentralizedtrafficcongestio
+  titulo: Effect of anticipatory stigmergy on decentralized traffic congestion control
+  anio: 2012
+  categoria: congreso
+  medio: 'PRIMA 2012: Principles and Practice of Multi-Agent Systems. Proceedings 15th International Conference'
+  autores:
+  - T. Ito
+  - R. Kanamori
+  - J. Takahashi
+  - I. Marsa Maestre
+  - E. de la Hoz
+  - I. Rahwan
+  - W. Wobcke
+  - S. Sen
+  - T. Sugawara
+  doi: 10.1007/978-3-642-32729-2_15
+  citas: 6
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:MXK_kJrjxJIC
+  abr: PRIMA
+- id: hierarchicalclusteringandlinguisticmediationrulesformultiage
+  origen: scholar
+  titulo: Hierarchical clustering and linguistic mediation rules for multiagent negotiation.
+  anio: 2012
+  categoria: otros
+  medio: AAMAS, 1259-1260
+  citas: 8
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:8k81kl-MbHgC
+  autores_txt: E de la Hoz, MA López-Carmona, M Klein, I Marsa-Maestre
+  abr: AAMAS
+- id: mediatedheuristicapproachesandalternativesocialwelfaredefini
+  titulo: Mediated Heuristic Approaches and Alternative Social Welfare Definitions for Complex Contract Negotiations Involving Highly Uncorrelated Utility Spaces
+  anio: 2012
+  categoria: otros
+  medio: Social Welfare
+  autores:
+  - Ivan Marsa-Maestre
+  - Miguel A.
+  - Enrique de la Hoz
+  - Mark Klei
+  doi: 10.5772/38681
+  citas: 1
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:0EnyYjriUFMC
+- id: simulationofcoordinatedanticipatoryvehicleroutingstrategieso
+  titulo: Simulation of Coordinated Anticipatory Vehicle Routing Strategies on MATSim
+  anio: 2012
+  categoria: congreso
+  medio: Agent Based Simulation for a Sustainable Society and Multi-agent Smart Computing. International Workshops, PRIMA 2011. Revised Selected Papers
+  autores:
+  - E. de la Hoz
+  - I. Marsa-Maestre
+  - M.A. Lopez-Carmona
+  - S. Cranefield
+  - I. Song
+  doi: 10.1007/978-3-642-35612-4_7
+  citas: 4
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:kNdYIx-mwKoC
+  abr: PRIMA
+- id: thecomparisonofstigmergystrategiesfordecentralizedtrafficcon
+  titulo: 'The comparison of stigmergy strategies for decentralized traffic congestion control: Preliminary results'
+  anio: 2012
+  categoria: congreso
+  medio: 'PRICAI 2012: Trends in Artificial Intelligence'
+  autores:
+  - T. Ito
+  - R. Kanamori
+  - J. Takahashi
+  - I. Maestre
+  - E. De La Hoz
+  doi: 10.1007/978-3-642-32695-0_15
+  citas: 26
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:KlAtU1dfN6UC
+  abr: PRICAI
+- id: usingascenariogenerationframeworkforeducationonsystemandinte
+  titulo: Using a scenario generation framework for education on system and internet security
+  anio: 2012
+  categoria: congreso
+  medio: 2012 IEEE Global Engineering Education Conference (EDUCON 2012)
+  autores:
+  - I. Marsá-Maestre
+  - E. De La Hoz
+  - J.M. Giménez-Guzman
+  - M.A. López-Carmona
+  doi: 10.1109/educon.2012.6201043
+  citas: 8
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:5nxA0vEk-isC
+  abr: EDUCON
+- id: aregionbasedmultiissuenegotiationprotocolfornonmonotonicutil
+  titulo: A region-based multi-issue negotiation protocol for nonmonotonic utility spaces
+  anio: 2011
+  categoria: revista
+  medio: Computational Intelligence
+  autores:
+  - M.A. Lopez-Carmona
+  - I. Marsa-Maestre
+  - E. De La Hoz
+  - J.R. Velasco
+  doi: 10.1111/j.1467-8640.2011.00377.x
+  citas: 30
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:d1gkVwhDpl0C
+  abr: COIN
+- id: consensuspolicybasedmultiagentnegotiation
+  titulo: Consensus policy based multi-agent negotiation
+  anio: 2011
+  categoria: congreso
+  medio: Lecture Notes in Computer Science
+  autores:
+  - Enrique de la Hoz
+  - Miguel A. Lopez-Carmona
+  - Mark Klein
+  - Ivan Marsa-Maestre
+  - D Kinny
+  - JYJ Hsu
+  - G Governatori
+  - A Ghose
+  doi: 10.1007/978-3-642-25044-6_14
+  citas: 4
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:W7OEmFMy1HYC
+  abr: LNCS
+- id: extendingmatsimtoallowthesimulationofroutecoordinationmechan
+  origen: scholar
+  titulo: Extending matsim to allow the simulation of route coordination mechanisms
+  anio: 2011
+  categoria: otros
+  medio: Proc. The 1st International Workshop on Multi-Agent Smart Computing (MASmart …
+  citas: 7
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:aqlVkmm33-oC
+  autores_txt: E de la Hoz, I Marsa-Maestre, MA Lopez-Carmona, P Perez
+- id: negowikiasetofcommunitytoolsfortheconsistentcomparisonofnego
+  titulo: 'Negowiki: A set of community tools for the consistent comparison of negotiation approaches'
+  anio: 2011
+  categoria: congreso
+  medio: Agents in Principle, Agents in Practice
+  autores:
+  - I. Marsa-Maestre
+  - M. Klein
+  - E. De La Hoz
+  - M. A. Lopez-Carmona
+  doi: 10.1007/978-3-642-25044-6_34
+  citas: 5
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Tyk-4Ss8FVUC
+  abr: PRIMA
+- id: amultiissuenegotiationframeworkfornonmonotonicpreferencespac
+  titulo: A multi-issue negotiation framework for non-monotonic preference spaces (extended abstract)
+  anio: 2010
+  categoria: congreso
+  medio: Proceedings of the Ninth International Conference on Autonomous Agents and Multiagent Systems
+  autores:
+  - M. A. Lopez-Carmona
+  - I. Marsa-Maestre
+  - J. R. Velasco
+  - E. De La Hoz
+  citas: 5
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:zYLM7Y9cAGgC
+  abr: AAMAS
+- id: avoidingtheprisonersdilemmainauctionbasednegotiationsforhigh
+  titulo: Avoiding the prisoner's dilemma in auction-based negotiations for highly rugged utility spaces
+  anio: 2010
+  categoria: congreso
+  medio: Proceedings of the International Joint Conference on Autonomous Agents and Multiagent Systems, AAMAS
+  autores:
+  - I. Marsa-Maestre
+  - M.A. Lopez-Carmona
+  - J.R. Velasco
+  - E. De La Hoz
+  citas: 21
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u-x6o8ySG0sC
+  abr: AAMAS
+- id: herramientaparalageneracioindeescenariosdeapoyoaladocenciade
+  titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes
+  anio: 2010
+  categoria: congreso
+  medio: I Jornadas de Innovación Educativa en Ingeniería Telemática (JIE 2010)
+  autores:
+  - E. De La Hoz
+  - I. Marsa-Maestre
+  - M. A. Lopez-Carmona
+  - M. T. Lopez-Merayo
+  citas: 1
+  abr: JIE
+- id: strategiesforoffergenerationandrelaxationinfuzzyconstraintba
+  titulo: Strategies for offer generation and relaxation in fuzzy constraint-based negotiation models
+  anio: 2010
+  categoria: revista
+  medio: Multiagent and Grid Systems
+  autores:
+  - M.A. Lopez-Carmona
+  - I. Marsa-Maestre
+  - J.R. Velasco
+  - E. De la Hoz
+  - B. Alarcos
+  doi: 10.3233/mgs-2010-0163
+  abr: MAGS
+- id: usingrfidtoenhancesecurityinoffsitedatastorage
+  titulo: Using RFID to enhance security in off-site data storage.
+  anio: 2010
+  categoria: revista
+  medio: Sensors
+  autores:
+  - Lopez-Carmona MA
+  - Marsa-Maestre I
+  - de la Hoz E
+  - Velasco JR
+  doi: 10.3390/s100908010
+  citas: 6
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:9yKSN-GCB0IC
+  abr: Sensors
+- id: aninfocardbasedproposalforunifiedsinglesignon
+  titulo: An Infocard-Based Proposal for Unified Single Sign on
+  anio: 2009
+  categoria: congreso
+  medio: Saint, 2009 Ninth Annual International Symposium on Applications and the Internet, 2009
+  autores:
+  - E. De La Hoz
+  - A. García
+  - M.-M. Iván
+  - M.A. López-Carmona
+  - B. Alarcos
+  doi: 10.1109/saint.2009.54
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:WF5omc3nYNoC
+  abr: SAINT
+- id: effectivebiddinganddealidentificationfornegotiationsinhighly
+  titulo: Effective bidding and deal identification for negotiations in highly nonlinear scenarios
+  anio: 2009
+  categoria: congreso
+  medio: Proc. of the Eighth International Joint Conference on Autonomous Agents and Multi-Agent Systems (AAMAS-2009)
+  autores:
+  - I. Marsa-Maestre
+  - M.A. Lopez-Carmona
+  - J.R. Velasco
+  - E. De La Hoz
+  citas: 78
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u5HHmVD_uO8C
+  abr: AAMAS
+- id: negoexploreraregionbasedrecursiveapproachtobilateralmultiatt
+  titulo: 'NegoExplorer: A region-based recursive approach to bilateral multi-attribute negotiation'
+  anio: 2009
+  categoria: congreso
+  medio: Lecture Notes in Computer Science
+  autores:
+  - Miguel A. Lopez-Carmona
+  - Ivan Marsa-Maestre
+  - Enrique de la Hoz
+  - Juan R. Velasco
+  - JJ Yang
+  - M Yokoo
+  - T Ito
+  - Z Jin
+  - P Scerri
+  doi: 10.1007/978-3-642-11161-7_18
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IjCSPb-OGe4C
+  abr: LNCS
+- id: usingclusteringtechniquestoimprovefuzzyconstraintbasedautoma
+  titulo: Using clustering techniques to improve fuzzy constraint based automated purchase negotiations
+  anio: 2009
+  categoria: capitulo
+  medio: Studies in Computational Intelligence
+  autores:
+  - M.A. Lopez-Carmona
+  - I. Marsa-Maestre
+  - J.R. Velasco
+  - E. de la Hoz
+  doi: 10.1007/978-3-642-03190-8_5
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:UeHWp8X0CEIC
+  abr: SCI
+- id: dispositivosmovilesyespaciosinteligentespersonales
+  origen: scholar
+  titulo: Dispositivos móviles y Espacios Inteligentes Personales
+  anio: 2007
+  categoria: otros
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_FxGoFyzp5QC
+  autores_txt: I Marsá-Maestre, MA López-Carmona, A Navarro, E de la Hoz
+- id: unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint
+  origen: scholar
+  titulo: Una Arquitectura de Seguridad Jerárquica para Entornos de Trabajo Inteligentes
+  anio: 2007
+  categoria: otros
+  citas: 0
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:roLk4NBRz8UC
+  autores_txt: E Hoz de la Hoz, I Marsá Maestre, AJ Vicente Rodríguez, ...
+- id: ahierarchicalagentbasedapproachtosecurityinsmartoffices
+  titulo: A hierarchical, agent-based approach to security in smart offices
+  anio: 2006
+  categoria: congreso
+  medio: Proceedings of the 2006 Internacional Conference on Ubiquitous Computing (ICUC 06)
+  autores:
+  - I. Marsá-Maestre
+  - E. De La Hoz
+  - B. Alarcos
+  - J.R. Velasco
+  citas: 25
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:eQOLeE2rZwMC
+  abr: ICUC
+- id: locationawareservicesandinterfacesinsmarthomesusingmultiagen
+  titulo: Location-aware services and interfaces in smart homes using multiagent systems
+  anio: 2005
+  categoria: congreso
+  medio: Proceedings of the 2005 International Conference on Pervasive Systems and Computing, PSC'05
+  autores:
+  - J.R. Velasco
+  - I.M. Maestre
+  - A. Navarro
+  - M.A. Lopez
+  - A.J. Vicente
+  - E. De La Hoz
+  - A. Paricio
+  - M. Machuca
+  citas: 30
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:YOwf2qJgpHMC
+  abr: PSC
+- id: securitymechanismsforadhocnetworksinurbanenvironmentsmecanis
+  titulo: Mecanismos de seguridad para una red ad hoc en un entorno urbano
+  anio: 2005
+  categoria: congreso
+  medio: CEUR Workshop Proceedings
+  autores:
+  - E. De La Hoz
+  - I. Marsá
+  - B. Alarcos
+  abr: CEUR
+- id: personalizaciondeserviciosmultimediaenelhogardigitalintelige
+  origen: scholar
+  titulo: Personalización de servicios multimedia en el hogar digital inteligente
+  anio: 2005
+  categoria: otros
+  medio: Mundo Internet 2005
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:J_g5lzvAfSwC
+  autores_txt: JR Velasco, I Marsá, A Navarro, MA López, AJ Vicente, E de la Hoz, ...
+- id: performanceanalysisofasecurityarchitectureforactivenetworksi
+  titulo: Performance analysis of a security architecture for active networks in Java
+  anio: 2003
+  categoria: congreso
+  medio: Proc. CSN'03
+  autores:
+  - B. Alarcos
+  - E. De La Hoz
+  - M. Sedano
+  - M. Calderón
+  citas: 2
+  scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:ufrVoPGSRksC
+  abr: CSN

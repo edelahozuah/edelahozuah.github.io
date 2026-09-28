@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/sitio.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
+</head>
+<body>
+  <a class="saltar" href="#contenido">{% if page.lang == 'en' %}Skip to content{% else %}Saltar al contenido{% endif %}</a>
+  <header class="navbar">
+    <div class="contenedor navbar__fila">
+      <a class="navbar__marca" href="{{ '/' | relative_url }}"><span class="negrita">Enrique</span> de la Hoz</a>
+      <nav aria-label="{% if page.lang == 'en' %}Main{% else %}Principal{% endif %}">
+        <ul class="navbar__menu">
+          {% if page.lang == 'en' %}
+          <li><a href="{{ '/en/' | relative_url }}" aria-current="page">about</a></li>
+          <li><a href="{{ '/publicaciones/' | relative_url }}">publications</a></li>
+          <li><a href="{{ '/recursos/' | relative_url }}">teaching resources</a></li>
+          <li><a href="{{ '/' | relative_url }}" hreflang="es" lang="es">es</a></li>
+          {% else %}
+          {% for item in site.navegacion %}
+            {% if item.url == '/' %}
+              {% assign actual = false %}{% if page.url == '/' %}{% assign actual = true %}{% endif %}
+            {% else %}
+              {% assign prefijo = page.url | slice: 0, item.url.size %}
+              {% assign actual = false %}{% if prefijo == item.url %}{% assign actual = true %}{% endif %}
+            {% endif %}
+          <li><a href="{{ item.url | relative_url }}"{% if actual %} aria-current="page"{% endif %}>{{ item.titulo }}</a></li>
+          {% endfor %}
+          <li><a href="{{ '/en/' | relative_url }}" hreflang="en" lang="en">en</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    {{ content }}
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      &copy; Copyright {{ site.time | date: '%Y' }} {{ site.autor.nombre }}.
+      {% if page.lang == 'en' %}Teaching materials licensed under{% else %}Materiales docentes bajo licencia{% endif %}
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.{{ page.lang | default: site.lang }}" rel="license">CC BY-SA 4.0</a>.
+      {% if page.lang == 'en' %}Built with Jekyll and hosted on GitHub Pages.{% else %}Hecho con Jekyll y alojado en GitHub Pages.{% endif %}
+    </div>
+  </footer>
+  {% if page.script %}<script src="{{ page.script | relative_url }}" defer></script>{% endif %}
+</body>
+</html>

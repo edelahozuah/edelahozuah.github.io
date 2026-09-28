@@ -1,12 +1,5 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-group :jekyll_plugins do
-  gem 'jekyll'
-  gem 'jekyll-feed'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-redirect-from'
-  gem 'jemoji'
-  gem 'webrick', '~> 1.8'
-end
-
-gem 'github-pages'
+# Las mismas versiones que usa GitHub Pages al publicar.
+gem "github-pages", group: :jekyll_plugins
+gem "webrick", "~> 1.8"

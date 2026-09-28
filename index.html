@@ -1,0 +1,58 @@
+---
+layout: base
+title: Enrique de la Hoz
+description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">Enrique</span> de la Hoz</h1>
+    <p class="desc">{{ site.autor.puesto }}. {{ site.autor.departamento }}, <a href="https://www.uah.es">{{ site.autor.universidad }}</a>.</p>
+  </header>
+
+  <div class="about">
+    <div class="profile">
+      <div class="address">
+        <p>Escuela Politécnica Superior</p>
+        <p>Ctra. Madrid-Barcelona, km 33,600</p>
+        <p>28805 Alcalá de Henares, Madrid</p>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <p>Soy profesor titular en el Departamento de Automática de la Universidad de Alcalá, dentro del área de Ingeniería Telemática, y miembro del grupo de investigación <strong>NetIS</strong> (Redes y Sistemas Inteligentes).</p>
+      <p>Mi investigación se centra en la <a href="{{ '/investigacion/' | relative_url }}#seguridad">seguridad de redes y sistemas</a>, la <a href="{{ '/investigacion/' | relative_url }}#redes-inalambricas">optimización de redes inalámbricas</a> mediante coloración de grafos, la <a href="{{ '/investigacion/' | relative_url }}#resiliencia">resiliencia de infraestructuras críticas</a> y la <a href="{{ '/investigacion/' | relative_url }}#negociacion">negociación automática</a> en sistemas multiagente, el tema de mi tesis doctoral (2017).</p>
+      <p>Imparto asignaturas de redes y seguridad en los grados de Telecomunicación e Informática y en el Máster Universitario en Ciberseguridad. En <a href="{{ '/recursos/' | relative_url }}">recursos</a> publico las visualizaciones interactivas que uso en clase, empezando por <a href="{{ '/docencia/ar1/' | relative_url }}">Arquitectura de Redes I</a>.</p>
+    </div>
+
+    {% if site.data.noticias %}
+    <h2>noticias</h2>
+    <div class="news">
+      <table>
+        {% for n in site.data.noticias limit: 5 %}
+        <tr>
+          <th scope="row">{% include fecha.html fecha=n.fecha %}</th>
+          <td>{{ n.texto | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endif %}
+
+    <h2><a href="{{ '/publicaciones/' | relative_url }}" class="heredado">publicaciones destacadas</a></h2>
+    <div class="publications">
+      <ol class="bibliography">
+        {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+        {% for p in destacadas %}{% include publicacion.html p=p %}{% endfor %}
+      </ol>
+    </div>
+
+    <div class="social">
+      <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a>
+      <a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a>
+      <a href="{{ site.autor.scholar }}">Google Scholar</a>
+      <a href="{{ site.autor.portal_uah }}">Portal científico UAH</a>
+      <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
+      <p class="contact-note">La forma más rápida de contactar conmigo es el correo electrónico.</p>
+    </div>
+  </div>
+</article>

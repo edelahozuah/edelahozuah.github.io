@@ -1,0 +1,15 @@
+# Asignaturas que se muestran en /docencia/. Las que tienen «pagina» enlazan a
+# su página de recursos; para añadir una, crea docencia/<id>/index.md (copia la
+# de ar1) y sus recursos en _data/recursos.yml.
+- id: ar1
+  nombre: Arquitectura de Redes I
+  pagina: /docencia/ar1/
+- id: ar2
+  nombre: Arquitectura de Redes II
+- id: redes
+  nombre: Redes de Computadores
+- id: seguridad
+  nombre: Seguridad
+- id: ddss
+  nombre: Diseño y Desarrollo de Sistemas Seguros
+  nivel: Máster Universitario en Ciberseguridad

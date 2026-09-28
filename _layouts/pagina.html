@@ -1,0 +1,11 @@
+---
+layout: base
+---
+<article class="post">
+  <header class="post-header">
+    {% if page.volver %}<p class="migas"><a href="{{ page.volver.url | relative_url }}">{{ page.volver.texto }}</a> /</p>{% endif %}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.entradilla %}<p class="post-description">{{ page.entradilla }}</p>{% endif %}
+  </header>
+  {{ content }}
+</article>

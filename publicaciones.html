@@ -1,0 +1,25 @@
+---
+title: publicaciones
+permalink: /publicaciones/
+entradilla: Publicaciones en orden cronológico inverso, reunidas desde ORCID y Google Scholar.
+script: /assets/js/publicaciones.js
+---
+{% assign pubs = site.data.publicaciones %}
+<div class="publications">
+  <div class="filtros" role="group" aria-label="Filtrar por tipo" hidden>
+    <button type="button" aria-pressed="true" data-filtro="todas">todas ({{ pubs | size }})</button>
+    {% assign cats = "revista:revistas,congreso:congresos,capitulo:libros y capítulos,otros:otros" | split: "," %}
+    {% for c in cats %}{% assign par = c | split: ":" %}{% assign n = pubs | where: "categoria", par[0] | size %}
+    <button type="button" aria-pressed="false" data-filtro="{{ par[0] }}">{{ par[1] }} ({{ n }})</button>
+    {% endfor %}
+  </div>
+
+  {% assign por_anio = pubs | group_by: "anio" %}
+  {% for g in por_anio %}
+  <section data-anio>
+    <h2 class="bibliography">{{ g.name | default: "sin fecha" }}</h2>
+    <ol class="bibliography">{% for p in g.items %}{% include publicacion.html p=p %}{% endfor %}</ol>
+  </section>
+  {% endfor %}
+  {% if site.data.metricas %}<p class="nota">Citas según Google Scholar, actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}
+</div>

@@ -1,0 +1,49 @@
+---
+layout: base
+lang: en
+title: Enrique de la Hoz
+permalink: /en/
+description: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">Enrique</span> de la Hoz</h1>
+    <p class="desc">Associate Professor. Computer Science Department, <a href="https://www.uah.es/en/">University of Alcalá</a>.</p>
+  </header>
+
+  <div class="about">
+    <div class="profile">
+      <div class="address">
+        <p>Escuela Politécnica Superior</p>
+        <p>Ctra. Madrid-Barcelona, km 33,600</p>
+        <p>28805 Alcalá de Henares, Spain</p>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <p>I am an associate professor at the University of Alcalá (Spain), in the Telematics Engineering area, and a member of the <strong>NetIS</strong> (Networks and Intelligent Systems) research group.</p>
+      <p>My research covers network and systems security, wireless network optimization through graph coloring, critical infrastructure resilience, and automated negotiation in multi-agent systems, the topic of my PhD thesis (2017).</p>
+      <p>I teach networking and security courses in the Telecommunication and Computer Engineering degrees and in the Master's in Cybersecurity. Some of my interactive teaching resources are available in English:</p>
+      <ul>
+        {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos %}{% if r.en %}
+        <li><a href="{{ r.en | relative_url }}">{{ r.titulo_en | default: r.titulo }}</a></li>
+        {% endif %}{% endfor %}{% endfor %}{% endfor %}
+      </ul>
+    </div>
+
+    <h2><a href="{{ '/publicaciones/' | relative_url }}" class="heredado">selected publications</a></h2>
+    <div class="publications">
+      <ol class="bibliography">
+        {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
+        {% for p in destacadas %}{% include publicacion.html p=p en=true %}{% endfor %}
+      </ol>
+    </div>
+
+    <div class="social">
+      <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a>
+      <a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a>
+      <a href="{{ site.autor.scholar }}">Google Scholar</a>
+      <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
+    </div>
+  </div>
+</article>
