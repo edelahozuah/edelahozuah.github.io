@@ -3,7 +3,7 @@ layout: base
 ---
 <article class="pagina">
   <header class="pagina__cabecera">
-    {% if page.antetitulo %}<p class="antetitulo">{{ page.antetitulo }}</p>{% endif %}
+    {% if page.volver %}<p class="volver"><a href="{{ page.volver.url | relative_url }}">{{ page.volver.texto }}</a></p>{% endif %}
     <h1>{{ page.title }}</h1>
     {% if page.entradilla %}<p class="entradilla">{{ page.entradilla }}</p>{% endif %}
   </header>

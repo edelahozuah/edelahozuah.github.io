@@ -4,7 +4,7 @@ permalink: /recursos/
 entradilla: Todas las visualizaciones y materiales publicados, por asignatura. Cada uno funciona por sí solo en el navegador y puede enlazarse directamente desde el aula virtual.
 ---
 {% for a in site.data.asignaturas %}{% if site.data.recursos[a.id] %}
-<section class="bloque">
+<section>
   <h2 class="asignatura__titulo"><a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a></h2>
   <div class="anidado">{% include temas.html asignatura=a.id nivel=3 %}</div>
 </section>

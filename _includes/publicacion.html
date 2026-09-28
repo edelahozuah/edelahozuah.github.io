@@ -10,9 +10,13 @@
     {%- elsif p.autores_txt -%}{{ p.autores_txt }}{%- endif -%}
   </p>
   <p class="pub__medio">
-    {%- if p.medio %}<em>{{ p.medio }}</em>{% if p.anio %}, {% endif %}{% endif %}{{ p.anio }}
-    {%- if p.citas and p.citas > 0 %} · <a href="{{ p.scholar }}" class="pub__citas">{{ p.citas }} {% if include.en %}citations{% else %}citas{% endif %}</a>{% endif -%}
-    {%- if p.arxiv %} · <a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
-    {%- if p.pdf %} · <a href="{{ p.pdf | relative_url }}">PDF</a>{% endif -%}
+    {%- if p.medio %}<em>{{ p.medio }}</em>{% if p.anio and include.sin_anio == nil %}, {% endif %}{% endif %}{% unless include.sin_anio %}{{ p.anio }}{% endunless %}
+    {%- if p.citas > 0 or p.pdf or p.arxiv %}
+    <span class="pub__enlaces">
+      {%- if p.citas and p.citas > 0 %}<a href="{{ p.scholar }}">{{ p.citas }} {% if include.en %}citations{% else %}citas{% endif %}</a>{% endif -%}
+      {%- if p.pdf %}<a href="{{ p.pdf | relative_url }}">PDF</a>{% endif -%}
+      {%- if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
+    </span>
+    {%- endif -%}
   </p>
 </li>

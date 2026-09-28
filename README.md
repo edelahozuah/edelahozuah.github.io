@@ -15,7 +15,7 @@ compilación propio.
 | Líneas de investigación | `_data/lineas.yml` |
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
-| Estilos | `assets/css/sitio.css` |
+| Estilos (papel, musgo, Alegreya) | `assets/css/sitio.css` |
 
 ## Añadir un recurso
 
@@ -59,3 +59,9 @@ docker run --rm -it -p 4000:4000 -v "$PWD":/srv -w /srv ruby:3.3 \
 ```
 
 y abre <http://localhost:4000>.
+
+## Licencia
+
+Los materiales docentes (todo lo que hay en `docencia/`) se publican con
+licencia [Creative Commons Reconocimiento-CompartirIgual 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)
+(CC BY-SA 4.0). El aviso aparece en el pie de todas las páginas.

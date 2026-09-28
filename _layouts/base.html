@@ -6,7 +6,7 @@
   {% seo %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/sitio.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
 </head>
@@ -37,8 +37,11 @@
 
   <footer class="pie">
     <div class="envoltura pie__fila">
-      <p>{{ site.autor.nombre }} · {{ site.autor.departamento }} · {{ site.autor.universidad }}<br>
-        <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a></p>
+      <div>
+        <p>{{ site.autor.nombre }}<br>{{ site.autor.departamento }}, {{ site.autor.universidad }}<br>
+          <a href="mailto:{{ site.autor.email }}">{{ site.autor.email }}</a></p>
+        <p class="pie__licencia">{% if page.lang == 'en' %}Teaching materials are licensed under{% else %}Los materiales docentes se publican con licencia{% endif %} <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.{{ page.lang | default: site.lang }}" rel="license">CC BY-SA 4.0</a>.</p>
+      </div>
       <ul class="perfiles">
         <li><a href="https://orcid.org/{{ site.autor.orcid }}">ORCID</a></li>
         <li><a href="{{ site.autor.scholar }}">Google Scholar</a></li>

@@ -3,8 +3,8 @@
 {%- assign temas = site.data.recursos[include.asignatura] | sort: "tema" -%}
 {%- for t in temas -%}
 <section class="tema" id="tema-{{ t.tema }}">
-  <h{{ h }}><span class="tema__num">Tema {{ t.tema }}</span>{% if t.titulo %} {{ t.titulo }}{% endif %}</h{{ h }}>
-  {% if t.indice %}<p class="nota"><a href="{{ t.indice | relative_url }}">Página de la sesión →</a></p>{% endif %}
+  <h{{ h }}>Tema {{ t.tema }}{% if t.titulo %}. {{ t.titulo }}{% endif %}</h{{ h }}>
+  {% if t.indice and include.sin_indice == nil %}<p class="discreto">Todo el material de la sesión en <a href="{{ t.indice | relative_url }}">una sola página</a>.</p>{% endif %}
   <ul class="recursos">{% for r in t.recursos %}{% include recurso.html r=r nivel=hr %}{% endfor %}</ul>
 </section>
 {%- endfor -%}

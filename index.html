@@ -4,58 +4,57 @@ title: Enrique de la Hoz
 description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
 ---
 <section class="portada">
-  <p class="antetitulo">{{ site.autor.puesto }} · {{ site.autor.universidad }}</p>
-  <h1>{{ site.autor.nombre }}</h1>
-  <p class="entradilla">Enseño e investigo en redes de comunicaciones y ciberseguridad en el {{ site.autor.departamento }} de la {{ site.autor.universidad }}, dentro del área de {{ site.autor.area }} y del grupo {{ site.autor.grupo }}.</p>
-  <p class="portada__enlaces">
-    <a class="boton" href="{{ '/docencia/' | relative_url }}">Docencia y recursos</a>
-    <a class="boton boton--sec" href="{{ '/investigacion/' | relative_url }}">Investigación</a>
-  </p>
+  <div class="portada__texto">
+    <h1>Enrique <span class="sin-corte">de la Hoz</span></h1>
+    <p class="entradilla">Soy {{ site.autor.puesto | downcase }} en el {{ site.autor.departamento }} de la {{ site.autor.universidad }}. Enseño redes de comunicaciones y ciberseguridad, e investigo en el grupo NetIS sobre cómo hacer que las redes funcionen mejor y resistan ataques.</p>
+    <p class="portada__enlaces">
+      <a class="boton" href="{{ '/recursos/' | relative_url }}">Recursos para clase</a>
+      <a class="enlace-fuerte" href="{{ '/investigacion/' | relative_url }}">Mi investigación</a>
+    </p>
+  </div>
+  <figure class="portada__grafo">
+    {% include grafo.svg %}
+    <figcaption>Ningún par de nodos vecinos comparte color. Así se reparten los canales Wi‑Fi para que los puntos de acceso cercanos no se interfieran.</figcaption>
+  </figure>
 </section>
 
-<div class="rejilla-2">
-  <section class="bloque">
+<div class="dos-columnas">
+  <section>
     <h2>Docencia</h2>
     <p>Imparto asignaturas de redes y seguridad en los grados de Telecomunicación e Informática de la Escuela Politécnica Superior y en el Máster Universitario en Ciberseguridad.</p>
-    <ul class="lista-simple">
+    <ul class="lista-limpia">
       {% for a in site.data.asignaturas %}
-      <li>{% if a.pagina %}<a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a> <span class="etiqueta">recursos</span>{% else %}{{ a.nombre }}{% endif %}</li>
+      <li>{% if a.pagina %}<a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a> <em class="discreto">con recursos</em>{% else %}{{ a.nombre }}{% endif %}</li>
       {% endfor %}
     </ul>
   </section>
 
-  <section class="bloque">
+  <section>
     <h2>Investigación</h2>
-    <ul class="lista-simple">
+    <ul class="lista-limpia">
       {% for l in site.data.lineas %}<li><a href="{{ '/investigacion/' | relative_url }}#{{ l.id }}">{{ l.titulo }}</a></li>{% endfor %}
     </ul>
     {% assign m = site.data.metricas %}
-    {% if m %}
-    <dl class="cifras">
-      <div><dt>Publicaciones</dt><dd>{{ site.data.publicaciones | size }}</dd></div>
-      <div><dt>Citas</dt><dd>{{ m.citas }}</dd></div>
-      <div><dt>Índice h</dt><dd>{{ m.indice_h }}</dd></div>
-    </dl>
-    <p class="nota">Citas e índice h según <a href="{{ m.fuente }}">Google Scholar</a>, {{ m.fecha | date: "%-d/%-m/%Y" }}.</p>
-    {% endif %}
+    {% if m %}<p class="discreto">{{ site.data.publicaciones | size }} publicaciones, con {{ m.citas }} citas e índice h {{ m.indice_h }} según <a href="{{ m.fuente }}">Google Scholar</a> ({{ m.fecha | date: "%-d/%-m/%Y" }}).</p>{% endif %}
   </section>
 </div>
 
-<section class="bloque">
-  <h2>Recursos recientes</h2>
+<section>
+  <h2>Recursos para clase</h2>
+  <p>Visualizaciones interactivas para seguir las sesiones a tu ritmo. Funcionan en el navegador, también en el móvil.</p>
   <ul class="recursos">
     {% for grupo in site.data.recursos %}{% for tema in grupo[1] %}{% for r in tema.recursos limit: 3 %}
       {% include recurso.html r=r %}
     {% endfor %}{% endfor %}{% endfor %}
   </ul>
-  <p><a href="{{ '/recursos/' | relative_url }}">Todos los recursos →</a></p>
+  <p><a class="enlace-fuerte" href="{{ '/recursos/' | relative_url }}">Ver todos los recursos</a></p>
 </section>
 
-<section class="bloque">
+<section>
   <h2>Publicaciones destacadas</h2>
   <ul class="pubs">
     {% assign destacadas = site.data.publicaciones | where: "destacada", true %}
     {% for p in destacadas %}{% include publicacion.html p=p %}{% endfor %}
   </ul>
-  <p><a href="{{ '/publicaciones/' | relative_url }}">Todas las publicaciones →</a></p>
+  <p><a class="enlace-fuerte" href="{{ '/publicaciones/' | relative_url }}">Ver todas las publicaciones</a></p>
 </section>

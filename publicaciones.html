@@ -1,7 +1,7 @@
 ---
 title: Publicaciones
 permalink: /publicaciones/
-entradilla: Lista generada a partir de ORCID y Google Scholar. Los títulos enlazan al DOI cuando existe.
+entradilla: Artículos, ponencias y capítulos, del más reciente al más antiguo. Los títulos enlazan a la publicación original.
 script: /assets/js/publicaciones.js
 ---
 {% assign pubs = site.data.publicaciones %}
@@ -16,8 +16,8 @@ script: /assets/js/publicaciones.js
 {% assign por_anio = pubs | group_by: "anio" %}
 {% for g in por_anio %}
 <section class="anio" data-anio>
-  <h2>{{ g.name | default: "Sin fecha" }}</h2>
-  <ul class="pubs">{% for p in g.items %}{% include publicacion.html p=p %}{% endfor %}</ul>
+  <h2 class="anio__num">{{ g.name | default: "Sin fecha" }}</h2>
+  <ul class="pubs">{% for p in g.items %}{% include publicacion.html p=p sin_anio=true %}{% endfor %}</ul>
 </section>
 {% endfor %}
-{% if site.data.metricas %}<p class="nota">Citas según Google Scholar, actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}
+{% if site.data.metricas %}<p class="discreto">Lista reunida desde ORCID y Google Scholar. Citas actualizadas el {{ site.data.metricas.fecha | date: "%-d/%-m/%Y" }}.</p>{% endif %}
