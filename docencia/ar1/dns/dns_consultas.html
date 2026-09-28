@@ -345,7 +345,13 @@ class Stage {
     for (const [id, o] of Object.entries(this.nodeEls)){
       const who = st.owe[id];
       o.g.classList.toggle('owe', !!who);
-      o.tag.textContent = who ? `debe responder a: ${LBL[who]}` : '';
+      // En dos líneas: en una sola no cabe a la izquierda de los nodos del lado izquierdo
+      o.tag.textContent = '';
+      if (who){
+        const x = o.tag.getAttribute('x');
+        el('tspan', {x, dy:0}, o.tag).textContent = 'debe responder a:';
+        el('tspan', {x, dy:17}, o.tag).textContent = LBL[who];
+      }
     }
   }
   paintSide(k, asking){
