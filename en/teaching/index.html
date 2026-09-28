@@ -1,0 +1,25 @@
+---
+lang: en
+title: teaching
+permalink: /en/teaching/
+lang_alt: /docencia/
+entradilla: Courses I teach at the University of Alcalá.
+---
+<p>I teach networking and security courses in the Telecommunication and Computer Engineering degrees at the Polytechnic School, and in the Master's in Cybersecurity. Courses with published resources link to their page, with the visualizations and materials for each unit.</p>
+
+<ul class="asignaturas">
+  {% for a in site.data.asignaturas %}
+  <li>
+    {% if a.pagina_en %}
+      {% assign temas = site.data.recursos[a.id] %}
+      {% assign total = 0 %}
+      {% for t in temas %}{% for r in t.recursos %}{% if r.en %}{% assign total = total | plus: 1 %}{% endif %}{% endfor %}{% endfor %}
+      <a href="{{ a.pagina_en | relative_url }}">{{ a.nombre_en | default: a.nombre }}</a>
+      <span class="nota">({{ total }} resource{% if total != 1 %}s{% endif %})</span>
+    {% else %}
+      {{ a.nombre_en | default: a.nombre }}
+    {% endif %}
+    {% if a.nivel_en %}<span class="nota">, {{ a.nivel_en }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

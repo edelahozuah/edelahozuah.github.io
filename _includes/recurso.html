@@ -1,17 +1,35 @@
+{%- comment -%}
+Tarjeta de un recurso. include.en=true lo renderiza en inglés: usa r.en como
+destino y los campos *_en, y enlaza de vuelta a la versión en español. Si el
+recurso no tiene versión en inglés (r.en vacío), no se pinta nada.
+{%- endcomment -%}
 {%- assign r = include.r -%}
 {%- assign h = include.nivel | default: 3 -%}
+{%- unless include.en and r.en == nil -%}
+{%- if include.en -%}
+  {%- assign destino = r.en -%}{%- assign titulo = r.titulo_en | default: r.titulo -%}
+  {%- assign descripcion = r.descripcion_en | default: r.descripcion -%}
+  {%- assign etiqueta = r.etiqueta_en | default: r.etiqueta -%}
+  {%- assign vuelta = r.url -%}{%- assign vuelta_texto = "Versión en español" -%}
+{%- else -%}
+  {%- assign destino = r.url -%}{%- assign titulo = r.titulo -%}
+  {%- assign descripcion = r.descripcion -%}{%- assign etiqueta = r.etiqueta -%}
+  {%- assign vuelta = r.en -%}{%- assign vuelta_texto = "English version" -%}
+{%- endif -%}
 <div class="card">
-  <a href="{{ r.url | relative_url }}" class="card__enlace">
+  <a href="{{ destino | relative_url }}" class="card__enlace">
     {% if r.imagen %}<img class="card-img-top" src="{{ r.imagen | relative_url }}" alt="" width="720" height="458" loading="lazy">{% endif %}
     <div class="card-body">
-      <h{{ h }} class="card-title">{{ r.titulo }}</h{{ h }}>
-      {% if r.descripcion %}<p class="card-text">{{ r.descripcion }}</p>{% endif %}
+      <h{{ h }} class="card-title">{{ titulo }}</h{{ h }}>
+      {% if descripcion %}<p class="card-text">{{ descripcion }}</p>{% endif %}
     </div>
   </a>
-  {% if r.sesion or r.etiqueta or r.en %}
+  {% if r.sesion or etiqueta or vuelta %}
   <p class="card-pie">
-    {%- if r.etiqueta %}<span>{{ r.etiqueta }}</span>{% elsif r.sesion %}<span>Sesión {{ r.sesion }}</span>{% endif -%}
-    {%- if r.en %}<a href="{{ r.en | relative_url }}" hreflang="en" lang="en">English version</a>{% endif -%}
+    {%- if etiqueta %}<span>{{ etiqueta }}</span>
+    {%- elsif r.sesion %}<span>{% if include.en %}Session{% else %}Sesión{% endif %} {{ r.sesion }}</span>{% endif -%}
+    {%- if vuelta %}<a href="{{ vuelta | relative_url }}" hreflang="{% if include.en %}es{% else %}en{% endif %}" lang="{% if include.en %}es{% else %}en{% endif %}">{{ vuelta_texto }}</a>{% endif -%}
   </p>
   {% endif %}
 </div>
+{%- endunless -%}

@@ -45,6 +45,29 @@ Aparece solo en la página de la asignatura y en `/recursos/`.
    `title`, `permalink` y `asignatura`.
 3. Añade sus temas y recursos en `_data/recursos.yml` bajo la clave `<id>`.
 
+## Páginas en inglés
+
+Cada página en español tiene su pareja bajo `/en/`, con front matter
+`lang: en` y `lang_alt: <url de la pareja en el otro idioma>` (el conmutador
+«es/en» de la cabecera usa ese campo). Los textos largos (bio, líneas de
+investigación) están duplicados en cada página; los textos cortos que vienen
+de `_data/` usan un campo `_en` o `en` junto al original:
+
+| Fichero | Campo en español | Su pareja en inglés |
+|---|---|---|
+| `_data/asignaturas.yml` | `nombre`, `pagina`, `nivel` | `nombre_en`, `pagina_en`, `nivel_en` |
+| `_data/recursos.yml` | `titulo`, `descripcion`, `etiqueta` | `titulo_en`, `descripcion_en`, `etiqueta_en` |
+| `_data/lineas.yml` | `titulo`, `texto` | `en`, `texto_en` |
+| `_data/noticias.yml` | `texto` | `texto_en` (si falta, la noticia no sale en inglés) |
+
+Un recurso de `_data/recursos.yml` solo aparece en las páginas en inglés si
+tiene `en:` (la ruta de su HTML traducido). Si una visualización no tiene
+traducción, no hace falta añadir sus campos `_en`; simplemente no sale en
+`/en/`. `scripts/estilo_visualizaciones.py` añade además, dentro de cada
+visualización, el enlace de vuelta a su pareja en el otro idioma (lo calcula
+solo con el campo `en:` de `_data/recursos.yml`, así que basta con rellenarlo
+y volver a ejecutar el script).
+
 ## Actualizar las publicaciones
 
 ```sh

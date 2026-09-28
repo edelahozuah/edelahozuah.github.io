@@ -1,0 +1,27 @@
+---
+lang: en
+title: publications
+permalink: /en/publications/
+lang_alt: /publicaciones/
+script: /assets/js/publicaciones.js
+entradilla: Publications in reverse chronological order, gathered from ORCID and Google Scholar.
+---
+{% assign pubs = site.data.publicaciones %}
+<div class="publications">
+  <div class="filtros" role="group" aria-label="Filter by type" hidden>
+    <button type="button" aria-pressed="true" data-filtro="todas">all ({{ pubs | size }})</button>
+    {% assign cats = "revista:journal articles,congreso:conference papers,capitulo:books and chapters,otros:other" | split: "," %}
+    {% for c in cats %}{% assign par = c | split: ":" %}{% assign n = pubs | where: "categoria", par[0] | size %}
+    <button type="button" aria-pressed="false" data-filtro="{{ par[0] }}">{{ par[1] }} ({{ n }})</button>
+    {% endfor %}
+  </div>
+
+  {% assign por_anio = pubs | group_by: "anio" %}
+  {% for g in por_anio %}
+  <section data-anio>
+    <h2 class="bibliography">{{ g.name | default: "no date" }}</h2>
+    <ol class="bibliography">{% for p in g.items %}{% include publicacion.html p=p en=true %}{% endfor %}</ol>
+  </section>
+  {% endfor %}
+  {% if site.data.metricas %}<p class="nota">Citations according to Google Scholar, updated on {{ site.data.metricas.fecha | date: "%B %-d, %Y" }}.</p>{% endif %}
+</div>

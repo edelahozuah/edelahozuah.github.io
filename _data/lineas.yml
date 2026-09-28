@@ -4,24 +4,30 @@
   titulo: Optimización de redes inalámbricas
   en: Wireless network optimization
   texto: Asignación de canales en redes Wi-Fi IEEE 802.11 mediante coloración espectral de grafos y negociación automática, con validación en despliegues reales como el de la Escuela Politécnica Superior.
+  texto_en: Channel assignment in IEEE 802.11 Wi-Fi networks through spectral graph coloring and automated negotiation, validated on real deployments such as the one at the Polytechnic School.
   palabras: [wi-fi, 802.11, wlan, channel, spectrum graph, wireless]
 - id: seguridad
   titulo: Seguridad de redes y sistemas
   en: Network and systems security
   texto: Movimiento lateral en entornos Active Directory, ataques de intermediario contra TLS, control de acceso en IoT y seguridad de las comunicaciones en infraestructuras críticas.
+  texto_en: Lateral movement in Active Directory environments, man-in-the-middle attacks against TLS, access control in IoT, and communication security in critical infrastructures.
   palabras: [security, securing, attacks, lateral movement, access control, anomaly, single sign, seguridad]
 - id: resiliencia
   titulo: Resiliencia de infraestructuras críticas
   en: Critical infrastructure resilience
   texto: Técnicas reactivas y de optimización de topología para mantener el servicio de redes críticas ante fallos y ataques, incluidas aplicaciones SDN de encaminamiento seguro.
+  texto_en: Reactive techniques and topology optimization to keep critical networks running under failures and attacks, including SDN applications for secure routing.
   palabras: [resilience, critical infrastructure, sdn]
 - id: negociacion
   titulo: Negociación automática y sistemas multiagente
   en: Automated negotiation and multi-agent systems
   texto: Protocolos de negociación para espacios de utilidad no lineales, políticas de consenso y mediación, y su aplicación a la optimización de redes complejas y a la gestión de tráfico. Es el tema de mi tesis doctoral (2017).
+  texto_en: Negotiation protocols for non-linear utility spaces, consensus and mediation policies, and their application to complex network optimization and traffic management. This was the topic of my PhD thesis (2017).
   palabras: [negotiation, negotiations, consensus, multi-agent, multiagent, bidding, stigmergy, group decision, social welfare]
 - id: docencia
   titulo: Innovación docente en redes y seguridad
   en: Teaching innovation in networking and security
   texto: Plataformas de emulación y generación de escenarios para enseñar seguridad de redes, metodologías activas como la clase invertida y visualizaciones interactivas para las asignaturas de redes.
+  texto_en: Emulation platforms and scenario generation to teach network security, active methodologies such as the flipped classroom, and interactive visualizations for networking courses.
   palabras: [learning, education, docencia, flipped, pedagogical]
+

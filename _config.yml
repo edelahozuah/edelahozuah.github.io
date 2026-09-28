@@ -1,5 +1,6 @@
 title: Enrique de la Hoz
 description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
+description_en: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
 url: https://edelahozuah.github.io
 baseurl: ""
 lang: es
@@ -8,7 +9,9 @@ timezone: Europe/Madrid
 autor:
   nombre: Enrique de la Hoz
   puesto: Profesor Titular de Universidad
+  puesto_en: Associate Professor
   departamento: Departamento de Automática
+  departamento_en: Computer Science Department
   area: Ingeniería Telemática
   universidad: Universidad de Alcalá
   grupo: NetIS · Redes y Sistemas Inteligentes
@@ -25,6 +28,13 @@ navegacion:
   - { titulo: publicaciones, url: /publicaciones/ }
   - { titulo: docencia, url: /docencia/ }
   - { titulo: recursos, url: /recursos/ }
+
+navegacion_en:
+  - { titulo: about, url: /en/ }
+  - { titulo: research, url: /en/research/ }
+  - { titulo: publications, url: /en/publications/ }
+  - { titulo: teaching, url: /en/teaching/ }
+  - { titulo: resources, url: /en/resources/ }
 
 markdown: kramdown
 permalink: pretty
