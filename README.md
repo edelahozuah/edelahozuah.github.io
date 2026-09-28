@@ -28,8 +28,14 @@ en `_config.yml`.
 
 1. Copia el HTML autocontenido en `docencia/<asignatura>/<tema>/`, por ejemplo
    `docencia/ar1/tcp/ventana.html`. Sin cabecera YAML: Jekyll lo publica tal cual.
-2. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
-3. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
+2. Adáptala al aspecto de la web:
+   `python3 scripts/estilo_visualizaciones.py docencia/ar1/tcp`. Añade la barra
+   superior y cambia fondo, tipografía y acento sin tocar los colores con
+   significado. Reconoce las familias de estilo existentes (DNS, capas/colas,
+   laboratorio, retardos); si avisa de «sin familia», hay que enseñarle la nueva.
+   `--quitar` deshace el cambio.
+3. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
+4. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
    sesión y, si la hay, versión en inglés).
 
 Aparece solo en la página de la asignatura y en `/recursos/`.
