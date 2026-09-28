@@ -8,9 +8,9 @@
       {% if r.descripcion %}<p class="card-text">{{ r.descripcion }}</p>{% endif %}
     </div>
   </a>
-  {% if r.sesion or r.en %}
+  {% if r.sesion or r.etiqueta or r.en %}
   <p class="card-pie">
-    {%- if r.sesion %}<span>Sesión {{ r.sesion }}</span>{% endif -%}
+    {%- if r.etiqueta %}<span>{{ r.etiqueta }}</span>{% elsif r.sesion %}<span>Sesión {{ r.sesion }}</span>{% endif -%}
     {%- if r.en %}<a href="{{ r.en | relative_url }}" hreflang="en" lang="en">English version</a>{% endif -%}
   </p>
   {% endif %}

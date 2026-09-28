@@ -1,8 +1,7 @@
 {%- assign h = include.nivel | default: 2 -%}
 {%- assign hr = h | plus: 1 -%}
-{%- assign temas = site.data.recursos[include.asignatura] | sort: "tema" -%}
-{%- for t in temas -%}
-<section class="tema" id="tema-{{ t.tema }}">
+{%- for t in site.data.recursos[include.asignatura] -%}
+<section class="tema" id="tema-{{ t.tema }}{% if t.titulo %}-{{ t.titulo | slugify }}{% endif %}">
   <h{{ h }} class="category">tema {{ t.tema }}{% if t.titulo %}: {{ t.titulo }}{% endif %}</h{{ h }}>
   <div class="projects">{% for r in t.recursos %}{% include recurso.html r=r nivel=hr %}{% endfor %}</div>
 </section>

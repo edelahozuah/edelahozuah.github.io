@@ -5,5 +5,4 @@ description: Tres animaciones de la sesión 2.1 de Arquitectura de Redes I, sobr
 volver: { url: /docencia/ar1/, texto: Arquitectura de Redes I }
 entradilla: "Tres animaciones para seguir la sesión 2.1 a tu ritmo: cómo se forma un nombre, cómo se reparte el árbol de nombres entre quienes lo gestionan y cómo se resuelve una consulta."
 ---
-{% assign t = site.data.recursos.ar1 | where: "tema", 2 | first %}
-<div class="projects">{% for r in t.recursos %}{% include recurso.html r=r nivel=2 %}{% endfor %}</div>
+{% include carpeta.html asignatura="ar1" carpeta="/docencia/ar1/dns/" %}
