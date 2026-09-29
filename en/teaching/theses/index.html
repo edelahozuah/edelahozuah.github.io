@@ -1,0 +1,21 @@
+---
+lang: en
+title: "Supervised theses: master's and bachelor's theses in cybersecurity and networks"
+cabecera: supervised theses
+permalink: /en/teaching/theses/
+lang_alt: /docencia/trabajos/
+jsonld: trabajos
+volver: { url: /en/teaching/, texto: teaching }
+description: A selection of master's and bachelor's theses supervised by Enrique de la Hoz at the University of Alcalá, on cyber threat intelligence, ransomware, MITRE ATT&CK TTPs and attack attribution.
+entradilla: A selection of the master's and bachelor's theses I have supervised. The theses are written in Spanish; each one links to its full text in e_Buah, the University of Alcalá institutional repository.
+---
+{% assign tfm = site.data.trabajos | where: "tipo", "tfm" %}
+{% assign tfg = site.data.trabajos | where: "tipo", "tfg" %}
+{% if tfm.size > 0 %}
+<h2>master's theses</h2>
+<ol class="trabajos">{% for w in tfm %}{% include trabajo.html w=w en=true %}{% endfor %}</ol>
+{% endif %}
+{% if tfg.size > 0 %}
+<h2>bachelor's theses</h2>
+<ol class="trabajos">{% for w in tfg %}{% include trabajo.html w=w en=true %}{% endfor %}</ol>
+{% endif %}

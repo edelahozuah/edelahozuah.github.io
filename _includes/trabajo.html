@@ -1,0 +1,9 @@
+{%- comment -%}Un trabajo dirigido de _data/trabajos.yml. include.en=true lo pinta en inglés.{%- endcomment -%}
+{%- assign w = include.w -%}{%- assign en = include.en -%}
+<li class="trabajo" lang="{% if en %}en{% else %}es{% endif %}">
+  <div class="title"><a href="https://hdl.handle.net/{{ w.handle }}">{% if en %}{{ w.titulo_en | default: w.titulo }}{% else %}{{ w.titulo }}{% endif %}</a></div>
+  <div class="author">{{ w.autor }}{% if w.codirector %} <span class="nota">· {% if en %}co-supervised with{% else %}codirigido con{% endif %} {{ w.codirector }}</span>{% endif %}</div>
+  <div class="periodical"><em>{% if en %}{{ w.titulacion_en | default: w.titulacion }}{% else %}{{ w.titulacion }}{% endif %}</em>, {{ w.fecha | append: '' | slice: 0, 4 }}{% if en and w.titulo_en %} <span class="nota">(in Spanish: <span lang="es">{{ w.titulo }}</span>)</span>{% endif %}</div>
+  <p>{% if en %}{{ w.resumen_en | default: w.resumen }}{% else %}{{ w.resumen }}{% endif %}</p>
+  <p class="nota">{% if en %}{{ w.temas_en | default: w.temas | join: ' · ' }}{% else %}{{ w.temas | join: ' · ' }}{% endif %} · <a href="https://hdl.handle.net/{{ w.handle }}">{% if en %}Full text in e-Buah{% else %}Texto completo en e_Buah{% endif %}</a></p>
+</li>

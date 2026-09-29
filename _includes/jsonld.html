@@ -96,6 +96,29 @@ el sitio en todas; además, según el front matter:
       ]
     }
     {%- endif -%}
+    {%- if page.jsonld == 'trabajos' -%}
+    {%- for w in site.data.trabajos -%},
+    {
+      "@type": "Thesis",
+      "@id": "https://hdl.handle.net/{{ w.handle }}",
+      "url": "https://hdl.handle.net/{{ w.handle }}",
+      "name": {{ w.titulo | jsonify }},
+      {%- if w.titulo_en %}
+      "alternateName": {{ w.titulo_en | jsonify }},
+      {%- endif %}
+      "description": {% if en %}{{ w.resumen_en | default: w.resumen | jsonify }}{% else %}{{ w.resumen | jsonify }}{% endif %},
+      "author": { "@type": "Person", "name": {{ w.autor | jsonify }} },
+      "contributor": [{ "@id": "{{ u }}/#persona" }{% if w.codirector %}, { "@type": "Person", "name": {{ w.codirector | jsonify }} }{% endif %}],
+      "datePublished": "{{ w.fecha }}",
+      "inLanguage": "es",
+      "inSupportOf": {{ w.titulacion | jsonify }},
+      "sourceOrganization": { "@id": "{{ u }}/#uah" },
+      "keywords": {{ w.temas | join: ", " | jsonify }},
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "isAccessibleForFree": true
+    }
+    {%- endfor -%}
+    {%- endif -%}
     {%- if page.jsonld == 'publicaciones' -%}
     {%- for p in site.data.publicaciones -%},
     {

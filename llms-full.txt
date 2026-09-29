@@ -80,6 +80,23 @@ English — {{ r.titulo_en | default: r.titulo }}: {% if res_en %}{{ res_en.resu
 {% endif -%}
 {%- endfor -%}{%- endfor -%}
 {%- endif -%}{%- endfor %}
+## Trabajos dirigidos / Supervised theses
+
+Selección de trabajos fin de máster y de grado dirigidos por {{ a.nombre }}. Fuente: {{ '/docencia/trabajos/' | absolute_url }}
+{% for w in site.data.trabajos %}
+### {{ w.titulo }}
+
+- {% if w.tipo == 'tfm' %}Trabajo fin de máster{% else %}Trabajo fin de grado{% endif %}, {{ w.titulacion }}, Universidad de Alcalá ({{ w.fecha | append: '' | slice: 0, 4 }})
+- Autor/a: {{ w.autor }}. Dirección: {{ a.nombre }}{% if w.codirector %} y {{ w.codirector }}{% endif %}
+- Texto completo: https://hdl.handle.net/{{ w.handle }}
+- Temas: {{ w.temas | join: ', ' }}
+
+{{ w.resumen }}
+{% if w.titulo_en %}
+English — {{ w.titulo_en }}: {{ w.resumen_en }}
+{% endif %}
+{%- endfor %}
+
 ## Publicaciones / Publications
 
 Orden cronológico inverso. Fuente: {{ '/publicaciones/' | absolute_url }} (datos de ORCID y Google Scholar).

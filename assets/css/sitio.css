@@ -195,3 +195,11 @@ details summary { cursor: pointer; color: var(--global-theme-color); font-weight
 .capitulos__marca { display: inline-block; min-width: 3.2em; font-variant-numeric: tabular-nums; color: var(--global-text-color-light); }
 .transcripcion h3 { font-size: 1.05rem; font-weight: 500; margin: 1.5rem 0 .5rem; scroll-margin-top: 4rem; }
 .card-img-top.es-video { object-position: center; }
+
+/* Trabajos dirigidos (/docencia/trabajos/) */
+.trabajos { list-style: none; padding: 0; margin: 0 0 2rem; }
+.trabajo { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.trabajo .title { font-weight: 500; }
+.trabajo .title a { color: inherit; }
+.trabajo .title a:hover { color: var(--global-hover-color); }
+.trabajo p { margin: .5rem 0 0; }

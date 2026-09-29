@@ -24,6 +24,7 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 
 - [Docencia]({{ '/docencia/' | absolute_url }}): asignaturas que imparte ([English]({{ '/en/teaching/' | absolute_url }}))
 - [Recursos docentes]({{ '/recursos/' | absolute_url }}): todas las visualizaciones, por asignatura y tema ([English]({{ '/en/resources/' | absolute_url }}))
+- [Trabajos dirigidos]({{ '/docencia/trabajos/' | absolute_url }}): selección de TFM y TFG dirigidos, con enlace a la memoria completa ([English]({{ '/en/teaching/theses/' | absolute_url }}))
 {%- for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
 
 ## Recursos de {{ asig.nombre }}

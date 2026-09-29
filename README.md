@@ -19,6 +19,7 @@ compilación propio.
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
 | Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
 | Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
+| Trabajos dirigidos (TFM y TFG) | `_data/trabajos.yml` |
 | Metadatos y JSON-LD de las páginas | `_includes/metadatos.html`, `_includes/jsonld.html` |
 | Versión para modelos de lenguaje | `llms.txt`, `llms-full.txt` |
 | Estilos (aspecto al-folio) | `assets/css/sitio.css` |

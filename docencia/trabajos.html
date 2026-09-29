@@ -1,0 +1,20 @@
+---
+title: "Trabajos dirigidos: TFM y TFG en ciberseguridad y redes"
+cabecera: trabajos dirigidos
+permalink: /docencia/trabajos/
+lang_alt: /en/teaching/theses/
+jsonld: trabajos
+volver: { url: /docencia/, texto: docencia }
+description: Selección de trabajos fin de máster y fin de grado dirigidos por Enrique de la Hoz en la Universidad de Alcalá, sobre inteligencia de ciberamenazas, ransomware, TTPs de MITRE ATT&CK y atribución de ataques.
+entradilla: Una selección de los trabajos fin de máster y fin de grado que he dirigido. Cada uno enlaza a su memoria completa en e_Buah, el repositorio institucional de la Universidad de Alcalá.
+---
+{% assign tfm = site.data.trabajos | where: "tipo", "tfm" %}
+{% assign tfg = site.data.trabajos | where: "tipo", "tfg" %}
+{% if tfm.size > 0 %}
+<h2>trabajos fin de máster</h2>
+<ol class="trabajos">{% for w in tfm %}{% include trabajo.html w=w %}{% endfor %}</ol>
+{% endif %}
+{% if tfg.size > 0 %}
+<h2>trabajos fin de grado</h2>
+<ol class="trabajos">{% for w in tfg %}{% include trabajo.html w=w %}{% endfor %}</ol>
+{% endif %}
