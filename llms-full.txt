@@ -38,9 +38,9 @@ Asignaturas:
 - {{ asig.nombre }} ({{ asig.nombre_en }}){% if asig.nivel %}, {{ asig.nivel }}{% endif %}{% if asig.pagina %}: {{ asig.pagina | absolute_url }}{% endif %}
 {%- endfor %}
 {% for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
-## Visualizaciones interactivas de {{ asig.nombre }}
+## Recursos de {{ asig.nombre }}
 
-Cada visualización es una página HTML autocontenida, con licencia CC BY-SA 4.0, que funciona en el navegador (también en el móvil).
+Visualizaciones interactivas (páginas HTML autocontenidas que funcionan en el navegador, también en el móvil) y vídeos de YouTube con transcripción. Licencia CC BY-SA 4.0.
 {% for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos -%}
 {%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][r.url] -%}{%- assign res = f[1][r.url] -%}{%- endif -%}{%- endfor %}
 ### {{ r.titulo }}
@@ -56,6 +56,15 @@ Cada visualización es una página HTML autocontenida, con licencia CC BY-SA 4.0
 {%- endif %}
 
 {% if res %}{{ res.resumen | normalize_whitespace }}{% else %}{{ r.descripcion }}{% endif %}
+{% if r.tipo == 'video' -%}
+{%- assign v = site.videos | where: "permalink", r.url | first %}
+Vídeo de YouTube: https://www.youtube.com/watch?v={{ v.youtube }} ({{ v.duracion | divided_by: 60 }} min). Transcripción completa: {{ r.url | absolute_url }}#transcripcion
+
+Capítulos:
+{% for c in v.capitulos %}
+- {{ c.inicio | divided_by: 60 }}:{% assign sg = c.inicio | modulo: 60 %}{% if sg < 10 %}0{% endif %}{{ sg }} {{ c.titulo }}
+{%- endfor %}
+{% endif -%}
 {% if res.conceptos %}
 Conceptos: {{ res.conceptos | join: ', ' }}.
 {% endif -%}

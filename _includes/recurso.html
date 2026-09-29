@@ -18,7 +18,7 @@ recurso no tiene versión en inglés (r.en vacío), no se pinta nada.
 {%- endif -%}
 <div class="card">
   <a href="{{ destino | relative_url }}" class="card__enlace">
-    {% if r.imagen %}<img class="card-img-top" src="{{ r.imagen | relative_url }}" alt="" width="720" height="458" loading="lazy">{% endif %}
+    {% if r.imagen %}<img class="card-img-top{% if r.tipo == 'video' %} es-video{% endif %}" src="{{ r.imagen | relative_url }}" alt="" width="720" height="458" loading="lazy">{% endif %}
     <div class="card-body">
       <h{{ h }} class="card-title">{{ titulo }}</h{{ h }}>
       {% if descripcion %}<p class="card-text">{{ descripcion }}</p>{% endif %}
@@ -26,7 +26,8 @@ recurso no tiene versión en inglés (r.en vacío), no se pinta nada.
   </a>
   {% if r.sesion or etiqueta or vuelta %}
   <p class="card-pie">
-    {%- if etiqueta %}<span>{{ etiqueta }}</span>
+    {%- if r.tipo == 'video' %}<span>{% if include.en %}Video{% else %}Vídeo{% endif %}{% if r.sesion %} · {% if include.en %}session{% else %}sesión{% endif %} {{ r.sesion }}{% endif %}</span>
+    {%- elsif etiqueta %}<span>{{ etiqueta }}</span>
     {%- elsif r.sesion %}<span>{% if include.en %}Session{% else %}Sesión{% endif %} {{ r.sesion }}</span>{% endif -%}
     {%- if vuelta %}<a href="{{ vuelta | relative_url }}" hreflang="{% if include.en %}es{% else %}en{% endif %}" lang="{% if include.en %}es{% else %}en{% endif %}">{{ vuelta_texto }}</a>{% endif -%}
   </p>

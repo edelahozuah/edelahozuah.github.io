@@ -18,6 +18,7 @@ compilación propio.
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
 | Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
+| Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
 | Metadatos y JSON-LD de las páginas | `_includes/metadatos.html`, `_includes/jsonld.html` |
 | Versión para modelos de lenguaje | `llms.txt`, `llms-full.txt` |
 | Estilos (aspecto al-folio) | `assets/css/sitio.css` |
@@ -46,6 +47,30 @@ El color de acento es la variable `--global-theme-color` de `assets/css/sitio.cs
    estático. Es idempotente; ejecútalo cada vez que cambies esos datos.
 
 Aparece solo en la página de la asignatura y en `/recursos/`.
+
+## Añadir un vídeo de YouTube
+
+El vídeo sigue alojado en YouTube: la web tiene una página por vídeo con el
+reproductor incrustado (youtube-nocookie), los capítulos, las visualizaciones
+relacionadas, la transcripción y los datos estructurados `VideoObject`.
+
+1. Genera las páginas (lee de YouTube la ficha y los subtítulos, sin descargar
+   el vídeo; necesita yt-dlp y Node.js):
+
+   ```sh
+   python3 -m venv /tmp/yt && /tmp/yt/bin/pip install yt-dlp pyyaml
+   /tmp/yt/bin/python scripts/importar_video.py URL --asignatura ar1 \
+     --slug nombre-en-espanol --slug-en name-in-english --sesion 1.3
+   ```
+
+   Los capítulos salen de las marcas de tiempo de la descripción del vídeo.
+   Si hay subtítulos en inglés, crea también la página inglesa.
+2. Revisa el front matter de `_videos/<asignatura>/*.md`: título, descripción
+   y capítulos en inglés (los marcados con TRADUCIR) y, si quieres,
+   `relacionados:` con las URL de las visualizaciones del mismo tema.
+3. Revisa la transcripción: los subtítulos generados por voz traen erratas.
+4. Pega en `_data/recursos.yml` la entrada que imprime el script (con
+   `tipo: video`) para que el vídeo salga en su tema.
 
 ## Añadir una asignatura
 

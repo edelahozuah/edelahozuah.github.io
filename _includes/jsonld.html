@@ -60,9 +60,42 @@ el sitio en todas; además, según el front matter:
       "isPartOf": { "@id": "{{ u }}/#sitio" },
       {%- if include.portada %}
       "mainEntity": { "@id": "{{ u }}/#persona" },
+      {%- elsif page.youtube %}
+      "mainEntity": { "@id": "{{ include.canonica }}#video" },
       {%- endif %}
       "author": { "@id": "{{ u }}/#persona" }
     }
+    {%- if page.youtube -%}
+    {%- assign yt = 'https://www.youtube.com/watch?v=' | append: page.youtube -%}
+    {%- assign m = page.duracion | divided_by: 60 -%}{%- assign s = page.duracion | modulo: 60 -%}
+    {%- assign asig = site.data.asignaturas | where: "id", page.asignatura | first -%},
+    {
+      "@type": "VideoObject",
+      "@id": "{{ include.canonica }}#video",
+      "name": {{ page.title | jsonify }},
+      "description": {{ include.descripcion | jsonify }},
+      "thumbnailUrl": [{{ page.imagen | jsonify }}, "https://i.ytimg.com/vi/{{ page.youtube }}/hqdefault.jpg"],
+      "uploadDate": "{{ page.fecha | date_to_xmlschema }}",
+      "duration": "PT{{ m }}M{{ s }}S",
+      "embedUrl": "https://www.youtube.com/embed/{{ page.youtube }}",
+      "url": "{{ include.canonica }}",
+      "sameAs": "{{ yt }}",
+      "inLanguage": "es",
+      {%- if en %}
+      "subtitleLanguage": "en",
+      {%- endif %}
+      "isFamilyFriendly": true,
+      "author": { "@id": "{{ u }}/#persona" },
+      "publisher": { "@id": "{{ u }}/#persona" },
+      "isPartOf": { "@id": "{{ asig.pagina | absolute_url }}#asignatura" },
+      "hasPart": [
+        {%- for c in page.capitulos %}
+        {%- if forloop.last %}{% assign fin = page.duracion %}{% else %}{% assign fin = page.capitulos[forloop.index].inicio %}{% endif %}
+        { "@type": "Clip", "name": {{ c.titulo | jsonify }}, "startOffset": {{ c.inicio }}, "endOffset": {{ fin }}, "url": "{{ yt }}&t={{ c.inicio }}s" }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif -%}
     {%- if page.jsonld == 'publicaciones' -%}
     {%- for p in site.data.publicaciones -%},
     {

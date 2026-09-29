@@ -1,0 +1,56 @@
+---
+layout: pagina
+---
+{%- comment -%}
+Página de un vídeo de YouTube (colección _videos). El vídeo se incrusta desde
+youtube-nocookie.com; aquí solo están la ficha, los capítulos, los recursos
+relacionados y la transcripción (el contenido del fichero).
+{%- endcomment -%}
+{%- assign en = false -%}{%- if page.lang == 'en' -%}{%- assign en = true -%}{%- endif -%}
+{%- assign yt = 'https://www.youtube.com/watch?v=' | append: page.youtube -%}
+{%- assign minutos = page.duracion | divided_by: 60 -%}{%- assign segundos = page.duracion | modulo: 60 -%}
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ page.youtube }}?rel=0" title="{{ page.title | escape }}" loading="lazy"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<p class="nota video-ficha">
+  {% if en %}Video{% else %}Vídeo{% endif %} · {{ minutos }}:{% if segundos < 10 %}0{% endif %}{{ segundos }} min
+  {%- if page.sesion %} · {% if en %}Session{% else %}Sesión{% endif %} {{ page.sesion }}{% endif %}
+  · {% include fecha.html fecha=page.fecha en=en %}
+  {%- if en %} · In Spanish, with English subtitles{% endif %}
+  · <a href="{{ yt }}">{% if en %}Watch on YouTube{% else %}Ver en YouTube{% endif %}</a>
+</p>
+
+{% if page.capitulos %}
+<h2>{% if en %}chapters{% else %}capítulos{% endif %}</h2>
+<ol class="capitulos">
+  {%- for c in page.capitulos -%}
+  {%- assign m = c.inicio | divided_by: 60 -%}{%- assign s = c.inicio | modulo: 60 %}
+  <li><a class="capitulos__marca" href="{{ yt }}&amp;t={{ c.inicio }}s">{{ m }}:{% if s < 10 %}0{% endif %}{{ s }}</a> <a href="#t{{ c.inicio }}">{{ c.titulo }}</a></li>
+  {%- endfor %}
+</ol>
+{% endif %}
+
+{% if page.relacionados %}
+<h2>{% if en %}related visualizations{% else %}visualizaciones relacionadas{% endif %}</h2>
+<div class="projects">
+  {%- for u in page.relacionados -%}{%- for t in site.data.recursos[page.asignatura] -%}{%- for r in t.recursos -%}
+  {%- if r.url == u -%}{% include recurso.html r=r nivel=3 en=en %}{%- endif -%}
+  {%- endfor -%}{%- endfor -%}{%- endfor %}
+</div>
+{% endif %}
+
+<h2 id="transcripcion">{% if en %}transcript{% else %}transcripción{% endif %}</h2>
+<details class="transcripcion">
+  <summary>{% if en %}Show the full transcript, by chapter{% else %}Mostrar la transcripción completa, por capítulos{% endif %}</summary>
+  {{ content }}
+</details>
+<script>
+  // Los enlaces a un capítulo (#tNNN) abren la transcripción antes de saltar.
+  (function () {
+    var t = document.querySelector('.transcripcion');
+    function abrir() { if (location.hash && t.querySelector(location.hash)) { t.open = true; t.querySelector(location.hash).scrollIntoView(); } }
+    window.addEventListener('hashchange', abrir); abrir();
+  })();
+</script>
