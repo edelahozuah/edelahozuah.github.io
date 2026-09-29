@@ -1,0 +1,29 @@
+{%- comment -%}
+Un recurso docente de _data/recursos.yml como LearningResource. Los conceptos
+(«teaches») salen de _data/resumenes/, si el recurso tiene resumen.
+{%- endcomment -%}
+{%- assign r = include.r -%}{%- assign en = include.en -%}{%- assign asig = include.asignatura -%}
+{%- if en -%}{%- assign ruta = r.en -%}{%- assign nombre = r.titulo_en | default: r.titulo -%}{%- assign desc = r.descripcion_en | default: r.descripcion -%}
+{%- else -%}{%- assign ruta = r.url -%}{%- assign nombre = r.titulo -%}{%- assign desc = r.descripcion -%}{%- endif -%}
+{%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][ruta] -%}{%- assign res = f[1][ruta] -%}{%- endif -%}{%- endfor -%}
+{
+          "@type": "LearningResource",
+          "@id": "{{ ruta | absolute_url }}",
+          "url": "{{ ruta | absolute_url }}",
+          "name": {{ nombre | jsonify }},
+          "description": {% if res %}{{ res.resumen | normalize_whitespace | jsonify }}{% else %}{{ desc | jsonify }}{% endif %},
+          "inLanguage": "{% if en %}en{% else %}es{% endif %}",
+          "learningResourceType": {% if en %}"interactive visualization"{% else %}"visualización interactiva"{% endif %},
+          "interactivityType": "active",
+          "educationalLevel": {% if en %}"Undergraduate"{% else %}"Grado universitario"{% endif %},
+          {%- if res.conceptos %}
+          "teaches": {{ res.conceptos | jsonify }},
+          {%- endif %}
+          {%- if r.imagen %}
+          "image": "{{ r.imagen | absolute_url }}",
+          {%- endif %}
+          "isPartOf": { "@type": "Course", "name": {% if en %}{{ asig.nombre_en | default: asig.nombre | jsonify }}{% else %}{{ asig.nombre | jsonify }}{% endif %}, "url": "{{ asig.pagina | absolute_url }}" },
+          "author": { "@id": "{{ site.url }}/#persona" },
+          "isAccessibleForFree": true,
+          "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }

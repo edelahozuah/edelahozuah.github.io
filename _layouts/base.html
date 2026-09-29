@@ -3,22 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  {% if page.url == '/' or page.url == '/en/' %}
-  {%- comment -%}En la portada, page.title es igual a site.title: jekyll-seo-tag
-  añadiría siempre site.description (en español) al <title>, aunque la página
-  sea la inglesa. Se pone el título a mano y se deja el resto a la etiqueta.{%- endcomment -%}
-  <title>{{ site.title }} | {% if page.lang == 'en' %}{{ site.description_en }}{% else %}{{ site.description }}{% endif %}</title>
-  {% seo title=false %}
-  {% else %}
-  {% seo %}
-  {% endif %}
+  {% include metadatos.html %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/sitio.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
-  {% if page.lang == 'en' %}<link rel="alternate" hreflang="es" href="{{ page.lang_alt | default: '/' | absolute_url }}">
-  {% else %}<link rel="alternate" hreflang="en" href="{{ page.lang_alt | default: '/en/' | absolute_url }}">{% endif %}
 </head>
 <body>
   <a class="saltar" href="#contenido">{% if page.lang == 'en' %}Skip to content{% else %}Saltar al contenido{% endif %}</a>

@@ -8,6 +8,12 @@ una barra con el nombre y el enlace a la asignatura. No toca los colores con
 significado (zonas DNS, bits, paquetes, capas…), que siguen siendo los de cada
 visualización.
 
+Para buscadores y modelos de lenguaje añade también, con los datos de
+_data/recursos.yml y _data/resumenes/*.yml: en el <head>, descripción, URL
+canónica, enlaces hreflang, Open Graph y un JSON-LD LearningResource; y al
+final del <body>, un bloque «Sobre esta visualización» con el resumen, los
+conceptos y las fórmulas en texto estático, legible sin JavaScript.
+
 Es idempotente: si el bloque ya está, lo sustituye. Los originales de las
 carpetas AR1/SX.X/Visualizaciones no se modifican; el script actúa sobre las
 copias de la web.
@@ -19,6 +25,8 @@ Uso:
 """
 
 import argparse
+import html as htmlmod
+import json
 import re
 import sys
 from pathlib import Path
@@ -28,6 +36,8 @@ import yaml
 RAIZ = Path(__file__).resolve().parent.parent
 INI_HEAD, FIN_HEAD = "<!-- estilo-sitio:inicio -->", "<!-- estilo-sitio:fin -->"
 INI_BODY, FIN_BODY = "<!-- barra-sitio:inicio -->", "<!-- barra-sitio:fin -->"
+INI_PIE, FIN_PIE = "<!-- acerca-sitio:inicio -->", "<!-- acerca-sitio:fin -->"
+LICENCIA = "https://creativecommons.org/licenses/by-sa/4.0/"
 ROBOTO = '"Roboto","Helvetica Neue",Arial,sans-serif'
 MONO = 'ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace'
 
@@ -118,6 +128,13 @@ def bloque_css(fam, html):
         ".sitio-barra a{color:inherit;text-decoration:none}"
         ".sitio-barra a:hover{color:var(--sitio-acento)}"
         ".sitio-barra .sitio-marca{font-size:1.15rem}.sitio-barra b{font-weight:700}")
+    css.append(
+        f".sitio-acerca{{max-width:80ch;margin:40px auto 24px;padding:16px 0 0;"
+        f"border-top:1px solid var({LINEA[fam]});font:400 15px/1.55 {ROBOTO};color:var(--ink)}}"
+        ".sitio-acerca h2{font-size:1.1rem;font-weight:500;line-height:1.3;margin:0 0 8px}"
+        ".sitio-acerca p{margin:0 0 8px}.sitio-acerca ul{margin:0 0 8px;padding-left:1.4em}"
+        f".sitio-acerca code{{font-family:{MONO};font-size:.92em}}"
+        ".sitio-acerca a{color:var(--sitio-acento)}.sitio-acerca .sitio-pie{opacity:.75;font-size:.9em}")
     return "\n".join(css)
 
 
@@ -138,6 +155,125 @@ def pares_idioma():
                     es_a_en[r["url"]] = r["en"]
     en_a_es = {v: k for k, v in es_a_en.items()}
     return es_a_en, en_a_es
+
+
+def recursos_por_url(asigs):
+    """{url: datos} de cada visualización (en español y en inglés), con lo que
+    hace falta para sus metadatos: título, descripción, imagen, pareja de
+    idioma, asignatura y sesión o etiqueta."""
+    datos = yaml.safe_load((RAIZ / "_data" / "recursos.yml").read_text(encoding="utf-8")) or {}
+    res = {}
+    for id_asig, temas in datos.items():
+        a = asigs.get(id_asig, {})
+        for t in temas:
+            for r in t.get("recursos", []):
+                comun = {"imagen": r.get("imagen"), "sesion": r.get("sesion"), "tema": t.get("tema")}
+                res[r["url"]] = dict(comun, en=False, titulo=r["titulo"], descripcion=r.get("descripcion"),
+                                     etiqueta=r.get("etiqueta"), pareja=r.get("en"),
+                                     asignatura=a.get("nombre"), pagina=a.get("pagina"))
+                if r.get("en"):
+                    res[r["en"]] = dict(comun, en=True, titulo=r.get("titulo_en") or r["titulo"],
+                                        descripcion=r.get("descripcion_en") or r.get("descripcion"),
+                                        etiqueta=r.get("etiqueta_en"), pareja=r["url"],
+                                        asignatura=a.get("nombre_en") or a.get("nombre"),
+                                        pagina=a.get("pagina_en") or a.get("pagina"))
+    return res
+
+
+def resumenes():
+    """{url: {resumen, conceptos, formulas}} de todos los _data/resumenes/*.yml."""
+    res = {}
+    for f in sorted((RAIZ / "_data" / "resumenes").glob("*.yml")):
+        res.update(yaml.safe_load(f.read_text(encoding="utf-8")) or {})
+    return res
+
+
+def config():
+    return yaml.safe_load((RAIZ / "_config.yml").read_text(encoding="utf-8"))
+
+
+def metadatos(web, html, r, resumen, conf):
+    """Etiquetas del <head>: descripción, canónica, hreflang, Open Graph y JSON-LD."""
+    url = conf["url"].rstrip("/")
+    absoluta = lambda ruta: url + ruta
+    esc = lambda t: htmlmod.escape(" ".join(str(t).split()), quote=True)
+    en = r["en"]
+    desc = r["descripcion"] or (resumen or {}).get("resumen", "")
+    lineas = []
+    if not re.search(r'<meta\s+name="description"', html):
+        lineas.append(f'<meta name="description" content="{esc(desc)}">')
+    lineas.append(f'<meta name="author" content="{esc(conf["autor"]["nombre"])}">')
+    lineas.append(f'<link rel="canonical" href="{absoluta(web)}">')
+    if r["pareja"]:
+        yo, otro = ("en", "es") if en else ("es", "en")
+        lineas.append(f'<link rel="alternate" hreflang="{yo}" href="{absoluta(web)}">')
+        lineas.append(f'<link rel="alternate" hreflang="{otro}" href="{absoluta(r["pareja"])}">')
+        defecto = r["pareja"] if en else web
+        lineas.append(f'<link rel="alternate" hreflang="x-default" href="{absoluta(defecto)}">')
+    lineas += [f'<meta property="og:type" content="website">',
+               f'<meta property="og:site_name" content="{esc(conf["title"])}">',
+               f'<meta property="og:title" content="{esc(r["titulo"])}">',
+               f'<meta property="og:description" content="{esc(desc)}">',
+               f'<meta property="og:url" content="{absoluta(web)}">',
+               f'<meta property="og:locale" content="{"en_US" if en else "es_ES"}">']
+    if r["imagen"]:
+        lineas.append(f'<meta property="og:image" content="{absoluta(r["imagen"])}">')
+        lineas.append('<meta name="twitter:card" content="summary_large_image">')
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "@id": absoluta(web),
+        "url": absoluta(web),
+        "name": r["titulo"],
+        "description": " ".join(((resumen or {}).get("resumen") or desc).split()),
+        "inLanguage": "en" if en else "es",
+        "learningResourceType": "interactive visualization" if en else "visualización interactiva",
+        "interactivityType": "active",
+        "educationalLevel": "Undergraduate" if en else "Grado universitario",
+        "isAccessibleForFree": True,
+        "license": LICENCIA,
+        "author": {"@type": "Person", "@id": url + "/#persona", "name": conf["autor"]["nombre"],
+                   "url": url + "/", "sameAs": ["https://orcid.org/" + conf["autor"]["orcid"]]},
+    }
+    if resumen and resumen.get("conceptos"):
+        ld["teaches"] = resumen["conceptos"]
+    if r["imagen"]:
+        ld["image"] = absoluta(r["imagen"])
+    if r["asignatura"]:
+        ld["isPartOf"] = {"@type": "Course", "name": r["asignatura"], "url": absoluta(r["pagina"]),
+                          "provider": {"@type": "CollegeOrUniversity",
+                                       "name": "University of Alcalá" if en else "Universidad de Alcalá"}}
+    if r["pareja"]:
+        ld["translationOfWork" if en else "workTranslation"] = {"@id": absoluta(r["pareja"])}
+    texto = json.dumps(ld, ensure_ascii=False, indent=1).replace("</", "<\\/")
+    lineas.append(f'<script type="application/ld+json">\n{texto}\n</script>')
+    return "\n".join(lineas)
+
+
+def acerca(r, resumen, conf):
+    """Bloque «Sobre esta visualización», en texto estático."""
+    en = r["en"]
+    e = htmlmod.escape
+    partes = [f'<section class="sitio-acerca" aria-labelledby="sitio-acerca-t">',
+              f'<h2 id="sitio-acerca-t">{"About this visualization" if en else "Sobre esta visualización"}</h2>']
+    if resumen:
+        partes.append(f'<p>{e(" ".join(resumen["resumen"].split()))}</p>')
+        if resumen.get("conceptos"):
+            partes.append(f'<p><b>{"Concepts" if en else "Conceptos"}:</b> {e(", ".join(resumen["conceptos"]))}.</p>')
+        if resumen.get("formulas"):
+            partes.append(f'<p><b>{"Formulas" if en else "Fórmulas"}:</b></p><ul>'
+                          + "".join(f"<li><code>{e(x)}</code></li>" for x in resumen["formulas"]) + "</ul>")
+    elif r["descripcion"]:
+        partes.append(f'<p>{e(r["descripcion"])}</p>')
+    pie = []
+    if r["asignatura"]:
+        contexto = r["etiqueta"] or (f'{"Session" if en else "Sesión"} {r["sesion"]}' if r["sesion"] else "")
+        pie.append(f'<a href="{r["pagina"]}">{e(r["asignatura"])}</a>' + (f", {e(contexto)}" if contexto else ""))
+    pie.append(f'{e(conf["autor"]["nombre"])}, {"University of Alcalá" if en else "Universidad de Alcalá"}')
+    pie.append(f'{"License" if en else "Licencia"} <a href="{LICENCIA}" rel="license">CC BY-SA 4.0</a>')
+    partes.append(f'<p class="sitio-pie">{" · ".join(pie)}</p>')
+    partes.append("</section>")
+    return f"{INI_PIE}{''.join(partes)}{FIN_PIE}"
 
 
 def barra(ruta, html, asigs, idiomas):
@@ -163,15 +299,20 @@ def barra(ruta, html, asigs, idiomas):
 
 def quitar(html):
     html = re.sub(re.escape(INI_HEAD) + r".*?" + re.escape(FIN_HEAD) + r"\n?", "", html, flags=re.S)
-    return re.sub(re.escape(INI_BODY) + r".*?" + re.escape(FIN_BODY) + r"\n?", "", html, flags=re.S)
+    html = re.sub(re.escape(INI_PIE) + r".*?" + re.escape(FIN_PIE) + r"\n?", "", html, flags=re.S)
+    # La barra se inserta con un salto de línea a cada lado; se quitan los dos.
+    return re.sub(r"\n?" + re.escape(INI_BODY) + r".*?" + re.escape(FIN_BODY) + r"\n?", "", html, flags=re.S)
 
 
-def adaptar(ruta, asigs, idiomas):
+def adaptar(ruta, asigs, idiomas, recursos, textos, conf):
     html = quitar(ruta.read_text(encoding="utf-8"))
     fam = familia(html)
     if not fam:
         return None
-    cabeza = (f'{INI_HEAD}\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
+    web = "/" + "/".join(ruta.relative_to(RAIZ).parts)
+    r = recursos.get(web)
+    meta = metadatos(web, html, r, textos.get(web), conf) + "\n" if r else ""
+    cabeza = (f'{INI_HEAD}\n{meta}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
               f'family=Roboto:wght@300;400;500;700&display=swap">\n'
               f'<style id="estilo-sitio">\n{bloque_css(fam, html)}\n</style>\n{FIN_HEAD}\n')
     if "</head>" in html:
@@ -185,6 +326,14 @@ def adaptar(ruta, asigs, idiomas):
     else:  # sin <body>: la barra va justo después del bloque de estilo
         corte = html.find(FIN_HEAD) + len(FIN_HEAD)
         html = html[:corte] + "\n" + barra(ruta, html, asigs, idiomas) + html[corte:]
+    if r:
+        pie = acerca(r, textos.get(web), conf) + "\n"
+        if "</body>" in html:
+            html = html.replace("</body>", pie + "</body>", 1)
+        else:  # sin </body>: antes del último <script> de primer nivel
+            corte = html.rfind("\n<script")
+            corte = corte + 1 if corte >= 0 else len(html)
+            html = html[:corte] + pie + html[corte:]
     ruta.write_text(html, encoding="utf-8")
     return fam
 
@@ -196,6 +345,7 @@ def main():
     args = ap.parse_args()
     asigs = asignaturas()
     idiomas = pares_idioma()
+    recursos, textos, conf = recursos_por_url(asigs), resumenes(), config()
     for r in args.rutas:
         base = (RAIZ / r) if not Path(r).is_absolute() else Path(r)
         for f in sorted([base] if base.is_file() else base.rglob("*.html")):
@@ -206,7 +356,7 @@ def main():
                 f.write_text(quitar(texto), encoding="utf-8")
                 print(f"  sin estilo  {f.relative_to(RAIZ)}")
                 continue
-            fam = adaptar(f, asigs, idiomas)
+            fam = adaptar(f, asigs, idiomas, recursos, textos, conf)
             print(f"  {fam or 'sin familia, no se toca':<10} {f.relative_to(RAIZ)}")
 
 

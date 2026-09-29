@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- assign a = site.autor -%}
+# {{ a.nombre }}
+
+> {{ a.puesto }} en el {{ a.departamento }} de la {{ a.universidad }} (España), área de {{ a.area }}, y miembro del grupo de investigación {{ a.grupo }}. Investiga en seguridad de redes y sistemas, optimización de redes inalámbricas, resiliencia de infraestructuras críticas y negociación automática; enseña redes de comunicaciones y ciberseguridad y publica visualizaciones interactivas para clase con licencia CC BY-SA 4.0.
+>
+> {{ a.puesto_en }} at the University of Alcalá (Spain), member of the NetIS (Networks and Intelligent Systems) research group. Research on network and systems security, wireless network optimization, critical infrastructure resilience and automated negotiation. Teaches computer networks and cybersecurity and publishes CC BY-SA interactive teaching visualizations. The site is in Spanish, with English versions under /en/.
+
+La versión completa, con el texto de cada línea de investigación, los resúmenes de las visualizaciones y todas las publicaciones, está en [llms-full.txt]({{ '/llms-full.txt' | absolute_url }}).
+
+## Perfil
+
+- [Sobre mí]({{ '/' | absolute_url }}): presentación, contacto y publicaciones destacadas ([English]({{ '/en/' | absolute_url }}))
+- [Investigación]({{ '/investigacion/' | absolute_url }}): líneas de investigación con sus publicaciones ([English]({{ '/en/research/' | absolute_url }}))
+- [Publicaciones]({{ '/publicaciones/' | absolute_url }}): {{ site.data.publicaciones | size }} publicaciones, con DOI y citas ([English]({{ '/en/publications/' | absolute_url }}))
+- [ORCID](https://orcid.org/{{ a.orcid }}), [Google Scholar]({{ a.scholar }}), [Portal científico UAH]({{ a.portal_uah }}), [GitHub](https://github.com/{{ a.github }})
+- Contacto: {{ a.email }}
+
+## Docencia
+
+- [Docencia]({{ '/docencia/' | absolute_url }}): asignaturas que imparte ([English]({{ '/en/teaching/' | absolute_url }}))
+- [Recursos docentes]({{ '/recursos/' | absolute_url }}): todas las visualizaciones, por asignatura y tema ([English]({{ '/en/resources/' | absolute_url }}))
+{%- for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
+
+## Visualizaciones de {{ asig.nombre }}
+
+Páginas HTML autocontenidas que funcionan en el navegador; cada una incluye al final un resumen en texto de lo que muestra.
+{% for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos %}
+- [{{ r.titulo }}]({{ r.url | absolute_url }}): {{ r.descripcion }}{% if r.en %} ([English]({{ r.en | absolute_url }})){% endif %}
+{%- endfor -%}{%- endfor -%}
+{%- endif -%}{%- endfor %}
+
+## Optional
+
+- [Mapa del sitio]({{ '/sitemap.xml' | absolute_url }})

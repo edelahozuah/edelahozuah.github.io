@@ -17,6 +17,9 @@ compilación propio.
 | Líneas de investigación | `_data/lineas.yml` |
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
+| Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
+| Metadatos y JSON-LD de las páginas | `_includes/metadatos.html`, `_includes/jsonld.html` |
+| Versión para modelos de lenguaje | `llms.txt`, `llms-full.txt` |
 | Estilos (aspecto al-folio) | `assets/css/sitio.css` |
 
 El aspecto sigue las convenciones del tema [al-folio](https://github.com/alshedivat/al-folio).
@@ -35,6 +38,12 @@ El color de acento es la variable `--global-theme-color` de `assets/css/sitio.cs
 3. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
 4. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
    sesión y, si la hay, versión en inglés).
+5. Escribe su resumen en `_data/resumenes/` (uno por idioma, con la URL como
+   clave): `resumen` (3–5 frases), `conceptos` y, si las hay, `formulas`.
+6. Vuelve a ejecutar el script del paso 2: con los datos de los pasos 4 y 5
+   añade a la visualización su descripción, URL canónica, `hreflang`, Open
+   Graph y JSON-LD, y un bloque final «Sobre esta visualización» en texto
+   estático. Es idempotente; ejecútalo cada vez que cambies esos datos.
 
 Aparece solo en la página de la asignatura y en `/recursos/`.
 
@@ -83,6 +92,20 @@ No edites `_data/publicaciones.yml` a mano: las correcciones (ocultar
 duplicados, cambiar tipo o título, destacar en portada, enlazar un PDF, añadir
 trabajos que no estén en ORCID) van en `_data/publicaciones_ajustes.yml`, que el
 script aplica en cada ejecución.
+
+## Buscadores y modelos de lenguaje
+
+- `_includes/metadatos.html` pone en cada página el título, la descripción
+  (`description:` del front matter, en su idioma), la URL canónica, `hreflang`
+  (con `lang_alt:`), Open Graph (`imagen:` para la imagen de compartir) y el
+  JSON-LD de `_includes/jsonld.html`: la persona y el sitio en todas; las
+  publicaciones con `jsonld: publicaciones`; la asignatura y sus recursos con
+  `asignatura:` (y `carpeta:` para limitarlos a un tema); todos los recursos
+  con `jsonld: recursos`. El `h1` visible es `cabecera:` si existe, y si no
+  `title:`.
+- `llms.txt` y `llms-full.txt` se generan desde `_data/`, así que se
+  actualizan solos al añadir recursos, resúmenes o publicaciones.
+- `robots.txt` permite el rastreo a todos los agentes, también a los de IA.
 
 ## Ver la web en local
 

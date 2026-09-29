@@ -64,6 +64,68 @@ figure canvas{display:block;width:100%;height:auto;border:1px solid var(--line);
 kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface);font-size:.85em}
 </style>
 <!-- estilo-sitio:inicio -->
+<meta name="description" content="Several sources share one outgoing link. Raise the traffic intensity ρ = λ·L/R and watch the queue grow, the buffer fill up, and the router start dropping packets.">
+<meta name="author" content="Enrique de la Hoz">
+<link rel="canonical" href="https://edelahozuah.github.io/docencia/ar1/colas/queueing_drops_router.html">
+<link rel="alternate" hreflang="en" href="https://edelahozuah.github.io/docencia/ar1/colas/queueing_drops_router.html">
+<link rel="alternate" hreflang="es" href="https://edelahozuah.github.io/docencia/ar1/colas/conmutacion_paquetes_colas.html">
+<link rel="alternate" hreflang="x-default" href="https://edelahozuah.github.io/docencia/ar1/colas/conmutacion_paquetes_colas.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Enrique de la Hoz">
+<meta property="og:title" content="Queueing and packet drops in a router">
+<meta property="og:description" content="Several sources share one outgoing link. Raise the traffic intensity ρ = λ·L/R and watch the queue grow, the buffer fill up, and the router start dropping packets.">
+<meta property="og:url" content="https://edelahozuah.github.io/docencia/ar1/colas/queueing_drops_router.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://edelahozuah.github.io/assets/img/recursos/conmutacion_paquetes_colas.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LearningResource",
+ "@id": "https://edelahozuah.github.io/docencia/ar1/colas/queueing_drops_router.html",
+ "url": "https://edelahozuah.github.io/docencia/ar1/colas/queueing_drops_router.html",
+ "name": "Queueing and packet drops in a router",
+ "description": "Simulation of a router with four sources, a finite buffer and one output link. The student varies the traffic intensity ρ = λ·L/R (0.05 to 1.6), the buffer size (1 to 16 packets), the arrival pattern (Poisson, regular or bursty) and the packet size (fixed or exponential). Queue occupancy, queueing delay, link utilization, drops and throughput are measured and compared with the theoretical M/M/1/N curve, which is exact when packet sizes are exponential. It shows that queues grow with ρ, that packets are dropped even when ρ < 1, and that with ρ > 1 dropping becomes structural.",
+ "inLanguage": "en",
+ "learningResourceType": "interactive visualization",
+ "interactivityType": "active",
+ "educationalLevel": "Undergraduate",
+ "isAccessibleForFree": true,
+ "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "author": {
+  "@type": "Person",
+  "@id": "https://edelahozuah.github.io/#persona",
+  "name": "Enrique de la Hoz",
+  "url": "https://edelahozuah.github.io/",
+  "sameAs": [
+   "https://orcid.org/0000-0003-4837-3837"
+  ]
+ },
+ "teaches": [
+  "traffic intensity",
+  "queueing delay",
+  "finite buffer",
+  "packet drop",
+  "link utilization",
+  "packet switching",
+  "M/M/1/N queue",
+  "bursty traffic"
+ ],
+ "image": "https://edelahozuah.github.io/assets/img/recursos/conmutacion_paquetes_colas.jpg",
+ "isPartOf": {
+  "@type": "Course",
+  "name": "Network Architecture I",
+  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+  "provider": {
+   "@type": "CollegeOrUniversity",
+   "name": "University of Alcalá"
+  }
+ },
+ "translationOfWork": {
+  "@id": "https://edelahozuah.github.io/docencia/ar1/colas/conmutacion_paquetes_colas.html"
+ }
+}
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 <style id="estilo-sitio">
 :root{--sitio-acento:#b509ac;--bg:#ffffff;--surface:#f8f9fa;--ink:#000000;--muted:#6b6b6b;--line:#e3e3e3}
@@ -74,15 +136,12 @@ h1{font-family:"Roboto","Helvetica Neue",Arial,sans-serif;font-weight:400;letter
 .card h2{text-transform:none;letter-spacing:normal;font-family:"Roboto","Helvetica Neue",Arial,sans-serif}
 h1{color:var(--ink)}.btn.primary{background:var(--sitio-acento);border-color:var(--sitio-acento)}input[type=range]{accent-color:var(--sitio-acento)}.chip{border-color:var(--sitio-acento);color:var(--sitio-acento)}
 .sitio-barra{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px;margin:0 0 4px;padding:12px 16px;border-bottom:1px solid var(--line);font:300 16px/1.3 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-barra a{color:inherit;text-decoration:none}.sitio-barra a:hover{color:var(--sitio-acento)}.sitio-barra .sitio-marca{font-size:1.15rem}.sitio-barra b{font-weight:700}
+.sitio-acerca{max-width:80ch;margin:40px auto 24px;padding:16px 0 0;border-top:1px solid var(--line);font:400 15px/1.55 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-acerca h2{font-size:1.1rem;font-weight:500;line-height:1.3;margin:0 0 8px}.sitio-acerca p{margin:0 0 8px}.sitio-acerca ul{margin:0 0 8px;padding-left:1.4em}.sitio-acerca code{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.92em}.sitio-acerca a{color:var(--sitio-acento)}.sitio-acerca .sitio-pie{opacity:.75;font-size:.9em}
 </style>
 <!-- estilo-sitio:fin -->
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Site"><a class="sitio-marca" href="/en/"><b>Enrique</b> de la Hoz</a><a href="/en/teaching/ar1/">Network Architecture I</a><a href="/docencia/ar1/colas/conmutacion_paquetes_colas.html" hreflang="es" lang="es">Español</a></div><!-- barra-sitio:fin -->
-
-
-
-
 <main>
 <h1>Queueing and packet drops in a router</h1>
 <p class="sub">Several sources share a single output link. Increase the traffic intensity and watch the queue build up, the buffer fill and the router start dropping packets.</p>
@@ -475,5 +534,6 @@ resetAll();
 requestAnimationFrame(frame);
 })();
 </script>
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Simulation of a router with four sources, a finite buffer and one output link. The student varies the traffic intensity ρ = λ·L/R (0.05 to 1.6), the buffer size (1 to 16 packets), the arrival pattern (Poisson, regular or bursty) and the packet size (fixed or exponential). Queue occupancy, queueing delay, link utilization, drops and throughput are measured and compared with the theoretical M/M/1/N curve, which is exact when packet sizes are exponential. It shows that queues grow with ρ, that packets are dropped even when ρ &lt; 1, and that with ρ &gt; 1 dropping becomes structural.</p><p><b>Concepts:</b> traffic intensity, queueing delay, finite buffer, packet drop, link utilization, packet switching, M/M/1/N queue, bursty traffic.</p><p><b>Formulas:</b></p><ul><li><code>ρ = λ · L / R</code></li><li><code>service time = L / R</code></li><li><code>dropped fraction ≈ (ρ − 1) / ρ for ρ &gt; 1</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 1.3 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

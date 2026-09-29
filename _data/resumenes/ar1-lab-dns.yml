@@ -1,0 +1,98 @@
+# Resúmenes de las visualizaciones de AR1 (laboratorio de retardos y DNS). Los usa scripts/estilo_visualizaciones.py (texto estático y JSON-LD de cada visualización) y llms-full.txt.
+
+/docencia/ar1/lab-retardos/01-anatomia-del-retardo.html:
+  resumen: >-
+    Animación a escala de un paquete que se transmite por un enlace de A a B, basada en el problema P6 de Kurose. Muestra dónde están el primer y el último bit en cada instante, junto con un diagrama espacio-tiempo. El estudiante ajusta el tamaño del paquete, la tasa de transmisión, la longitud del enlace y la velocidad de propagación (o elige un caso predefinido), salta a los instantes clave, usa la lupa y el modo predicción. Una calculadora resuelve cualquier enunciado. La idea central es que el retardo de transmisión depende de L/R y el de propagación de l/v_p, y que su comparación indica si el paquete cabe entero en el enlace.
+  conceptos: [retardo de transmisión, retardo de propagación, retardo extremo a extremo, tasa de transmisión, velocidad de propagación, longitud del paquete en el medio, diagrama espacio-tiempo, punto de equilibrio]
+  formulas:
+    - "d_trans = L / R"
+    - "d_prop = l / v_p"
+    - "extremo a extremo = d_trans + d_prop"
+    - "longitud del paquete = v_p·L / R"
+    - "equilibrio (d_prop = d_trans): l = v_p·L / R"
+
+/docencia/ar1/lab-retardos/01-anatomy-of-delay.html:
+  resumen: >-
+    A to-scale animation of a packet sent over a link from A to B, based on problem P6 from Kurose. It shows where the first and the last bit are at every instant, next to a space-time diagram. The student adjusts packet size, transmission rate, link length and propagation speed (or picks a preset), jumps to key moments, zooms in on the head of the packet and switches on prediction mode. A calculator solves any problem statement. The main idea is that transmission delay depends on L/R and propagation delay on l/v_p, and comparing them tells whether the whole packet fits on the link at once.
+  conceptos: [transmission delay, propagation delay, end-to-end delay, transmission rate, propagation speed, packet length on the medium, space-time diagram, break-even point]
+  formulas:
+    - "d_trans = L / R"
+    - "d_prop = l / v_p"
+    - "end-to-end = d_trans + d_prop"
+    - "packet length = v_p·L / R"
+    - "break-even (d_prop = d_trans): l = v_p·L / R"
+
+/docencia/ar1/lab-retardos/02-tuberia-ancho-de-bit.html:
+  resumen: >-
+    Visualización del enlace como una tubería por la que se vierte un fichero, para los problemas P25, P26 y P27 de Kurose. Muestra cuántos bits hay en el enlace en cada instante, la capacidad de la tubería (producto ancho de banda-retardo), el máximo de bits en vuelo y el ancho físico de un bit en metros, comparado con un campo de fútbol. El estudiante modifica la tasa, el tamaño del fichero, la longitud y la velocidad de propagación, mueve una lupa sobre la tubería y compara 2 Mbps con 1 Gbps. Se aprecia que a tasas altas caben muchos bits y cada uno ocupa muy poco espacio.
+  conceptos: [producto ancho de banda-retardo, bits en vuelo, capacidad del enlace, ancho de un bit, retardo de transmisión, retardo de propagación, tasa de transmisión]
+  formulas:
+    - "d_prop = m / s"
+    - "d_trans = F / R"
+    - "capacidad de la tubería = R·d_prop"
+    - "máximo de bits en el enlace = min(F, R·d_prop)"
+    - "ancho de un bit = s / R"
+    - "longitud del fichero en el medio = s·F / R"
+    - "R con la que un bit llena el enlace = s / m"
+
+/docencia/ar1/lab-retardos/02-pipe-bit-width.html:
+  resumen: >-
+    A view of the link as a pipe into which a file is poured, for problems P25, P26 and P27 from Kurose. It shows how many bits are on the link at each instant, the capacity of the pipe (the bandwidth-delay product), the maximum number of bits in flight and the physical width of a bit in metres, compared with a football pitch. The student changes the rate, file size, link length and propagation speed, moves a magnifier along the pipe and compares 2 Mbps with 1 Gbps. It shows that at high rates many bits fit on the link and each one takes up very little space.
+  conceptos: [bandwidth-delay product, bits in flight, link capacity, width of a bit, transmission delay, propagation delay, transmission rate]
+  formulas:
+    - "d_prop = m / s"
+    - "d_trans = F / R"
+    - "pipe capacity = R·d_prop"
+    - "maximum bits on the link = min(F, R·d_prop)"
+    - "width of a bit = s / R"
+    - "file length on the medium = s·F / R"
+    - "R at which one bit fills the link = s / m"
+
+/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html:
+  resumen: >-
+    Compara dos formas de enviar el mismo fichero entre A y B, según el problema P28 de Kurose (20 000 km, 2 Mbps, 800 000 bits): como un único mensaje continuo y dividido en N paquetes con parada y espera, donde cada paquete espera su reconocimiento (ACK) antes de enviar el siguiente. Muestra ambos escenarios animados, sus diagramas espacio-tiempo, la utilización del enlace y el tiempo total. El estudiante cambia el tamaño del fichero, la tasa, la distancia y N, y puede probar una ventana de varios paquetes sin reconocer. El resultado muestra que el RTT domina el tiempo y deja el enlace casi ocioso.
+  conceptos: [parada y espera, envío continuo, tiempo de ida y vuelta (RTT), reconocimiento (ACK), utilización del enlace, retardo de transmisión, retardo de propagación, ventana]
+  formulas:
+    - "d_trans = F / R"
+    - "d_prop = distancia / v_p"
+    - "RTT = 2·d_prop"
+    - "tiempo continuo = F/R + d_prop"
+    - "tiempo con parada y espera (ventana 1, ACK despreciable) = N·(F/(N·R) + RTT)"
+    - "utilización = d_trans total / tiempo total"
+
+/docencia/ar1/lab-retardos/03-continuous-vs-stop-and-wait.html:
+  resumen: >-
+    Compares two ways of sending the same file between A and B, following problem P28 from Kurose (20,000 km, 2 Mbps, 800,000 bits): as a single continuous message, and split into N packets with stop-and-wait, where each packet waits for its acknowledgement (ACK) before the next one is sent. It shows both scenarios animated, their space-time diagrams, link utilization and total time. The student changes file size, rate, distance and N, and can also try a window of several unacknowledged packets. The outcome shows that the RTT dominates the time and leaves the link mostly idle.
+  conceptos: [stop-and-wait, continuous transmission, round-trip time (RTT), acknowledgement (ACK), link utilization, transmission delay, propagation delay, window]
+  formulas:
+    - "d_trans = F / R"
+    - "d_prop = distance / v_p"
+    - "RTT = 2·d_prop"
+    - "continuous time = F/R + d_prop"
+    - "stop-and-wait time (window 1, negligible ACK) = N·(F/(N·R) + RTT)"
+    - "utilization = total d_trans / total time"
+
+/docencia/ar1/dns/dns_nombres.html:
+  resumen: >-
+    Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.
+  conceptos: [etiqueta, dominio, árbol de nombres, raíz, dominio de nivel superior (TLD), nombre completo (FQDN), punycode, host]
+
+/docencia/ar1/dns/dns_delegacion.html:
+  resumen: >-
+    Muestra cómo se reparte el espacio de nombres DNS en zonas mediante delegación, con la cadena IANA, Red.es, UAH y departamentos. En «Paso a paso» se ve el árbol coloreado por zonas y los ficheros de zona (SOA, NS, A) cambiando en cada delegación, con una pausa opcional para predecir. En «Delega tú» el estudiante actúa como cada responsable, crea dominios y hosts, cede ramas indicando servidor y dirección, y ve cuándo el registro de pegamento (glue) es obligatorio. Al pulsar un nombre se muestra la cadena de referencias hasta su servidor autoritativo. Distingue dominio y zona.
+  conceptos: [delegación de zona, zona, registro NS, registro de pegamento (glue), servidor autoritativo, fichero de zona, referencia, dominio frente a zona]
+
+/docencia/ar1/dns/dns_delegation_en.html:
+  resumen: >-
+    Shows how the DNS name space is split into zones through delegation, using the chain IANA, Red.es, UAH and departments. In "Step by step" the tree is coloured by zone and the zone files (SOA, NS, A) change with each delegation, with an optional pause to predict. In "Your turn" the student acts as each zone owner, creates domains and hosts, hands over branches by giving a server name and address, and sees when the glue record is mandatory. Clicking a name shows the chain of referrals leading to its authoritative server. It distinguishes a domain from a zone.
+  conceptos: [zone delegation, zone, NS record, glue record, authoritative server, zone file, referral, domain versus zone]
+
+/docencia/ar1/dns/dns_consultas.html:
+  resumen: >-
+    Animación mensaje a mensaje de la resolución de gaia.cs.umass.edu por un host, con todas las cachés vacías, en un escenario de host, resolutor local, servidor raíz, servidor TLD .edu y servidor autoritativo. Tiene tres modos: iterativa, recursiva y comparar ambas. Cada uno de los 8 mensajes indica su tipo (consulta, referencia o respuesta), sus campos (RD, AA, TTL) y lo que se guarda en caché, y marca qué servidores mantienen una consulta ajena pendiente. Muestra que en la práctica solo la primera consulta es recursiva, y que la raíz y los TLD responden con referencias para no acumular consultas pendientes.
+  conceptos: [consulta iterativa, consulta recursiva, resolutor local, referencia, servidor autoritativo, caché, TTL, servidor raíz]
+
+/docencia/ar1/dns/dns_queries_en.html:
+  resumen: >-
+    Message-by-message animation of how a host resolves gaia.cs.umass.edu with every cache empty, in a scenario made of a host, a local DNS server, a root server, a .edu TLD server and an authoritative server. It has three modes: iterative, recursive and a side-by-side comparison. Each of the 8 messages states its type (query, referral or answer), its fields (RD, AA, TTL) and what gets cached, and marks which servers hold someone else's query pending. It shows that in practice only the first query is recursive, and that root and TLD servers reply with referrals so that they do not accumulate pending queries.
+  conceptos: [iterative query, recursive query, local DNS server, referral, authoritative server, cache, TTL, root server]

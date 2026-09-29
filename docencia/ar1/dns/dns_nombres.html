@@ -2,7 +2,7 @@
 <html lang="es">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Anatomía de un nombre DNS</title>
+<title>Anatomía de un nombre: de las etiquetas al árbol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -138,6 +138,62 @@ footer{font-size:12.5px;color:var(--muted);margin-top:14px;max-width:95ch}
 @media (prefers-reduced-motion:reduce){ .row.fresh{animation:none} .row,.br,.name .lab{transition:none} }
 </style>
 <!-- estilo-sitio:inicio -->
+<meta name="description" content="Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.">
+<meta name="author" content="Enrique de la Hoz">
+<link rel="canonical" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Enrique de la Hoz">
+<meta property="og:title" content="Anatomía de un nombre: de las etiquetas al árbol">
+<meta property="og:description" content="Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.">
+<meta property="og:url" content="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://edelahozuah.github.io/assets/img/recursos/dns_nombres.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LearningResource",
+ "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html",
+ "url": "https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html",
+ "name": "Anatomía de un nombre: de las etiquetas al árbol",
+ "description": "Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.",
+ "inLanguage": "es",
+ "learningResourceType": "visualización interactiva",
+ "interactivityType": "active",
+ "educationalLevel": "Grado universitario",
+ "isAccessibleForFree": true,
+ "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "author": {
+  "@type": "Person",
+  "@id": "https://edelahozuah.github.io/#persona",
+  "name": "Enrique de la Hoz",
+  "url": "https://edelahozuah.github.io/",
+  "sameAs": [
+   "https://orcid.org/0000-0003-4837-3837"
+  ]
+ },
+ "teaches": [
+  "etiqueta",
+  "dominio",
+  "árbol de nombres",
+  "raíz",
+  "dominio de nivel superior (TLD)",
+  "nombre completo (FQDN)",
+  "punycode",
+  "host"
+ ],
+ "image": "https://edelahozuah.github.io/assets/img/recursos/dns_nombres.jpg",
+ "isPartOf": {
+  "@type": "Course",
+  "name": "Arquitectura de Redes I",
+  "url": "https://edelahozuah.github.io/docencia/ar1/",
+  "provider": {
+   "@type": "CollegeOrUniversity",
+   "name": "Universidad de Alcalá"
+  }
+ }
+}
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 <style id="estilo-sitio">
 :root{--sitio-acento:#b509ac;--bg:#ffffff;--surface:#ffffff;--surface2:#f8f9fa;--ink:#000000;--muted:#6b6b6b;--line:#e3e3e3;--rust:var(--sitio-acento);--f-disp:"Roboto","Helvetica Neue",Arial,sans-serif;--f-body:"Roboto","Helvetica Neue",Arial,sans-serif;--f-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
@@ -148,14 +204,10 @@ h1{font-family:"Roboto","Helvetica Neue",Arial,sans-serif;font-weight:400;letter
 .card .kind,.eyebrow,.panel h2 small{text-transform:none;letter-spacing:normal;font-family:"Roboto","Helvetica Neue",Arial,sans-serif}
 header{border-top:0}
 .sitio-barra{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px;margin:0 -16px 4px;padding:12px 16px;border-bottom:1px solid var(--line);font:300 16px/1.3 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-barra a{color:inherit;text-decoration:none}.sitio-barra a:hover{color:var(--sitio-acento)}.sitio-barra .sitio-marca{font-size:1.15rem}.sitio-barra b{font-weight:700}
+.sitio-acerca{max-width:80ch;margin:40px auto 24px;padding:16px 0 0;border-top:1px solid var(--line);font:400 15px/1.55 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-acerca h2{font-size:1.1rem;font-weight:500;line-height:1.3;margin:0 0 8px}.sitio-acerca p{margin:0 0 8px}.sitio-acerca ul{margin:0 0 8px;padding-left:1.4em}.sitio-acerca code{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.92em}.sitio-acerca a{color:var(--sitio-acento)}.sitio-acerca .sitio-pie{opacity:.75;font-size:.9em}
 </style>
 <!-- estilo-sitio:fin -->
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Sitio"><a class="sitio-marca" href="/"><b>Enrique</b> de la Hoz</a><a href="/docencia/ar1/">Arquitectura de Redes I</a></div><!-- barra-sitio:fin -->
-
-
-
-
-
 <div class="wrap">
   <header>
     <div>
@@ -202,9 +254,10 @@ header{border-top:0}
     </div>
   </section>
 
-  <footer>Diapositivas 24–26. Reglas: RFC 1035 (63 caracteres por etiqueta; 255 octetos en total en el mensaje, que son 253 caracteres escritos), RFC 1123 (letras, cifras y guion en nombres de host) y RFC 5890 (nombres internacionalizados, codificados en punycode). Las ramas grises son solo contexto. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio volver al principio.</footer>
+  <footer>Reglas: RFC 1035 (63 caracteres por etiqueta; 255 octetos en total en el mensaje, que son 253 caracteres escritos), RFC 1123 (letras, cifras y guion en nombres de host) y RFC 5890 (nombres internacionalizados, codificados en punycode). Las ramas grises son solo contexto. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio volver al principio.</footer>
 </div>
 
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.</p><p><b>Conceptos:</b> etiqueta, dominio, árbol de nombres, raíz, dominio de nivel superior (TLD), nombre completo (FQDN), punycode, host.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
 <script>
 (() => {
 /* ---------- Conocimiento del ejemplo ---------- */
