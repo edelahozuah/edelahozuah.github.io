@@ -7,6 +7,9 @@
   nombre_en: Network Architecture I
   pagina: /docencia/ar1/
   pagina_en: /en/teaching/ar1/
+  # «descripcion» y «descripcion_en» se usan en los datos estructurados (Course).
+  descripcion: Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS.
+  descripcion_en: Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS.
 - id: ar2
   nombre: Arquitectura de Redes II
   nombre_en: Network Architecture II

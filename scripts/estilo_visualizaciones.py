@@ -170,13 +170,15 @@ def recursos_por_url(asigs):
                 comun = {"imagen": r.get("imagen"), "sesion": r.get("sesion"), "tema": t.get("tema")}
                 res[r["url"]] = dict(comun, en=False, titulo=r["titulo"], descripcion=r.get("descripcion"),
                                      etiqueta=r.get("etiqueta"), pareja=r.get("en"),
-                                     asignatura=a.get("nombre"), pagina=a.get("pagina"))
+                                     asignatura=a.get("nombre"), pagina=a.get("pagina"),
+                                     desc_asignatura=a.get("descripcion"))
                 if r.get("en"):
                     res[r["en"]] = dict(comun, en=True, titulo=r.get("titulo_en") or r["titulo"],
                                         descripcion=r.get("descripcion_en") or r.get("descripcion"),
                                         etiqueta=r.get("etiqueta_en"), pareja=r["url"],
                                         asignatura=a.get("nombre_en") or a.get("nombre"),
-                                        pagina=a.get("pagina_en") or a.get("pagina"))
+                                        pagina=a.get("pagina_en") or a.get("pagina"),
+                                        desc_asignatura=a.get("descripcion_en") or a.get("descripcion"))
     return res
 
 
@@ -241,6 +243,7 @@ def metadatos(web, html, r, resumen, conf):
         ld["image"] = absoluta(r["imagen"])
     if r["asignatura"]:
         ld["isPartOf"] = {"@type": "Course", "name": r["asignatura"], "url": absoluta(r["pagina"]),
+                          "description": r["desc_asignatura"] or r["asignatura"],
                           "provider": {"@type": "CollegeOrUniversity",
                                        "name": "University of Alcalá" if en else "Universidad de Alcalá"}}
     if r["pareja"]:
