@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DNS Zone Delegation</title>
+<title>Zone delegation: handing over a branch of the tree</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -311,7 +311,7 @@ header{border-top:0}
     <span><svg width="22" height="16"><rect x="1" y="1" width="20" height="14" rx="7" fill="none" stroke="var(--muted)" stroke-width="3"/></svg>Zone apex (where its SOA and NS live)</span>
     <span><svg width="22" height="16"><rect x="1" y="1" width="20" height="14" rx="3" fill="none" stroke="var(--muted)" stroke-width="1.6"/></svg>Host (A record)</span>
   </div>
-  <footer>Same names as in the slides (the chain IANA → Red.es → UAH → department). The servers dns.uah.es, dns.aut.uah.es, dns.cc.uah.es and dns.upm.es and every host address are illustrative; the zone files are simplified (no TTL or class, abbreviated SOA, a single NS per zone where real zones have at least two). In “Your turn” you can create new domains and hosts: the addresses the page suggests are made up. Keyboard: → next, ← previous, Home restart.</footer>
+  <footer>Same names as in class (the chain IANA → Red.es → UAH → department). The servers dns.uah.es, dns.aut.uah.es, dns.cc.uah.es and dns.upm.es and every host address are illustrative; the zone files are simplified (no TTL or class, abbreviated SOA, a single NS per zone where real zones have at least two). In “Your turn” you can create new domains and hosts: the addresses the page suggests are made up. Keyboard: → next, ← previous, Home restart.</footer>
 </div>
 
 <!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Shows how the DNS name space is split into zones through delegation, using the chain IANA, Red.es, UAH and departments. In &quot;Step by step&quot; the tree is coloured by zone and the zone files (SOA, NS, A) change with each delegation, with an optional pause to predict. In &quot;Your turn&quot; the student acts as each zone owner, creates domains and hosts, hands over branches by giving a server name and address, and sees when the glue record is mandatory. Clicking a name shows the chain of referrals leading to its authoritative server. It distinguishes a domain from a zone.</p><p><b>Concepts:</b> zone delegation, zone, NS record, glue record, authoritative server, zone file, referral, domain versus zone.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->

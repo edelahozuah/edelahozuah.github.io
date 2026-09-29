@@ -4,7 +4,7 @@ JSON-LD. Sustituye a jekyll-seo-tag, que no distingue idiomas (ponía la
 descripción en español en las páginas inglesas).
 
 Front matter que usa: title, description, lang, lang_alt, imagen (ruta de una
-imagen para compartir) y sitemap: false (la página no se indexa).
+imagen para compartir; si falta, assets/img/tarjeta-<idioma>.png) y sitemap: false (la página no se indexa).
 {%- endcomment -%}
 {%- assign en = false -%}{%- if page.lang == 'en' -%}{%- assign en = true -%}{%- endif -%}
 {%- assign portada = false -%}{%- if page.url == '/' or page.url == '/en/' -%}{%- assign portada = true -%}{%- endif -%}
@@ -38,12 +38,15 @@ imagen para compartir) y sitemap: false (la página no se indexa).
   <meta property="og:locale" content="{% if en %}en_US{% else %}es_ES{% endif %}">
   {% if page.lang_alt %}<meta property="og:locale:alternate" content="{% if en %}es_ES{% else %}en_US{% endif %}">
   {% endif -%}
-  {% if page.imagen -%}
-  <meta property="og:image" content="{{ page.imagen | absolute_url }}">
-  <meta name="twitter:card" content="summary_large_image">
-  {%- else -%}
-  <meta name="twitter:card" content="summary">
-  {%- endif %}
+  {%- comment -%}Sin imagen propia, la tarjeta del sitio en su idioma (1200×630).{%- endcomment -%}
+  {%- if page.imagen -%}{%- assign imagen = page.imagen -%}
+  {%- elsif en -%}{%- assign imagen = '/assets/img/tarjeta-en.png' -%}
+  {%- else -%}{%- assign imagen = '/assets/img/tarjeta-es.png' -%}{%- endif %}
+  <meta property="og:image" content="{{ imagen | absolute_url }}">
+  {% unless page.imagen %}<meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{% if en %}Enrique de la Hoz, {{ site.autor.puesto_en }}, University of Alcalá{% else %}Enrique de la Hoz, {{ site.autor.puesto }}, {{ site.autor.universidad }}{% endif %}">
+  {% endunless %}<meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
 {% include jsonld.html titulo=titulo descripcion=descripcion canonica=canonica en=en portada=portada %}
   </script>

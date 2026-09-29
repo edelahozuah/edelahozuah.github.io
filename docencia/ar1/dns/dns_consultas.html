@@ -2,7 +2,7 @@
 <html lang="es">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Consultas DNS paso a paso</title>
+<title>Consultas DNS: iterativa y recursiva, mensaje a mensaje</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -241,7 +241,7 @@ header{border-top:0}
     <span><i style="background:var(--ans)"></i>Respuesta con la dirección</span>
     <span><span class="ring"></span>Servidor con una consulta ajena pendiente (tiene que recordarla y esperar)</span>
   </div>
-  <footer>Mismo escenario que las figuras de las diapositivas 32 y 34 (Kurose y Ross, figs. 2.19 y 2.20). Las direcciones IP de los servidores de .edu y de umass.edu son ilustrativas. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio reiniciar.</footer>
+  <footer>Mismo escenario que las figuras 2.19 y 2.20 de Kurose y Ross. Las direcciones IP de los servidores de .edu y de umass.edu son ilustrativas. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio reiniciar.</footer>
 </div>
 
 <!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Animación mensaje a mensaje de la resolución de gaia.cs.umass.edu por un host, con todas las cachés vacías, en un escenario de host, resolutor local, servidor raíz, servidor TLD .edu y servidor autoritativo. Tiene tres modos: iterativa, recursiva y comparar ambas. Cada uno de los 8 mensajes indica su tipo (consulta, referencia o respuesta), sus campos (RD, AA, TTL) y lo que se guarda en caché, y marca qué servidores mantienen una consulta ajena pendiente. Muestra que en la práctica solo la primera consulta es recursiva, y que la raíz y los TLD responden con referencias para no acumular consultas pendientes.</p><p><b>Conceptos:</b> consulta iterativa, consulta recursiva, resolutor local, referencia, servidor autoritativo, caché, TTL, servidor raíz.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
@@ -268,7 +268,7 @@ const CE = {
 
 const SC = {
  it: {
-  title:'Iterativa', sub:'fig. de la diapositiva 34',
+  title:'Iterativa', sub:'Kurose y Ross, fig. 2.19',
   msgs:[
    {f:'host',t:'local',k:'q',type:'Consulta recursiva',say:`«¿Cuál es la dirección de ${Q}? Tráemela tú.»`,
     fields:['RD = 1',`Pregunta: ${Q} A`],note:'Es la única consulta recursiva: el host delega todo el trabajo en su resolutor local.',owe:'local'},
@@ -294,7 +294,7 @@ const SC = {
   summary:'8 mensajes, 4 servidores. Solo el resolutor local ha tenido que recordar una consulta ajena. La raíz y el TLD han contestado al instante con una referencia y no guardan nada pendiente.',
  },
  rec: {
-  title:'Recursiva', sub:'fig. de la diapositiva 32 · solo didáctico',
+  title:'Recursiva', sub:'Kurose y Ross, fig. 2.20 · solo didáctico',
   warn:'Hoy la raíz y los TLD no aceptan consultas recursivas.',
   msgs:[
    {f:'host',t:'local',k:'q',type:'Consulta recursiva',say:`«¿Cuál es la dirección de ${Q}? Tráemela tú.»`,

@@ -2,7 +2,7 @@
 <html lang="es">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Delegación de zonas DNS</title>
+<title>Delegación de zonas: ceder una rama del árbol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -311,7 +311,7 @@ header{border-top:0}
     <span><svg width="22" height="16"><rect x="1" y="1" width="20" height="14" rx="7" fill="none" stroke="var(--muted)" stroke-width="3"/></svg>Cima de una zona (donde están su SOA y su NS)</span>
     <span><svg width="22" height="16"><rect x="1" y="1" width="20" height="14" rx="3" fill="none" stroke="var(--muted)" stroke-width="1.6"/></svg>Host (registro A)</span>
   </div>
-  <footer>Mismos nombres que las diapositivas 26–27 (cadena IANA → Red.es → UAH → Departamento). Los servidores de dns.uah.es, dns.aut.uah.es, dns.cc.uah.es, dns.upm.es y todas las direcciones de hosts son ilustrativos; los ficheros de zona están simplificados (sin TTL ni clase, SOA abreviado, un solo NS por zona cuando en la realidad hay al menos dos). En «Delega tú» puedes crear dominios y hosts nuevos: las direcciones que propone la página son inventadas. Teclado: → siguiente, ← anterior, Inicio reiniciar.</footer>
+  <footer>Mismos nombres que en clase (cadena IANA → Red.es → UAH → Departamento). Los servidores de dns.uah.es, dns.aut.uah.es, dns.cc.uah.es, dns.upm.es y todas las direcciones de hosts son ilustrativos; los ficheros de zona están simplificados (sin TTL ni clase, SOA abreviado, un solo NS por zona cuando en la realidad hay al menos dos). En «Delega tú» puedes crear dominios y hosts nuevos: las direcciones que propone la página son inventadas. Teclado: → siguiente, ← anterior, Inicio reiniciar.</footer>
 </div>
 
 <!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Muestra cómo se reparte el espacio de nombres DNS en zonas mediante delegación, con la cadena IANA, Red.es, UAH y departamentos. En «Paso a paso» se ve el árbol coloreado por zonas y los ficheros de zona (SOA, NS, A) cambiando en cada delegación, con una pausa opcional para predecir. En «Delega tú» el estudiante actúa como cada responsable, crea dominios y hosts, cede ramas indicando servidor y dirección, y ve cuándo el registro de pegamento (glue) es obligatorio. Al pulsar un nombre se muestra la cadena de referencias hasta su servidor autoritativo. Distingue dominio y zona.</p><p><b>Conceptos:</b> delegación de zona, zona, registro NS, registro de pegamento (glue), servidor autoritativo, fichero de zona, referencia, dominio frente a zona.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
@@ -458,7 +458,7 @@ function diff(prev, D){
 const STEPS = [
   {add:[], kind:'Situación inicial', title:'Nadie ha delegado nada',
    say:'Supón que la IANA, que gestiona la raíz, tuviera que guardar ella sola todos los nombres del árbol. Habría una única zona y un único fichero, con un registro por cada nombre de Internet.',
-   note:'Es la base de datos centralizada de la diapositiva 28: un único punto de fallo, un volumen imposible, y cada vez que la UAH estrenara un servidor tendría que pedírselo a la IANA.'},
+   note:'Es la base de datos centralizada que ya descartamos: un único punto de fallo, un volumen imposible, y cada vez que la UAH estrenara un servidor tendría que pedírselo a la IANA.'},
   {add:['es'], kind:'Delegación', title:'La IANA delega es en Red.es',
    say:'«De todo lo que termina en .es se encarga Red.es. Su servidor es a.nic.es, que está en 194.69.254.1.»',
    note:'Delegar es escribir dos registros en tu zona: un <b>NS</b> con el nombre del servidor que se encarga del subdominio y un <b>A</b> con su dirección, el <b>pegamento</b>. Todo lo que cuelga de .es desaparece del fichero de la raíz: ya no es asunto de la IANA.',
