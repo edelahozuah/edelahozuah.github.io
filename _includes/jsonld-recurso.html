@@ -22,7 +22,7 @@ Un recurso docente de _data/recursos.yml como LearningResource. Los conceptos
           {%- if r.imagen %}
           "image": "{{ r.imagen | absolute_url }}",
           {%- endif %}
-          "isPartOf": { "@type": "Course", "name": {% if en %}{{ asig.nombre_en | default: asig.nombre | jsonify }}{% else %}{{ asig.nombre | jsonify }}{% endif %}, "url": "{{ asig.pagina | absolute_url }}" },
+          "isPartOf": { "@id": "{{ asig.pagina | absolute_url }}#asignatura" },
           "author": { "@id": "{{ site.url }}/#persona" },
           "isAccessibleForFree": true,
           "license": "https://creativecommons.org/licenses/by-sa/4.0/"
