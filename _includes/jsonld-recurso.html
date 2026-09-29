@@ -13,8 +13,13 @@ Un recurso docente de _data/recursos.yml como LearningResource. Los conceptos
           "name": {{ nombre | jsonify }},
           "description": {% if res %}{{ res.resumen | normalize_whitespace | jsonify }}{% else %}{{ desc | jsonify }}{% endif %},
           "inLanguage": "{% if en %}en{% else %}es{% endif %}",
+          {%- if r.tipo == 'video' %}
+          "learningResourceType": {% if en %}"video"{% else %}"vídeo"{% endif %},
+          "interactivityType": "expositive",
+          {%- else %}
           "learningResourceType": {% if en %}"interactive visualization"{% else %}"visualización interactiva"{% endif %},
           "interactivityType": "active",
+          {%- endif %}
           "educationalLevel": {% if en %}"Undergraduate"{% else %}"Grado universitario"{% endif %},
           {%- if res.conceptos %}
           "teaches": {{ res.conceptos | jsonify }},

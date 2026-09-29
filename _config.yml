@@ -47,9 +47,17 @@ permalink: pretty
 plugins:
   - jekyll-sitemap
 
+# Vídeos de YouTube: una página por vídeo e idioma en _videos/<asignatura>/,
+# generada con scripts/importar_video.py. El vídeo sigue en YouTube.
+collections:
+  videos:
+    output: true
+
 defaults:
   - scope: { path: "" }
     values: { layout: pagina }
+  - scope: { path: "", type: videos }
+    values: { layout: video }
 
 exclude:
   - README.md

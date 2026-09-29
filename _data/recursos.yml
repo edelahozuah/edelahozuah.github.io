@@ -9,6 +9,8 @@
 #     sesion:         "2.1" (se muestra «Sesión 2.1»)
 #     etiqueta:       texto libre en lugar de la sesión, p. ej. «Laboratorio 1.2»
 #     en:             ruta de la versión en inglés, si existe
+#     tipo:           «video» para los vídeos de YouTube (su página la crea
+#                     scripts/importar_video.py; imagen = miniatura de YouTube)
 #     titulo_en:      título en inglés (para /en/)
 #     descripcion_en: descripción en inglés (para /en/)
 #     etiqueta_en:    equivalente en inglés de «etiqueta»
@@ -50,6 +52,15 @@ ar1:
         sesion: "1.3"
         descripcion: Varios orígenes comparten un enlace de salida. Sube la intensidad de tráfico ρ = λ·L/R y mira cómo crece la cola, se llena el buffer y el router empieza a descartar paquetes.
         descripcion_en: Several sources share one outgoing link. Raise the traffic intensity ρ = λ·L/R and watch the queue grow, the buffer fill up, and the router start dropping packets.
+      - titulo: "El núcleo de la red: por qué se corta tu videollamada con fibra de 1 Gbps"
+        url: /docencia/ar1/videos/nucleo-de-la-red/
+        tipo: video
+        imagen: https://i.ytimg.com/vi/bGAw3Hwm4-c/maxresdefault.jpg
+        en: /en/teaching/ar1/videos/network-core/
+        titulo_en: "The network core: why your video call drops on 1 Gbps fibre"
+        sesion: "1.3"
+        descripcion: Episodio de 30 minutos de la sesión 1.3. Conmutación de circuitos y de paquetes, cómo está organizada Internet por dentro (ISP, IXP, peering), los cuatro retardos, colas, pérdidas y caudal.
+        descripcion_en: A 30-minute episode for session 1.3. Circuit and packet switching, how the Internet is organized inside (ISPs, IXPs, peering), the four delays, queues, losses and throughput.
 
   - tema: 1
     titulo: laboratorio de retardos
