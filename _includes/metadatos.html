@@ -21,7 +21,8 @@ imagen para compartir; si falta, assets/img/tarjeta-<idioma>.png) y sitemap: fal
   <title>{{ titulo }}</title>
   <meta name="description" content="{{ descripcion | escape }}">
   <meta name="author" content="{{ site.autor.nombre }}">
-  {% if page.sitemap == false %}<meta name="robots" content="noindex">
+  {% if portada and site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {% endif %}  {% if page.sitemap == false %}<meta name="robots" content="noindex">
   {% endif %}<link rel="canonical" href="{{ canonica }}">
   {% if page.lang_alt -%}
   {%- assign alternativa = page.lang_alt | absolute_url -%}

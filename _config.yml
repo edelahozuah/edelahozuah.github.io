@@ -6,6 +6,9 @@ baseurl: ""
 lang: es
 timezone: Europe/Madrid
 
+# Verificación de la propiedad en Google Search Console (metaetiqueta).
+google_site_verification: Wr9r7mM0Jaiybv0ZN333GUJNGCzKawIkAz7SeMFCKRs
+
 autor:
   nombre: Enrique de la Hoz
   puesto: Profesor Titular de Universidad
