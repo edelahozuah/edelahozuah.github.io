@@ -1,0 +1,71 @@
+# Selección de trabajos fin de grado y de máster dirigidos. Salen en
+# /docencia/trabajos/ y /en/teaching/theses/, con sus datos estructurados,
+# y en llms-full.txt.
+#
+#   - tipo:        tfm | tfg
+#     titulo:      título tal como está en el repositorio
+#     titulo_en:   traducción del título
+#     autor:       nombre y apellidos
+#     codirector:  si lo hay
+#     fecha:       fecha de lectura o de publicación (AAAA-MM-DD o AAAA)
+#     titulacion:  titulación y su traducción en titulacion_en
+#     handle:      identificador de eBUAH (10017/…); el enlace es hdl.handle.net
+#     resumen:     dos o tres frases propias (el resumen original está en eBUAH)
+#     resumen_en:  su traducción
+#     temas:       palabras clave (en español); temas_en en inglés
+#
+# El orden es el de la página: los más recientes primero.
+
+- tipo: tfm
+  titulo: Estudio y desarrollo de una nueva herramienta para la detección de Técnicas, Tácticas y Procedimientos (TTPs) desde informes de inteligencia de amenazas
+  titulo_en: Design and development of a new tool for detecting Tactics, Techniques and Procedures (TTPs) in threat intelligence reports
+  autor: Miguel Pinto Morales
+  codirector: Laura María Cornejo Bueno
+  fecha: 2026-07-14
+  titulacion: Máster Universitario en Ciberseguridad
+  titulacion_en: Master's Degree in Cybersecurity
+  handle: 10017/69751
+  resumen: TTPAutoGraph, una herramienta de código abierto en Python que extrae de informes de amenazas en PDF las TTPs de MITRE ATT&CK (con TTPXHunter, basado en SecureBERT) y los indicadores de compromiso, y los representa como grafos interactivos para comparar informes y perfilar grupos APT. Se valida con el dataset CTI-HAL, anotado por analistas.
+  resumen_en: TTPAutoGraph, an open-source Python tool that extracts MITRE ATT&CK TTPs (with TTPXHunter, based on SecureBERT) and indicators of compromise from PDF threat reports, and displays them as interactive graphs to compare reports and profile APT groups. It is validated against the analyst-annotated CTI-HAL dataset.
+  temas: [inteligencia de ciberamenazas, TTPs, MITRE ATT&CK, SecureBERT, grupos APT]
+  temas_en: [cyber threat intelligence, TTPs, MITRE ATT&CK, SecureBERT, APT groups]
+
+- tipo: tfm
+  titulo: Extracción de Técnicas, Tácticas y Procedimientos (TTPs) desde informes sobre amenazas mediante herramientas automáticas para la generación de un dataset unificado orientado a la atribución
+  titulo_en: Automated extraction of Tactics, Techniques and Procedures (TTPs) from threat reports to build a unified dataset for attribution
+  autor: David Duque Gómez
+  codirector: Laura María Cornejo Bueno
+  fecha: 2026-07-13
+  titulacion: Máster Universitario en Ciberseguridad
+  titulacion_en: Master's Degree in Cybersecurity
+  handle: 10017/69753
+  resumen: Un pipeline reproducible que procesa informes CTI en PDF y extrae TTPs e indicadores de compromiso con TTPXHunter y con un modelo de lenguaje de gran escala (Claude), e incorpora el contenido visual de los informes con un modelo multimodal. El resultado es un dataset unificado de 1.673 informes, pensado como base para atribuir ataques a grupos APT.
+  resumen_en: A reproducible pipeline that processes PDF CTI reports and extracts TTPs and indicators of compromise with TTPXHunter and with a large language model (Claude), adding the reports' visual content through a multimodal model. The result is a unified dataset of 1,673 reports, intended as a basis for attributing attacks to APT groups.
+  temas: [inteligencia de ciberamenazas, TTPs, atribución, modelos de lenguaje, dataset]
+  temas_en: [cyber threat intelligence, TTPs, attribution, language models, dataset]
+
+- tipo: tfm
+  titulo: Evaluación de datasets públicos de inteligencia de ciberamenazas
+  titulo_en: Evaluation of public cyber threat intelligence datasets
+  autor: Eva María Bernat Fernández
+  fecha: 2026
+  titulacion: Máster Universitario en Ciberseguridad
+  titulacion_en: Master's Degree in Cybersecurity
+  handle: 10017/69752
+  resumen: Un marco para medir la calidad de la inteligencia de ciberamenazas que se comparte en abierto, aplicado a casi 20.000 pulses de LevelBlue OTX. Se normalizan y enriquecen con MITRE ATT&CK, MISP Galaxy y Malpedia, se comparan con CIRCL usando VirusTotal como referencia y se prueba la atribución de adversarios mediante NMF; la calidad de origen condiciona la de la atribución.
+  resumen_en: A framework for measuring the quality of openly shared cyber threat intelligence, applied to almost 20,000 LevelBlue OTX pulses. They are normalized and enriched with MITRE ATT&CK, MISP Galaxy and Malpedia, compared with CIRCL using VirusTotal as ground truth, and used to test adversary attribution with NMF; source quality limits attribution quality.
+  temas: [inteligencia de ciberamenazas, calidad de datos, LevelBlue OTX, atribución, VirusTotal]
+  temas_en: [cyber threat intelligence, data quality, LevelBlue OTX, attribution, VirusTotal]
+
+- tipo: tfm
+  titulo: Análisis del ecosistema de ransomware
+  titulo_en: Analysis of the ransomware ecosystem
+  autor: Bianca Natalia Cerutti
+  fecha: 2026
+  titulacion: Máster Universitario en Ciberseguridad
+  titulacion_en: Master's Degree in Cybersecurity
+  handle: 10017/69754
+  resumen: Un análisis de ciberinteligencia de la evolución del ransomware entre 2020 y 2026, con más de 25.000 ataques, 800 vulnerabilidades y 3.000 técnicas. Muestra el paso a la doble extorsión, la fragmentación en grupos efímeros bajo el modelo RaaS y el creciente peso de los intermediarios de acceso inicial frente a la explotación de vulnerabilidades.
+  resumen_en: A cyber intelligence analysis of how ransomware evolved between 2020 and 2026, covering more than 25,000 attacks, 800 vulnerabilities and 3,000 techniques. It shows the shift to double extortion, fragmentation into short-lived groups under the RaaS model, and the growing role of initial access brokers over vulnerability exploitation.
+  temas: [ransomware, ciberinteligencia, doble extorsión, RaaS, MITRE ATT&CK, vulnerabilidades]
+  temas_en: [ransomware, cyber intelligence, double extortion, RaaS, MITRE ATT&CK, vulnerabilities]
