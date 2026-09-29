@@ -141,6 +141,67 @@ svg text.muted { fill: var(--ink-2); font-size: 13px; }
 .badge-extra { display: inline-block; font-size: 0.72rem; font-weight: 600; color: var(--ink-2); border: 1px solid var(--rule-strong); border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: middle; }
 </style>
 <!-- estilo-sitio:inicio -->
+<meta name="author" content="Enrique de la Hoz">
+<link rel="canonical" href="https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html">
+<link rel="alternate" hreflang="es" href="https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html">
+<link rel="alternate" hreflang="en" href="https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuous-vs-stop-and-wait.html">
+<link rel="alternate" hreflang="x-default" href="https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Enrique de la Hoz">
+<meta property="og:title" content="Envío continuo frente a parada y espera">
+<meta property="og:description" content="Un mensaje grande frente a 20 paquetes con reconocimiento, la utilización del enlace y el coste del RTT.">
+<meta property="og:url" content="https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://edelahozuah.github.io/assets/img/recursos/03-continuo-vs-parada-y-espera.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LearningResource",
+ "@id": "https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html",
+ "url": "https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html",
+ "name": "Envío continuo frente a parada y espera",
+ "description": "Compara dos formas de enviar el mismo fichero entre A y B, según el problema P28 de Kurose (20 000 km, 2 Mbps, 800 000 bits): como un único mensaje continuo y dividido en N paquetes con parada y espera, donde cada paquete espera su reconocimiento (ACK) antes de enviar el siguiente. Muestra ambos escenarios animados, sus diagramas espacio-tiempo, la utilización del enlace y el tiempo total. El estudiante cambia el tamaño del fichero, la tasa, la distancia y N, y puede probar una ventana de varios paquetes sin reconocer. El resultado muestra que el RTT domina el tiempo y deja el enlace casi ocioso.",
+ "inLanguage": "es",
+ "learningResourceType": "visualización interactiva",
+ "interactivityType": "active",
+ "educationalLevel": "Grado universitario",
+ "isAccessibleForFree": true,
+ "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "author": {
+  "@type": "Person",
+  "@id": "https://edelahozuah.github.io/#persona",
+  "name": "Enrique de la Hoz",
+  "url": "https://edelahozuah.github.io/",
+  "sameAs": [
+   "https://orcid.org/0000-0003-4837-3837"
+  ]
+ },
+ "teaches": [
+  "parada y espera",
+  "envío continuo",
+  "tiempo de ida y vuelta (RTT)",
+  "reconocimiento (ACK)",
+  "utilización del enlace",
+  "retardo de transmisión",
+  "retardo de propagación",
+  "ventana"
+ ],
+ "image": "https://edelahozuah.github.io/assets/img/recursos/03-continuo-vs-parada-y-espera.jpg",
+ "isPartOf": {
+  "@type": "Course",
+  "name": "Arquitectura de Redes I",
+  "url": "https://edelahozuah.github.io/docencia/ar1/",
+  "provider": {
+   "@type": "CollegeOrUniversity",
+   "name": "Universidad de Alcalá"
+  }
+ },
+ "workTranslation": {
+  "@id": "https://edelahozuah.github.io/docencia/ar1/lab-retardos/03-continuous-vs-stop-and-wait.html"
+ }
+}
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 <style id="estilo-sitio">
 :root{--sitio-acento:#b509ac;--surface:#ffffff;--panel:#ffffff;--ink:#000000;--ink-2:#6b6b6b;--rule:#e3e3e3;--rule-strong:#b0b0b0}
@@ -150,15 +211,12 @@ body{font-family:"Roboto","Helvetica Neue",Arial,sans-serif}
 h1{font-family:"Roboto","Helvetica Neue",Arial,sans-serif;font-weight:400;letter-spacing:0}
 button.primary{background:var(--sitio-acento);border-color:var(--sitio-acento)}.field input[type=range]{accent-color:var(--sitio-acento)}.keyframes button.cur{border-color:var(--sitio-acento);box-shadow:inset 0 -3px 0 var(--sitio-acento)}
 .sitio-barra{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px;margin:0 0 4px;padding:12px 16px;border-bottom:1px solid var(--rule);font:300 16px/1.3 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-barra a{color:inherit;text-decoration:none}.sitio-barra a:hover{color:var(--sitio-acento)}.sitio-barra .sitio-marca{font-size:1.15rem}.sitio-barra b{font-weight:700}
+.sitio-acerca{max-width:80ch;margin:40px auto 24px;padding:16px 0 0;border-top:1px solid var(--rule);font:400 15px/1.55 "Roboto","Helvetica Neue",Arial,sans-serif;color:var(--ink)}.sitio-acerca h2{font-size:1.1rem;font-weight:500;line-height:1.3;margin:0 0 8px}.sitio-acerca p{margin:0 0 8px}.sitio-acerca ul{margin:0 0 8px;padding-left:1.4em}.sitio-acerca code{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.92em}.sitio-acerca a{color:var(--sitio-acento)}.sitio-acerca .sitio-pie{opacity:.75;font-size:.9em}
 </style>
 <!-- estilo-sitio:fin -->
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Sitio"><a class="sitio-marca" href="/"><b>Enrique</b> de la Hoz</a><a href="/docencia/ar1/">Arquitectura de Redes I</a><a href="/docencia/ar1/lab-retardos/03-continuous-vs-stop-and-wait.html" hreflang="en" lang="en">English</a></div><!-- barra-sitio:fin -->
-
-
-
-
 <div class="page">
   <header class="top">
     <h1>Envío continuo frente a parada y espera</h1>
@@ -572,5 +630,6 @@ const RT = (() => {
   applyPreset(PRESET_P28);
 })();
 </script>
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Compara dos formas de enviar el mismo fichero entre A y B, según el problema P28 de Kurose (20 000 km, 2 Mbps, 800 000 bits): como un único mensaje continuo y dividido en N paquetes con parada y espera, donde cada paquete espera su reconocimiento (ACK) antes de enviar el siguiente. Muestra ambos escenarios animados, sus diagramas espacio-tiempo, la utilización del enlace y el tiempo total. El estudiante cambia el tamaño del fichero, la tasa, la distancia y N, y puede probar una ventana de varios paquetes sin reconocer. El resultado muestra que el RTT domina el tiempo y deja el enlace casi ocioso.</p><p><b>Conceptos:</b> parada y espera, envío continuo, tiempo de ida y vuelta (RTT), reconocimiento (ACK), utilización del enlace, retardo de transmisión, retardo de propagación, ventana.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = F / R</code></li><li><code>d_prop = distancia / v_p</code></li><li><code>RTT = 2·d_prop</code></li><li><code>tiempo continuo = F/R + d_prop</code></li><li><code>tiempo con parada y espera (ventana 1, ACK despreciable) = N·(F/(N·R) + RTT)</code></li><li><code>utilización = d_trans total / tiempo total</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Laboratorio 1.2, problema P28 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

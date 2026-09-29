@@ -1,0 +1,79 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+---
+{%- assign a = site.autor -%}
+# {{ a.nombre }}: contenido completo del sitio
+
+> Versión en texto de {{ site.url }} pensada para modelos de lenguaje. Se genera a partir de los mismos datos que la web (_data/*.yml). Resumen breve y enlaces: {{ '/llms.txt' | absolute_url }}
+
+## Perfil
+
+{{ a.nombre }} es {{ a.puesto | downcase }} en el {{ a.departamento }} de la {{ a.universidad }} (Alcalá de Henares, Madrid, España), dentro del área de {{ a.area }}, y miembro del grupo de investigación {{ a.grupo }}. Se doctoró en 2017 con una tesis sobre negociación automática en sistemas multiagente. Imparte asignaturas de redes y seguridad en los grados de Telecomunicación e Informática de la Escuela Politécnica Superior y en el Máster Universitario en Ciberseguridad.
+
+{{ a.nombre }} is an {{ a.puesto_en | downcase }} at the University of Alcalá (Spain), Telematics Engineering area, and a member of the NetIS (Networks and Intelligent Systems) research group. PhD in 2017 on automated negotiation in multi-agent systems. Teaches networking and security in the Telecommunication and Computer Engineering degrees and the Master's Degree in Cybersecurity.
+
+- Web: {{ site.url }}/ (English: {{ '/en/' | absolute_url }})
+- Correo / email: {{ a.email }}
+- ORCID: https://orcid.org/{{ a.orcid }}
+- Google Scholar: {{ a.scholar }}
+- Portal científico UAH: {{ a.portal_uah }}
+- GitHub: https://github.com/{{ a.github }}
+
+## Líneas de investigación / Research lines
+
+Fuente: {{ '/investigacion/' | absolute_url }}
+{% for l in site.data.lineas %}
+### {{ l.titulo }} / {{ l.en }}
+
+{{ l.texto }}
+
+{{ l.texto_en }}
+{% endfor %}
+## Docencia / Teaching
+
+Asignaturas:
+{% for asig in site.data.asignaturas %}
+- {{ asig.nombre }} ({{ asig.nombre_en }}){% if asig.nivel %}, {{ asig.nivel }}{% endif %}{% if asig.pagina %}: {{ asig.pagina | absolute_url }}{% endif %}
+{%- endfor %}
+{% for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
+## Visualizaciones interactivas de {{ asig.nombre }}
+
+Cada visualización es una página HTML autocontenida, con licencia CC BY-SA 4.0, que funciona en el navegador (también en el móvil).
+{% for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos -%}
+{%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][r.url] -%}{%- assign res = f[1][r.url] -%}{%- endif -%}{%- endfor %}
+### {{ r.titulo }}
+
+- URL: {{ r.url | absolute_url }}
+{%- if r.sesion %}
+- Sesión: {{ r.sesion }} (tema {{ t.tema }})
+{%- elsif r.etiqueta %}
+- {{ r.etiqueta }} (tema {{ t.tema }})
+{%- endif %}
+{%- if r.en %}
+- English version: {{ r.en | absolute_url }}
+{%- endif %}
+
+{% if res %}{{ res.resumen | normalize_whitespace }}{% else %}{{ r.descripcion }}{% endif %}
+{% if res.conceptos %}
+Conceptos: {{ res.conceptos | join: ', ' }}.
+{% endif -%}
+{%- if res.formulas %}
+Fórmulas:
+{% for x in res.formulas %}
+- {{ x }}
+{%- endfor %}
+{% endif -%}
+{%- if r.en -%}
+{%- assign res_en = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][r.en] -%}{%- assign res_en = f[1][r.en] -%}{%- endif -%}{%- endfor %}
+English — {{ r.titulo_en | default: r.titulo }}: {% if res_en %}{{ res_en.resumen | normalize_whitespace }}{% else %}{{ r.descripcion_en }}{% endif %}
+{% endif -%}
+{%- endfor -%}{%- endfor -%}
+{%- endif -%}{%- endfor %}
+## Publicaciones / Publications
+
+Orden cronológico inverso. Fuente: {{ '/publicaciones/' | absolute_url }} (datos de ORCID y Google Scholar).
+{% for p in site.data.publicaciones %}
+- {% if p.autores %}{{ p.autores | join: ', ' }}{% else %}{{ p.autores_txt }}{% endif %} ({{ p.anio | default: 's. f.' }}). {{ p.titulo }}.{% if p.medio %} {{ p.medio }}.{% endif %}{% if p.doi %} https://doi.org/{{ p.doi }}{% elsif p.url %} {{ p.url }}{% endif %}{% if p.pdf %} PDF: {{ p.pdf | absolute_url }}{% endif %}
+{%- endfor %}

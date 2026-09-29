@@ -39,9 +39,10 @@ navegacion_en:
 markdown: kramdown
 permalink: pretty
 
+# Los metadatos (título, descripción, idiomas, JSON-LD) los pone
+# _includes/metadatos.html; no se usa jekyll-seo-tag.
 plugins:
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 defaults:
   - scope: { path: "" }

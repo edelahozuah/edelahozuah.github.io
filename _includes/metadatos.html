@@ -1,0 +1,49 @@
+{%- comment -%}
+Metadatos de cada página: título, descripción, canónica, idiomas, Open Graph y
+JSON-LD. Sustituye a jekyll-seo-tag, que no distingue idiomas (ponía la
+descripción en español en las páginas inglesas).
+
+Front matter que usa: title, description, lang, lang_alt, imagen (ruta de una
+imagen para compartir) y sitemap: false (la página no se indexa).
+{%- endcomment -%}
+{%- assign en = false -%}{%- if page.lang == 'en' -%}{%- assign en = true -%}{%- endif -%}
+{%- assign portada = false -%}{%- if page.url == '/' or page.url == '/en/' -%}{%- assign portada = true -%}{%- endif -%}
+{%- if portada -%}
+  {%- if en -%}{%- capture titulo -%}{{ site.title }} | {{ site.autor.puesto_en }}, University of Alcalá{%- endcapture -%}
+  {%- else -%}{%- capture titulo -%}{{ site.title }} | {{ site.autor.puesto }}, {{ site.autor.universidad }}{%- endcapture -%}{%- endif -%}
+{%- else -%}
+  {%- capture titulo -%}{{ page.title }} | {{ site.title }}{%- endcapture -%}
+{%- endif -%}
+{%- if en -%}{%- assign descripcion = page.description | default: site.description_en -%}
+{%- else -%}{%- assign descripcion = page.description | default: site.description -%}{%- endif -%}
+{%- assign descripcion = descripcion | strip_html | normalize_whitespace -%}
+{%- assign canonica = page.url | replace: 'index.html', '' | absolute_url -%}
+  <title>{{ titulo }}</title>
+  <meta name="description" content="{{ descripcion | escape }}">
+  <meta name="author" content="{{ site.autor.nombre }}">
+  {% if page.sitemap == false %}<meta name="robots" content="noindex">
+  {% endif %}<link rel="canonical" href="{{ canonica }}">
+  {% if page.lang_alt -%}
+  {%- assign alternativa = page.lang_alt | absolute_url -%}
+  <link rel="alternate" hreflang="{% if en %}en{% else %}es{% endif %}" href="{{ canonica }}">
+  <link rel="alternate" hreflang="{% if en %}es{% else %}en{% endif %}" href="{{ alternativa }}">
+  <link rel="alternate" hreflang="x-default" href="{% if en %}{{ alternativa }}{% else %}{{ canonica }}{% endif %}">
+  {% endif -%}
+  <link rel="alternate" type="text/plain" title="llms.txt" href="{{ '/llms.txt' | absolute_url }}">
+  <meta property="og:type" content="{% if portada %}profile{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if portada %}{{ site.title }}{% else %}{{ page.title | escape }}{% endif %}">
+  <meta property="og:description" content="{{ descripcion | escape }}">
+  <meta property="og:url" content="{{ canonica }}">
+  <meta property="og:locale" content="{% if en %}en_US{% else %}es_ES{% endif %}">
+  {% if page.lang_alt %}<meta property="og:locale:alternate" content="{% if en %}es_ES{% else %}en_US{% endif %}">
+  {% endif -%}
+  {% if page.imagen -%}
+  <meta property="og:image" content="{{ page.imagen | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- else -%}
+  <meta name="twitter:card" content="summary">
+  {%- endif %}
+  <script type="application/ld+json">
+{% include jsonld.html titulo=titulo descripcion=descripcion canonica=canonica en=en portada=portada %}
+  </script>
