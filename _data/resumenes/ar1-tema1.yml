@@ -17,6 +17,15 @@
     - "d_prop = d / s"
     - "utilización = N · L/R / tiempo total"
 
+/docencia/ar1/retardos/diagrama-retardos.html:
+  resumen: >-
+    Editor de diagramas de tiempos entre dos extremos, con el tiempo hacia abajo y los retardos dibujados a escala. El estudiante fija la velocidad R del enlace y el retardo de propagación, directamente o como distancia entre velocidad, y añade tramas y ACK desde cualquiera de los dos extremos con su tamaño L. Cada mensaje puede empezar tras la última recepción, justo tras la transmisión anterior, al recibir o terminar de transmitirse otro mensaje, a la vez que otro o en un instante dado, con una espera opcional para modelar el tiempo de proceso. Las cotas del mensaje seleccionado y una tabla dan inicio, d_trans, llegada del primer y del último bit de cada mensaje; hay ejemplos de parada y espera, ráfaga de tramas y tráfico bidireccional, y el diagrama se exporta en SVG o PNG.
+  conceptos: [retardo de transmisión, retardo de propagación, diagrama de tiempos, trama, ACK, parada y espera, tiempo de proceso, tráfico bidireccional]
+  formulas:
+    - "d_trans = L / R"
+    - "d_prop = d / v"
+    - "llegada del último bit = inicio + d_trans + d_prop"
+
 /docencia/ar1/capas/capas_logica_vs_real.html:
   resumen: >-
     Explica en tres vistas que la comunicación entre capas homólogas es lógica y que solo se transmiten señales por el medio físico. La primera anima una PDU entre un host Wi-Fi, un router y un host Ethernet: el estudiante elige el punto de vista de cada capa, abre la caja negra del servicio inferior y puede segmentar un mensaje de 4000 octetos en tres segmentos TCP. La segunda distingue servicio, protocolo e interfaz (SAP) paso a paso y permite cambiar el protocolo de la capa. La tercera indica qué entidad escribe y cuál lee cada cabecera de la trama.
@@ -47,6 +56,15 @@
     - "d_trans = L / R"
     - "d_prop = d / s"
     - "utilization = N · L/R / total time"
+
+/docencia/ar1/retardos/diagrama-retardos-en.html:
+  resumen: >-
+    Editor for timing diagrams between two ends, with time running downwards and delays drawn to scale. The student sets the link rate R and the propagation delay, either directly or as distance over speed, and adds frames and ACKs from either end with their size L. Each message can start after the last reception, right after the previous transmission, when another message is received or finishes transmitting, together with another one or at a given time, with an optional wait to model processing time. Dimension lines on the selected message and a table give the start, d_trans and the arrival of the first and last bit of every message; there are examples of stop-and-wait, a burst of frames and bidirectional traffic, and the diagram can be exported as SVG or PNG.
+  conceptos: [transmission delay, propagation delay, timing diagram, frame, ACK, stop-and-wait, processing time, bidirectional traffic]
+  formulas:
+    - "d_trans = L / R"
+    - "d_prop = d / v"
+    - "last bit arrives = start + d_trans + d_prop"
 
 /docencia/ar1/capas/layers_logical_vs_real.html:
   resumen: >-

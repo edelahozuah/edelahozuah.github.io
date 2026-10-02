@@ -35,7 +35,8 @@ El color de acento es la variable `--global-theme-color` de `assets/css/sitio.cs
    `python3 scripts/estilo_visualizaciones.py docencia/ar1/tcp`. Añade la barra
    superior y cambia fondo, tipografía y acento sin tocar los colores con
    significado. Reconoce las familias de estilo existentes (DNS, capas/colas,
-   laboratorio, retardos); si avisa de «sin familia», hay que enseñarle la nueva.
+   laboratorio, retardos, diagrama de retardos); si avisa de «sin familia», hay
+   que enseñarle la nueva.
    `--quitar` deshace el cambio.
 3. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
 4. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
