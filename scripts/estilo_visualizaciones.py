@@ -59,6 +59,8 @@ def familia(html):
         return "capas" if "--svc" in html else "colas"
     if "--paper" in html and "--data" in html:
         return "retardos"
+    if "--lienzo" in html and "--trama" in html:
+        return "diagrama"
     return None
 
 
@@ -79,6 +81,12 @@ def variables(fam, p):
     if fam == "retardos":
         return {"--paper": p["bg"], "--panel": p["panel"], "--ink": p["ink"],
                 "--ink-2": p["muted"], "--line": p["line"]}
+    if fam == "diagrama":
+        fondo = p["bg"] if p is CLARO else p["panel"]
+        return {"--bg": p["bg"], "--panel": fondo, "--lienzo": fondo,
+                "--suave": p["panel"] if p is CLARO else "#2a2e33", "--fg": p["ink"],
+                "--muted": p["muted"], "--line": p["line"],
+                "--display": ROBOTO, "--body": ROBOTO, "--mono": MONO}
     return {}
 
 
@@ -99,9 +107,15 @@ INTERFAZ = {
             '.keyframes button.cur{border-color:var(--sitio-acento);box-shadow:inset 0 -3px 0 var(--sitio-acento)}'),
     "retardos": ('input[type=range]{accent-color:var(--sitio-acento)}'
                  'button:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--sitio-acento)}'),
+    "diagrama": ('h1 span{color:inherit}.sitio-acerca h2{color:var(--fg)}'
+                 '.seg button[aria-pressed="true"],button.btn.prim{background:var(--sitio-acento);'
+                 'border-color:var(--sitio-acento);color:#fff}'
+                 'input[type=range],input[type=checkbox]{accent-color:var(--sitio-acento)}'
+                 'button:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--sitio-acento)}'),
 }
-LINEA = {"dns": "--line", "capas": "--line", "colas": "--line", "lab": "--rule", "retardos": "--line"}
-TIENE_OSCURO = {"dns", "capas", "colas", "lab"}
+LINEA = {"dns": "--line", "capas": "--line", "colas": "--line", "lab": "--rule", "retardos": "--line",
+         "diagrama": "--line"}
+TIENE_OSCURO = {"dns", "capas", "colas", "lab", "diagrama"}
 
 
 def bloque_css(fam, html):
@@ -128,8 +142,10 @@ def bloque_css(fam, html):
         ".sitio-barra a{color:inherit;text-decoration:none}"
         ".sitio-barra a:hover{color:var(--sitio-acento)}"
         ".sitio-barra .sitio-marca{font-size:1.15rem}.sitio-barra b{font-weight:700}")
+    # Sin relleno en el <body>, el bloque final lleva su propio margen lateral.
+    relleno = "16px 16px 0" if fam == "diagrama" else "16px 0 0"
     css.append(
-        f".sitio-acerca{{max-width:80ch;margin:40px auto 24px;padding:16px 0 0;"
+        f".sitio-acerca{{max-width:80ch;margin:40px auto 24px;padding:{relleno};"
         f"border-top:1px solid var({LINEA[fam]});font:400 15px/1.55 {ROBOTO};color:var(--ink)}}"
         ".sitio-acerca h2{font-size:1.1rem;font-weight:500;line-height:1.3;margin:0 0 8px}"
         ".sitio-acerca p{margin:0 0 8px}.sitio-acerca ul{margin:0 0 8px;padding-left:1.4em}"

@@ -52,6 +52,14 @@ ar1:
         sesion: "1.3"
         descripcion: Varios orígenes comparten un enlace de salida. Sube la intensidad de tráfico ρ = λ·L/R y mira cómo crece la cola, se llena el buffer y el router empieza a descartar paquetes.
         descripcion_en: Several sources share one outgoing link. Raise the traffic intensity ρ = λ·L/R and watch the queue grow, the buffer fill up, and the router start dropping packets.
+      - titulo: Diagrama de retardos
+        url: /docencia/ar1/retardos/diagrama-retardos.html
+        imagen: /assets/img/recursos/diagrama-retardos.jpg
+        en: /docencia/ar1/retardos/diagrama-retardos-en.html
+        titulo_en: Delay diagram
+        sesion: "1.3"
+        descripcion: Dibuja a escala tramas y ACK entre dos extremos y decide cuándo empieza cada uno. Mide en las cotas los retardos de transmisión y de propagación y exporta el diagrama en SVG o PNG.
+        descripcion_en: Draw frames and ACKs between two ends to scale and decide when each one starts. Read the transmission and propagation delays off the dimension lines and export the diagram as SVG or PNG.
       - titulo: "El núcleo de la red: por qué se corta tu videollamada con fibra de 1 Gbps"
         url: /docencia/ar1/videos/nucleo-de-la-red/
         tipo: video

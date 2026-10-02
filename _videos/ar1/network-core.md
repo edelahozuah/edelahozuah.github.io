@@ -13,6 +13,7 @@ imagen: https://i.ytimg.com/vi/bGAw3Hwm4-c/maxresdefault.jpg
 relacionados:
 - /docencia/ar1/colas/conmutacion_paquetes_colas.html
 - /docencia/ar1/retardos/retardos-espacio-tiempo.html
+- /docencia/ar1/retardos/diagrama-retardos.html
 - /docencia/ar1/lab-retardos/01-anatomia-del-retardo.html
 - /docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html
 capitulos:
