@@ -178,19 +178,18 @@ el sitio en todas; además, según el front matter:
       "hasPart": [
         {%- assign primero = true -%}
         {%- for t in site.data.recursos[page.asignatura] -%}{%- for r in t.recursos -%}
-        {%- if page.carpeta == nil or r.url contains page.carpeta -%}{%- unless en and r.en == nil -%}
+        {%- if page.carpeta == nil or r.url contains page.carpeta -%}
         {%- unless primero %},{% endunless -%}{%- assign primero = false %}
         {% include jsonld-recurso.html r=r en=en asignatura=asig %}
-        {%- endunless -%}{%- endif -%}
+        {%- endif -%}
         {%- endfor -%}{%- endfor %}
       ]
     }
     {%- endif -%}
     {%- if page.jsonld == 'recursos' -%}
     {%- for asig in site.data.asignaturas -%}{%- for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos -%}
-    {%- unless en and r.en == nil -%},
+    ,
     {% include jsonld-recurso.html r=r en=en asignatura=asig %}
-    {%- endunless -%}
     {%- endfor -%}{%- endfor -%}{%- endfor -%}
     {%- endif %}
   ]

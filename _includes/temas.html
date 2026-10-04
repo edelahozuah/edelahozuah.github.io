@@ -1,15 +1,9 @@
-{%- comment -%}include.en=true omite los temas sin ningún recurso en inglés y usa t.titulo_en.{%- endcomment -%}
+{%- comment -%}include.en=true usa t.titulo_en; los recursos sin versión en inglés salen igualmente, enlazando la española.{%- endcomment -%}
 {%- assign h = include.nivel | default: 2 -%}
 {%- assign hr = h | plus: 1 -%}
 {%- for t in site.data.recursos[include.asignatura] -%}
-  {%- assign hay_en = false -%}
-  {%- if include.en -%}
-    {%- for r in t.recursos -%}{%- if r.en -%}{%- assign hay_en = true -%}{%- endif -%}{%- endfor -%}
-  {%- endif -%}
-  {%- unless include.en and hay_en == false -%}
 <section class="tema" id="tema-{{ t.tema }}{% if t.titulo %}-{{ t.titulo | slugify }}{% endif %}">
   <h{{ h }} class="category">{% if include.en %}unit{% else %}tema{% endif %} {{ t.tema }}{% if t.titulo %}: {% if include.en %}{{ t.titulo_en | default: t.titulo }}{% else %}{{ t.titulo }}{% endif %}{% endif %}</h{{ h }}>
   <div class="projects">{% for r in t.recursos %}{% include recurso.html r=r nivel=hr en=include.en %}{% endfor %}</div>
 </section>
-  {%- endunless -%}
 {%- endfor -%}

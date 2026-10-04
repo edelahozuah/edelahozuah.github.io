@@ -15,7 +15,7 @@ entradilla: Courses I teach at the University of Alcalá.
     {% if a.pagina_en %}
       {% assign temas = site.data.recursos[a.id] %}
       {% assign total = 0 %}
-      {% for t in temas %}{% for r in t.recursos %}{% if r.en %}{% assign total = total | plus: 1 %}{% endif %}{% endfor %}{% endfor %}
+      {% for t in temas %}{% assign total = total | plus: t.recursos.size %}{% endfor %}
       <a href="{{ a.pagina_en | relative_url }}">{{ a.nombre_en | default: a.nombre }}</a>
       <span class="nota">({{ total }} resource{% if total != 1 %}s{% endif %})</span>
     {% else %}
