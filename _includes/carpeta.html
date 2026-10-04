@@ -1,4 +1,4 @@
-{%- comment -%}Tarjetas de todos los recursos cuya URL está dentro de include.carpeta. include.en=true los renderiza en inglés (solo los que tienen r.en).{%- endcomment -%}
+{%- comment -%}Tarjetas de todos los recursos cuya URL está dentro de include.carpeta. include.en=true los renderiza en inglés (los que no tienen r.en enlazan la versión en español).{%- endcomment -%}
 <div class="projects">
 {%- for t in site.data.recursos[include.asignatura] -%}{%- for r in t.recursos -%}
   {%- if r.url contains include.carpeta -%}{% include recurso.html r=r nivel=2 en=include.en %}{%- endif -%}

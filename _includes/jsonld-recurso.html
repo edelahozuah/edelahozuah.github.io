@@ -2,8 +2,11 @@
 Un recurso docente de _data/recursos.yml como LearningResource. Los conceptos
 («teaches») salen de _data/resumenes/, si el recurso tiene resumen.
 {%- endcomment -%}
-{%- assign r = include.r -%}{%- assign en = include.en -%}{%- assign asig = include.asignatura -%}
-{%- if en -%}{%- assign ruta = r.en -%}{%- assign nombre = r.titulo_en | default: r.titulo -%}{%- assign desc = r.descripcion_en | default: r.descripcion -%}
+{%- comment -%}En las páginas inglesas, un recurso sin versión en inglés se describe tal cual es,
+en español. Se usa en_r y no en: un assign dentro del include cambiaría la variable de la página.{%- endcomment -%}
+{%- assign r = include.r -%}{%- assign en_r = include.en -%}{%- assign asig = include.asignatura -%}
+{%- if r.en == nil -%}{%- assign en_r = false -%}{%- endif -%}
+{%- if en_r -%}{%- assign ruta = r.en -%}{%- assign nombre = r.titulo_en | default: r.titulo -%}{%- assign desc = r.descripcion_en | default: r.descripcion -%}
 {%- else -%}{%- assign ruta = r.url -%}{%- assign nombre = r.titulo -%}{%- assign desc = r.descripcion -%}{%- endif -%}
 {%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][ruta] -%}{%- assign res = f[1][ruta] -%}{%- endif -%}{%- endfor -%}
 {
@@ -12,15 +15,15 @@ Un recurso docente de _data/recursos.yml como LearningResource. Los conceptos
           "url": "{{ ruta | absolute_url }}",
           "name": {{ nombre | jsonify }},
           "description": {% if res %}{{ res.resumen | normalize_whitespace | jsonify }}{% else %}{{ desc | jsonify }}{% endif %},
-          "inLanguage": "{% if en %}en{% else %}es{% endif %}",
+          "inLanguage": "{% if en_r %}en{% else %}es{% endif %}",
           {%- if r.tipo == 'video' %}
-          "learningResourceType": {% if en %}"video"{% else %}"vídeo"{% endif %},
+          "learningResourceType": {% if en_r %}"video"{% else %}"vídeo"{% endif %},
           "interactivityType": "expositive",
           {%- else %}
-          "learningResourceType": {% if en %}"interactive visualization"{% else %}"visualización interactiva"{% endif %},
+          "learningResourceType": {% if en_r %}"interactive visualization"{% else %}"visualización interactiva"{% endif %},
           "interactivityType": "active",
           {%- endif %}
-          "educationalLevel": {% if en %}"Undergraduate"{% else %}"Grado universitario"{% endif %},
+          "educationalLevel": {% if en_r %}"Undergraduate"{% else %}"Grado universitario"{% endif %},
           {%- if res.conceptos %}
           "teaches": {{ res.conceptos | jsonify }},
           {%- endif %}

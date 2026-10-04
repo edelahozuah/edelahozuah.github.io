@@ -15,7 +15,8 @@
 #     descripcion_en: descripción en inglés (para /en/)
 #     etiqueta_en:    equivalente en inglés de «etiqueta»
 #
-# Un recurso sin «en» no aparece en las páginas en inglés (/en/teaching/…).
+# Un recurso sin «en» sale también en las páginas en inglés (/en/teaching/…),
+# enlazando la versión en español y con la nota «Spanish only».
 
 ar1:
   - tema: 1
