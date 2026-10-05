@@ -141,3 +141,16 @@ ar1:
         sesion: "2.1"
         descripcion: La misma resolución, pero tú eliges si el servidor local, la raíz, el TLD y el autoritativo atienden de forma recursiva o iterativa. Compara quién envía las consultas, quién tiene que esperar y dónde acaba la respuesta en caché.
         descripcion_en: The same resolution, but you choose whether the local server, the root, the TLD and the authoritative server work recursively or iteratively. Compare who sends the queries, who has to wait and where the answer ends up cached.
+
+  - tema: 2
+    titulo: HTTP
+    titulo_en: HTTP
+    recursos:
+      - titulo: "HTTP persistente: sin y con canalización"
+        url: /docencia/ar1/http/http-persistente.html
+        imagen: /assets/img/recursos/http-persistente.jpg
+        en: /docencia/ar1/http/http-persistente-en.html
+        titulo_en: "Persistent HTTP: without and with pipelining"
+        sesion: "2.2"
+        descripcion: Una página con N objetos descargada por una única conexión TCP persistente. Compara a la misma escala los diagramas de retardos sin y con canalización, mira cuándo se queda ocioso el enlace y practica con ejercicios aleatorios.
+        descripcion_en: A page with N objects downloaded over a single persistent TCP connection. Compare the delay diagrams without and with pipelining on the same time scale, see when the link sits idle and practise with random exercises.
