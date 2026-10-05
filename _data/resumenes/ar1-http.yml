@@ -1,0 +1,23 @@
+# Resúmenes de las visualizaciones de AR1 sobre HTTP (tema 2). Los usa scripts/estilo_visualizaciones.py (texto estático y JSON-LD de cada visualización) y llms-full.txt.
+
+/docencia/ar1/http/http-persistente.html:
+  resumen: >-
+    Diagramas de retardos de la descarga de una página web con N objetos alojados en el mismo servidor que el HTML base, por una única conexión TCP persistente, con HTTP/1.1 sin canalización y con canalización. El navegador descarga primero el HTML y después pide los objetos: sin canalización, cada GET sale al recibir el objeto anterior; con canalización, todos los GET salen a la vez y el servidor envía las respuestas una tras otra. El estudiante ajusta la velocidad del enlace, el retardo de propagación, el tamaño del HTML y el de los objetos (iguales o distintos), el establecimiento TCP y el tiempo de procesado del servidor, y ve los dos diagramas a la misma escala, con las cotas de RTT y de tiempo de transmisión, los huecos en que el enlace está ocioso, la fórmula con los valores sustituidos y una tabla de instantes. Puede reproducir la descarga paso a paso, practicar con ejercicios aleatorios y exportar el diagrama en SVG o PNG. Muestra que la canalización ahorra (N−1)·(RTT + t_proc).
+  conceptos: [HTTP persistente, canalización (pipelining), conexión TCP, establecimiento de la conexión, tiempo de ida y vuelta (RTT), retardo de transmisión, retardo de propagación, objeto referenciado, HTML base, diagrama de retardos, utilización del enlace]
+  formulas:
+    - "RTT = 2·d_prop"
+    - "X = L / R"
+    - "sin canalización: T = [RTT]_TCP + (RTT + t_proc + X_html) + N·(RTT + t_proc + X)"
+    - "con canalización: T = [RTT]_TCP + (RTT + t_proc + X_html) + RTT + t_proc + N·X"
+    - "ahorro = (N−1)·(RTT + t_proc)"
+
+/docencia/ar1/http/http-persistente-en.html:
+  resumen: >-
+    Delay diagrams for downloading a web page with N objects stored on the same server as the HTML base file, over a single persistent TCP connection, with HTTP/1.1 without pipelining and with pipelining. The browser first downloads the HTML and then requests the objects: without pipelining, each GET is sent once the previous object has arrived; with pipelining, all the GETs leave at once and the server sends the responses back to back. The student adjusts the link rate, the propagation delay, the size of the HTML and of the objects (equal or different), the TCP handshake and the server processing time, and sees both diagrams on the same time scale, with RTT and transmission-time dimension lines, the gaps where the link sits idle, the formula with the values substituted and a table of instants. The download can be played step by step, practised with random exercises and exported as SVG or PNG. It shows that pipelining saves (N−1)·(RTT + t_proc).
+  conceptos: [persistent HTTP, pipelining, TCP connection, connection setup, round-trip time (RTT), transmission delay, propagation delay, referenced object, HTML base file, delay diagram, link utilization]
+  formulas:
+    - "RTT = 2·d_prop"
+    - "X = L / R"
+    - "without pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + N·(RTT + t_proc + X)"
+    - "with pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + RTT + t_proc + N·X"
+    - "saving = (N−1)·(RTT + t_proc)"
