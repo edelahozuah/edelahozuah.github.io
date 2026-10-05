@@ -133,3 +133,11 @@ ar1:
         sesion: "2.1"
         descripcion: Mensaje a mensaje, la resolución de gaia.cs.umass.edu con la caché vacía. Compara los dos modos y fíjate en quién tiene que recordar consultas ajenas.
         descripcion_en: Message by message, resolving gaia.cs.umass.edu with an empty cache. Compare the two modes and notice who has to remember other people's queries.
+      - titulo: "Consultas DNS: decide tú quién es recursivo"
+        url: /docencia/ar1/dns/dns_consultas_mixtas.html
+        imagen: /assets/img/recursos/dns_consultas_mixtas.jpg
+        en: /docencia/ar1/dns/dns_queries_mixed_en.html
+        titulo_en: "DNS queries: you decide who is recursive"
+        sesion: "2.1"
+        descripcion: La misma resolución, pero tú eliges si el servidor local, la raíz, el TLD y el autoritativo atienden de forma recursiva o iterativa. Compara quién envía las consultas, quién tiene que esperar y dónde acaba la respuesta en caché.
+        descripcion_en: The same resolution, but you choose whether the local server, the root, the TLD and the authoritative server work recursively or iteratively. Compare who sends the queries, who has to wait and where the answer ends up cached.
