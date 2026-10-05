@@ -95,7 +95,8 @@ button.btn.peligro:hover { border-color: var(--aviso); color: var(--aviso); }
 .reproductor .t { font-family: var(--mono); font-size: 0.84rem; min-width: 10ch; color: var(--sel); font-variant-numeric: tabular-nums; }
 .reproductor button.btn { padding: 4px 10px; min-width: 36px; }
 .lienzo { overflow-x: auto; padding: 6px 8px 10px; }
-.lienzo svg { display: block; margin: 0 auto; max-width: none; }
+/* El diagrama se encoge con el recuadro hasta el 80 % de su tamaño; por debajo, desplazamiento horizontal. */
+.lienzo svg { display: block; margin: 0 auto; width: 100%; height: auto; }
 .leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0 14px 12px; font-size: 0.8rem; color: var(--muted); }
 .leyenda i { display: inline-block; width: 18px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
 .oculto-diag { padding: 28px 18px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
@@ -304,7 +305,7 @@ h1 span{color:inherit}.sitio-acerca h2{color:var(--fg)}.seg button[aria-pressed=
           <input type="file" id="f-archivo" accept="application/json,.json" class="oculto-archivo">
           <button data-en="Reset" type="button" class="btn peligro" id="b-reset">Reset</button>
         </div>
-        <label class="fila" style="font-size:.84rem;gap:6px;cursor:pointer"><input type="checkbox" data-k="vista.claro"> <span data-en="Always export in light colours">Always export in light colours</span></label>
+        <label class="fila" style="font-size:.84rem;gap:6px;cursor:pointer"><input type="checkbox" data-k="vista.claro"> <span data-en="Always export in light colors">Always export in light colors</span></label>
       </section>
     </form>
 
@@ -763,7 +764,7 @@ if (typeof module !== 'undefined') module.exports = MotorHTTP;
       : [['R', fmtR(p.R)], ['d_prop', fmtT(p.dp)], ['RTT', fmtT(RTT)], ['N', String(N)], p.iguales ? ['X = L/R', fmtT(p.bits[0] / p.R)] : ['ΣXᵢ', fmtT(sumX)]];
     if (p.tproc > 0) datos.push(['t_proc', fmtT(p.tproc)]);
     if (!oc) datos.push([L('T sin', 'T without'), fmtT(res.sin.T), 1], [L('T con', 'T with'), fmtT(res.con.T), 1],
-      [L('Ahorro', 'Saving'), fmtT(fo.ahorro), 1], [L('Uso del enlace', 'Link utilisation'), pct(res.sin.uso) + ' → ' + pct(res.con.uso)]);
+      [L('Ahorro', 'Saving'), fmtT(fo.ahorro), 1], [L('Uso del enlace', 'Link utilization'), pct(res.sin.uso) + ' → ' + pct(res.con.uso)]);
     $('#resumen').innerHTML = datos.map(([b, v, f]) => `<div class="dato${f ? ' fuerte' : ''}"><b>${esc(b)}</b><span>${esc(v)}</span></div>`).join('');
 
     // diagrama o enunciado
@@ -776,6 +777,8 @@ if (typeof module !== 'undefined') module.exports = MotorHTTP;
     if (tCursor !== null && tCursor >= tMax - 1e-12) tCursor = null;
     ultimoSVG = dibujar(res, modos);
     $('#lienzo').innerHTML = ultimoSVG;
+    const svg = $('#lienzo svg'), W = +svg.getAttribute('width');
+    svg.style.maxWidth = W + 'px'; svg.style.minWidth = Math.round(0.8 * W) + 'px';
     $('#r-t').value = tCursor === null ? 1000 : Math.round(1000 * tCursor / tMax);
     $('#r-etq').textContent = 't = ' + fmtT(tCursor === null ? tMax : tCursor);
     $('#r-play').textContent = animando ? '⏸' : '▶';
