@@ -59,7 +59,7 @@ def familia(html):
         return "capas" if "--svc" in html else "colas"
     if "--paper" in html and "--data" in html:
         return "retardos"
-    if "--lienzo" in html and "--trama" in html:
+    if "--lienzo" in html and ("--trama" in html or "--suave" in html):  # HTTP persistente, DNS paso a paso
         return "diagrama"
     return None
 
