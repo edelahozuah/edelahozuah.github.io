@@ -141,6 +141,14 @@ ar1:
         sesion: "2.1"
         descripcion: La misma resolución, pero tú eliges si el servidor local, la raíz, el TLD y el autoritativo atienden de forma recursiva o iterativa. Compara quién envía las consultas, quién tiene que esperar y dónde acaba la respuesta en caché.
         descripcion_en: The same resolution, but you choose whether the local server, the root, the TLD and the authoritative server work recursively or iteratively. Compare who sends the queries, who has to wait and where the answer ends up cached.
+      - titulo: DNS paso a paso
+        url: /docencia/ar1/dns/dns_paso_a_paso.html
+        imagen: /assets/img/recursos/dns_paso_a_paso.jpg
+        en: /docencia/ar1/dns/dns_step_by_step_en.html
+        titulo_en: DNS step by step
+        sesion: "2.2"
+        descripcion: El DNS contado desde el porqué en 27 pasos, de por qué la IP no basta al recorrido de una consulta mensaje a mensaje. Por qué hacen falta nombres, cómo se reparte el árbol, qué ve tu equipo y qué pasa detrás, y dónde es recursiva o iterativa cada consulta. Incluye las notas de narración.
+        descripcion_en: The DNS told from the why in 27 steps, from why an IP address is not enough to a query followed message by message. Why we need names, how the tree is split up, what your computer sees and what happens behind it, and where each query is recursive or iterative. Includes the narration notes.
 
   - tema: 2
     titulo: HTTP
