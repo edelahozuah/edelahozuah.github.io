@@ -15,7 +15,9 @@ final del <body>, un bloque «Sobre esta visualización» con el resumen, los
 conceptos y las fórmulas en texto estático, legible sin JavaScript.
 
 Si _config.yml define `goatcounter`, añade también en el <head> el script del
-contador de visitas, el mismo que _layouts/base.html pone en el resto de la web.
+contador de visitas, el mismo que _layouts/base.html pone en el resto de la web,
+y otro que envía un evento «uso:<ruta>» en la primera interacción real con la
+visualización (ver USO_JS).
 
 Es idempotente: si el bloque ya está, lo sustituye. Los originales de las
 carpetas AR1/SX.X/Visualizaciones no se modifican; el script actúa sobre las
@@ -50,6 +52,21 @@ CLARO = {"bg": "#ffffff", "panel": "#f8f9fa", "ink": "#000000", "muted": "#6b6b6
 OSCURO = {"bg": "#1c1c1d", "panel": "#212529", "ink": "#e8e8e8", "muted": "#9c9c9c",
           "line": "#424246", "strong": "#6b6b70"}
 ACENTO, ACENTO_OSCURO = "#b509ac", "#2698ba"
+
+# Evento «uso» de GoatCounter: se envía una sola vez por visita, en la primera
+# interacción real con la visualización (pulsar un control, mover un
+# deslizador, teclear), ignorando la barra del sitio y el bloque «Sobre esta
+# visualización». Distingue las visitas que solo abren la página de las que la
+# usan. El evento se llama «uso:» seguido de la ruta de la visualización.
+USO_JS = """(function(){var hecho=false,sel='button,input,select,textarea,label,summary,a,canvas,svg,[role],[tabindex],[onclick],[contenteditable]';
+function enviar(n){var g=window.goatcounter;if(g&&g.count){g.count({path:'uso:RUTA',title:document.title,event:true});}
+else if(n<20){setTimeout(function(){enviar(n+1)},500);}}
+function uso(e){if(hecho)return;var t=e.target;if(!(t instanceof Element))return;
+if(t.closest('.sitio-barra,.sitio-acerca'))return;
+if(e.type==='click'&&!t.closest(sel))return;
+if(e.type==='keydown'&&(e.key==='Tab'||e.key==='Shift'||e.key==='Meta'||e.key==='Control'||e.key==='Alt'||e.key==='Escape'))return;
+hecho=true;enviar(0);}
+['click','input','change','keydown'].forEach(function(t){document.addEventListener(t,uso,{capture:true,passive:true});});})();"""
 
 
 def familia(html):
@@ -335,7 +352,7 @@ def adaptar(ruta, asigs, idiomas, recursos, textos, conf):
     r = recursos.get(web)
     meta = metadatos(web, html, r, textos.get(web), conf) + "\n" if r else ""
     contador = (f'<script data-goatcounter="{conf["goatcounter"]}" async src="https://gc.zgo.at/count.js"></script>\n'
-                if conf.get("goatcounter") else "")
+                f'<script>{USO_JS.replace("RUTA", web)}</script>\n' if conf.get("goatcounter") else "")
     cabeza = (f'{INI_HEAD}\n{meta}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
               f'family=Roboto:wght@300;400;500;700&display=swap">\n'
               f'<style id="estilo-sitio">\n{bloque_css(fam, html)}\n</style>\n{contador}{FIN_HEAD}\n')

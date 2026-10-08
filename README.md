@@ -143,7 +143,11 @@ consentimiento. La URL del contador está en `_config.yml` (`goatcounter`);
 `scripts/estilo_visualizaciones.py` en las visualizaciones autocontenidas. El
 panel muestra las visitas por página (cada visualización, ficha de vídeo o
 tema es una URL) y las descargas de PDF de publicaciones, que se registran como
-eventos al pulsar el enlace (`data-goatcounter-click`). Si se cambia o quita la
+eventos al pulsar el enlace (`data-goatcounter-click`). Cada visualización
+envía además un evento `uso:<ruta>` la primera vez que el visitante pulsa un
+control, mueve un deslizador o teclea (sin contar la barra del sitio ni el
+bloque «Sobre esta visualización»): comparar «uso:» con las visitas de la
+misma ruta distingue quién solo abre la página de quién la usa. Si se cambia o quita la
 URL hay que volver a ejecutar el script sobre `docencia/`.
 
 ## Ver la web en local
