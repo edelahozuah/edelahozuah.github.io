@@ -134,6 +134,18 @@ script aplica en cada ejecución.
   actualizan solos al añadir recursos, resúmenes o publicaciones.
 - `robots.txt` permite el rastreo a todos los agentes, también a los de IA.
 
+## Estadísticas de acceso
+
+Las visitas se cuentan con [GoatCounter](https://edelahozuah.goatcounter.com),
+sin cookies ni datos personales, por lo que no hace falta banner de
+consentimiento. La URL del contador está en `_config.yml` (`goatcounter`);
+`_layouts/base.html` la inserta en las páginas de Jekyll y
+`scripts/estilo_visualizaciones.py` en las visualizaciones autocontenidas. El
+panel muestra las visitas por página (cada visualización, ficha de vídeo o
+tema es una URL) y las descargas de PDF de publicaciones, que se registran como
+eventos al pulsar el enlace (`data-goatcounter-click`). Si se cambia o quita la
+URL hay que volver a ejecutar el script sobre `docencia/`.
+
 ## Ver la web en local
 
 Con Docker, usando las mismas versiones que GitHub Pages:

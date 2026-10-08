@@ -14,6 +14,9 @@ canónica, enlaces hreflang, Open Graph y un JSON-LD LearningResource; y al
 final del <body>, un bloque «Sobre esta visualización» con el resumen, los
 conceptos y las fórmulas en texto estático, legible sin JavaScript.
 
+Si _config.yml define `goatcounter`, añade también en el <head> el script del
+contador de visitas, el mismo que _layouts/base.html pone en el resto de la web.
+
 Es idempotente: si el bloque ya está, lo sustituye. Los originales de las
 carpetas AR1/SX.X/Visualizaciones no se modifican; el script actúa sobre las
 copias de la web.
@@ -331,9 +334,11 @@ def adaptar(ruta, asigs, idiomas, recursos, textos, conf):
     web = "/" + "/".join(ruta.relative_to(RAIZ).parts)
     r = recursos.get(web)
     meta = metadatos(web, html, r, textos.get(web), conf) + "\n" if r else ""
+    contador = (f'<script data-goatcounter="{conf["goatcounter"]}" async src="https://gc.zgo.at/count.js"></script>\n'
+                if conf.get("goatcounter") else "")
     cabeza = (f'{INI_HEAD}\n{meta}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
               f'family=Roboto:wght@300;400;500;700&display=swap">\n'
-              f'<style id="estilo-sitio">\n{bloque_css(fam, html)}\n</style>\n{FIN_HEAD}\n')
+              f'<style id="estilo-sitio">\n{bloque_css(fam, html)}\n</style>\n{contador}{FIN_HEAD}\n')
     if "</head>" in html:
         html = html.replace("</head>", cabeza + "</head>", 1)
     else:  # HTML sin <head> explícito: el bloque va tras el último <style>

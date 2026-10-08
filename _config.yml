@@ -9,6 +9,10 @@ timezone: Europe/Madrid
 # Verificación de la propiedad en Google Search Console (metaetiqueta).
 google_site_verification: Wr9r7mM0Jaiybv0ZN333GUJNGCzKawIkAz7SeMFCKRs
 
+# Estadísticas de acceso con GoatCounter (sin cookies ni datos personales).
+# Lo usan _layouts/base.html y scripts/estilo_visualizaciones.py.
+goatcounter: https://edelahozuah.goatcounter.com/count
+
 autor:
   nombre: Enrique de la Hoz
   puesto: Profesor Titular de Universidad
