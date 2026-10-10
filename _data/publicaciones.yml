@@ -25,22 +25,6 @@
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:70eg2SAEIzsC
   abr: JNCA
   destacada: true
-- id: anarchitecturalsystemforautomaticpedagogicalinterventionsinm
-  titulo: An Architectural System for Automatic Pedagogical Interventions in Massive Online Learning Environments
-  anio: 2023
-  categoria: congreso
-  medio: Lecture Notes in Networks and Systems
-  autores:
-  - D. Rossi
-  - V. Ströele
-  - F. Campos
-  - J.F. de Souza
-  - R. Braga
-  - N. Capuano
-  - E. de la Hoz
-  - S. Caballé
-  doi: 10.1007/978-3-031-29056-5_20
-  abr: LNNS
 - id: channelselectioninuncoordinatedieee80211networksusinggraphco
   titulo: Channel Selection in Uncoordinated IEEE 802.11 Networks Using Graph Coloring
   anio: 2023
