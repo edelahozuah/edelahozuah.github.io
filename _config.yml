@@ -65,12 +65,18 @@ plugins:
 collections:
   videos:
     output: true
+  # Una página por publicación (para Google Scholar), generadas en
+  # _publicaciones/ por scripts/actualizar_publicaciones.py.
+  publicaciones:
+    output: true
 
 defaults:
   - scope: { path: "" }
     values: { layout: pagina }
   - scope: { path: "", type: videos }
     values: { layout: video }
+  - scope: { path: "", type: publicaciones }
+    values: { layout: publicacion }
 
 exclude:
   - README.md

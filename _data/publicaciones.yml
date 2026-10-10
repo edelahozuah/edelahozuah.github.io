@@ -56,8 +56,11 @@
   citas: 9
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:35N4QoGY0k4C
   abr: Sensors
-  pdf: /files/sensors-23-05932.pdf
+  pdf: /publicaciones/channelselectioninuncoordinatedieee80211networksusinggraphco/channel-selection-uncoordinated-ieee-802-2023.pdf
   destacada: true
+  resumen: One of the big challenges in decentralized Wi-Fi networks is how to select channels for the different access points (APs) and their associated stations (STAs) in order to minimize interference and hence maximize throughput. Interestingly enough, de facto standards in terms of uncoordinated channel selection are quite simple, and in many cases result in fairly suboptimal channel allocations. Here, we explore how graph coloring can be used to evaluate and inform decisions on Wi-Fi channel selection in uncoordinated settings. Graph coloring, in its most basic form, is a classic mathematical problem where colors have to be assigned to nodes in a graph while avoiding assigning the same color to adjacent nodes. In this paper, we modeled Wi-Fi uncoordinated channel selection as a graph coloring problem and evaluated the performance of different uncoordinated channel selection techniques in a set of representative scenarios of residential buildings. The results confirm some of the widely
+    accepted consensus regarding uncoordinated channel selection but also provide some new insights. For instance, in some settings, it would be better to delegate the decision on which channel to use to transmit the STAs, rather than having the AP make the decision on its own, which is the usual way.
+  resumen_idioma: en
 - id: democraticwirelesschannelassignmentfairresourceallocationinw
   titulo: 'Democratic Wireless Channel Assignment: Fair Resource Allocation in Wi-Fi Networks'
   anio: 2023
@@ -74,8 +77,10 @@
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:vV6vV6tmYwMC
   abr: IEEE IC
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/63058/3/Democratic_Marsa_IEEE_Internet_Comput_2023.pdf
+  pdf: /publicaciones/democraticwirelesschannelassignmentfairresourceallocationinw/democratic-wireless-channel-assignment-fair-2023.pdf
   destacada: true
+  resumen: User experience is the ultimate quality of service criterion for modern WLAN networks. However, network configuration approaches are mainly network-centric. We envision a paradigm shift, empowering users in network management. We study how automated negotiation and collective intelligence can support the democratic configuration of a wireless network, leveraging client and provider interests. This new paradigm allows for flexible network configuration, which enables better exploitation of resources considering the clients’ real usage and needs, and a fair distribution of throughput among users.
+  resumen_idioma: en
 - id: nonlinearnegotiationapproachesforcomplexnetworkoptimizationa
   titulo: 'Nonlinear Negotiation Approaches for Complex-Network Optimization: A Study Inspired by Wi-Fi Channel Assignment'
   anio: 2019
@@ -92,7 +97,7 @@
   citas: 24
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IWHjjKOFINEC
   abr: GDN
-  pdf: https://arxiv.org/pdf/1902.09457
+  pdf: /publicaciones/nonlinearnegotiationapproachesforcomplexnetworkoptimizationa/nonlinear-negotiation-approaches-complex-network-2019.pdf
 - id: reactreactiveresilienceforcriticalinfrastructuresusinggraphc
   titulo: 'REACT: reactive resilience for critical infrastructures using graph-coloring techniques'
   anio: 2019
@@ -109,7 +114,7 @@
   citas: 12
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:j3f4tGmQtD8C
   abr: JNCA
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/63116/3/REACT_Marsa_J_Netw_Comput_Appl_2019.pdf
+  pdf: /publicaciones/reactreactiveresilienceforcriticalinfrastructuresusinggraphc/react-reactive-resilience-critical-infrastructures-2019.pdf
   destacada: true
 - id: spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo
   titulo: Spectrum graph coloring to improve Wi-Fi channel assignment in a real-world scenario via edge contraction
@@ -127,7 +132,7 @@
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_Qo2XoVZTnwC
   abr: DAM
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/64194/2/Spectrum_Orden_DiscAppMath_2019.pdf
+  pdf: /publicaciones/spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo/spectrum-graph-coloring-improve-wi-2019.pdf
 - id: accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
   titulo: Access Control Mechanism for IoT Environments Based on Modelling Communication Procedures as Resources
   anio: 2018
@@ -143,8 +148,11 @@
   citas: 100
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:R3hNpaxXUhUC
   abr: Sensors
-  pdf: https://www.mdpi.com/1424-8220/18/3/917/pdf
+  pdf: /publicaciones/accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm/access-control-mechanism-iot-environments-2018.pdf
   destacada: true
+  resumen: Internet growth has generated new types of services where the use of sensors and actuators is especially remarkable. These services compose what is known as the Internet of Things (IoT). One of the biggest current challenges is obtaining a safe and easy access control scheme for the data managed in these services. We propose integrating IoT devices in an access control system designed for Web-based services by modelling certain IoT communication elements as resources. This would allow us to obtain a unified access control scheme between heterogeneous devices (IoT devices, Internet-based services, etc.). To achieve this, we have analysed the most relevant communication protocols for these kinds of environments and then we have proposed a methodology which allows the modelling of communication actions as resources. Then, we can protect these resources using access control mechanisms. The validation of our proposal has been carried out by selecting a communication protocol based
+    on message exchange, specifically Message Queuing Telemetry Transport (MQTT). As an access control scheme, we have selected User-Managed Access (UMA), an existing Open Authorization (OAuth) 2.0 profile originally developed for the protection of Internet services. We have performed tests focused on validating the proposed solution in terms of the correctness of the access control system. Finally, we have evaluated the energy consumption overhead when using our proposal.
+  resumen_idioma: en
 - id: onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali
   titulo: On the Goodness of Using Orthogonal Channels in WLAN IEEE 802.11 in Realistic Scenarios
   anio: 2018
@@ -161,7 +169,10 @@
   citas: 14
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RHpTSmoSYBkC
   abr: WCMC
-  pdf: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1155/2018/5742712
+  pdf: /publicaciones/onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali/goodness-orthogonal-channels-wlan-ieee-2018.pdf
+  resumen: Due to the high density of Wi‐Fi networks, especially in the unlicensed 2.4 GHz frequency band, channel assignment has become a critical duty for achieving a satisfactory user experience. Probably, the main peculiarity of Wi‐Fi networks is the partial overlap of the radio channels that can be used by access points. For that reason, a number of works avoid cochannel interferences by using only channels which are far enough from each other to have no interferences, the so‐called orthogonal channels. However, there is a range of choices between using the whole spectrum and using only orthogonal channels. In this work we evaluate the influence of the choice of channel set in realistic settings, using both optimization and heuristic approaches. Results show that the optimizer is not able to achieve better results when using the whole spectrum instead of restricting to only the orthogonal channels. In fact, the optimizer uses mainly the orthogonal channels when they are available, while
+    the heuristics considered lose performance when more channels are available. We believe this insight will be useful to design new heuristics for Wi‐Fi channel assignment.
+  resumen_idioma: en
 - id: spectrumgraphcoloringandapplicationstowifichannelassignment
   titulo: Spectrum Graph Coloring and Applications to Wi-Fi Channel Assignment
   anio: 2018
@@ -177,7 +188,10 @@
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:QIV2ME_5wuYC
   abr: Symmetry
   arxiv: '1602.05038'
-  pdf: https://www.mdpi.com/2073-8994/10/3/65/pdf
+  pdf: /publicaciones/spectrumgraphcoloringandapplicationstowifichannelassignment/spectrum-graph-coloring-applications-wi-2018.pdf
+  resumen: We introduce and explore a family of vertex-coloring problems, which, surprisingly enough, have not been considered before despite stemming from the problem of Wi-Fi channel assignment. Given a spectrum of colors, endowed with a matrix of interferences between each pair of colors, the Threshold Spectrum Coloring problem fixes the number of colors available and aims to minimize the interference threshold, i.e., the maximum of the interferences at the vertices. Conversely, the Chromatic Spectrum Coloring problem fixes a threshold and aims to minimize the number of colors for which respecting that threshold is possible. As the main theoretical results, we prove tight upper bounds for the solutions to each problem. Since both problems turn out to be NP-hard, we complete the scene with experimental results. We propose a DSATUR-based heuristic and study its performance to minimize the maximum vertex interference in Wi-Fi channel assignment, both for randomly-generated graphs and for
+    a real-world scenario. Further, for all these graphs, we experimentally check the goodness of the theoretical bounds.
+  resumen_idioma: en
 - id: acooperativeframeworkformediatedgroupdecisionmaking
   titulo: A cooperative framework for mediated group decision making
   anio: 2017
@@ -242,7 +256,10 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:e5wmG9Sq2KIC
   abr: JITEL
-  pdf: http://ocs.editorial.upv.es/index.php/JITEL/JITEL2017/paper/download/6494/3201
+  pdf: /publicaciones/intelligenttrafficlightmanagementusingmultibehavioralagents/intelligent-traffic-light-management-multi-2017.pdf
+  resumen: 'One of the biggest challenges in modern societies is to solve vehicular traffic problems. In this scenario, our proposal is to use a Multi-Agent Systems (MAS) composed of three types of agent: traffic light management agents, traffic jam detection agents, and agents that control the traffic lights at an intersection. This third type of agent is able to change its behaviour between what we have called a selfish mode (the agent will try to influence the other neighbour agents of its type to achieve its goal) or an altruistic mode (the agent will take into consideration the other neighbour selfish agents indications). To validate our solution, we have developed a MAS emulator which communicates with the Simulation of Urban MObility (SUMO) traffic simulator using the Traci tool to realize the experiments in a realistic environment. The obtained results show that our proposal is able to improve other existing solutions such as conventional traffic light management systems (static
+    or dynamic) in terms of reduction of vehicle trip duration.'
+  resumen_idioma: en
 - id: multiagentnonlinearnegotiationforwifichannelassignment
   titulo: Multi-Agent nonlinear negotiation for Wi-Fi channel assignment
   anio: 2017
@@ -282,7 +299,10 @@
   citas: 3
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:lSLTfruPkqcC
   abr: MDPI Proc.
-  pdf: https://www.mdpi.com/2504-3900/1/8/801/pdf
+  pdf: /publicaciones/protectingsensorsinaniotenvironmentbymodellingcommunications/protecting-sensors-iot-environment-by-2017.pdf
+  resumen: The growth of the Internet has generated new types of services based on novel data sources. Among these services, the use of sensors and actuators to create hybrid services that allow humans to interact with the physical environment in a natural way is especially remarkable. These services compose what is called the Internet of Things (IoT). One of the biggest challenges is the protection and access control to the sensors and actuators exposed to the Internet, becoming a critical factor in IoT scenarios. We propose the abstraction of the IoT communication elements as Resources that can be protected using conventional access control schemes. To achieve this, we propose using User-Managed Access (UMA), an existent OAuth2 profile originally developed for the protection of Internet services. To validate our proposal, we have selected MQTT, one of the simplest message-based communication protocols used in IoT environments. We have developed a prototype implementation and a use case
+    using a developer board based on the MCU ESP8266 as an IoT device. The performed tests have been focused on validating the proposed solution in terms of the correctness of the access control system, energy consumption and communication delays.
+  resumen_idioma: en
 - id: usinggraphpropertiesandclusteringtechniquestoselectdivisionm
   titulo: Using graph properties and clustering techniques to select division mechanisms for scalable negotiations
   anio: 2017
@@ -314,6 +334,8 @@
   abr: ICETE
   doi: 10.5220/0006017501290138
   oa: https://www.scitepress.org/Link.aspx?doi=10.5220/0006017501290138
+  resumen: In the framework of the EU-FP7 SCOUT project, RECOVER is a subsystem that enables a satellite infrastructure, and more specifically the ground control segment, with traffic control capabilities. Basically, RECOVER applies rules (forward, drop, re-route) to traffic flows. In this paper, we discuss the preliminary architecture of the RECOVER subsystem. The design is based on SDN, a novel approach for computer networking that allows network administrators to manage network services through the abstraction of higher-level functionalities. The core of the subsystem is a new traffic control application that provides policy-based secure routing, i.e., the ability to take on routing decisions driven by physical or network security targets.
+  resumen_idioma: en
 - id: anarchitectureforsecuringcommunicationsincriticalinfrastruct
   titulo: An Architecture for Securing Communications in Critical Infrastructure
   anio: 2016
@@ -338,7 +360,9 @@
   citas: 5
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:bEWYMUwI8FkC
   abr: ICETE
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/28743/3/An_architecture_ICTE_2016.pdf
+  pdf: /publicaciones/anarchitectureforsecuringcommunicationsincriticalinfrastruct/architecture-securing-communications-critical-infrastructure-2016.pdf
+  resumen: 7th International Conference on Data Communication Networking - DCNET 2016, , 26/07/2016-28/07/2016, Lisboa, Portugal
+  resumen_idioma: en
 - id: boundsonspectrumgraphcoloring
   titulo: Bounds on spectrum graph coloring
   anio: 2016
@@ -353,7 +377,7 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:7PzlFSSx8tAC
   abr: ENDM
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/26759/3/Bounds_on_spectrum__JMDA__2016.pdf
+  pdf: /publicaciones/boundsonspectrumgraphcoloring/bounds-spectrum-graph-coloring-2016.pdf
 - id: datasetanalysisforanomalydetectiononcriticalinfrastructures
   titulo: Dataset Analysis for Anomaly Detection on Critical Infrastructures
   anio: 2016
@@ -373,7 +397,9 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hFOr9nPyWt4C
   abr: ICETE
-  pdf: https://www.scitepress.org/Papers/2016/60177/60177.pdf
+  pdf: /publicaciones/datasetanalysisforanomalydetectiononcriticalinfrastructures/dataset-analysis-anomaly-detection-critical-2016.pdf
+  resumen: Anomaly Detection techniques allow to create robust security measures that provides early detection and are able to identify novel attacks that could not be prevented otherwise. Datasets represent a critical component in the process of designing and evaluating any kind of anomaly detection method. For this reason, in this paper we present the evaluation of two datasets showing the dependencies that arise between the techniques employed and the dataset itself. We also describe the characteristics that have to be taken into account while selecting a dataset to evaluate a detection algorithm in a critical infrastructure context.
+  resumen_idioma: en
 - id: towertopologyoptimizationfornetworkenhancedresilience
   titulo: 'TOWER: Topology Optimization for netWork Enhanced Resilience'
   anio: 2016
@@ -396,7 +422,9 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:-f6ydRqryjwC
   abr: ICETE
-  pdf: https://www.scitepress.org/Papers/2016/60171/60171.pdf
+  pdf: /publicaciones/towertopologyoptimizationfornetworkenhancedresilience/tower-topology-optimization-network-enhanced-2016.pdf
+  resumen: 7th International Conference on Data Communication Networking - DCNET 2016 , 26/07/2016-28/07/2016, Lisboa, Portugal.
+  resumen_idioma: en
 - id: applyinganunifiedaccesscontrolforiotbasedintelligentagentsys
   titulo: Applying an unified access control for IoT-based Intelligent Agent Systems
   anio: 2015
@@ -413,7 +441,9 @@
   citas: 64
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:dhFuZR0502QC
   abr: SOCA
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/27749/3/Applying_an_unified_SOCA_2015.pdf
+  pdf: /publicaciones/applyinganunifiedaccesscontrolforiotbasedintelligentagentsys/applying-unified-access-control-iot-2015.pdf
+  resumen: The rise of the Internet of Things (IoT) paradigm has allowed the design and development of new services interconnecting heterogeneous devices. However, the complexity of these new systems hasn't been followed by the increase of intelligence and reasoning of the devices connected. On the other hand, intelligent agent systems have developed precisely these characteristics so the combination of both paradigms by modelling intelligent agents in IoT devices is a very promising approach that will enable a more powerful and smart IoT. The interconnection of agents through a Internet-based network implies addressing critical issues that affect all network communications, such as security, privacy and access control, specially given the sensitivity of the information exchanged by agents. In this paper, we propose the application of User-Managed Access (UMA) to provide an unified access control schema for an heterogeneous hybrid architecture of IoT devices and intelligent agents.
+  resumen_idioma: en
 - id: automatednegotiationforresourceassignmentinwirelesssurveilla
   titulo: Automated Negotiation for Resource Assignment in Wireless Surveillance Sensor Networks
   anio: 2015
@@ -428,7 +458,9 @@
   citas: 31
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:mVmsd5A6BfQC
   abr: Sensors
-  pdf: /files/sensors-15-29547.pdf
+  pdf: /publicaciones/automatednegotiationforresourceassignmentinwirelesssurveilla/automated-negotiation-resource-assignment-wireless-2015.pdf
+  resumen: Due to the low cost of CMOS IP-based cameras, wireless surveillance sensor networks have emerged as a new application of sensor networks able to monitor public or private areas or even country borders. Since these networks are bandwidth intensive and the radioelectric spectrum is limited, especially in unlicensed bands, it is mandatory to assign frequency channels in a smart manner. In this work, we propose the application of automated negotiation techniques for frequency assignment. Results show that these techniques are very suitable for the problem, being able to obtain the best solutions among the techniques with which we have compared them.
+  resumen_idioma: en
 - id: unaexperienciadeflippedclassroomeningenieriatelematica
   origen: scholar
   titulo: Una experiencia de «flipped classroom» en Ingeniería Telemática
@@ -499,7 +531,9 @@
   citas: 37
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Wp0gIr-vW9MC
   abr: CyCon
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/26443/1/d2r2s2_delahoz.pdf
+  pdf: /publicaciones/detectinganddefeatingadvancedmaninthemiddleattacksagainsttls/detecting-defeating-advanced-man-middle-2014.pdf
+  resumen: TLS is an essential building block for virtual private networks. A critical aspect for the security of TLS dialogs is authentication and key exchange, usually performed by means of certificates. An insecure key exchange can lead to a man-in-the-middle attack (MITM). Trust in certificates is generally achieved using Public Key Infrastructures (PKIs), which employ trusted certificate authorities (CAs) to establish certificate validity chains.
+  resumen_idioma: en
 - id: novelinsightsinagentbasedcomplexautomatednegotiation
   titulo: Novel Insights in Agent-based Complex Automated Negotiation
   anio: 2014
@@ -541,7 +575,7 @@
   citas: 42
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_kc_bZDykSQC
   abr: C&E
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/22118/1/nemesis2012-elsevierV3.pdf
+  pdf: /publicaciones/designandevaluationofalearningenvironmenttoeffectivelyprovid/design-evaluation-learning-environment-effectively-2013.pdf
   destacada: true
 - id: negotiationtechniquesforcomplexsystemoptimizationwithselfint
   origen: scholar
@@ -618,6 +652,8 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:0EnyYjriUFMC
   oa: https://www.intechopen.com/chapters/38681
+  resumen: Mediated Heuristic Approaches and Alternative Social Welfare Definitions for Complex Contract Negotiations Involving Highly Uncorrelated Utility Spaces
+  resumen_idioma: en
 - id: simulationofcoordinatedanticipatoryvehicleroutingstrategieso
   titulo: Simulation of Coordinated Anticipatory Vehicle Routing Strategies on MATSim
   anio: 2012
@@ -662,6 +698,8 @@
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:5nxA0vEk-isC
   abr: EDUCON
+  resumen: Most approaches currently used for Education on Internet Security and Information System Security are excessively static and lack the flexibility that the education requirements of security professionals demand. They can greatly benefit from the use of specific laboratory environments. In this paper we show how a tool which allows to generate scenarios to be used in education on system and network security, based on virtualization technologies could be used to improve such scenarios because of its open, distributed, modular, scalable and flexible features. An example scenario is described and finally some results showing the benefits of its use in undergraduate computer security courses are shown.
+  resumen_idioma: en
 - titulo: Uso de formularios para facilitar una rápida realimentación al alumno en el EEES
   anio: 2012
   categoria: congreso
@@ -686,7 +724,10 @@
   citas: 30
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:d1gkVwhDpl0C
   abr: COIN
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/29019/3/A-region_Comput_Intell_2011.pdf
+  pdf: /publicaciones/aregionbasedmultiissuenegotiationprotocolfornonmonotonicutil/region-multi-issue-negotiation-protocol-2011.pdf
+  resumen: Nonmonotonic utility spaces are found in multi‐issue negotiations where the preferences on the issues yield multiple local optima. These negotiations are specially challenging because of the inherent complexity of the search space and the difficulty of learning the opponent’s preferences. Most current solutions successfully address moderately complex preference scenarios, while solutions intended to operate in highly complex spaces are constrained by very specific preference structures. To overcome these problems, we propose the Region‐Based Multi‐issue Negotiation Protocol (RBNP) for bilateral automated negotiation. RBNP is built upon a nonmediated recursive bargaining mechanism which efficiently modulates a region‐based joint exploration of the solution space. We empirically show that RBNP produces outcomes close to the Pareto frontier in reasonable negotiation times, and show that it provides a significantly better performance when compared to a generic Similarity‐Based Multi‐issue
+    Negotiation Protocol (SBNP), which has been successfully used in many negotiation models. We have paid attention to the strategic issues, proposing and evaluating several concession mechanisms, and analyzing the equilibrium conditions. Results suggest that RBNP may be used as a basis to develop negotiation mechanisms in nonmonotonic utility spaces.
+  resumen_idioma: en
 - id: consensuspolicybasedmultiagentnegotiation
   titulo: Consensus policy based multi-agent negotiation
   anio: 2011
@@ -754,7 +795,7 @@
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u-x6o8ySG0sC
   abr: AAMAS
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/68077/3/Avoiding_Marsa_AAMAS_2010.pdf
+  pdf: /publicaciones/avoidingtheprisonersdilemmainauctionbasednegotiationsforhigh/avoiding-prisoner-s-dilemma-auction-2010.pdf
 - id: herramientaparalageneracioindeescenariosdeapoyoaladocenciade
   titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes
   anio: 2010
@@ -780,7 +821,10 @@
   - B. Alarcos
   doi: 10.3233/mgs-2010-0163
   abr: MAGS
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/29117/3/Strategies_for_Multiagent_2010.pdf
+  pdf: /publicaciones/strategiesforoffergenerationandrelaxationinfuzzyconstraintba/strategies-offer-generation-relaxation-fuzzy-2010.pdf
+  resumen: Fuzzy constraints have been used in several automated multi-attribute negotiation models. It is recognized that fuzzy constraints represent an efficient way of capturing requirements and preferences, and an useful mechanism for representing trade-offs. Most approaches are mainly focused on using co nstraints as a framework for describing preferences, and few works focus on using them as an element in the communication process itself in order to elaborate efficient negotiation strategies. This paper proposes and evaluates a set of strategies for offer generation and for the construction of offer relaxation requests in constraint-based negotiation models. To deploy the strategies, a fuzzy constraint based model for non-mediated bilateral automated purchase negotiations has been used. Fuzzy constraints are used both to represent preferences and to express offers. A set of locutions and decision mechanisms which trigger them are fully specified, where each agent may decide its degree
+    of cooperation and its degree of expressiveness. Expressiveness is based on the propagation of constraints and relaxation requests. The paper analyzes which combination of different agents' attitudes allow to improve the negotiation processes. Experimental evaluation confirms the advantage of an expressive approach based on the propagation of constraints. In addition, this paper studies how applying a clustering algorithm to the seller's catalogue of products instead of managing single products may contribute to an improvement in the duration of the negotiation dialogues, and to a significant improvement on the utility of the deals that are achieved. These results support the usefulness of the proposed negotiation strategies.
+  resumen_idioma: en
 - id: usingrfidtoenhancesecurityinoffsitedatastorage
   titulo: Using RFID to enhance security in off-site data storage.
   anio: 2010
@@ -795,7 +839,10 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:9yKSN-GCB0IC
   abr: Sensors
-  pdf: https://www.mdpi.com/1424-8220/10/9/8010/pdf
+  pdf: /publicaciones/usingrfidtoenhancesecurityinoffsitedatastorage/rfid-enhance-security-off-site-2010.pdf
+  resumen: Off-site data storage is one of the most widely used strategies in enterprises of all sizes to improve business continuity. In medium-to-large size enterprises, the off-site data storage processes are usually outsourced to specialized providers. However, outsourcing the storage of critical business information assets raises serious security considerations, some of which are usually either disregarded or incorrectly addressed by service providers. This article reviews these security considerations and presents a radio frequency identification (RFID)-based, off-site, data storage management system specifically designed to address security issues. The system relies on a set of security mechanisms or controls that are arranged in security layers or tiers to balance security requirements with usability and costs. The system has been successfully implemented, deployed and put into production. In addition, an experimental comparison with classical bar-code-based systems is provided,
+    demonstrating the system's benefits in terms of efficiency and failure prevention.
+  resumen_idioma: en
 - id: aninfocardbasedproposalforunifiedsinglesignon
   titulo: An Infocard-Based Proposal for Unified Single Sign on
   anio: 2009
@@ -811,6 +858,9 @@
   citas: 2
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:WF5omc3nYNoC
   abr: SAINT
+  resumen: 'During last years, service federation has been a hot topic for researchers all along the world. In that context, single sign on (SSO) access to services has risen as a major concern for this kind of environments and many proposals suited to several scenarios have been stated. We can think of eduroam an eduGAIN as two major examples of this, the former as a federated initiative to provide access to network and the latter as a confederated proposal to provide secure access to Web (and non-web as grid) resources. Given that both architectures usually are deployed in a common security domain, it could be interesting to explore ways to bring both worlds together, that is, to find a way to get access as we get access to the network services. Currently, there are two disjoint actions: first get access to network, with its own authentication process, and second get access to other resources through eduGAIN. The process could be greatly simplified if a way is devised to unify both accesses
+    what has been called unified Single Sing On (uSSO). In this work, we propose a novel framework to provide uSSO in that environment with minor modifications to existing deployments employing Infocard Technology.'
+  resumen_idioma: en
 - id: effectivebiddinganddealidentificationfornegotiationsinhighly
   titulo: Effective bidding and deal identification for negotiations in highly nonlinear scenarios
   anio: 2009
@@ -887,7 +937,7 @@
   citas: 0
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:roLk4NBRz8UC
   autores_txt: E Hoz de la Hoz, I Marsá Maestre, AJ Vicente Rodríguez, ...
-  pdf: https://ebuah.uah.es/dspace/bitstream/10017/1891/1/jitel-seguridad-1.pdf
+  pdf: /publicaciones/unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint/una-arquitectura-seguridad-jerarquica-entornos-2007.pdf
 - id: ahierarchicalagentbasedapproachtosecurityinsmartoffices
   titulo: A hierarchical, agent-based approach to security in smart offices
   anio: 2006

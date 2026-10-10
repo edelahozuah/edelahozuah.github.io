@@ -8,9 +8,15 @@ fusionan por título normalizado.
 Las correcciones manuales van en _data/publicaciones_ajustes.yml y se aplican al
 final, así que sobreviven a cada regeneración. Ver el README.
 
+Además genera una página por publicación en _publicaciones/ (para Google
+Scholar) y guarda en _data/publicaciones_resumenes.yml los resúmenes que
+OpenAlex tiene de cada DOI (se consultan una sola vez; el fichero se puede
+corregir a mano).
+
 Uso:
     python3 scripts/actualizar_publicaciones.py            # ORCID + Scholar
     python3 scripts/actualizar_publicaciones.py --sin-scholar
+    python3 scripts/actualizar_publicaciones.py --solo-paginas   # no consulta nada; regenera las páginas
 
 Si Google Scholar bloquea la petición, el script sigue solo con ORCID y
 conserva las citas y métricas de la ejecución anterior.
@@ -34,6 +40,8 @@ RAIZ = Path(__file__).resolve().parent.parent
 SALIDA = RAIZ / "_data" / "publicaciones.yml"
 METRICAS = RAIZ / "_data" / "metricas.yml"
 AJUSTES = RAIZ / "_data" / "publicaciones_ajustes.yml"
+RESUMENES = RAIZ / "_data" / "publicaciones_resumenes.yml"
+PAGINAS = RAIZ / "_publicaciones"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
 
 # Orden de preferencia cuando un mismo trabajo aparece con varios tipos.
@@ -272,10 +280,90 @@ def aplicar_ajustes(pubs):
     return list(por_id.values())
 
 
+def resumenes_openalex(pubs):
+    """Añade «resumen» (y «resumen_idioma») a cada publicación con DOI, desde OpenAlex.
+
+    Los resúmenes se guardan en _data/publicaciones_resumenes.yml (por id) y solo
+    se consultan los DOI que no estén ya ahí; un valor vacío evita volver a preguntar.
+    """
+    guardados = yaml.safe_load(RESUMENES.read_text(encoding="utf-8")) if RESUMENES.exists() else {}
+    guardados = guardados or {}
+    nuevos = 0
+    for p in pubs:
+        if p["id"] in guardados or not p.get("doi"):
+            continue
+        try:
+            w = pedir("https://api.openalex.org/works/https://doi.org/" + p["doi"], json_=True)
+        except Exception:
+            continue
+        inv = w.get("abstract_inverted_index") or {}
+        texto = ""
+        if inv:
+            posiciones = sorted((i, palabra) for palabra, idxs in inv.items() for i in idxs)
+            texto = " ".join(palabra for _, palabra in posiciones)
+            texto = re.sub(r"\s+", " ", html.unescape(texto)).strip()
+        guardados[p["id"]] = {"resumen": texto, "idioma": w.get("language") or ""}
+        nuevos += 1
+    if nuevos:
+        cabecera = ("# Resúmenes de las publicaciones, tomados de OpenAlex por scripts/actualizar_publicaciones.py.\n"
+                    "# Se pueden corregir o completar a mano (por id); una entrada vacía no se vuelve a consultar.\n")
+        RESUMENES.write_text(cabecera + yaml.safe_dump(guardados, allow_unicode=True, sort_keys=True, width=1000),
+                             encoding="utf-8")
+        print(f"{nuevos} resúmenes nuevos → {RESUMENES.relative_to(RAIZ)}")
+    for p in pubs:
+        r = guardados.get(p["id"]) or {}
+        if r.get("resumen"):
+            p["resumen"] = r["resumen"]
+            if r.get("idioma"):
+                p["resumen_idioma"] = r["idioma"]
+    return pubs
+
+
+def generar_paginas(pubs):
+    """Escribe _publicaciones/<id>.md y _publicaciones/en/<id>.md (y borra las que sobren)."""
+    (PAGINAS / "en").mkdir(parents=True, exist_ok=True)
+    vivos = set()
+    for p in pubs:
+        autores = p.get("autores") or [a.strip() for a in (p.get("autores_txt") or "").split(",") if a.strip()]
+        firma = ", ".join(autores[:3]) + (" et al." if len(autores) > 3 else "")
+        for en in (False, True):
+            ruta = PAGINAS / ("en" if en else "") / f"{p['id']}.md"
+            permalink = f"/en/publications/{p['id']}/" if en else f"/publicaciones/{p['id']}/"
+            alterno = f"/publicaciones/{p['id']}/" if en else f"/en/publications/{p['id']}/"
+            medio = f" {p['medio']}." if p.get("medio") else ""
+            desc = (f"{firma} ({p.get('anio', '')}).{medio}" if en else f"{firma} ({p.get('anio', '')}).{medio}")
+            fm = {
+                "title": p["titulo"],
+                "publicacion": p["id"],
+                "permalink": permalink,
+                "lang_alt": alterno,
+                "description": desc.strip(),
+                "volver": {"url": "/en/publications/" if en else "/publicaciones/",
+                           "texto": "publications" if en else "publicaciones"},
+            }
+            if en:
+                fm["lang"] = "en"
+            contenido = "---\n" + yaml.safe_dump(fm, allow_unicode=True, sort_keys=False, width=1000) + "---\n"
+            if not ruta.exists() or ruta.read_text(encoding="utf-8") != contenido:
+                ruta.write_text(contenido, encoding="utf-8")
+            vivos.add(ruta)
+    for f in list(PAGINAS.glob("*.md")) + list((PAGINAS / "en").glob("*.md")):
+        if f not in vivos:
+            f.unlink()
+    print(f"{len(vivos)} páginas → {PAGINAS.relative_to(RAIZ)}/")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--sin-scholar", action="store_true", help="no consultar Google Scholar")
+    ap.add_argument("--solo-paginas", action="store_true",
+                    help="no consultar ORCID ni Scholar; regenerar las páginas desde publicaciones.yml")
     args = ap.parse_args()
+
+    if args.solo_paginas:
+        pubs = yaml.safe_load(SALIDA.read_text(encoding="utf-8")) or []
+        generar_paginas(pubs)
+        return
 
     previas = yaml.safe_load(SALIDA.read_text(encoding="utf-8")) if SALIDA.exists() else []
     previas = {p["id"]: p for p in previas or []}
@@ -300,12 +388,14 @@ def main():
             p["abr"] = abreviatura(p)
     pubs = aplicar_ajustes(pubs)
     pubs.sort(key=lambda p: (-(p.get("anio") or 0), p["titulo"].lower()))
+    pubs = resumenes_openalex(pubs)
 
     cabecera = ("# Generado por scripts/actualizar_publicaciones.py; no editar a mano.\n"
                 "# Las correcciones van en _data/publicaciones_ajustes.yml.\n")
     SALIDA.write_text(cabecera + yaml.safe_dump(pubs, allow_unicode=True, sort_keys=False, width=1000),
                       encoding="utf-8")
     print(f"{len(pubs)} publicaciones → {SALIDA.relative_to(RAIZ)}")
+    generar_paginas(pubs)
 
     if metricas:
         metricas["fecha"] = dt.date.today().isoformat()

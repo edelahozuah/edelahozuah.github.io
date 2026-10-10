@@ -31,6 +31,40 @@ imagen para compartir; si falta, assets/img/tarjeta-<idioma>.png) y sitemap: fal
   <link rel="alternate" hreflang="x-default" href="{% if en %}{{ alternativa }}{% else %}{{ canonica }}{% endif %}">
   {% endif -%}
   <link rel="alternate" type="text/plain" title="llms.txt" href="{{ '/llms.txt' | absolute_url }}">
+  {%- if page.publicacion -%}
+  {%- comment -%}Etiquetas Highwire Press que lee Google Scholar (una publicación por página).
+  citation_pdf_url solo si el PDF está en la misma carpeta que la página, como exige Scholar.{%- endcomment -%}
+  {%- assign pub = site.data.publicaciones | where: "id", page.publicacion | first -%}
+  {%- if pub.autores %}{% assign autores = pub.autores %}{% else %}{% assign autores = pub.autores_txt | split: ', ' %}{% endif %}
+  <meta name="citation_title" content="{{ pub.titulo | escape }}">
+  {%- for a in autores %}
+  <meta name="citation_author" content="{{ a | strip | escape }}">
+  {%- endfor %}
+  <meta name="citation_publication_date" content="{{ pub.anio }}">
+  {%- if pub.medio and pub.medio != 'Conjunto de datos' %}
+  {%- if pub.categoria == 'revista' %}
+  <meta name="citation_journal_title" content="{{ pub.medio | escape }}">
+  {%- elsif pub.categoria == 'congreso' %}
+  <meta name="citation_conference_title" content="{{ pub.medio | escape }}">
+  {%- elsif pub.categoria == 'capitulo' %}
+  <meta name="citation_book_title" content="{{ pub.medio | escape }}">
+  {%- elsif pub.medio contains 'Tesis doctoral' %}
+  <meta name="citation_dissertation_institution" content="{{ site.autor.universidad }}">
+  {%- endif %}
+  {%- endif %}
+  {%- if pub.doi %}
+  <meta name="citation_doi" content="{{ pub.doi }}">
+  {%- endif %}
+  {%- if pub.arxiv %}
+  <meta name="citation_arxiv_id" content="{{ pub.arxiv }}">
+  {%- endif %}
+  {%- assign carpeta = '/publicaciones/' | append: pub.id | append: '/' -%}
+  {%- if pub.pdf and pub.pdf contains carpeta %}
+  <meta name="citation_pdf_url" content="{{ pub.pdf | absolute_url }}">
+  {%- endif %}
+  <meta name="citation_abstract_html_url" content="{{ '/publicaciones/' | append: pub.id | append: '/' | absolute_url }}">
+  <meta name="citation_language" content="{% if pub.idioma %}{{ pub.idioma }}{% else %}en{% endif %}">
+  {%- endif %}
   <meta property="og:type" content="{% if portada %}profile{% else %}website{% endif %}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{% if portada %}{{ site.title }}{% else %}{{ page.title | escape }}{% endif %}">

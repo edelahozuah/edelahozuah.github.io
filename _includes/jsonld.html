@@ -3,6 +3,7 @@ Datos estructurados (schema.org) de la página, en un único @graph: la persona 
 el sitio en todas; además, según el front matter:
   - portada:          ProfilePage cuya entidad principal es la persona
   - jsonld: publicaciones  cada publicación de _data/publicaciones.yml
+  - publicacion: <id>  la página propia de esa publicación (mainEntity)
   - asignatura: <id>  un Course con sus recursos (de _data/recursos.yml);
                       con carpeta: /docencia/<id>/<tema>/ solo los de ese tema
   - jsonld: recursos  todos los recursos de todas las asignaturas
@@ -77,6 +78,8 @@ el sitio en todas; además, según el front matter:
       "mainEntity": { "@id": "{{ u }}/#persona" },
       {%- elsif page.youtube %}
       "mainEntity": { "@id": "{{ include.canonica }}#video" },
+      {%- elsif page.publicacion %}
+      "mainEntity": { "@id": "{{ include.canonica }}#publicacion" },
       {%- endif %}
       "author": { "@id": "{{ u }}/#persona" }
     }
@@ -218,51 +221,12 @@ el sitio en todas; además, según el front matter:
     {%- endif -%}
     {%- if page.jsonld == 'publicaciones' -%}
     {%- for p in site.data.publicaciones -%},
-    {
-      {%- if p.medio == 'Conjunto de datos' %}
-      "@type": "Dataset",
-      {%- elsif p.categoria == 'capitulo' %}
-      "@type": "Chapter",
-      {%- else %}
-      "@type": "ScholarlyArticle",
-      {%- endif %}
-      "name": {{ p.titulo | jsonify }},
-      {%- if p.medio == 'Conjunto de datos' %}
-      {%- capture desc_dataset -%}{% if en %}Dataset{% else %}Conjunto de datos{% endif %}: {{ p.titulo }}{% if p.anio %} ({{ p.anio }}){% endif %}. {% if en %}Authors{% else %}Autores{% endif %}: {% if p.autores %}{{ p.autores | join: ', ' }}{% else %}{{ p.autores_txt }}{% endif %}.{%- endcapture %}
-      "description": {{ desc_dataset | jsonify }},
-      {% if p.autores %}{% assign lista = p.autores %}{% else %}{% assign lista = p.autores_txt | split: ', ' %}{% endif %}
-      "creator": [{% for x in lista %}{ "@type": "Person", "name": {{ x | strip | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
-      {%- endif %}
-      {%- if p.anio %}
-      "datePublished": "{{ p.anio }}",
-      {%- endif %}
-      {%- if p.autores %}
-      "author": [{% for x in p.autores %}{ "@type": "Person", "name": {{ x | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
-      {%- elsif p.autores_txt %}
-      {%- assign lista = p.autores_txt | split: ', ' %}
-      "author": [{% for x in lista %}{ "@type": "Person", "name": {{ x | strip | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
-      {%- endif %}
-      {%- if p.medio and p.medio != 'Conjunto de datos' %}
-      "isPartOf": { "@type": "{% if p.categoria == 'revista' %}Periodical{% else %}CreativeWork{% endif %}", "name": {{ p.medio | jsonify }} },
-      {%- endif %}
-      {%- if p.doi %}
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": {{ p.doi | jsonify }} },
-      "url": "https://doi.org/{{ p.doi }}",
-      {%- elsif p.url %}
-      "url": {{ p.url | jsonify }},
-      {%- elsif p.scholar %}
-      "url": {{ p.scholar | jsonify }},
-      {%- endif %}
-      {%- if p.pdf %}
-      "encoding": { "@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "{{ p.pdf | absolute_url }}" },
-      "isAccessibleForFree": true,
-      {%- elsif p.oa %}
-      "archivedAt": {{ p.oa | jsonify }},
-      "isAccessibleForFree": true,
-      {%- endif %}
-      "mainEntityOfPage": "{{ include.canonica }}"
-    }
+    {% include jsonld-publicacion.html p=p en=en canonica=include.canonica %}
     {%- endfor -%}
+    {%- endif -%}
+    {%- if page.publicacion -%}
+    {%- assign pub = site.data.publicaciones | where: "id", page.publicacion | first -%},
+    {% include jsonld-publicacion.html p=pub en=en canonica=include.canonica %}
     {%- endif -%}
     {%- if page.asignatura -%}
     {%- assign asig = site.data.asignaturas | where: "id", page.asignatura | first -%},
