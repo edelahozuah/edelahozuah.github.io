@@ -16,6 +16,7 @@
       <div class="links">
         {%- if p.doi %}<a class="btn" href="https://doi.org/{{ p.doi }}">DOI</a>{% elsif p.url %}<a class="btn" href="{{ p.url }}">HTML</a>{% endif -%}
         {%- if p.pdf %}<a class="btn" href="{{ p.pdf | relative_url }}" data-goatcounter-click="{{ p.pdf }}" data-goatcounter-title="{{ p.titulo | escape }}">PDF</a>{% endif -%}
+        {%- if p.oa %}<a class="btn" href="{{ p.oa }}" data-goatcounter-click="{{ p.oa }}" data-goatcounter-title="{{ p.titulo | escape }}">{% if include.en %}Open access{% else %}Acceso abierto{% endif %}</a>{% endif -%}
         {%- if p.arxiv %}<a class="btn" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
         {%- if p.citas and p.citas > 0 %}<a class="citas" href="{{ p.scholar }}" title="Google Scholar">{{ p.citas }} {% if include.en %}citations{% else %}citas{% endif %}</a>{% endif -%}
       </div>

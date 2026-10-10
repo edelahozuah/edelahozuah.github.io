@@ -74,6 +74,7 @@
   citas: 8
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:vV6vV6tmYwMC
   abr: IEEE IC
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/63058/3/Democratic_Marsa_IEEE_Internet_Comput_2023.pdf
   destacada: true
 - id: nonlinearnegotiationapproachesforcomplexnetworkoptimizationa
   titulo: 'Nonlinear Negotiation Approaches for Complex-Network Optimization: A Study Inspired by Wi-Fi Channel Assignment'
@@ -91,6 +92,7 @@
   citas: 24
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:IWHjjKOFINEC
   abr: GDN
+  pdf: https://arxiv.org/pdf/1902.09457
 - id: reactreactiveresilienceforcriticalinfrastructuresusinggraphc
   titulo: 'REACT: reactive resilience for critical infrastructures using graph-coloring techniques'
   anio: 2019
@@ -107,6 +109,7 @@
   citas: 12
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:j3f4tGmQtD8C
   abr: JNCA
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/63116/3/REACT_Marsa_J_Netw_Comput_Appl_2019.pdf
   destacada: true
 - id: spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo
   titulo: Spectrum graph coloring to improve Wi-Fi channel assignment in a real-world scenario via edge contraction
@@ -124,6 +127,7 @@
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_Qo2XoVZTnwC
   abr: DAM
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/64194/2/Spectrum_Orden_DiscAppMath_2019.pdf
 - id: accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
   titulo: Access Control Mechanism for IoT Environments Based on Modelling Communication Procedures as Resources
   anio: 2018
@@ -139,6 +143,7 @@
   citas: 100
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:R3hNpaxXUhUC
   abr: Sensors
+  pdf: https://www.mdpi.com/1424-8220/18/3/917/pdf
   destacada: true
 - id: onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali
   titulo: On the Goodness of Using Orthogonal Channels in WLAN IEEE 802.11 in Realistic Scenarios
@@ -156,6 +161,7 @@
   citas: 14
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RHpTSmoSYBkC
   abr: WCMC
+  pdf: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1155/2018/5742712
 - id: spectrumgraphcoloringandapplicationstowifichannelassignment
   titulo: Spectrum Graph Coloring and Applications to Wi-Fi Channel Assignment
   anio: 2018
@@ -170,6 +176,8 @@
   citas: 42
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:QIV2ME_5wuYC
   abr: Symmetry
+  arxiv: '1602.05038'
+  pdf: https://www.mdpi.com/2073-8994/10/3/65/pdf
 - id: acooperativeframeworkformediatedgroupdecisionmaking
   titulo: A cooperative framework for mediated group decision making
   anio: 2017
@@ -225,6 +233,7 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:e5wmG9Sq2KIC
   abr: JITEL
+  pdf: http://ocs.editorial.upv.es/index.php/JITEL/JITEL2017/paper/download/6494/3201
 - id: multiagentnonlinearnegotiationforwifichannelassignment
   titulo: Multi-Agent nonlinear negotiation for Wi-Fi channel assignment
   anio: 2017
@@ -264,6 +273,7 @@
   citas: 3
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:lSLTfruPkqcC
   abr: MDPI Proc.
+  pdf: https://www.mdpi.com/2504-3900/1/8/801/pdf
 - id: usinggraphpropertiesandclusteringtechniquestoselectdivisionm
   titulo: Using graph properties and clustering techniques to select division mechanisms for scalable negotiations
   anio: 2017
@@ -293,6 +303,8 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:RGFaLdJalmkC
   abr: ICETE
+  doi: 10.5220/0006017501290138
+  oa: https://www.scitepress.org/Link.aspx?doi=10.5220/0006017501290138
 - id: anarchitectureforsecuringcommunicationsincriticalinfrastruct
   titulo: An Architecture for Securing Communications in Critical Infrastructure
   anio: 2016
@@ -317,6 +329,7 @@
   citas: 5
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:bEWYMUwI8FkC
   abr: ICETE
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/28743/3/An_architecture_ICTE_2016.pdf
 - id: boundsonspectrumgraphcoloring
   titulo: Bounds on spectrum graph coloring
   anio: 2016
@@ -331,6 +344,7 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:7PzlFSSx8tAC
   abr: ENDM
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/26759/3/Bounds_on_spectrum__JMDA__2016.pdf
 - id: datasetanalysisforanomalydetectiononcriticalinfrastructures
   titulo: Dataset Analysis for Anomaly Detection on Critical Infrastructures
   anio: 2016
@@ -350,6 +364,7 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:hFOr9nPyWt4C
   abr: ICETE
+  pdf: https://www.scitepress.org/Papers/2016/60177/60177.pdf
 - id: towertopologyoptimizationfornetworkenhancedresilience
   titulo: 'TOWER: Topology Optimization for netWork Enhanced Resilience'
   anio: 2016
@@ -372,6 +387,7 @@
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:-f6ydRqryjwC
   abr: ICETE
+  pdf: https://www.scitepress.org/Papers/2016/60171/60171.pdf
 - id: applyinganunifiedaccesscontrolforiotbasedintelligentagentsys
   titulo: Applying an unified access control for IoT-based Intelligent Agent Systems
   anio: 2015
@@ -388,6 +404,7 @@
   citas: 64
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:dhFuZR0502QC
   abr: SOCA
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/27749/3/Applying_an_unified_SOCA_2015.pdf
 - id: automatednegotiationforresourceassignmentinwirelesssurveilla
   titulo: Automated Negotiation for Resource Assignment in Wireless Surveillance Sensor Networks
   anio: 2015
@@ -462,6 +479,7 @@
   citas: 37
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:Wp0gIr-vW9MC
   abr: CyCon
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/26443/1/d2r2s2_delahoz.pdf
 - id: novelinsightsinagentbasedcomplexautomatednegotiation
   titulo: Novel Insights in Agent-based Complex Automated Negotiation
   anio: 2014
@@ -503,6 +521,7 @@
   citas: 42
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_kc_bZDykSQC
   abr: C&E
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/22118/1/nemesis2012-elsevierV3.pdf
   destacada: true
 - id: negotiationtechniquesforcomplexsystemoptimizationwithselfint
   origen: scholar
@@ -567,6 +586,7 @@
   doi: 10.5772/38681
   citas: 1
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:0EnyYjriUFMC
+  oa: https://www.intechopen.com/chapters/38681
 - id: simulationofcoordinatedanticipatoryvehicleroutingstrategieso
   titulo: Simulation of Coordinated Anticipatory Vehicle Routing Strategies on MATSim
   anio: 2012
@@ -625,6 +645,7 @@
   citas: 30
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:d1gkVwhDpl0C
   abr: COIN
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/29019/3/A-region_Comput_Intell_2011.pdf
 - id: consensuspolicybasedmultiagentnegotiation
   titulo: Consensus policy based multi-agent negotiation
   anio: 2011
@@ -692,6 +713,7 @@
   citas: 21
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:u-x6o8ySG0sC
   abr: AAMAS
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/68077/3/Avoiding_Marsa_AAMAS_2010.pdf
 - id: herramientaparalageneracioindeescenariosdeapoyoaladocenciade
   titulo: Herramienta para la generación de escenarios de apoyo a la docencia de la seguridad en redes
   anio: 2010
@@ -717,6 +739,7 @@
   - B. Alarcos
   doi: 10.3233/mgs-2010-0163
   abr: MAGS
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/29117/3/Strategies_for_Multiagent_2010.pdf
 - id: usingrfidtoenhancesecurityinoffsitedatastorage
   titulo: Using RFID to enhance security in off-site data storage.
   anio: 2010
@@ -731,6 +754,7 @@
   citas: 6
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:9yKSN-GCB0IC
   abr: Sensors
+  pdf: https://www.mdpi.com/1424-8220/10/9/8010/pdf
 - id: aninfocardbasedproposalforunifiedsinglesignon
   titulo: An Infocard-Based Proposal for Unified Single Sign on
   anio: 2009
@@ -800,6 +824,7 @@
   citas: 0
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:_FxGoFyzp5QC
   autores_txt: I Marsá-Maestre, MA López-Carmona, A Navarro, E de la Hoz
+  oa: https://hdl.handle.net/10017/1269
 - id: unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint
   origen: scholar
   titulo: Una Arquitectura de Seguridad Jerárquica para Entornos de Trabajo Inteligentes
@@ -808,6 +833,7 @@
   citas: 0
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:roLk4NBRz8UC
   autores_txt: E Hoz de la Hoz, I Marsá Maestre, AJ Vicente Rodríguez, ...
+  pdf: https://ebuah.uah.es/dspace/bitstream/10017/1891/1/jitel-seguridad-1.pdf
 - id: ahierarchicalagentbasedapproachtosecurityinsmartoffices
   titulo: A hierarchical, agent-based approach to security in smart offices
   anio: 2006
@@ -821,6 +847,7 @@
   citas: 25
   scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HBXLJGoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=HBXLJGoAAAAJ:eQOLeE2rZwMC
   abr: ICUC
+  oa: https://hdl.handle.net/10017/1890
 - id: locationawareservicesandinterfacesinsmarthomesusingmultiagen
   titulo: Location-aware services and interfaces in smart homes using multiagent systems
   anio: 2005
