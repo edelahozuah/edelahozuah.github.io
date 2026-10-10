@@ -80,6 +80,28 @@ English — {{ r.titulo_en | default: r.titulo }}: {% if res_en %}{{ res_en.resu
 {% endif -%}
 {%- endfor -%}{%- endfor -%}
 {%- endif -%}{%- endfor %}
+## Proyectos docentes / Teaching projects
+
+Herramientas y datos abiertos de uso general, no ligados a una asignatura. Fuente: {{ '/docencia/proyectos/' | absolute_url }}
+{% for p in site.data.proyectos %}
+### {{ p.titulo }}
+
+- Aplicación: {{ p.url }}
+- Código ({{ p.licencia_codigo.nombre }}): {{ p.repo }}
+{%- if p.datos %}
+- Datos ({{ p.licencia_datos.nombre }}{% if p.curso %}, curso {{ p.curso }}{% endif %}):
+{%- for f in p.datos.ficheros %}
+  - {{ p.datos.base }}{{ f.nombre }} ({{ f.filas }} filas): {{ f.descripcion }}
+{%- endfor %}
+{%- endif %}
+{%- if p.fuente %}
+- Fuente original: {{ p.fuente.nombre }}, {{ p.fuente.url }}
+{%- endif %}
+
+{{ p.descripcion | normalize_whitespace }}
+
+English — {{ p.titulo_en }}: {{ p.descripcion_en | normalize_whitespace }}
+{% endfor %}
 ## Trabajos dirigidos / Supervised theses
 
 Selección de trabajos fin de máster y de grado dirigidos por {{ a.nombre }}. Fuente: {{ '/docencia/trabajos/' | absolute_url }}

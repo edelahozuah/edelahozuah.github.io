@@ -6,6 +6,7 @@ el sitio en todas; además, según el front matter:
   - asignatura: <id>  un Course con sus recursos (de _data/recursos.yml);
                       con carpeta: /docencia/<id>/<tema>/ solo los de ese tema
   - jsonld: recursos  todos los recursos de todas las asignaturas
+  - jsonld: proyectos  cada proyecto de _data/proyectos.yml (SoftwareApplication y Dataset)
 {%- endcomment -%}
 {%- assign en = include.en -%}
 {%- assign u = site.url -%}
@@ -95,6 +96,61 @@ el sitio en todas; además, según el front matter:
         {%- endfor %}
       ]
     }
+    {%- endif -%}
+    {%- if page.jsonld == 'proyectos' -%}
+    {%- for p in site.data.proyectos -%},
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ include.canonica }}#{{ p.id }}",
+      "name": {% if en %}{{ p.titulo_en | jsonify }}{% else %}{{ p.titulo | jsonify }}{% endif %},
+      "description": {% if en %}{{ p.resumen_en | jsonify }}{% else %}{{ p.resumen | jsonify }}{% endif %},
+      "url": {{ p.url | jsonify }},
+      "codeRepository": {{ p.repo | jsonify }},
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "image": "{{ p.imagen | absolute_url }}",
+      "datePublished": "{{ p.fecha }}",
+      "author": { "@id": "{{ u }}/#persona" },
+      "isAccessibleForFree": true,
+      "license": {{ p.licencia_codigo.url | jsonify }},
+      "mainEntityOfPage": "{{ include.canonica }}"
+      {%- if p.datos %},
+      "isBasedOn": { "@id": "{{ include.canonica }}#{{ p.id }}-datos" }
+      {%- endif %}
+    }
+    {%- if p.datos -%},
+    {
+      "@type": "Dataset",
+      "@id": "{{ include.canonica }}#{{ p.id }}-datos",
+      "name": {% if en %}{{ p.titulo_en | jsonify }}{% else %}{{ p.titulo | jsonify }}{% endif %},
+      "description": {% if en %}{{ p.resumen_en | jsonify }}{% else %}{{ p.resumen | jsonify }}{% endif %},
+      "url": "{{ include.canonica }}#{{ p.id }}",
+      "sameAs": {{ p.repo | jsonify }},
+      "inLanguage": "es",
+      {%- if p.curso %}
+      "temporalCoverage": {{ p.curso | jsonify }},
+      {%- endif %}
+      "spatialCoverage": { "@type": "Place", "name": {% if en %}"Polytechnic School, University of Alcalá, Alcalá de Henares (Spain)"{% else %}"Escuela Politécnica Superior, Universidad de Alcalá, Alcalá de Henares"{% endif %} },
+      {%- if p.fuente %}
+      "isBasedOn": { "@type": "CreativeWork", "name": {% if en %}{{ p.fuente.nombre_en | default: p.fuente.nombre | jsonify }}{% else %}{{ p.fuente.nombre | jsonify }}{% endif %}, "url": {{ p.fuente.url | jsonify }}, "publisher": { "@id": "{{ u }}/#uah" } },
+      {%- endif %}
+      "creator": { "@id": "{{ u }}/#persona" },
+      "datePublished": "{{ p.fecha }}",
+      "isAccessibleForFree": true,
+      "license": {{ p.licencia_datos.url | jsonify }},
+      "distribution": [
+        {%- for f in p.datos.ficheros %}
+        { "@type": "DataDownload", "name": {{ f.nombre | jsonify }}, "description": {% if en %}{{ f.descripcion_en | jsonify }}{% else %}{{ f.descripcion | jsonify }}{% endif %}, "encodingFormat": {{ f.formato | jsonify }}, "contentUrl": "{{ p.datos.base }}{{ f.nombre }}" }
+        {%- if f.alternativo %},
+        { "@type": "DataDownload", "name": {{ f.alternativo | jsonify }}, "encodingFormat": "application/json", "contentUrl": "{{ p.datos.base }}{{ f.alternativo }}" }
+        {%- endif %}{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif -%}
+    {%- endfor -%}
     {%- endif -%}
     {%- if page.jsonld == 'trabajos' -%}
     {%- for w in site.data.trabajos -%},

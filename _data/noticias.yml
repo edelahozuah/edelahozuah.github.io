@@ -1,6 +1,9 @@
 # Noticias de la portada, de la más reciente a la más antigua. Se muestran las
 # cinco primeras. El texto admite Markdown (enlaces, cursiva…). «texto_en» es
 # la versión para /en/; si falta, la noticia no aparece en inglés.
+- fecha: 2026-10-10
+  texto: "Publicados los [horarios y asignaturas de la Escuela Politécnica en datos abiertos](/docencia/proyectos/#horarios-eps): una aplicación para consultarlos y los ficheros CSV y JSON del curso 2026/27, extraídos de los PDF oficiales."
+  texto_en: "Published the [Polytechnic School timetables and courses as open data](/en/teaching/projects/#horarios-eps): an application to browse them and the CSV and JSON files for 2026/27, extracted from the official PDFs."
 - fecha: 2026-09-28
   texto: Publicadas las [visualizaciones interactivas de Arquitectura de Redes I](/docencia/ar1/) de los temas 1 y 2 y del [laboratorio de retardos](/docencia/ar1/lab-retardos/), casi todas también en inglés.
   texto_en: Published [interactive visualizations for Network Architecture I](/en/teaching/ar1/) covering units 1 and 2 and the [delay lab](/en/teaching/ar1/delay-lab/), most of them also available in Spanish.

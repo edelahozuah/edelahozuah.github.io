@@ -20,6 +20,7 @@ compilación propio.
 | Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
 | Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
 | Trabajos dirigidos (TFM y TFG) | `_data/trabajos.yml` |
+| Proyectos docentes (herramientas y datos abiertos) | `_data/proyectos.yml` |
 | Metadatos y JSON-LD de las páginas | `_includes/metadatos.html`, `_includes/jsonld.html` |
 | Versión para modelos de lenguaje | `llms.txt`, `llms-full.txt` |
 | Estilos (aspecto al-folio) | `assets/css/sitio.css` |
@@ -80,6 +81,24 @@ relacionadas, la transcripción y los datos estructurados `VideoObject`.
 2. Copia `docencia/ar1/index.html` a `docencia/<id>/index.html` y cambia
    `title`, `permalink` y `asignatura`.
 3. Añade sus temas y recursos en `_data/recursos.yml` bajo la clave `<id>`.
+
+## Añadir un proyecto docente
+
+Los proyectos docentes son herramientas y datos abiertos de uso general, no
+ligados a una asignatura (por ejemplo, los horarios de la EPS en datos abiertos).
+Salen en `/docencia/proyectos/` y `/en/teaching/projects/`, en la lista de
+`/docencia/`, en `llms.txt` y `llms-full.txt`, y como `SoftwareApplication` y
+`Dataset` en el JSON-LD de la página.
+
+1. Añade una entrada en `_data/proyectos.yml` (los campos están comentados en
+   el fichero; los textos en inglés son obligatorios porque la página inglesa
+   muestra todos los proyectos).
+2. Guarda una captura de 1200×630 en `assets/img/` y ponla en `imagen:`.
+   Por ejemplo, con Chrome:
+   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --window-size=1200,630 --virtual-time-budget=8000 --screenshot=captura.png URL`
+3. Si publica datos, lista los ficheros en `datos:` con su número de filas;
+   hay que actualizarlo cuando se regeneren.
+4. Añade una noticia en `_data/noticias.yml`.
 
 ## Páginas en inglés
 

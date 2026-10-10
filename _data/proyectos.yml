@@ -1,0 +1,81 @@
+# Proyectos docentes: herramientas y datos abiertos de uso general, no ligados
+# a una asignatura ni pensados solo para estudiantes. Se muestran en
+# /docencia/proyectos/ y /en/teaching/projects/ (todos; los textos *_en son
+# obligatorios), en llms.txt y en los datos estructurados de la página.
+#
+#   - id:             clave corta, sirve de ancla (#id) y de @id en JSON-LD
+#     titulo / titulo_en
+#     resumen / resumen_en     una frase, para la lista de docencia y la noticia
+#     descripcion / descripcion_en   uno o varios párrafos (Markdown)
+#     url:            aplicación o página del proyecto
+#     repo:           repositorio del código
+#     imagen:         captura 1200×630 en assets/img/ (también Open Graph)
+#     fecha:          publicación (AAAA-MM-DD)
+#     curso:          curso académico que cubren los datos, si procede
+#     licencia_codigo / licencia_datos:  { nombre, url }
+#     fuente:         { nombre, nombre_en, url } de donde salen los datos
+#     datos:          { base: URL base, ficheros: [ { nombre, formato, filas,
+#                       descripcion, descripcion_en } ] }
+- id: horarios-eps
+  titulo: Horarios y asignaturas de la Escuela Politécnica en datos abiertos
+  titulo_en: Polytechnic School timetables and courses as open data
+  resumen: Los horarios de los grados de la Escuela Politécnica Superior, extraídos de los PDF oficiales a un formato que se puede consultar, filtrar y descargar, junto con las guías docentes de cada asignatura.
+  resumen_en: The timetables of the Polytechnic School degrees, extracted from the official PDFs into a format that can be browsed, filtered and downloaded, together with the course guide of every subject.
+  descripcion: |
+    La Escuela Politécnica Superior publica cada curso los horarios de sus grados como PDF, una hoja por grupo. Este proyecto los lee y los convierte en datos reutilizables: cada sesión de clase con su titulación, curso, grupo, día, hora y aula, y cada asignatura con su código, créditos, departamento y guía docente, tomados de las fichas oficiales de la UAH.
+
+    Sobre esos datos hay una aplicación web que permite consultar el horario por titulación, ver la ocupación semanal de cada aula, componer perfiles de asignaturas y grupos, y, en la vista *Estudiante*, marcar asignaturas y grupos para ver los solapes y buscar una combinación sin conflictos. Cualquier hoja se puede imprimir con el formato de la Escuela.
+
+    Los ficheros de datos se publican con licencia CC BY 4.0 y el código con licencia MIT, de modo que cualquiera pueda reutilizarlos o regenerarlos el curso siguiente. No incluyen datos personales: el profesorado se consulta en las fichas de la UAH, no en los ficheros.
+  descripcion_en: |
+    Every year the Polytechnic School publishes the timetables of its degrees as PDF files, one sheet per group. This project reads them and turns them into reusable data: every class session with its degree, year, group, day, time and room, and every subject with its code, credits, department and course guide, taken from the official University of Alcalá pages.
+
+    On top of that data there is a web application to browse the timetable by degree, see the weekly occupation of each room, build profiles of subjects and groups and, in the *Student* view, pick subjects and groups to see the overlaps and search for a conflict-free combination. Any sheet can be printed in the School's format. The application is in Spanish.
+
+    The data files are published under CC BY 4.0 and the code under the MIT license, so anyone can reuse them or regenerate them next year. They contain no personal data: lecturers are looked up on the University pages, not in the files.
+  url: https://edelahozuah.github.io/HorariosEPS/
+  repo: https://github.com/edelahozuah/HorariosEPS
+  imagen: /assets/img/horarios-eps.jpg
+  fecha: 2026-10-10
+  curso: 2026/27
+  licencia_codigo: { nombre: MIT, url: https://github.com/edelahozuah/HorariosEPS/blob/main/LICENSE }
+  licencia_datos: { nombre: CC BY 4.0, url: https://creativecommons.org/licenses/by/4.0/ }
+  fuente:
+    nombre: Horarios de la Escuela Politécnica Superior
+    nombre_en: Polytechnic School timetables
+    url: https://escuelapolitecnica.uah.es/es/estudiantes/horarios/
+  datos:
+    base: https://edelahozuah.github.io/HorariosEPS/data/
+    ficheros:
+      - nombre: sesiones.csv
+        formato: text/csv
+        filas: 2180
+        descripcion: "Sesiones de clase: titulación, curso, cuatrimestre, grupo, día, hora de inicio y fin, asignatura, aula y PDF de origen."
+        descripcion_en: "Class sessions: degree, year, semester, group, day, start and end time, subject, room and source PDF."
+        alternativo: sesiones.json
+      - nombre: asignaturas.csv
+        formato: text/csv
+        filas: 302
+        descripcion: Catálogo de asignaturas con sus variantes de escritura, código, grupos grandes y pequeños, aulas y horas por semana.
+        descripcion_en: Subject catalogue with spelling variants, code, lecture and lab groups, rooms and hours per week.
+      - nombre: aulas.csv
+        formato: text/csv
+        filas: 78
+        descripcion: Aulas y laboratorios con su edificio, horas ocupadas por semana en cada cuatrimestre, titulaciones y asignaturas.
+        descripcion_en: Rooms and labs with building, hours in use per week in each semester, degrees and subjects.
+      - nombre: guias.csv
+        formato: text/csv
+        filas: 783
+        descripcion: "Una fila por plan y asignatura: código, nombre en español e inglés, créditos, tipo, periodo, idiomas, departamento, áreas, planes que la comparten y enlace a la ficha y a la guía docente."
+        descripcion_en: "One row per study plan and subject: code, name in Spanish and English, credits, type, period, languages, department, areas, plans that share it and links to the official page and the course guide."
+        alternativo: guias.json
+      - nombre: codigos.csv
+        formato: text/csv
+        filas: 992
+        descripcion: Correspondencia entre código de asignatura, nombre y sigla de titulación.
+        descripcion_en: Mapping between subject code, name and degree acronym.
+      - nombre: fuentes.csv
+        formato: text/csv
+        filas: 28
+        descripcion: Los PDF de origen en la web de la Escuela, con rama, titulación, cuatrimestre y URL.
+        descripcion_en: The source PDFs on the School website, with branch, degree, semester and URL.
