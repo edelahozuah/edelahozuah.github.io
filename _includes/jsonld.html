@@ -21,7 +21,8 @@ el sitio en todas; además, según el front matter:
       "name": {{ a.nombre | jsonify }},
       "url": "{{ u }}/",
       "email": "mailto:{{ a.email }}",
-      "jobTitle": {% if en %}{{ a.puesto_en | jsonify }}{% else %}{{ a.puesto | jsonify }}{% endif %},
+      "jobTitle": [{% if en %}{{ a.puesto_en | jsonify }}, {{ a.cargo_en | jsonify }}{% else %}{{ a.puesto | jsonify }}, {{ a.cargo | jsonify }}{% endif %}],
+      "hasOccupation": { "@type": "Role", "roleName": {% if en %}{{ a.cargo_en | jsonify }}{% else %}{{ a.cargo | jsonify }}{% endif %}, "url": {% if en %}{{ a.master_url_en | jsonify }}{% else %}{{ a.master_url | jsonify }}{% endif %} },
       "worksFor": { "@id": "{{ u }}/#uah" },
       "affiliation": [
         { "@id": "{{ u }}/#uah" },

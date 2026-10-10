@@ -1,6 +1,6 @@
 title: Enrique de la Hoz
-description: Profesor Titular de Universidad en la Universidad de Alcalá. Docencia e investigación en redes de comunicaciones y ciberseguridad.
-description_en: Associate Professor at the University of Alcalá (Spain). Teaching and research in computer networks and cybersecurity.
+description: Profesor Titular de Universidad en la Universidad de Alcalá y director del Máster Universitario en Ciberseguridad. Docencia e investigación en redes de comunicaciones y ciberseguridad.
+description_en: Associate Professor at the University of Alcalá (Spain) and director of its Master's Degree in Cybersecurity. Teaching and research in computer networks and cybersecurity.
 url: https://edelahozuah.github.io
 baseurl: ""
 lang: es
@@ -17,6 +17,11 @@ autor:
   nombre: Enrique de la Hoz
   puesto: Profesor Titular de Universidad
   puesto_en: Associate Professor
+  # Cargo académico (bio, docencia, JSON-LD y llms.txt).
+  cargo: Director del Máster Universitario en Ciberseguridad
+  cargo_en: Director of the Master's Degree in Cybersecurity
+  master_url: https://masterciberseguridad.uah.es/
+  master_url_en: https://masterciberseguridad.uah.es/en/index.html
   departamento: Departamento de Automática
   departamento_en: Computer Science Department
   area: Ingeniería Telemática
