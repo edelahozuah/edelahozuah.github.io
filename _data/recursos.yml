@@ -13,6 +13,8 @@
 #                     scripts/importar_video.py; imagen = miniatura de YouTube);
 #                     «repositorio» para un repositorio de código (url externa,
 #                     p. ej. GitHub; «lenguaje» opcional para el JSON-LD)
+#     doi:            DOI del recurso (p. ej. el de Zenodo); se enlaza en la tarjeta
+#     autores:        lista de autores si no es solo el titular del sitio (JSON-LD)
 #     titulo_en:      título en inglés (para /en/)
 #     descripcion_en: descripción en inglés (para /en/)
 #     etiqueta_en:    equivalente en inglés de «etiqueta»
@@ -176,6 +178,8 @@ ar1:
         en: https://github.com/edelahozuah/TCP-Trace-Generator#english
         tipo: repositorio
         lenguaje: Python
+        doi: 10.5281/zenodo.23285054
+        autores: [Enrique de la Hoz, Sandra Machado Zurita, Luis de la Cruz Piris]
         imagen: /assets/img/recursos/tcp-trace-generator.jpg
         sesion: "3.4"
         descripcion: Script en Python y Scapy que simula una conexión TCP (Reno o Tahoe) y genera la captura pcap y un registro del estado interno (cwnd, ssthresh, RTO). El modo aula usa tiempos discretos y comportamiento predecible para los ejercicios de control de congestión.
