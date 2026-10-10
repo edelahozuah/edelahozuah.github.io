@@ -6,9 +6,9 @@ sitemap: false
 {%- assign a = site.autor -%}
 # {{ a.nombre }}
 
-> {{ a.puesto }} en el {{ a.departamento }} de la {{ a.universidad }} (España), área de {{ a.area }}, y miembro del grupo de investigación {{ a.grupo }}. Investiga en seguridad de redes y sistemas, optimización de redes inalámbricas, resiliencia de infraestructuras críticas y negociación automática; enseña redes de comunicaciones y ciberseguridad y publica visualizaciones interactivas para clase con licencia CC BY-SA 4.0.
+> {{ a.puesto }} en el {{ a.departamento }} de la {{ a.universidad }} (España), área de {{ a.area }}, y miembro del grupo de investigación {{ a.grupo }}; {{ a.cargo | downcase }} ({{ a.master_url }}). Investiga en seguridad de redes y sistemas, optimización de redes inalámbricas, resiliencia de infraestructuras críticas y negociación automática; enseña redes de comunicaciones y ciberseguridad y publica visualizaciones interactivas para clase con licencia CC BY-SA 4.0.
 >
-> {{ a.puesto_en }} at the University of Alcalá (Spain), member of the NetIS (Networks and Intelligent Systems) research group. Research on network and systems security, wireless network optimization, critical infrastructure resilience and automated negotiation. Teaches computer networks and cybersecurity and publishes CC BY-SA interactive teaching visualizations. The site is in Spanish, with English versions under /en/.
+> {{ a.puesto_en }} at the University of Alcalá (Spain), member of the NetIS (Networks and Intelligent Systems) research group and {{ a.cargo_en | downcase }} ({{ a.master_url_en }}). Research on network and systems security, wireless network optimization, critical infrastructure resilience and automated negotiation. Teaches computer networks and cybersecurity and publishes CC BY-SA interactive teaching visualizations. The site is in Spanish, with English versions under /en/.
 
 La versión completa, con el texto de cada línea de investigación, los resúmenes de las visualizaciones y todas las publicaciones, está en [llms-full.txt]({{ '/llms-full.txt' | absolute_url }}).
 
