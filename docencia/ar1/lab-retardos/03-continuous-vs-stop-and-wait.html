@@ -211,7 +211,12 @@ svg text.muted { fill: var(--ink-2); font-size: 13px; }
  },
  "sameAs": [
   "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/delay-lab/03-continuous-vs-stop-and-wait.en.html"
- ]
+ ],
+ "identifier": {
+  "@type": "PropertyValue",
+  "propertyID": "DOI",
+  "value": "10.5281/zenodo.23285664"
+ }
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -653,6 +658,6 @@ const RT = (() => {
   applyPreset(PRESET_P28);
 })();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Compares two ways of sending the same file between A and B, following problem P28 from Kurose (20,000 km, 2 Mbps, 800,000 bits): as a single continuous message, and split into N packets with stop-and-wait, where each packet waits for its acknowledgement (ACK) before the next one is sent. It shows both scenarios animated, their space-time diagrams, link utilization and total time. The student changes file size, rate, distance and N, and can also try a window of several unacknowledged packets. The outcome shows that the RTT dominates the time and leaves the link mostly idle.</p><p><b>Concepts:</b> stop-and-wait, continuous transmission, round-trip time (RTT), acknowledgement (ACK), link utilization, transmission delay, propagation delay, window.</p><p><b>Formulas:</b></p><ul><li><code>d_trans = F / R</code></li><li><code>d_prop = distance / v_p</code></li><li><code>RTT = 2·d_prop</code></li><li><code>continuous time = F/R + d_prop</code></li><li><code>stop-and-wait time (window 1, negligible ACK) = N·(F/(N·R) + RTT)</code></li><li><code>utilization = total d_trans / total time</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Lab 1.2, problem P28 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Compares two ways of sending the same file between A and B, following problem P28 from Kurose (20,000 km, 2 Mbps, 800,000 bits): as a single continuous message, and split into N packets with stop-and-wait, where each packet waits for its acknowledgement (ACK) before the next one is sent. It shows both scenarios animated, their space-time diagrams, link utilization and total time. The student changes file size, rate, distance and N, and can also try a window of several unacknowledged packets. The outcome shows that the RTT dominates the time and leaves the link mostly idle.</p><p><b>Concepts:</b> stop-and-wait, continuous transmission, round-trip time (RTT), acknowledgement (ACK), link utilization, transmission delay, propagation delay, window.</p><p><b>Formulas:</b></p><ul><li><code>d_trans = F / R</code></li><li><code>d_prop = distance / v_p</code></li><li><code>RTT = 2·d_prop</code></li><li><code>continuous time = F/R + d_prop</code></li><li><code>stop-and-wait time (window 1, negligible ACK) = N·(F/(N·R) + RTT)</code></li><li><code>utilization = total d_trans / total time</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Lab 1.2, problem P28 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a> · DOI <a href="https://doi.org/10.5281/zenodo.23285664">10.5281/zenodo.23285664</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>
