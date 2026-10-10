@@ -77,6 +77,11 @@
     Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.
   conceptos: [etiqueta, dominio, árbol de nombres, raíz, dominio de nivel superior (TLD), nombre completo (FQDN), punycode, host]
 
+/docencia/ar1/dns/dns_names_en.html:
+  resumen: >-
+    Breaks a domain name into its labels and places it in the DNS tree. The student types a name or picks an example, and walks the levels from the root downwards or from the name upwards, with an optional pause to predict. Each suffix is shown as a domain, with its parent and an explanation of the TLD and of the second-level domain. A panel checks the rules: 63 characters per label, 253 in total, letters, digits and hyphens, trailing dot, case and punycode. It teaches that a name is written from the specific to the general and the tree is walked from the root.
+  conceptos: [label, domain, name tree, root, top-level domain (TLD), fully qualified domain name (FQDN), punycode, host]
+
 /docencia/ar1/dns/dns_delegacion.html:
   resumen: >-
     Muestra cómo se reparte el espacio de nombres DNS en zonas mediante delegación, con la cadena IANA, Red.es, UAH y departamentos. En «Paso a paso» se ve el árbol coloreado por zonas y los ficheros de zona (SOA, NS, A) cambiando en cada delegación, con una pausa opcional para predecir. En «Delega tú» el estudiante actúa como cada responsable, crea dominios y hosts, cede ramas indicando servidor y dirección, y ve cuándo el registro de pegamento (glue) es obligatorio. Al pulsar un nombre se muestra la cadena de referencias hasta su servidor autoritativo. Distingue dominio y zona.

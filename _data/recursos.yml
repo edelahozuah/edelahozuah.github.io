@@ -118,7 +118,9 @@ ar1:
         imagen: /assets/img/recursos/dns_nombres.jpg
         sesion: "2.1"
         descripcion: Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.
-        # Sin versión en inglés todavía.
+        en: /docencia/ar1/dns/dns_names_en.html
+        titulo_en: "Anatomy of a name: from labels to the tree"
+        descripcion_en: Break any name into labels and domains and see it in the tree, from the root or from the name. Check the rules, 63 characters, trailing dot, case and punycode.
       - titulo: "Delegación de zonas: ceder una rama del árbol"
         url: /docencia/ar1/dns/dns_delegacion.html
         imagen: /assets/img/recursos/dns_delegacion.jpg
