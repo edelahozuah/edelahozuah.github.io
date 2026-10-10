@@ -10,13 +10,26 @@ en español. Se usa en_r y no en: un assign dentro del include cambiaría la var
 {%- else -%}{%- assign ruta = r.url -%}{%- assign nombre = r.titulo -%}{%- assign desc = r.descripcion -%}{%- endif -%}
 {%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][ruta] -%}{%- assign res = f[1][ruta] -%}{%- endif -%}{%- endfor -%}
 {
+          {%- if r.tipo == 'repositorio' %}
+          "@type": ["SoftwareSourceCode", "LearningResource"],
+          "@id": "{{ r.url }}",
+          "url": "{{ r.url }}",
+          "codeRepository": "{{ r.url }}",
+          {%- if r.lenguaje %}
+          "programmingLanguage": {{ r.lenguaje | jsonify }},
+          {%- endif %}
+          {%- else %}
           "@type": "LearningResource",
           "@id": "{{ ruta | absolute_url }}",
           "url": "{{ ruta | absolute_url }}",
+          {%- endif %}
           "name": {{ nombre | jsonify }},
           "description": {% if res %}{{ res.resumen | normalize_whitespace | jsonify }}{% else %}{{ desc | jsonify }}{% endif %},
           "inLanguage": "{% if en_r %}en{% else %}es{% endif %}",
-          {%- if r.tipo == 'video' %}
+          {%- if r.tipo == 'repositorio' %}
+          "learningResourceType": {% if en_r %}"software"{% else %}"software"{% endif %},
+          "interactivityType": "active",
+          {%- elsif r.tipo == 'video' %}
           "learningResourceType": {% if en_r %}"video"{% else %}"vídeo"{% endif %},
           "interactivityType": "expositive",
           {%- else %}
@@ -32,6 +45,6 @@ en español. Se usa en_r y no en: un assign dentro del include cambiaría la var
           {%- endif %}
           "isPartOf": { "@id": "{{ asig.pagina | absolute_url }}#asignatura" },
           "author": { "@id": "{{ site.url }}/#persona" },
-          "isAccessibleForFree": true,
-          "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+          "isAccessibleForFree": true{% unless r.tipo == 'repositorio' %},
+          "license": "https://creativecommons.org/licenses/by-sa/4.0/"{% endunless %}
         }

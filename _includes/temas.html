@@ -3,7 +3,7 @@
 {%- assign hr = h | plus: 1 -%}
 {%- for t in site.data.recursos[include.asignatura] -%}
 <section class="tema" id="tema-{{ t.tema }}{% if t.titulo %}-{{ t.titulo | slugify }}{% endif %}">
-  <h{{ h }} class="category">{% if include.en %}unit{% else %}tema{% endif %} {{ t.tema }}{% if t.titulo %}: {% if include.en %}{{ t.titulo_en | default: t.titulo }}{% else %}{{ t.titulo }}{% endif %}{% endif %}</h{{ h }}>
+  <h{{ h }} class="category">{% if t.tema %}{% if include.en %}unit{% else %}tema{% endif %} {{ t.tema }}{% if t.titulo %}: {% endif %}{% endif %}{% if t.titulo %}{% if include.en %}{{ t.titulo_en | default: t.titulo }}{% else %}{{ t.titulo }}{% endif %}{% endif %}</h{{ h }}>
   <div class="projects">{% for r in t.recursos %}{% include recurso.html r=r nivel=hr en=include.en %}{% endfor %}</div>
 </section>
 {%- endfor -%}

@@ -30,6 +30,10 @@
 - id: seguridad
   nombre: Seguridad
   nombre_en: Security
+  pagina: /docencia/seguridad/
+  pagina_en: /en/teaching/seguridad/
+  descripcion: Asignatura de los grados en Ingeniería Telemática, Ingeniería Informática e Ingeniería de Computadores de la Universidad de Alcalá sobre seguridad de redes y sistemas. Las prácticas se hacen sobre escenarios de red emulados con Kathara.
+  descripcion_en: Course in the Telematics, Computer Science and Computer Engineering degrees at the University of Alcalá on network and systems security. Lab sessions run on network scenarios emulated with Kathara.
 - id: ddss
   nombre: Diseño y Desarrollo de Sistemas Seguros
   nombre_en: Design and Development of Secure Systems

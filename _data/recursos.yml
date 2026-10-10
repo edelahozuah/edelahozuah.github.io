@@ -10,7 +10,9 @@
 #     etiqueta:       texto libre en lugar de la sesión, p. ej. «Laboratorio 1.2»
 #     en:             ruta de la versión en inglés, si existe
 #     tipo:           «video» para los vídeos de YouTube (su página la crea
-#                     scripts/importar_video.py; imagen = miniatura de YouTube)
+#                     scripts/importar_video.py; imagen = miniatura de YouTube);
+#                     «repositorio» para un repositorio de código (url externa,
+#                     p. ej. GitHub; «lenguaje» opcional para el JSON-LD)
 #     titulo_en:      título en inglés (para /en/)
 #     descripcion_en: descripción en inglés (para /en/)
 #     etiqueta_en:    equivalente en inglés de «etiqueta»
@@ -162,3 +164,32 @@ ar1:
         sesion: "2.2"
         descripcion: Una página con N objetos descargada por una única conexión TCP persistente. Compara a la misma escala los diagramas de retardos sin y con canalización, mira cuándo se queda ocioso el enlace y practica con ejercicios aleatorios.
         descripcion_en: A page with N objects downloaded over a single persistent TCP connection. Compare the delay diagrams without and with pipelining on the same time scale, see when the link sits idle and practise with random exercises.
+  - tema: 3
+    titulo: la capa de transporte
+    titulo_en: the transport layer
+    recursos:
+      - titulo: Generador de trazas TCP
+        titulo_en: TCP trace generator
+        url: https://github.com/edelahozuah/TCP-Trace-Generator
+        en: https://github.com/edelahozuah/TCP-Trace-Generator#english
+        tipo: repositorio
+        lenguaje: Python
+        imagen: /assets/img/recursos/tcp-trace-generator.jpg
+        sesion: "3.4"
+        descripcion: Script en Python y Scapy que simula una conexión TCP (Reno o Tahoe) y genera la captura pcap y un registro del estado interno (cwnd, ssthresh, RTO). El modo aula usa tiempos discretos y comportamiento predecible para los ejercicios de control de congestión.
+        descripcion_en: Python and Scapy script that simulates a TCP connection (Reno or Tahoe) and produces the pcap capture and a log of the internal state (cwnd, ssthresh, RTO). Classroom mode uses discrete time slots and predictable behaviour for congestion control exercises.
+
+seguridad:
+  - titulo: prácticas de laboratorio
+    titulo_en: lab sessions
+    recursos:
+      - titulo: Laboratorios de seguridad con Kathara
+        titulo_en: Security labs with Kathara
+        url: https://github.com/edelahozuah/kathara-security-labs
+        tipo: repositorio
+        lenguaje: Shell
+        imagen: /assets/img/recursos/kathara-security-labs.jpg
+        etiqueta: Laboratorio
+        etiqueta_en: Lab
+        descripcion: Escenarios de red de las prácticas de la asignatura, emulados con Kathara sobre Docker (x86_64 y ARM64). Incluye guías para usarlos en el equipo propio o en un servidor compartido del laboratorio con acceso por VPN.
+        descripcion_en: Network scenarios for the course lab sessions, emulated with Kathara on Docker (x86_64 and ARM64). Includes guides to run them on a personal computer or on a shared lab server accessed through a VPN.
