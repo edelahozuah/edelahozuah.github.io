@@ -24,6 +24,10 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 
 - [Docencia]({{ '/docencia/' | absolute_url }}): asignaturas que imparte ([English]({{ '/en/teaching/' | absolute_url }}))
 - [Recursos docentes]({{ '/recursos/' | absolute_url }}): todas las visualizaciones, por asignatura y tema ([English]({{ '/en/resources/' | absolute_url }}))
+- [Proyectos docentes]({{ '/docencia/proyectos/' | absolute_url }}): herramientas y datos abiertos de uso general ([English]({{ '/en/teaching/projects/' | absolute_url }}))
+{%- for p in site.data.proyectos %}
+  - [{{ p.titulo }}]({{ p.url }}): {{ p.resumen }}{% if p.datos %} Datos (CSV/JSON, {{ p.licencia_datos.nombre }}): {{ p.datos.base }}{% endif %} Código: {{ p.repo }}
+{%- endfor %}
 - [Trabajos dirigidos]({{ '/docencia/trabajos/' | absolute_url }}): selección de TFM y TFG dirigidos, con enlace a la memoria completa ([English]({{ '/en/teaching/theses/' | absolute_url }}))
 {%- for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
 

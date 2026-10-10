@@ -196,6 +196,16 @@ details summary { cursor: pointer; color: var(--global-theme-color); font-weight
 .transcripcion h3 { font-size: 1.05rem; font-weight: 500; margin: 1.5rem 0 .5rem; scroll-margin-top: 4rem; }
 .card-img-top.es-video { object-position: center; }
 
+/* Proyectos docentes (/docencia/proyectos/) */
+.proyecto { margin-bottom: 2.5rem; }
+.proyecto h2 { font-size: 1.6rem; }
+.proyecto__captura img { display: block; width: 100%; height: auto; border: 1px solid var(--global-divider-color); border-radius: .25rem; box-shadow: var(--global-shadow); margin: .5rem 0 1rem; }
+.proyecto__enlaces { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.datos { width: 100%; border-collapse: collapse; font-size: .9rem; margin-bottom: .5rem; }
+.datos th, .datos td { text-align: left; vertical-align: top; padding: .4rem .5rem .4rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.datos th[scope="row"] { font-weight: 500; white-space: nowrap; }
+.datos .num { text-align: right; padding-right: 0; }
+
 /* Trabajos dirigidos (/docencia/trabajos/) */
 .trabajos { list-style: none; padding: 0; margin: 0 0 2rem; }
 .trabajo { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }

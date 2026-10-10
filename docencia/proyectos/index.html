@@ -1,0 +1,12 @@
+---
+title: "Proyectos docentes: horarios de la Escuela Politécnica en datos abiertos"
+cabecera: proyectos docentes
+permalink: /docencia/proyectos/
+lang_alt: /en/teaching/projects/
+jsonld: proyectos
+volver: { url: /docencia/, texto: docencia }
+imagen: /assets/img/horarios-eps.jpg
+description: Herramientas y datos abiertos de uso general para la docencia en la Escuela Politécnica Superior de la Universidad de Alcalá, empezando por los horarios y guías docentes de todos los grados en formato reutilizable.
+entradilla: Herramientas y datos abiertos de uso general, no ligados a una asignatura. Cada proyecto publica su código y sus datos con licencia libre.
+---
+{% for p in site.data.proyectos %}{% include proyecto.html p=p %}{% endfor %}

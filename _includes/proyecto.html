@@ -1,0 +1,35 @@
+{%- comment -%}Un proyecto docente de _data/proyectos.yml. include.en=true lo pinta en inglés.{%- endcomment -%}
+{%- assign p = include.p -%}{%- assign en = include.en -%}
+{%- assign h = include.nivel | default: 2 -%}{%- assign hr = h | plus: 1 -%}
+<section class="proyecto" id="{{ p.id }}">
+  <h{{ h }}>{% if en %}{{ p.titulo_en }}{% else %}{{ p.titulo }}{% endif %}</h{{ h }}>
+  {% if p.imagen %}<a href="{{ p.url }}" class="proyecto__captura"><img src="{{ p.imagen | relative_url }}" alt="" width="1200" height="630" loading="lazy"></a>{% endif %}
+  {% if en %}{{ p.descripcion_en | markdownify }}{% else %}{{ p.descripcion | markdownify }}{% endif %}
+  <p class="proyecto__enlaces">
+    <a href="{{ p.url }}">{% if en %}Open the application{% else %}Abrir la aplicación{% endif %}</a>
+    <a href="{{ p.repo }}">{% if en %}Code and documentation{% else %}Código y documentación{% endif %}</a>
+    {%- if p.fuente %} <a href="{{ p.fuente.url }}">{% if en %}Source: {{ p.fuente.nombre_en | default: p.fuente.nombre }}{% else %}Fuente: {{ p.fuente.nombre }}{% endif %}</a>{% endif %}
+  </p>
+  {% if p.datos %}
+  <h{{ hr }}>{% if en %}Open data{% else %}Datos abiertos{% endif %}{% if p.curso %} <span class="nota">· {% if en %}academic year{% else %}curso{% endif %} {{ p.curso }}</span>{% endif %}</h{{ hr }}>
+  <table class="datos">
+    <thead><tr><th scope="col">{% if en %}File{% else %}Fichero{% endif %}</th><th scope="col">{% if en %}Contents{% else %}Contenido{% endif %}</th><th scope="col" class="num">{% if en %}Rows{% else %}Filas{% endif %}</th></tr></thead>
+    <tbody>
+    {%- for f in p.datos.ficheros %}
+      <tr>
+        <th scope="row"><a href="{{ p.datos.base }}{{ f.nombre }}">{{ f.nombre }}</a>{% if f.alternativo %} <span class="nota">· <a href="{{ p.datos.base }}{{ f.alternativo }}">{{ f.alternativo }}</a></span>{% endif %}</th>
+        <td>{% if en %}{{ f.descripcion_en }}{% else %}{{ f.descripcion }}{% endif %}</td>
+        <td class="num">{{ f.filas }}</td>
+      </tr>
+    {%- endfor %}
+    </tbody>
+  </table>
+  <p class="nota">
+    {%- if en -%}
+    Data under <a href="{{ p.licencia_datos.url }}" rel="license">{{ p.licencia_datos.nombre }}</a>, derived from public information of the University of Alcalá; code under the <a href="{{ p.licencia_codigo.url }}">{{ p.licencia_codigo.nombre }} license</a>.
+    {%- else -%}
+    Datos con licencia <a href="{{ p.licencia_datos.url }}" rel="license">{{ p.licencia_datos.nombre }}</a>, derivados de información pública de la Universidad de Alcalá; código con licencia <a href="{{ p.licencia_codigo.url }}">{{ p.licencia_codigo.nombre }}</a>.
+    {%- endif -%}
+  </p>
+  {% endif %}
+</section>

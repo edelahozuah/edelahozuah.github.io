@@ -24,5 +24,13 @@ entradilla: Asignaturas que imparto en la Universidad de Alcalá.
   {% endfor %}
 </ul>
 
+<h2>proyectos docentes</h2>
+<p>Además de los materiales de cada asignatura, publico <a href="{{ '/docencia/proyectos/' | relative_url }}">herramientas y datos abiertos de uso general</a>, con su código y sus datos bajo licencia libre:</p>
+<ul class="asignaturas">
+  {% for p in site.data.proyectos %}
+  <li><a href="{{ '/docencia/proyectos/' | relative_url }}#{{ p.id }}">{{ p.titulo }}</a><span class="nota">: {{ p.resumen }}</span></li>
+  {% endfor %}
+</ul>
+
 <h2>trabajos dirigidos</h2>
 <p>Dirijo trabajos fin de grado y fin de máster. Hay una <a href="{{ '/docencia/trabajos/' | relative_url }}">selección de trabajos dirigidos</a>, con enlace a su memoria completa.</p>
