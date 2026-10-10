@@ -1,0 +1,53 @@
+---
+layout: pagina
+---
+{%- comment -%}
+Página de una publicación (colección _publicaciones, generada por
+scripts/actualizar_publicaciones.py). page.publicacion es el id en
+_data/publicaciones.yml; aquí solo se pinta la ficha, los enlaces, el resumen
+y la cita. Las etiquetas citation_* para Google Scholar las pone
+_includes/metadatos.html.
+{%- endcomment -%}
+{%- assign en = false -%}{%- if page.lang == 'en' -%}{%- assign en = true -%}{%- endif -%}
+{%- assign p = site.data.publicaciones | where: "id", page.publicacion | first -%}
+{%- if p.autores %}{% assign autores = p.autores %}{% else %}{% assign autores = p.autores_txt | split: ', ' %}{% endif -%}
+<div class="publications ficha-publicacion">
+  <p class="author">
+    {%- for a in autores -%}
+      {%- assign minus = a | downcase -%}
+      {%- if minus contains 'hoz' -%}<em>{{ a | strip }}</em>{%- else -%}{{ a | strip }}{%- endif -%}{%- unless forloop.last -%}{% if forloop.rindex == 2 %}, {% if en %}and{% else %}y{% endif %} {% else %}, {% endif %}{% endunless -%}
+    {%- endfor -%}
+  </p>
+  <p class="periodical">{% if p.medio %}<em>{{ p.medio }}</em>, {% endif %}{{ p.anio }}{% if p.abr %} <abbr class="badge" title="{{ p.medio }}">{{ p.abr }}</abbr>{% endif %}</p>
+  <div class="links">
+    {%- if p.doi %}<a class="btn" href="https://doi.org/{{ p.doi }}">DOI {{ p.doi }}</a>{% elsif p.url %}<a class="btn" href="{{ p.url }}">{% if en %}Publisher page{% else %}Página de la publicación{% endif %}</a>{% endif -%}
+    {%- if p.pdf %}<a class="btn" href="{{ p.pdf | relative_url }}" data-goatcounter-click="{{ p.pdf }}" data-goatcounter-title="{{ p.titulo | escape }}">PDF</a>{% endif -%}
+    {%- if p.oa %}<a class="btn" href="{{ p.oa }}" data-goatcounter-click="{{ p.oa }}" data-goatcounter-title="{{ p.titulo | escape }}">{% if en %}Open access{% else %}Acceso abierto{% endif %}</a>{% endif -%}
+    {%- if p.arxiv %}<a class="btn" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif -%}
+    {%- if p.scholar %}<a class="btn" href="{{ p.scholar }}">Google Scholar{% if p.citas and p.citas > 0 %} · {{ p.citas }} {% if en %}citations{% else %}citas{% endif %}{% endif %}</a>{% endif -%}
+  </div>
+
+  {% if p.resumen %}
+  <h2>{% if en %}Abstract{% else %}Resumen{% endif %}</h2>
+  <p{% if p.resumen_idioma %} lang="{{ p.resumen_idioma }}"{% endif %}>{{ p.resumen }}</p>
+  {% endif %}
+
+  <h2>{% if en %}How to cite{% else %}Cómo citar{% endif %}</h2>
+  {%- assign primero = autores | first | strip | split: ' ' | last | downcase | replace: '-', '' -%}
+  {%- assign palabra = p.titulo | downcase | split: ' ' | first | replace: ':', '' | replace: ',', '' -%}
+  {%- capture tipo -%}{% if p.categoria == 'revista' %}article{% elsif p.categoria == 'congreso' %}inproceedings{% elsif p.categoria == 'capitulo' %}incollection{% elsif p.medio contains 'Tesis doctoral' %}phdthesis{% else %}misc{% endif %}{%- endcapture -%}
+<pre class="bibtex">@{{ tipo }}{% raw %}{{% endraw %}{{ primero }}{{ p.anio }}{{ palabra }},
+  title     = {% raw %}{{% endraw %}{{ p.titulo }}{% raw %}}{% endraw %},
+  author    = {% raw %}{{% endraw %}{% for a in autores %}{{ a | strip }}{% unless forloop.last %} and {% endunless %}{% endfor %}{% raw %}}{% endraw %},
+  year      = {% raw %}{{% endraw %}{{ p.anio }}{% raw %}}{% endraw %},
+{%- if p.medio and p.medio != 'Conjunto de datos' %}
+  {% if tipo == 'article' %}journal  {% elsif tipo == 'phdthesis' %}school   {% elsif tipo == 'misc' %}howpublished{% else %}booktitle{% endif %} = {% raw %}{{% endraw %}{{ p.medio }}{% raw %}}{% endraw %},
+{%- endif %}
+{%- if p.doi %}
+  doi       = {% raw %}{{% endraw %}{{ p.doi }}{% raw %}}{% endraw %},
+{%- elsif p.url %}
+  url       = {% raw %}{{% endraw %}{{ p.url }}{% raw %}}{% endraw %},
+{%- endif %}
+{% raw %}}{% endraw %}</pre>
+  <p class="nota">{% if en %}Metadata from ORCID and Google Scholar; <a href="{{ '/en/publications/' | relative_url }}">all publications</a>.{% else %}Datos de ORCID y Google Scholar; <a href="{{ '/publicaciones/' | relative_url }}">todas las publicaciones</a>.{% endif %}</p>
+</div>

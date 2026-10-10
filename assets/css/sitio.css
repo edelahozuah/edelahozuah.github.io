@@ -196,6 +196,14 @@ details summary { cursor: pointer; color: var(--global-theme-color); font-weight
 .transcripcion h3 { font-size: 1.05rem; font-weight: 500; margin: 1.5rem 0 .5rem; scroll-margin-top: 4rem; }
 .card-img-top.es-video { object-position: center; }
 
+/* Ficha de una publicación (/publicaciones/<id>/) */
+.ficha-publicacion .author { font-size: 1.05rem; margin-bottom: .25rem; }
+.ficha-publicacion .periodical { color: var(--global-text-color-light); margin-bottom: .5rem; }
+.ficha-publicacion h2 { font-size: 1.3rem; margin-top: 1.5rem; }
+.bibtex { font-size: .8rem; white-space: pre-wrap; background: var(--global-code-bg-color, var(--global-card-bg-color)); padding: .75rem 1rem; border-radius: .25rem; overflow-x: auto; }
+.pub .title a { color: inherit; }
+.pub .title a:hover { color: var(--global-theme-color); }
+
 /* Proyectos docentes (/docencia/proyectos/) */
 .proyecto { margin-bottom: 2.5rem; }
 .proyecto h2 { font-size: 1.6rem; }

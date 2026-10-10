@@ -18,6 +18,9 @@ compilación propio.
 | Proyectos de investigación (IP) | `_data/proyectos_investigacion.yml` |
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
+| Resúmenes de las publicaciones (OpenAlex) | `_data/publicaciones_resumenes.yml` |
+| Página por publicación (generadas) | `_publicaciones/` |
+| PDF de las publicaciones | `publicaciones/<id>/` |
 | Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
 | Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
 | Trabajos dirigidos (TFM y TFG) | `_data/trabajos.yml` |
@@ -157,6 +160,17 @@ Las versiones en abierto van ahí también: `pdf` admite un PDF local
 página de acceso abierto sin PDF directo (ficha de repositorio, capítulo en
 línea); `arxiv` añade el botón de arXiv. En el JSON-LD el PDF sale como
 `encoding` y la página como `archivedAt`, ambos con `isAccessibleForFree`.
+Cada publicación tiene además su propia página, `/publicaciones/<id>/` y
+`/en/publications/<id>/`, generada por el script en `_publicaciones/` (no
+editar: `--solo-paginas` las regenera sin consultar ORCID). La página lleva las
+etiquetas `citation_*` que Google Scholar exige para indexar un sitio
+(título, autores, fecha, medio, DOI), el resumen que OpenAlex tenga del DOI
+(`_data/publicaciones_resumenes.yml`, corregible a mano), la cita en BibTeX y
+el JSON-LD. Scholar solo acepta `citation_pdf_url` si el PDF está en la misma
+carpeta que la página, así que los PDF propios van en
+`publicaciones/<id>/<nombre>.pdf` y `pdf:` apunta ahí; los PDF externos salen
+como enlace normal y Scholar los trata como versión alternativa.
+
 Para localizar nuevas versiones en abierto sirve la API de OpenAlex
 (`https://api.openalex.org/works/https://doi.org/<DOI>`, campos
 `best_oa_location` y `locations`), que indexa e_Buah.

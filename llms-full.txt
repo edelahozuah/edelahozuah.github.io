@@ -143,5 +143,5 @@ English — {{ w.titulo_en }}: {{ w.resumen_en }}
 
 Orden cronológico inverso. Fuente: {{ '/publicaciones/' | absolute_url }} (datos de ORCID y Google Scholar).
 {% for p in site.data.publicaciones %}
-- {% if p.autores %}{{ p.autores | join: ', ' }}{% else %}{{ p.autores_txt }}{% endif %} ({{ p.anio | default: 's. f.' }}). {{ p.titulo }}.{% if p.medio %} {{ p.medio }}.{% endif %}{% if p.doi %} https://doi.org/{{ p.doi }}{% elsif p.url %} {{ p.url }}{% endif %}{% if p.pdf %} PDF: {{ p.pdf | absolute_url }}{% endif %}
+- {% if p.autores %}{{ p.autores | join: ', ' }}{% else %}{{ p.autores_txt }}{% endif %} ({{ p.anio | default: 's. f.' }}). {{ p.titulo }}.{% if p.medio %} {{ p.medio }}.{% endif %}{% if p.doi %} https://doi.org/{{ p.doi }}{% elsif p.url %} {{ p.url }}{% endif %}{% if p.pdf %} PDF: {{ p.pdf | absolute_url }}{% endif %} Ficha: {{ '/publicaciones/' | append: p.id | append: '/' | absolute_url }}
 {%- endfor %}

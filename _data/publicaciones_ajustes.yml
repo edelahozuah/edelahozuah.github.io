@@ -38,68 +38,70 @@ corregir:
   wifigraphscorrespondingtothepolytechnicschooloftheuniversity:
     medio: Conjunto de datos
   automatednegotiationforresourceassignmentinwirelesssurveilla:
-    pdf: /files/sensors-15-29547.pdf
+    pdf: /publicaciones/automatednegotiationforresourceassignmentinwirelesssurveilla/automated-negotiation-resource-assignment-wireless-2015.pdf   # antes en /files/sensors-15-29547.pdf
   channelselectioninuncoordinatedieee80211networksusinggraphco:
-    pdf: /files/sensors-23-05932.pdf
+    pdf: /publicaciones/channelselectioninuncoordinatedieee80211networksusinggraphco/channel-selection-uncoordinated-ieee-802-2023.pdf   # antes en /files/sensors-23-05932.pdf
 
-  # Versiones en abierto (octubre de 2026). «pdf» es un PDF, local o externo
-  # (editorial en acceso abierto, e_Buah o arXiv); «oa» es una página de acceso
-  # abierto sin PDF directo (ficha de repositorio o capítulo en línea).
+  # Versiones en abierto (octubre de 2026). «pdf» es un PDF; los propios van en
+  # publicaciones/<id>/ (misma carpeta que la página, como exige Google Scholar)
+  # y se copiaron de la editorial en acceso abierto, de e_Buah o de arXiv (el
+  # comentario indica el origen). «oa» es una página de acceso abierto sin PDF
+  # directo (ficha de repositorio o capítulo en línea).
   democraticwirelesschannelassignmentfairresourceallocationinw:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/63058/3/Democratic_Marsa_IEEE_Internet_Comput_2023.pdf
+    pdf: /publicaciones/democraticwirelesschannelassignmentfairresourceallocationinw/democratic-wireless-channel-assignment-fair-2023.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/63058/3/Democratic_Marsa_IEEE_Internet_Comput_2023.pdf
   nonlinearnegotiationapproachesforcomplexnetworkoptimizationa:
     arxiv: "1902.09457"
-    pdf: https://arxiv.org/pdf/1902.09457
+    pdf: /publicaciones/nonlinearnegotiationapproachesforcomplexnetworkoptimizationa/nonlinear-negotiation-approaches-complex-network-2019.pdf   # copia local de https://arxiv.org/pdf/1902.09457
   reactreactiveresilienceforcriticalinfrastructuresusinggraphc:
     arxiv: "1907.05117"
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/63116/3/REACT_Marsa_J_Netw_Comput_Appl_2019.pdf
+    pdf: /publicaciones/reactreactiveresilienceforcriticalinfrastructuresusinggraphc/react-reactive-resilience-critical-infrastructures-2019.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/63116/3/REACT_Marsa_J_Netw_Comput_Appl_2019.pdf
   spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo:
     arxiv: "1811.06832"
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/64194/2/Spectrum_Orden_DiscAppMath_2019.pdf
+    pdf: /publicaciones/spectrumgraphcoloringtoimprovewifichannelassignmentinarealwo/spectrum-graph-coloring-improve-wi-2019.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/64194/2/Spectrum_Orden_DiscAppMath_2019.pdf
   accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm:
-    pdf: https://www.mdpi.com/1424-8220/18/3/917/pdf
+    pdf: /publicaciones/accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm/access-control-mechanism-iot-environments-2018.pdf   # copia local de https://www.mdpi.com/1424-8220/18/3/917/pdf
   onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali:
-    pdf: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1155/2018/5742712
+    pdf: /publicaciones/onthegoodnessofusingorthogonalchannelsinwlanieee80211inreali/goodness-orthogonal-channels-wlan-ieee-2018.pdf   # copia local de https://onlinelibrary.wiley.com/doi/pdfdirect/10.1155/2018/5742712
   spectrumgraphcoloringandapplicationstowifichannelassignment:
     arxiv: "1602.05038"
-    pdf: https://www.mdpi.com/2073-8994/10/3/65/pdf
+    pdf: /publicaciones/spectrumgraphcoloringandapplicationstowifichannelassignment/spectrum-graph-coloring-applications-wi-2018.pdf   # copia local de https://www.mdpi.com/2073-8994/10/3/65/pdf
   intelligenttrafficlightmanagementusingmultibehavioralagents:
-    pdf: http://ocs.editorial.upv.es/index.php/JITEL/JITEL2017/paper/download/6494/3201
+    pdf: /publicaciones/intelligenttrafficlightmanagementusingmultibehavioralagents/intelligent-traffic-light-management-multi-2017.pdf   # copia local de http://ocs.editorial.upv.es/index.php/JITEL/JITEL2017/paper/download/6494/3201
   protectingsensorsinaniotenvironmentbymodellingcommunications:
-    pdf: https://www.mdpi.com/2504-3900/1/8/801/pdf
+    pdf: /publicaciones/protectingsensorsinaniotenvironmentbymodellingcommunications/protecting-sensors-iot-environment-by-2017.pdf   # copia local de https://www.mdpi.com/2504-3900/1/8/801/pdf
   anarchitectureforsecuringcommunicationsincriticalinfrastruct:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/28743/3/An_architecture_ICTE_2016.pdf
+    pdf: /publicaciones/anarchitectureforsecuringcommunicationsincriticalinfrastruct/architecture-securing-communications-critical-infrastructure-2016.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/28743/3/An_architecture_ICTE_2016.pdf
   boundsonspectrumgraphcoloring:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/26759/3/Bounds_on_spectrum__JMDA__2016.pdf
+    pdf: /publicaciones/boundsonspectrumgraphcoloring/bounds-spectrum-graph-coloring-2016.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/26759/3/Bounds_on_spectrum__JMDA__2016.pdf
   datasetanalysisforanomalydetectiononcriticalinfrastructures:
-    pdf: https://www.scitepress.org/Papers/2016/60177/60177.pdf
+    pdf: /publicaciones/datasetanalysisforanomalydetectiononcriticalinfrastructures/dataset-analysis-anomaly-detection-critical-2016.pdf   # copia local de https://www.scitepress.org/Papers/2016/60177/60177.pdf
   towertopologyoptimizationfornetworkenhancedresilience:
-    pdf: https://www.scitepress.org/Papers/2016/60171/60171.pdf
+    pdf: /publicaciones/towertopologyoptimizationfornetworkenhancedresilience/tower-topology-optimization-network-enhanced-2016.pdf   # copia local de https://www.scitepress.org/Papers/2016/60171/60171.pdf
   anewsdntrafficcontrolapplicationforsecurityroutingincritical:
     doi: 10.5220/0006017501290138
     oa: https://www.scitepress.org/Link.aspx?doi=10.5220/0006017501290138
   applyinganunifiedaccesscontrolforiotbasedintelligentagentsys:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/27749/3/Applying_an_unified_SOCA_2015.pdf
+    pdf: /publicaciones/applyinganunifiedaccesscontrolforiotbasedintelligentagentsys/applying-unified-access-control-iot-2015.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/27749/3/Applying_an_unified_SOCA_2015.pdf
   detectinganddefeatingadvancedmaninthemiddleattacksagainsttls:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/26443/1/d2r2s2_delahoz.pdf
+    pdf: /publicaciones/detectinganddefeatingadvancedmaninthemiddleattacksagainsttls/detecting-defeating-advanced-man-middle-2014.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/26443/1/d2r2s2_delahoz.pdf
   designandevaluationofalearningenvironmenttoeffectivelyprovid:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/22118/1/nemesis2012-elsevierV3.pdf
+    pdf: /publicaciones/designandevaluationofalearningenvironmenttoeffectivelyprovid/design-evaluation-learning-environment-effectively-2013.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/22118/1/nemesis2012-elsevierV3.pdf
   mediatedheuristicapproachesandalternativesocialwelfaredefini:
     oa: https://www.intechopen.com/chapters/38681
   aregionbasedmultiissuenegotiationprotocolfornonmonotonicutil:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/29019/3/A-region_Comput_Intell_2011.pdf
+    pdf: /publicaciones/aregionbasedmultiissuenegotiationprotocolfornonmonotonicutil/region-multi-issue-negotiation-protocol-2011.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/29019/3/A-region_Comput_Intell_2011.pdf
   strategiesforoffergenerationandrelaxationinfuzzyconstraintba:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/29117/3/Strategies_for_Multiagent_2010.pdf
+    pdf: /publicaciones/strategiesforoffergenerationandrelaxationinfuzzyconstraintba/strategies-offer-generation-relaxation-fuzzy-2010.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/29117/3/Strategies_for_Multiagent_2010.pdf
   usingrfidtoenhancesecurityinoffsitedatastorage:
-    pdf: https://www.mdpi.com/1424-8220/10/9/8010/pdf
+    pdf: /publicaciones/usingrfidtoenhancesecurityinoffsitedatastorage/rfid-enhance-security-off-site-2010.pdf   # copia local de https://www.mdpi.com/1424-8220/10/9/8010/pdf
   avoidingtheprisonersdilemmainauctionbasednegotiationsforhigh:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/68077/3/Avoiding_Marsa_AAMAS_2010.pdf
+    pdf: /publicaciones/avoidingtheprisonersdilemmainauctionbasednegotiationsforhigh/avoiding-prisoner-s-dilemma-auction-2010.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/68077/3/Avoiding_Marsa_AAMAS_2010.pdf
   ahierarchicalagentbasedapproachtosecurityinsmartoffices:
     oa: https://hdl.handle.net/10017/1890
   dispositivosmovilesyespaciosinteligentespersonales:
     oa: https://hdl.handle.net/10017/1269
   unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint:
-    pdf: https://ebuah.uah.es/dspace/bitstream/10017/1891/1/jitel-seguridad-1.pdf
+    pdf: /publicaciones/unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint/una-arquitectura-seguridad-jerarquica-entornos-2007.pdf   # copia local de https://ebuah.uah.es/dspace/bitstream/10017/1891/1/jitel-seguridad-1.pdf
 
 # Publicaciones que no están en ORCID ni en Scholar (campos como en «corregir»;
 # «url» es el enlace cuando no hay DOI).
