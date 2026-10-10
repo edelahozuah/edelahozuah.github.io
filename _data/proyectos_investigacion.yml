@@ -1,0 +1,63 @@
+# Proyectos de investigación en los que soy investigador principal (IP), del
+# más reciente al más antiguo. Salen en /investigacion/ y /en/research/, en
+# llms.txt y llms-full.txt, y como ResearchProject + MonetaryGrant en el JSON-LD.
+#
+#   - id:            ancla (#id) y @id en JSON-LD
+#     referencia:    código oficial del proyecto
+#     acronimo:      si lo tiene
+#     titulo / titulo_en
+#     texto / texto_en   una o dos frases (opcional)
+#     ip:            lista de investigadores principales (yo incluido)
+#     financiador / financiador_en
+#     convocatoria / convocatoria_en
+#     ambito:        nacional | institucional
+#     inicio / fin:  AAAA-MM-DD
+#     importe:       euros (omitir si no procede)
+#     url:           ficha en el portal científico de la UAH
+#     linea:         id de _data/lineas.yml con la que se relaciona (opcional)
+- id: mesh
+  referencia: PID2025-174033NA-I00
+  acronimo: MESH
+  titulo: Metaheurísticas estructurales mejoradas multicapa para optimización distribuida
+  titulo_en: Multi-layer enhanced structural metaheuristics for distributed optimization
+  ip: [Luis de la Cruz Piris, Enrique de la Hoz]
+  financiador: Ministerio de Ciencia, Innovación y Universidades
+  financiador_en: Spanish Ministry of Science, Innovation and Universities
+  convocatoria: Proyectos de Generación de Conocimiento 2025, Plan Estatal de Investigación Científica, Técnica y de Innovación 2024-2027
+  convocatoria_en: Knowledge Generation Projects 2025, Spanish National Plan for Scientific, Technical and Innovation Research 2024-2027
+  ambito: nacional
+  inicio: 2026-09-01
+  fin: 2029-08-31
+  importe: 85000
+  url: https://portalcientifico.uah.es/proyectos/1908138/detalle
+  linea: negociacion
+- id: credenciales-evidencia-digital
+  referencia: IUICP-2026/03
+  titulo: "Reconocimiento de credenciales en evidencia digital: adaptación al contexto lingüístico español"
+  titulo_en: "Credential recognition in digital evidence: adaptation to the Spanish linguistic context"
+  ip: [Enrique de la Hoz]
+  financiador: Instituto Universitario de Investigación en Ciencias Policiales (IUICP), Universidad de Alcalá
+  financiador_en: University Institute for Research in Police Sciences (IUICP), University of Alcalá
+  convocatoria: Convocatoria 2026 de ayudas a proyectos de investigación en las líneas prioritarias del IUICP
+  convocatoria_en: 2026 call for research projects in the IUICP priority lines
+  ambito: institucional
+  inicio: 2026-06-09
+  fin: 2027-06-09
+  url: https://portalcientifico.uah.es/proyectos/1847000/detalle
+  linea: seguridad
+- id: apt-gran
+  referencia: PIUAH25/IA-058
+  acronimo: APT-GRAN
+  titulo: Atribución inteligente de amenazas persistentes avanzadas en ciberseguridad mediante redes neuronales y modelado en grafos
+  titulo_en: Intelligent attribution of advanced persistent threats in cybersecurity using neural networks and graph modelling
+  ip: [Laura María Cornejo Bueno, Enrique de la Hoz]
+  financiador: Universidad de Alcalá
+  financiador_en: University of Alcalá
+  convocatoria: Ayudas para la realización de proyectos de investigación UAH 2025 (programa propio)
+  convocatoria_en: UAH research project grants 2025 (institutional programme)
+  ambito: institucional
+  inicio: 2025-12-19
+  fin: 2026-12-18
+  importe: 7605
+  url: https://portalcientifico.uah.es/proyectos/1528321/detalle
+  linea: seguridad

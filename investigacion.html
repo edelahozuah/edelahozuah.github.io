@@ -1,6 +1,7 @@
 ---
 title: "Investigación: seguridad de redes, redes inalámbricas y resiliencia"
 description: "Líneas de investigación de Enrique de la Hoz (grupo NetIS, Universidad de Alcalá): seguridad de redes y sistemas, optimización de redes inalámbricas, resiliencia de infraestructuras críticas y negociación automática."
+jsonld: proyectos-investigacion
 cabecera: investigación
 permalink: /investigacion/
 lang_alt: /en/research/
@@ -23,6 +24,12 @@ entradilla: Líneas de trabajo en el grupo NetIS (Redes y Sistemas Inteligentes)
   </details>
 </section>
 {% endfor %}
+
+<section id="proyectos">
+  <h2>Proyectos de investigación</h2>
+  <p>Proyectos en los que soy investigador principal, con enlace a su ficha en el portal científico de la UAH.</p>
+  <ol class="trabajos">{% for p in site.data.proyectos_investigacion %}{% include proyecto-investigacion.html p=p %}{% endfor %}</ol>
+</section>
 
 <section>
   <h2>Tesis doctoral</h2>

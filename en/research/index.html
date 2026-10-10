@@ -2,6 +2,7 @@
 lang: en
 title: "Research: network security, wireless networks and resilience"
 description: "Research lines of Enrique de la Hoz (NetIS group, University of Alcalá): network and systems security, wireless network optimization, critical infrastructure resilience and automated negotiation."
+jsonld: proyectos-investigacion
 cabecera: research
 permalink: /en/research/
 lang_alt: /investigacion/
@@ -24,6 +25,12 @@ entradilla: Research lines at the NetIS (Networks and Intelligent Systems) group
   </details>
 </section>
 {% endfor %}
+
+<section id="proyectos">
+  <h2>Research projects</h2>
+  <p>Projects where I am principal investigator, with a link to their record in the UAH research portal.</p>
+  <ol class="trabajos">{% for p in site.data.proyectos_investigacion %}{% include proyecto-investigacion.html p=p en=true %}{% endfor %}</ol>
+</section>
 
 <section>
   <h2>PhD thesis</h2>
