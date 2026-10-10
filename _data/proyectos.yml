@@ -1,17 +1,24 @@
-# Proyectos docentes: herramientas y datos abiertos de uso general, no ligados
-# a una asignatura ni pensados solo para estudiantes. Se muestran en
+# Proyectos docentes: herramientas, datos y software reutilizables fuera de la
+# asignatura en la que nacen (y no pensados solo para estudiantes). Un recurso
+# puede estar aquí y también en _data/recursos.yml, en su tema. Se muestran en
 # /docencia/proyectos/ y /en/teaching/projects/ (todos; los textos *_en son
-# obligatorios), en llms.txt y en los datos estructurados de la página.
+# obligatorios), en /docencia/, en llms.txt y en los datos estructurados.
 #
 #   - id:             clave corta, sirve de ancla (#id) y de @id en JSON-LD
 #     titulo / titulo_en
 #     resumen / resumen_en     una frase, para la lista de docencia y la noticia
 #     descripcion / descripcion_en   uno o varios párrafos (Markdown)
-#     url:            aplicación o página del proyecto
+#     url:            aplicación o página del proyecto (si es igual a repo, no
+#                     se muestra el enlace «Abrir la aplicación»)
 #     repo:           repositorio del código
+#     lenguaje:       lenguaje del código si no es una aplicación web
+#                     (p. ej. Python); cambia el tipo en JSON-LD
 #     imagen:         captura 1200×630 en assets/img/ (también Open Graph)
 #     fecha:          publicación (AAAA-MM-DD)
 #     curso:          curso académico que cubren los datos, si procede
+#     doi:            DOI de Zenodo de la versión citable, si lo tiene
+#     autores:        lista de autores si hay más de uno; el primero debe ser
+#                     el autor de la web (va con @id en JSON-LD)
 #     licencia_codigo / licencia_datos:  { nombre, url }
 #     fuente:         { nombre, nombre_en, url } de donde salen los datos
 #     datos:          { base: URL base, ficheros: [ { nombre, formato, filas,
@@ -87,17 +94,43 @@
   descripcion: |
     Las visualizaciones que se usan en [Arquitectura de Redes I](/docencia/ar1/) son ficheros HTML autocontenidos: funcionan sin conexión, subidos a Blackboard o incrustados en cualquier web. Este repositorio las reúne en un solo sitio, con cada pieza en español y en inglés, para que cualquier docente pueda reutilizarlas o adaptarlas.
 
-    Además de los ficheros incluye un catálogo legible por máquina (`catalog.yml`) con el título, el resumen, los conceptos que trabaja y las fórmulas de cada visualización en los dos idiomas; el código fuente modular, con sus pruebas, del diagrama de retardos, de HTTP persistente y del DNS paso a paso (cuya versión para el profesor incluye notas y ventana de presentador); y la plantilla y guía de diseño del laboratorio de retardos. Un [catálogo navegable](https://edelahozuah.github.io/computer-networks-visualizations/) permite abrirlas directamente.
+    Además de los ficheros incluye un catálogo legible por máquina (`catalog.yml`) con el título, el resumen, los conceptos que trabaja y las fórmulas de cada visualización en los dos idiomas; el código fuente modular, con sus pruebas, del diagrama de retardos, de HTTP persistente y del DNS paso a paso; y la plantilla y guía de diseño del laboratorio de retardos. Un [catálogo navegable](https://edelahozuah.github.io/computer-networks-visualizations/) permite abrirlas directamente.
 
     Esta web no edita las visualizaciones: las importa del repositorio con un script, les añade su barra y sus metadatos y comprueba que coinciden con el original. Cada versión del repositorio se archiva en Zenodo con su DOI, de modo que se pueda citar la colección completa de un curso.
   descripcion_en: |
     The visualizations used in [Network Architecture I](/en/teaching/ar1/) are self-contained HTML files: they work offline, uploaded to Blackboard or embedded in any website. This repository gathers them in one place, every piece in Spanish and in English, so that any lecturer can reuse or adapt them.
 
-    Besides the files it includes a machine-readable catalogue (`catalog.yml`) with the title, summary, concepts and formulas of every visualization in both languages; the modular source, with tests, of the delay diagram, persistent HTTP and DNS step by step (whose lecturer version has speaker notes and a presenter window); and the template and design guide of the delay lab. A [browsable catalogue](https://edelahozuah.github.io/computer-networks-visualizations/) opens them directly.
+    Besides the files it includes a machine-readable catalogue (`catalog.yml`) with the title, summary, concepts and formulas of every visualization in both languages; the modular source, with tests, of the delay diagram, persistent HTTP and DNS step by step; and the template and design guide of the delay lab. A [browsable catalogue](https://edelahozuah.github.io/computer-networks-visualizations/) opens them directly.
 
     This website does not edit the visualizations: it imports them from the repository with a script, adds its own bar and metadata and checks that they match the original. Every version of the repository is archived on Zenodo with its own DOI, so that the complete collection of an academic year can be cited.
   url: https://edelahozuah.github.io/computer-networks-visualizations/
   repo: https://github.com/edelahozuah/computer-networks-visualizations
   imagen: /assets/img/computer-networks-visualizations.jpg
   fecha: 2026-10-10
+  doi: 10.5281/zenodo.23285664
   licencia_codigo: { nombre: CC BY-SA 4.0, url: https://creativecommons.org/licenses/by-sa/4.0/ }
+- id: tcp-trace-generator
+  titulo: Generador de trazas TCP para ejercicios de control de congestión
+  titulo_en: TCP trace generator for congestion control exercises
+  resumen: Script en Python y Scapy que simula una conexión TCP Reno o Tahoe y produce la captura pcap y el registro de su estado interno; su modo aula genera trazas deterministas, resolubles a mano, para ejercicios de control de congestión.
+  resumen_en: Python and Scapy script that simulates a TCP Reno or Tahoe connection and produces the pcap capture and a log of its internal state; its classroom mode generates deterministic traces, solvable by hand, for congestion control exercises.
+  descripcion: |
+    Para enseñar el control de congestión de TCP hacen falta capturas en las que el estudiante pueda seguir, segmento a segmento, cómo evolucionan la ventana de congestión, el umbral de arranque lento y el temporizador de retransmisión. Las capturas reales son demasiado ruidosas para eso. Este script simula una conexión completa, con pérdidas en los segmentos que se le indiquen, y genera la captura pcap, que se abre en Wireshark, y un registro CSV con el estado interno del emisor en cada evento.
+
+    Implementa TCP Reno (arranque lento, evitación de congestión, retransmisión rápida y recuperación rápida) y TCP Tahoe, con el RTO adaptativo de la RFC 6298, el algoritmo de Karn y asentimientos retardados. El *modo aula* sustituye el tiempo continuo por ranuras discretas, fija el RTO y la latencia y serializa las transmisiones, de modo que la traza es predecible y se puede resolver en papel antes de comprobarla con la captura. Es el modo que se usa en los ejercicios de la sesión 3.4 de [Arquitectura de Redes I](/docencia/ar1/).
+
+    El código es un único fichero Python con Scapy como única dependencia, con pruebas y documentación en español e inglés. Cada versión se archiva en Zenodo con DOI.
+  descripcion_en: |
+    Teaching TCP congestion control requires captures in which students can follow, segment by segment, how the congestion window, the slow start threshold and the retransmission timer evolve. Real captures are too noisy for that. This script simulates a complete connection, with losses in the segments you choose, and produces the pcap capture, which opens in Wireshark, and a CSV log with the sender's internal state at every event.
+
+    It implements TCP Reno (slow start, congestion avoidance, fast retransmit and fast recovery) and TCP Tahoe, with the adaptive RTO of RFC 6298, Karn's algorithm and delayed acknowledgements. *Classroom mode* replaces continuous time with discrete slots, fixes the RTO and the latency and serializes transmissions, so that the trace is predictable and can be solved on paper before checking it against the capture. It is the mode used in the exercises of session 3.4 of [Network Architecture I](/en/teaching/ar1/).
+
+    The code is a single Python file with Scapy as its only dependency, with tests and documentation in Spanish and English. Every version is archived on Zenodo with a DOI.
+  url: https://github.com/edelahozuah/TCP-Trace-Generator
+  repo: https://github.com/edelahozuah/TCP-Trace-Generator
+  lenguaje: Python
+  imagen: /assets/img/tcp-trace-generator.jpg
+  fecha: 2026-10-10
+  doi: 10.5281/zenodo.23285054
+  autores: [Enrique de la Hoz, Sandra Machado Zurita, Luis de la Cruz Piris]
+  licencia_codigo: { nombre: MIT, url: https://github.com/edelahozuah/TCP-Trace-Generator/blob/main/LICENSE }

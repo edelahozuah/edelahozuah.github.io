@@ -124,12 +124,26 @@ el sitio en todas; además, según el front matter:
       "url": {{ p.url | jsonify }},
       "codeRepository": {{ p.repo | jsonify }},
       "applicationCategory": "EducationalApplication",
+      {%- if p.lenguaje %}
+      "programmingLanguage": {{ p.lenguaje | jsonify }},
+      "operatingSystem": "Linux, macOS, Windows",
+      "inLanguage": ["es", "en"],
+      {%- else %}
       "operatingSystem": "Web",
       "browserRequirements": "Requires JavaScript",
       "inLanguage": "es",
+      {%- endif %}
       "image": "{{ p.imagen | absolute_url }}",
       "datePublished": "{{ p.fecha }}",
+      {%- if p.autores %}
+      "author": [{% for a in p.autores %}{% if forloop.first %}{ "@id": "{{ u }}/#persona" }{% else %}{ "@type": "Person", "name": {{ a | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {%- else %}
       "author": { "@id": "{{ u }}/#persona" },
+      {%- endif %}
+      {%- if p.doi %}
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": {{ p.doi | jsonify }} },
+      "sameAs": "https://doi.org/{{ p.doi }}",
+      {%- endif %}
       "isAccessibleForFree": true,
       "license": {{ p.licencia_codigo.url | jsonify }},
       "mainEntityOfPage": "{{ include.canonica }}"
