@@ -52,6 +52,13 @@ El color de acento es la variable `--global-theme-color` de `assets/css/sitio.cs
 
 Aparece solo en la página de la asignatura y en `/recursos/`.
 
+Un repositorio de código (por ejemplo en GitHub) se añade igual en
+`_data/recursos.yml`, con `tipo: repositorio`, la `url` externa, una captura
+en `assets/img/recursos/` y, si se quiere, `lenguaje` (sale en el JSON-LD como
+`SoftwareSourceCode`). No pasa por `estilo_visualizaciones.py` ni lleva
+resumen, y su licencia es la del repositorio, no CC BY-SA. Un tema sin número
+(solo `titulo`) sale con el título a secas.
+
 ## Añadir un vídeo de YouTube
 
 El vídeo sigue alojado en YouTube: la web tiene una página por vídeo con el

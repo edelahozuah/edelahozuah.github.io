@@ -34,9 +34,9 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 
 ## Recursos de {{ asig.nombre }}
 
-Visualizaciones interactivas (páginas HTML autocontenidas, con un resumen en texto al final) y vídeos de YouTube (su página en la web incluye capítulos y transcripción completa).
+Visualizaciones interactivas (páginas HTML autocontenidas, con un resumen en texto al final), vídeos de YouTube (su página en la web incluye capítulos y transcripción completa) y repositorios de código en GitHub.
 {% for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos %}
-- [{% if r.tipo == 'video' %}Vídeo: {% endif %}{{ r.titulo }}]({{ r.url | absolute_url }}): {{ r.descripcion }}{% if r.en %} ([English]({{ r.en | absolute_url }})){% endif %}
+- [{% if r.tipo == 'video' %}Vídeo: {% elsif r.tipo == 'repositorio' %}Repositorio: {% endif %}{{ r.titulo }}]({{ r.url | absolute_url }}): {{ r.descripcion }}{% if r.en %} ([English]({{ r.en | absolute_url }})){% endif %}
 {%- endfor -%}{%- endfor -%}
 {%- endif -%}{%- endfor %}
 

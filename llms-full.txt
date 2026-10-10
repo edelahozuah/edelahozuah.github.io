@@ -57,16 +57,19 @@ Asignaturas:
 {% for asig in site.data.asignaturas -%}{%- if site.data.recursos[asig.id] %}
 ## Recursos de {{ asig.nombre }}
 
-Visualizaciones interactivas (páginas HTML autocontenidas que funcionan en el navegador, también en el móvil) y vídeos de YouTube con transcripción. Licencia CC BY-SA 4.0.
+Visualizaciones interactivas (páginas HTML autocontenidas que funcionan en el navegador, también en el móvil) y vídeos de YouTube con transcripción, con licencia CC BY-SA 4.0; y repositorios de código en GitHub, con la licencia que indique cada uno.
 {% for t in site.data.recursos[asig.id] -%}{%- for r in t.recursos -%}
 {%- assign res = nil -%}{%- for f in site.data.resumenes -%}{%- if f[1][r.url] -%}{%- assign res = f[1][r.url] -%}{%- endif -%}{%- endfor %}
 ### {{ r.titulo }}
 
 - URL: {{ r.url | absolute_url }}
 {%- if r.sesion %}
-- Sesión: {{ r.sesion }} (tema {{ t.tema }})
+- Sesión: {{ r.sesion }}{% if t.tema %} (tema {{ t.tema }}){% endif %}
 {%- elsif r.etiqueta %}
-- {{ r.etiqueta }} (tema {{ t.tema }})
+- {{ r.etiqueta }}{% if t.tema %} (tema {{ t.tema }}){% endif %}
+{%- endif %}
+{%- if r.tipo == 'repositorio' %}
+- Repositorio de código en GitHub{% if r.lenguaje %} ({{ r.lenguaje }}){% endif %}
 {%- endif %}
 {%- if r.en %}
 - English version: {{ r.en | absolute_url }}
