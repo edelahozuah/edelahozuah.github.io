@@ -169,19 +169,30 @@ td.acc button:hover { border-color: var(--fg); }
   "tráfico bidireccional"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/diagrama-retardos.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Arquitectura de Redes I",
+   "url": "https://edelahozuah.github.io/docencia/ar1/",
+   "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "workTranslation": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/retardos/diagrama-retardos-en.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/delay-diagram.es.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -897,6 +908,6 @@ hecho=true;enviar(0);}
 })();
 </script>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Editor de diagramas de tiempos entre dos extremos, con el tiempo hacia abajo y los retardos dibujados a escala. El estudiante fija la velocidad R del enlace y el retardo de propagación, directamente o como distancia entre velocidad, y añade tramas y ACK desde cualquiera de los dos extremos con su tamaño L. Cada mensaje puede empezar tras la última recepción, justo tras la transmisión anterior, al recibir o terminar de transmitirse otro mensaje, a la vez que otro o en un instante dado, con una espera opcional para modelar el tiempo de proceso. Las cotas del mensaje seleccionado y una tabla dan inicio, d_trans, llegada del primer y del último bit de cada mensaje; hay ejemplos de parada y espera, ráfaga de tramas y tráfico bidireccional, y el diagrama se exporta en SVG o PNG.</p><p><b>Conceptos:</b> retardo de transmisión, retardo de propagación, diagrama de tiempos, trama, ACK, parada y espera, tiempo de proceso, tráfico bidireccional.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = d / v</code></li><li><code>llegada del último bit = inicio + d_trans + d_prop</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 1.3 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Editor de diagramas de tiempos entre dos extremos, con el tiempo hacia abajo y los retardos dibujados a escala. El estudiante fija la velocidad R del enlace y el retardo de propagación, directamente o como distancia entre velocidad, y añade tramas y ACK desde cualquiera de los dos extremos con su tamaño L. Cada mensaje puede empezar tras la última recepción, justo tras la transmisión anterior, al recibir o terminar de transmitirse otro mensaje, a la vez que otro o en un instante dado, con una espera opcional para modelar el tiempo de proceso. Las cotas del mensaje seleccionado y una tabla dan inicio, d_trans, llegada del primer y del último bit de cada mensaje; hay ejemplos de parada y espera, ráfaga de tramas y tráfico bidireccional, y el diagrama se exporta en SVG o PNG.</p><p><b>Conceptos:</b> retardo de transmisión, retardo de propagación, diagrama de tiempos, trama, ACK, parada y espera, tiempo de proceso, tráfico bidireccional.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = d / v</code></li><li><code>llegada del último bit = inicio + d_trans + d_prop</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 1.3 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

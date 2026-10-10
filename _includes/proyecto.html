@@ -31,5 +31,7 @@
     Datos con licencia <a href="{{ p.licencia_datos.url }}" rel="license">{{ p.licencia_datos.nombre }}</a>, derivados de información pública de la Universidad de Alcalá; código con licencia <a href="{{ p.licencia_codigo.url }}">{{ p.licencia_codigo.nombre }}</a>.
     {%- endif -%}
   </p>
+  {% elsif p.licencia_codigo %}
+  <p class="nota">{% if en %}Published under the <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a> license.{% else %}Publicado con licencia <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a>.{% endif %}</p>
   {% endif %}
 </section>

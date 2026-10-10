@@ -1,0 +1,121 @@
+# Generado por scripts/importar_visualizaciones.py: de qué fichero del repositorio
+# computer-networks-visualizations viene cada visualización de la web y con qué
+# versión se importó. Lo usa scripts/estilo_visualizaciones.py (enlace al original
+# en el pie y sameAs del JSON-LD). No editar a mano.
+
+repositorio: https://github.com/edelahozuah/computer-networks-visualizations
+pages: https://edelahozuah.github.io/computer-networks-visualizations
+version: c36eae0
+visualizaciones:
+  /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
+    id: bit-time-line-coding
+    fichero: 01-introduction/bit-time-line-coding.es.html
+    idioma: es
+  /docencia/ar1/retardos/codificacion-tiempo-de-bit-en.html:
+    id: bit-time-line-coding
+    fichero: 01-introduction/bit-time-line-coding.en.html
+    idioma: en
+  /docencia/ar1/retardos/retardos-espacio-tiempo.html:
+    id: space-time-diagram
+    fichero: 01-introduction/space-time-diagram.es.html
+    idioma: es
+  /docencia/ar1/retardos/retardos-espacio-tiempo-en.html:
+    id: space-time-diagram
+    fichero: 01-introduction/space-time-diagram.en.html
+    idioma: en
+  /docencia/ar1/capas/capas_logica_vs_real.html:
+    id: logical-vs-real-communication
+    fichero: 01-introduction/logical-vs-real-communication.es.html
+    idioma: es
+  /docencia/ar1/capas/layers_logical_vs_real.html:
+    id: logical-vs-real-communication
+    fichero: 01-introduction/logical-vs-real-communication.en.html
+    idioma: en
+  /docencia/ar1/colas/conmutacion_paquetes_colas.html:
+    id: router-queueing-and-drops
+    fichero: 01-introduction/router-queueing-and-drops.es.html
+    idioma: es
+  /docencia/ar1/colas/queueing_drops_router.html:
+    id: router-queueing-and-drops
+    fichero: 01-introduction/router-queueing-and-drops.en.html
+    idioma: en
+  /docencia/ar1/retardos/diagrama-retardos.html:
+    id: delay-diagram
+    fichero: 01-introduction/delay-diagram.es.html
+    idioma: es
+  /docencia/ar1/retardos/diagrama-retardos-en.html:
+    id: delay-diagram
+    fichero: 01-introduction/delay-diagram.en.html
+    idioma: en
+  /docencia/ar1/lab-retardos/01-anatomia-del-retardo.html:
+    id: 01-anatomy-of-delay
+    fichero: 01-introduction/delay-lab/01-anatomy-of-delay.es.html
+    idioma: es
+  /docencia/ar1/lab-retardos/01-anatomy-of-delay.html:
+    id: 01-anatomy-of-delay
+    fichero: 01-introduction/delay-lab/01-anatomy-of-delay.en.html
+    idioma: en
+  /docencia/ar1/lab-retardos/02-tuberia-ancho-de-bit.html:
+    id: 02-pipe-and-bit-width
+    fichero: 01-introduction/delay-lab/02-pipe-and-bit-width.es.html
+    idioma: es
+  /docencia/ar1/lab-retardos/02-pipe-bit-width.html:
+    id: 02-pipe-and-bit-width
+    fichero: 01-introduction/delay-lab/02-pipe-and-bit-width.en.html
+    idioma: en
+  /docencia/ar1/lab-retardos/03-continuo-vs-parada-y-espera.html:
+    id: 03-continuous-vs-stop-and-wait
+    fichero: 01-introduction/delay-lab/03-continuous-vs-stop-and-wait.es.html
+    idioma: es
+  /docencia/ar1/lab-retardos/03-continuous-vs-stop-and-wait.html:
+    id: 03-continuous-vs-stop-and-wait
+    fichero: 01-introduction/delay-lab/03-continuous-vs-stop-and-wait.en.html
+    idioma: en
+  /docencia/ar1/dns/dns_nombres.html:
+    id: dns-names
+    fichero: 02-application-layer/dns/dns-names.es.html
+    idioma: es
+  /docencia/ar1/dns/dns_names_en.html:
+    id: dns-names
+    fichero: 02-application-layer/dns/dns-names.en.html
+    idioma: en
+  /docencia/ar1/dns/dns_delegacion.html:
+    id: dns-zone-delegation
+    fichero: 02-application-layer/dns/dns-zone-delegation.es.html
+    idioma: es
+  /docencia/ar1/dns/dns_delegation_en.html:
+    id: dns-zone-delegation
+    fichero: 02-application-layer/dns/dns-zone-delegation.en.html
+    idioma: en
+  /docencia/ar1/dns/dns_consultas.html:
+    id: dns-queries
+    fichero: 02-application-layer/dns/dns-queries.es.html
+    idioma: es
+  /docencia/ar1/dns/dns_queries_en.html:
+    id: dns-queries
+    fichero: 02-application-layer/dns/dns-queries.en.html
+    idioma: en
+  /docencia/ar1/dns/dns_consultas_mixtas.html:
+    id: dns-queries-mixed
+    fichero: 02-application-layer/dns/dns-queries-mixed.es.html
+    idioma: es
+  /docencia/ar1/dns/dns_queries_mixed_en.html:
+    id: dns-queries-mixed
+    fichero: 02-application-layer/dns/dns-queries-mixed.en.html
+    idioma: en
+  /docencia/ar1/dns/dns_paso_a_paso.html:
+    id: dns-step-by-step
+    fichero: 02-application-layer/dns/dns-step-by-step.es.html
+    idioma: es
+  /docencia/ar1/dns/dns_step_by_step_en.html:
+    id: dns-step-by-step
+    fichero: 02-application-layer/dns/dns-step-by-step.en.html
+    idioma: en
+  /docencia/ar1/http/http-persistente.html:
+    id: http-persistent
+    fichero: 02-application-layer/http/http-persistent.es.html
+    idioma: es
+  /docencia/ar1/http/http-persistente-en.html:
+    id: http-persistent
+    fichero: 02-application-layer/http/http-persistent.en.html
+    idioma: en

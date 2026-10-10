@@ -87,19 +87,30 @@
   "space-time diagram"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/retardos-espacio-tiempo.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Network Architecture I",
-  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
-  "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "University of Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Network Architecture I",
+   "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+   "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "translationOfWork": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/retardos/retardos-espacio-tiempo.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/space-time-diagram.en.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -125,6 +136,7 @@ hecho=true;enviar(0);}
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Site"><a class="sitio-marca" href="/en/"><b>Enrique</b> de la Hoz</a><a href="/en/teaching/ar1/">Network Architecture I</a><a href="/docencia/ar1/retardos/retardos-espacio-tiempo.html" hreflang="es" lang="es">Español</a></div><!-- barra-sitio:fin -->
+
 <main>
 <h1>Transmission and propagation delay</h1>
 <div class="layout">
@@ -250,6 +262,6 @@ document.addEventListener('keydown',e=>{
 $('oA').textContent=dur+' s';params();
 })();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Space-time diagram with the sender on the left, the receiver on the right and time running downwards, in which data packets and ACKs are drawn. The student sets the packet size L, the rate R, the distance d, the propagation speed s (2·10⁸ or 3·10⁸ m/s), the number of packets, the ACK size and the exchange mode: no ACK, stop-and-wait or pipelining. The cards show the transmission and propagation delays, the total time and the sender utilization. It shows when each delay dominates and why stop-and-wait makes poor use of the link.</p><p><b>Concepts:</b> transmission delay, propagation delay, RTT, stop-and-wait, pipelining, sender utilization, ACK, space-time diagram.</p><p><b>Formulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = d / s</code></li><li><code>utilization = N · L/R / total time</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 1.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Space-time diagram with the sender on the left, the receiver on the right and time running downwards, in which data packets and ACKs are drawn. The student sets the packet size L, the rate R, the distance d, the propagation speed s (2·10⁸ or 3·10⁸ m/s), the number of packets, the ACK size and the exchange mode: no ACK, stop-and-wait or pipelining. The cards show the transmission and propagation delays, the total time and the sender utilization. It shows when each delay dominates and why stop-and-wait makes poor use of the link.</p><p><b>Concepts:</b> transmission delay, propagation delay, RTT, stop-and-wait, pipelining, sender utilization, ACK, space-time diagram.</p><p><b>Formulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = d / s</code></li><li><code>utilization = N · L/R / total time</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 1.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

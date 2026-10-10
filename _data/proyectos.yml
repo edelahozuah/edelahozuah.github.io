@@ -79,3 +79,25 @@
         filas: 28
         descripcion: Los PDF de origen en la web de la Escuela, con rama, titulación, cuatrimestre y URL.
         descripcion_en: The source PDFs on the School website, with branch, degree, semester and URL.
+- id: computer-networks-visualizations
+  titulo: Visualizaciones interactivas para asignaturas de redes de computadores
+  titulo_en: Interactive visualizations for computer networks courses
+  resumen: Repositorio abierto con las visualizaciones interactivas de Arquitectura de Redes I, en español e inglés, con su catálogo de metadatos, el código fuente de las piezas grandes y versiones archivadas en Zenodo con DOI.
+  resumen_en: Open repository with the interactive visualizations of Network Architecture I, in Spanish and English, with a metadata catalogue, the source of the larger pieces and versions archived on Zenodo with a DOI.
+  descripcion: |
+    Las visualizaciones que se usan en [Arquitectura de Redes I](/docencia/ar1/) son ficheros HTML autocontenidos: funcionan sin conexión, subidos a Blackboard o incrustados en cualquier web. Este repositorio las reúne en un solo sitio, con cada pieza en español y en inglés, para que cualquier docente pueda reutilizarlas o adaptarlas.
+
+    Además de los ficheros incluye un catálogo legible por máquina (`catalog.yml`) con el título, el resumen, los conceptos que trabaja y las fórmulas de cada visualización en los dos idiomas; el código fuente modular, con sus pruebas, del diagrama de retardos, de HTTP persistente y del DNS paso a paso (cuya versión para el profesor incluye notas y ventana de presentador); y la plantilla y guía de diseño del laboratorio de retardos. Un [catálogo navegable](https://edelahozuah.github.io/computer-networks-visualizations/) permite abrirlas directamente.
+
+    Esta web no edita las visualizaciones: las importa del repositorio con un script, les añade su barra y sus metadatos y comprueba que coinciden con el original. Cada versión del repositorio se archiva en Zenodo con su DOI, de modo que se pueda citar la colección completa de un curso.
+  descripcion_en: |
+    The visualizations used in [Network Architecture I](/en/teaching/ar1/) are self-contained HTML files: they work offline, uploaded to Blackboard or embedded in any website. This repository gathers them in one place, every piece in Spanish and in English, so that any lecturer can reuse or adapt them.
+
+    Besides the files it includes a machine-readable catalogue (`catalog.yml`) with the title, summary, concepts and formulas of every visualization in both languages; the modular source, with tests, of the delay diagram, persistent HTTP and DNS step by step (whose lecturer version has speaker notes and a presenter window); and the template and design guide of the delay lab. A [browsable catalogue](https://edelahozuah.github.io/computer-networks-visualizations/) opens them directly.
+
+    This website does not edit the visualizations: it imports them from the repository with a script, adds its own bar and metadata and checks that they match the original. Every version of the repository is archived on Zenodo with its own DOI, so that the complete collection of an academic year can be cited.
+  url: https://edelahozuah.github.io/computer-networks-visualizations/
+  repo: https://github.com/edelahozuah/computer-networks-visualizations
+  imagen: /assets/img/computer-networks-visualizations.jpg
+  fecha: 2026-10-10
+  licencia_codigo: { nombre: CC BY-SA 4.0, url: https://creativecommons.org/licenses/by-sa/4.0/ }

@@ -19,9 +19,14 @@ contador de visitas, el mismo que _layouts/base.html pone en el resto de la web,
 y otro que envía un evento «uso:<ruta>» en la primera interacción real con la
 visualización (ver USO_JS).
 
-Es idempotente: si el bloque ya está, lo sustituye. Los originales de las
-carpetas AR1/SX.X/Visualizaciones no se modifican; el script actúa sobre las
-copias de la web.
+Si _data/visualizaciones.yml existe (lo genera scripts/importar_visualizaciones.py),
+el pie enlaza el original en el repositorio computer-networks-visualizations y el
+JSON-LD lleva su URL en «sameAs» y, si _config.yml define visualizaciones.doi,
+el DOI de Zenodo.
+
+Es idempotente: si el bloque ya está, lo sustituye. Los originales están en el
+repositorio computer-networks-visualizations (../Visualizaciones) y no se
+modifican; el script actúa sobre las copias de la web.
 
 Uso:
     python3 scripts/estilo_visualizaciones.py              # todo docencia/
@@ -230,7 +235,25 @@ def config():
     return yaml.safe_load((RAIZ / "_config.yml").read_text(encoding="utf-8"))
 
 
-def metadatos(web, html, r, resumen, conf):
+def origenes():
+    """{url: {id, fichero, idioma}} de _data/visualizaciones.yml (lo genera
+    scripts/importar_visualizaciones.py): de qué fichero del repositorio
+    computer-networks-visualizations viene cada visualización."""
+    f = RAIZ / "_data" / "visualizaciones.yml"
+    if not f.exists():
+        return {}
+    return (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get("visualizaciones", {})
+
+
+def original(web, conf, origen):
+    """(URL del fichero original en GitHub Pages del repositorio, DOI) o (None, None)."""
+    v = (conf.get("visualizaciones") or {})
+    if not origen or not v.get("pages"):
+        return None, None
+    return v["pages"].rstrip("/") + "/" + origen["fichero"], (v.get("doi") or None)
+
+
+def metadatos(web, html, r, resumen, conf, origen=None):
     """Etiquetas del <head>: descripción, canónica, hreflang, Open Graph y JSON-LD."""
     url = conf["url"].rstrip("/")
     absoluta = lambda ruta: url + ruta
@@ -284,12 +307,21 @@ def metadatos(web, html, r, resumen, conf):
                                        "name": "University of Alcalá" if en else "Universidad de Alcalá"}}
     if r["pareja"]:
         ld["translationOfWork" if en else "workTranslation"] = {"@id": absoluta(r["pareja"])}
+    fichero, doi = original(web, conf, origen)
+    if fichero:  # el original, en el repositorio de las visualizaciones
+        ld["sameAs"] = [fichero]
+        ld["isPartOf"] = [ld["isPartOf"], {"@type": "Collection", "name": "Interactive visualizations for computer networks courses",
+                                           "url": conf["visualizaciones"]["repo"], "license": LICENCIA}] if "isPartOf" in ld else \
+            {"@type": "Collection", "name": "Interactive visualizations for computer networks courses",
+             "url": conf["visualizaciones"]["repo"], "license": LICENCIA}
+        if doi:
+            ld["identifier"] = {"@type": "PropertyValue", "propertyID": "DOI", "value": doi}
     texto = json.dumps(ld, ensure_ascii=False, indent=1).replace("</", "<\\/")
     lineas.append(f'<script type="application/ld+json">\n{texto}\n</script>')
     return "\n".join(lineas)
 
 
-def acerca(r, resumen, conf):
+def acerca(r, resumen, conf, web=None, origen=None):
     """Bloque «Sobre esta visualización», en texto estático."""
     en = r["en"]
     e = htmlmod.escape
@@ -310,6 +342,12 @@ def acerca(r, resumen, conf):
         pie.append(f'<a href="{r["pagina"]}">{e(r["asignatura"])}</a>' + (f", {e(contexto)}" if contexto else ""))
     pie.append(f'{e(conf["autor"]["nombre"])}, {"University of Alcalá" if en else "Universidad de Alcalá"}')
     pie.append(f'{"License" if en else "Licencia"} <a href="{LICENCIA}" rel="license">CC BY-SA 4.0</a>')
+    fichero, doi = original(web, conf, origen)
+    if fichero:
+        repo = conf["visualizaciones"]["repo"]
+        pie.append(f'<a href="{repo}">{"Source and catalogue on GitHub" if en else "Original y catálogo en GitHub"}</a>')
+        if doi:
+            pie.append(f'DOI <a href="https://doi.org/{doi}">{e(doi)}</a>')
     partes.append(f'<p class="sitio-pie">{" · ".join(pie)}</p>')
     partes.append("</section>")
     return f"{INI_PIE}{''.join(partes)}{FIN_PIE}"
@@ -343,14 +381,14 @@ def quitar(html):
     return re.sub(r"\n?" + re.escape(INI_BODY) + r".*?" + re.escape(FIN_BODY) + r"\n?", "", html, flags=re.S)
 
 
-def adaptar(ruta, asigs, idiomas, recursos, textos, conf):
+def adaptar(ruta, asigs, idiomas, recursos, textos, conf, orig):
     html = quitar(ruta.read_text(encoding="utf-8"))
     fam = familia(html)
     if not fam:
         return None
     web = "/" + "/".join(ruta.relative_to(RAIZ).parts)
     r = recursos.get(web)
-    meta = metadatos(web, html, r, textos.get(web), conf) + "\n" if r else ""
+    meta = metadatos(web, html, r, textos.get(web), conf, orig.get(web)) + "\n" if r else ""
     contador = (f'<script data-goatcounter="{conf["goatcounter"]}" async src="https://gc.zgo.at/count.js"></script>\n'
                 f'<script>{USO_JS.replace("RUTA", web)}</script>\n' if conf.get("goatcounter") else "")
     cabeza = (f'{INI_HEAD}\n{meta}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -368,7 +406,7 @@ def adaptar(ruta, asigs, idiomas, recursos, textos, conf):
         corte = html.find(FIN_HEAD) + len(FIN_HEAD)
         html = html[:corte] + "\n" + barra(ruta, html, asigs, idiomas) + html[corte:]
     if r:
-        pie = acerca(r, textos.get(web), conf) + "\n"
+        pie = acerca(r, textos.get(web), conf, web, orig.get(web)) + "\n"
         if "</body>" in html:
             html = html.replace("</body>", pie + "</body>", 1)
         else:  # sin </body>: antes del último <script> de primer nivel
@@ -386,7 +424,7 @@ def main():
     args = ap.parse_args()
     asigs = asignaturas()
     idiomas = pares_idioma()
-    recursos, textos, conf = recursos_por_url(asigs), resumenes(), config()
+    recursos, textos, conf, orig = recursos_por_url(asigs), resumenes(), config(), origenes()
     for r in args.rutas:
         base = (RAIZ / r) if not Path(r).is_absolute() else Path(r)
         for f in sorted([base] if base.is_file() else base.rglob("*.html")):
@@ -397,7 +435,7 @@ def main():
                 f.write_text(quitar(texto), encoding="utf-8")
                 print(f"  sin estilo  {f.relative_to(RAIZ)}")
                 continue
-            fam = adaptar(f, asigs, idiomas, recursos, textos, conf)
+            fam = adaptar(f, asigs, idiomas, recursos, textos, conf, orig)
             print(f"  {fam or 'sin familia, no se toca':<10} {f.relative_to(RAIZ)}")
 
 
