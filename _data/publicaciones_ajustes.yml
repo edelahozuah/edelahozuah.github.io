@@ -12,8 +12,11 @@ destacadas:
   - accesscontrolmechanismforiotenvironmentsbasedonmodellingcomm
   - designandevaluationofalearningenvironmenttoeffectivelyprovid
 
-# Duplicados que la fusión automática no detecta (el título difiere).
+# Duplicados que la fusión automática no detecta (el título difiere) y trabajos
+# que no son del autor.
 ocultar:
+  # No es de Enrique de la Hoz: la añadió Scopus a ORCID por confusión de autor (homónimo).
+  - anarchitecturalsystemforautomaticpedagogicalinterventionsinm
   - herramientaparalageneraciondeescenariosdeapoyoaladocenciadel
   - mecanismosdeseguridadparaunaredadhocenunentornourbano
 
