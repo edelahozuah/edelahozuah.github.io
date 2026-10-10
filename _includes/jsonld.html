@@ -28,13 +28,25 @@ el sitio en todas; además, según el front matter:
         { "@id": "{{ u }}/#uah" },
         { "@type": "ResearchOrganization", "name": {{ a.grupo | jsonify }}, "parentOrganization": { "@id": "{{ u }}/#uah" } }
       ],
-      "identifier": { "@type": "PropertyValue", "propertyID": "ORCID", "value": "{{ a.orcid }}" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "ORCID", "value": "{{ a.orcid }}" },
+        {%- for s in a.scopus %}
+        { "@type": "PropertyValue", "propertyID": "Scopus Author ID", "value": "{{ s }}" },
+        {%- endfor %}
+        { "@type": "PropertyValue", "propertyID": "ResearcherID", "value": "{{ a.researcherid }}" },
+        { "@type": "PropertyValue", "propertyID": "Dialnet", "value": "{{ a.dialnet }}" }
+      ],
       "sameAs": [
         "https://orcid.org/{{ a.orcid }}",
         {{ a.scholar | jsonify }},
         "https://github.com/{{ a.github }}",
         {{ a.portal_uah | jsonify }},
-        {{ a.ficha_uah | jsonify }}
+        {{ a.ficha_uah | jsonify }},
+        {%- for s in a.scopus %}
+        "https://www.scopus.com/authid/detail.uri?authorId={{ s }}",
+        {%- endfor %}
+        "https://www.webofscience.com/wos/author/record/{{ a.researcherid }}",
+        "https://dialnet.unirioja.es/servlet/autor?codigo={{ a.dialnet }}"
       ],
       "knowsAbout": [{% for l in site.data.lineas %}{% if en %}{{ l.en | jsonify }}{% else %}{{ l.titulo | jsonify }}{% endif %}, {% endfor %}{% if en %}"Computer networks", "Cybersecurity"{% else %}"Redes de computadores", "Ciberseguridad"{% endif %}]
     },
@@ -254,6 +266,9 @@ el sitio en todas; además, según el front matter:
       "@type": "Course",
       "@id": "{{ asig.pagina | absolute_url }}#asignatura",
       "name": {% if en %}{{ asig.nombre_en | default: asig.nombre | jsonify }}{% else %}{{ asig.nombre | jsonify }}{% endif %},
+      {%- assign hermanas = site.data.asignaturas | where: "recursos_de", asig.id %}{% if hermanas.size > 0 %}
+      "alternateName": [{% for h in hermanas %}{% if en %}{{ h.nombre_en | default: h.nombre | jsonify }}{% else %}{{ h.nombre | jsonify }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {%- endif %}
       "url": "{% if en and asig.pagina_en %}{{ asig.pagina_en | absolute_url }}{% else %}{{ asig.pagina | absolute_url }}{% endif %}",
       "description": {% if en %}{{ asig.descripcion_en | default: asig.descripcion | jsonify }}{% else %}{{ asig.descripcion | jsonify }}{% endif %},
       "inLanguage": "es",

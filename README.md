@@ -112,6 +112,11 @@ de `_data/` usan un campo `_en` o `en` junto al original:
 | Fichero | Campo en español | Su pareja en inglés |
 |---|---|---|
 | `_data/asignaturas.yml` | `nombre`, `pagina`, `nivel` | `nombre_en`, `pagina_en`, `nivel_en` |
+
+Una asignatura «hermana» de otra (mismo contenido, como Arquitectura de Redes respecto a Arquitectura de Redes I) lleva `recursos_de: <id>`: enlaza a la página de la otra y cuenta sus recursos sin duplicarlos, y sale como `alternateName` en el `Course` de la otra.
+
+| | | |
+|---|---|---|
 | `_data/recursos.yml` | `titulo`, `descripcion`, `etiqueta` | `titulo_en`, `descripcion_en`, `etiqueta_en` |
 | `_data/lineas.yml` | `titulo`, `texto` | `en`, `texto_en` |
 | `_data/noticias.yml` | `texto` | `texto_en` (si falta, la noticia no sale en inglés) |
