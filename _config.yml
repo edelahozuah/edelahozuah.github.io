@@ -32,7 +32,7 @@ autor:
   scholar: https://scholar.google.com/citations?user=HBXLJGoAAAAJ
   github: edelahozuah
   # Otros identificadores de investigador (perfiles en /investigacion/, sameAs del JSON-LD, llms.txt).
-  scopus: ["57213128242", "26031339600"]
+  scopus: ["57213128242"]
   researcherid: N-3056-2014
   dialnet: "872154"
   portal_uah: https://portalcientifico.uah.es/investigadores/2086881/detalle
