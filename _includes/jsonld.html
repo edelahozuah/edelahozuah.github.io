@@ -255,6 +255,10 @@ el sitio en todas; además, según el front matter:
       {%- endif %}
       {%- if p.pdf %}
       "encoding": { "@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "{{ p.pdf | absolute_url }}" },
+      "isAccessibleForFree": true,
+      {%- elsif p.oa %}
+      "archivedAt": {{ p.oa | jsonify }},
+      "isAccessibleForFree": true,
       {%- endif %}
       "mainEntityOfPage": "{{ include.canonica }}"
     }

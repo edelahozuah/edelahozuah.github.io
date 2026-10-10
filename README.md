@@ -152,6 +152,15 @@ duplicados, cambiar tipo o título, destacar en portada, enlazar un PDF, añadir
 trabajos que no estén en ORCID) van en `_data/publicaciones_ajustes.yml`, que el
 script aplica en cada ejecución.
 
+Las versiones en abierto van ahí también: `pdf` admite un PDF local
+(`/files/…`) o externo (editorial en acceso abierto, e_Buah, arXiv) y `oa` una
+página de acceso abierto sin PDF directo (ficha de repositorio, capítulo en
+línea); `arxiv` añade el botón de arXiv. En el JSON-LD el PDF sale como
+`encoding` y la página como `archivedAt`, ambos con `isAccessibleForFree`.
+Para localizar nuevas versiones en abierto sirve la API de OpenAlex
+(`https://api.openalex.org/works/https://doi.org/<DOI>`, campos
+`best_oa_location` y `locations`), que indexa e_Buah.
+
 ## Buscadores y modelos de lenguaje
 
 - `_includes/metadatos.html` pone en cada página el título, la descripción
