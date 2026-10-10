@@ -1,0 +1,10 @@
+{%- comment -%}Un proyecto de investigación de _data/proyectos_investigacion.yml. include.en=true lo pinta en inglés.{%- endcomment -%}
+{%- assign p = include.p -%}{%- assign en = include.en -%}
+{%- assign ini = p.inicio | date: "%Y" -%}{%- assign fin = p.fin | date: "%Y" -%}
+<li class="trabajo proyecto-inv" id="{{ p.id }}">
+  <div class="title"><a href="{{ p.url }}">{% if p.acronimo %}{{ p.acronimo }}: {% endif %}{% if en %}{{ p.titulo_en | default: p.titulo }}{% else %}{{ p.titulo }}{% endif %}</a></div>
+  <div class="author">{% if en %}Principal investigator{% if p.ip.size > 1 %}s{% endif %}{% else %}Investigador{% if p.ip.size > 1 %}es{% endif %} principal{% if p.ip.size > 1 %}es{% endif %}{% endif %}: {{ p.ip | join: ', ' }}</div>
+  <div class="periodical"><em>{% if en %}{{ p.financiador_en | default: p.financiador }}{% else %}{{ p.financiador }}{% endif %}</em>, {{ p.referencia }} · {{ ini }}{% if fin != ini %}–{{ fin }}{% endif %}{% if p.importe %} · {% if p.importe >= 1000 %}{{ p.importe | divided_by: 1000 }}.{{ p.importe | modulo: 1000 | prepend: '000' | slice: -3, 3 }}{% else %}{{ p.importe }}{% endif %}&nbsp;€{% endif %}</div>
+  {% if p.texto %}<p>{% if en %}{{ p.texto_en | default: p.texto }}{% else %}{{ p.texto }}{% endif %}</p>{% endif %}
+  <p class="nota">{% if en %}{{ p.convocatoria_en | default: p.convocatoria }}{% else %}{{ p.convocatoria }}{% endif %}{% if en and p.titulo_en %} <span class="nota">(in Spanish: <span lang="es">{{ p.titulo }}</span>)</span>{% endif %}</p>
+</li>

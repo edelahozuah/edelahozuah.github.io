@@ -6,6 +6,7 @@ el sitio en todas; además, según el front matter:
   - asignatura: <id>  un Course con sus recursos (de _data/recursos.yml);
                       con carpeta: /docencia/<id>/<tema>/ solo los de ese tema
   - jsonld: recursos  todos los recursos de todas las asignaturas
+  - jsonld: proyectos-investigacion  cada proyecto de _data/proyectos_investigacion.yml (ResearchProject)
   - jsonld: proyectos  cada proyecto de _data/proyectos.yml (SoftwareApplication y Dataset)
 {%- endcomment -%}
 {%- assign en = include.en -%}
@@ -150,6 +151,33 @@ el sitio en todas; además, según el front matter:
       ]
     }
     {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+    {%- if page.jsonld == 'proyectos-investigacion' -%}
+    {%- for p in site.data.proyectos_investigacion -%},
+    {
+      "@type": "ResearchProject",
+      "@id": "{{ include.canonica }}#{{ p.id }}",
+      "name": {% if en %}{{ p.titulo_en | default: p.titulo | jsonify }}{% else %}{{ p.titulo | jsonify }}{% endif %},
+      {%- if p.acronimo %}
+      "alternateName": {{ p.acronimo | jsonify }},
+      {%- endif %}
+      "identifier": {{ p.referencia | jsonify }},
+      "url": {{ p.url | jsonify }},
+      "foundingDate": "{{ p.inicio }}",
+      "dissolutionDate": "{{ p.fin }}",
+      "parentOrganization": { "@id": "{{ u }}/#uah" },
+      "member": [{% for n in p.ip %}{% if n == site.autor.nombre %}{ "@id": "{{ u }}/#persona", "roleName": "Principal Investigator" }{% else %}{ "@type": "Person", "name": {{ n | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      "funding": {
+        "@type": "MonetaryGrant",
+        "identifier": {{ p.referencia | jsonify }},
+        "name": {% if en %}{{ p.convocatoria_en | default: p.convocatoria | jsonify }}{% else %}{{ p.convocatoria | jsonify }}{% endif %},
+        "funder": { "@type": "Organization", "name": {% if en %}{{ p.financiador_en | default: p.financiador | jsonify }}{% else %}{{ p.financiador | jsonify }}{% endif %} }
+        {%- if p.importe %},
+        "amount": { "@type": "MonetaryAmount", "currency": "EUR", "value": {{ p.importe }} }
+        {%- endif %}
+      }
+    }
     {%- endfor -%}
     {%- endif -%}
     {%- if page.jsonld == 'trabajos' -%}

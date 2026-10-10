@@ -16,6 +16,7 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 
 - [Sobre mí]({{ '/' | absolute_url }}): presentación, contacto y publicaciones destacadas ([English]({{ '/en/' | absolute_url }}))
 - [Investigación]({{ '/investigacion/' | absolute_url }}): líneas de investigación con sus publicaciones ([English]({{ '/en/research/' | absolute_url }}))
+- [Proyectos de investigación]({{ '/investigacion/' | absolute_url }}#proyectos): {{ site.data.proyectos_investigacion | size }} proyectos como investigador principal{% for p in site.data.proyectos_investigacion %}; {% if p.acronimo %}{{ p.acronimo }} ({% endif %}{{ p.referencia }}{% if p.acronimo %}){% endif %}, {{ p.inicio | date: "%Y" }}–{{ p.fin | date: "%Y" }}{% endfor %}
 - [Publicaciones]({{ '/publicaciones/' | absolute_url }}): {{ site.data.publicaciones | size }} publicaciones, con DOI y citas ([English]({{ '/en/publications/' | absolute_url }}))
 - [ORCID](https://orcid.org/{{ a.orcid }}), [Google Scholar]({{ a.scholar }}), [Portal científico UAH]({{ a.portal_uah }}), [GitHub](https://github.com/{{ a.github }})
 - Contacto: {{ a.email }}

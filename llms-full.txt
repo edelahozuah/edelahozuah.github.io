@@ -31,6 +31,23 @@ Fuente: {{ '/investigacion/' | absolute_url }}
 
 {{ l.texto_en }}
 {% endfor %}
+## Proyectos de investigación / Research projects
+
+Proyectos en los que {{ a.nombre }} es investigador principal. Fuente: {{ '/investigacion/' | absolute_url }}#proyectos
+{% for p in site.data.proyectos_investigacion %}
+### {% if p.acronimo %}{{ p.acronimo }}: {% endif %}{{ p.titulo }}
+
+- Referencia: {{ p.referencia }}. Financiador: {{ p.financiador }}. {{ p.convocatoria }}.
+- Investigador{% if p.ip.size > 1 %}es{% endif %} principal{% if p.ip.size > 1 %}es{% endif %}: {{ p.ip | join: ', ' }}
+- Duración: {{ p.inicio }} a {{ p.fin }}{% if p.importe %}. Importe: {{ p.importe }} €{% endif %}
+- Ficha: {{ p.url }}
+{%- if p.texto %}
+
+{{ p.texto }}
+{%- endif %}
+
+English — {{ p.titulo_en }}{% if p.texto_en %}: {{ p.texto_en }}{% endif %}
+{% endfor %}
 ## Docencia / Teaching
 
 Asignaturas:

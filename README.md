@@ -15,6 +15,7 @@ compilación propio.
 | Miniaturas de los recursos | `assets/img/recursos/` |
 | Noticias de la portada | `_data/noticias.yml` |
 | Líneas de investigación | `_data/lineas.yml` |
+| Proyectos de investigación (IP) | `_data/proyectos_investigacion.yml` |
 | Publicaciones (generado) | `_data/publicaciones.yml` |
 | Correcciones a publicaciones | `_data/publicaciones_ajustes.yml` |
 | Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
