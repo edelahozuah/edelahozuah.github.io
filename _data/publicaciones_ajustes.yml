@@ -101,11 +101,37 @@ corregir:
   unaarquitecturadeseguridadjerarquicaparaentornosdetrabajoint:
     pdf: https://ebuah.uah.es/dspace/bitstream/10017/1891/1/jitel-seguridad-1.pdf
 
-# Publicaciones que no están en ORCID ni en Scholar. Ejemplo:
-# anadir:
-#   - titulo: Título del trabajo
-#     anio: 2026
-#     categoria: revista
-#     medio: Nombre de la revista
-#     autores: [N. Apellido, E. de la Hoz]
-#     doi: 10.xxxx/xxxxx
+# Publicaciones que no están en ORCID ni en Scholar (campos como en «corregir»;
+# «url» es el enlace cuando no hay DOI).
+anadir:
+  - titulo: Aproximaciones a la aplicación de políticas de consenso en escenarios de negociación automática compleja
+    anio: 2017
+    categoria: otros
+    medio: Tesis doctoral, Universidad de Alcalá
+    autores: [E. de la Hoz]
+    url: https://ebuah.uah.es/dspace/handle/10017/41146
+    oa: https://ebuah.uah.es/dspace/handle/10017/41146
+  - titulo: "Aula TFG: una nueva aproximación multidisciplinar e integradora para la realización del Trabajo Fin de Grado"
+    anio: 2014
+    categoria: congreso
+    medio: VI Jornadas de Redes de Investigación en Innovación Docente de la UNED
+    autores: [E. de la Hoz, I. Marsá-Maestre, J. M. Giménez-Guzmán, I. Martínez-Yelmo]
+    url: https://dialnet.unirioja.es/servlet/articulo?codigo=7469052
+  - titulo: Experiencias innovadoras en la evaluación continua en el EEES
+    anio: 2012
+    categoria: capitulo
+    medio: "Aproximaciones a la coordinación docente: hacia el cambio en la cultura universitaria (Universidad de Alcalá)"
+    autores: [J. M. Giménez-Guzmán, E. de la Hoz, M. T. López Merayo, M. Moreno Martín]
+    url: https://dialnet.unirioja.es/servlet/articulo?codigo=4470583
+  - titulo: Uso de formularios para facilitar una rápida realimentación al alumno en el EEES
+    anio: 2012
+    categoria: congreso
+    medio: III Congreso Europeo de Tecnologías de la Información en la Educación y en la Sociedad (TIES 2012)
+    autores: [J. M. Giménez-Guzmán, E. de la Hoz, I. Marsá-Maestre]
+    url: https://dialnet.unirioja.es/servlet/articulo?codigo=4573504
+  - titulo: Experiencias de aplicación de nuevas metodologías en materias de seguridad de la información
+    anio: 2008
+    categoria: congreso
+    medio: I Jornadas ID+TIC 2008 (Universidad de Alcalá)
+    autores: [B. Alarcos, E. de la Hoz, M. A. López-Carmona, I. Marsá-Maestre, A. Paricio-García, A. Navarro]
+    url: https://dialnet.unirioja.es/servlet/articulo?codigo=7119197
