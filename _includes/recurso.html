@@ -31,13 +31,14 @@ en español y lo indica en el pie.
       {% if descripcion %}<p class="card-text">{{ descripcion }}</p>{% endif %}
     </div>
   </a>
-  {% if r.sesion or etiqueta or vuelta or solo_es %}
+  {% if r.sesion or etiqueta or vuelta or solo_es or r.doi %}
   <p class="card-pie">
     {%- if r.tipo == 'video' %}<span>{% if include.en %}Video{% else %}Vídeo{% endif %}{% if r.sesion %} · {% if include.en %}session{% else %}sesión{% endif %} {{ r.sesion }}{% endif %}</span>
     {%- elsif r.tipo == 'repositorio' %}<span>{% if include.en %}Code on GitHub{% else %}Código en GitHub{% endif %}{% if etiqueta %} · {{ etiqueta }}{% elsif r.sesion %} · {% if include.en %}session{% else %}sesión{% endif %} {{ r.sesion }}{% endif %}</span>
     {%- elsif etiqueta %}<span>{{ etiqueta }}</span>
     {%- elsif r.sesion %}<span>{% if include.en %}Session{% else %}Sesión{% endif %} {{ r.sesion }}</span>{% endif -%}
     {%- if solo_es %}<span>Spanish only</span>{% endif -%}
+    {%- if r.doi %}<a href="https://doi.org/{{ r.doi }}">DOI {{ r.doi }}</a>{% endif -%}
     {%- if vuelta %}<a href="{{ vuelta | relative_url }}" hreflang="{% if include.en %}es{% else %}en{% endif %}" lang="{% if include.en %}es{% else %}en{% endif %}">{{ vuelta_texto }}</a>{% endif -%}
   </p>
   {% endif %}
