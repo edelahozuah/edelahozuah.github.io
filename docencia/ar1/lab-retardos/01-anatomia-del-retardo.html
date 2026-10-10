@@ -236,19 +236,30 @@ svg .edge { stroke: var(--ink); stroke-width: 2; }
   "punto de equilibrio"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/01-anatomia-del-retardo.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Arquitectura de Redes I",
+   "url": "https://edelahozuah.github.io/docencia/ar1/",
+   "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "workTranslation": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/lab-retardos/01-anatomy-of-delay.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/delay-lab/01-anatomy-of-delay.es.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -276,6 +287,7 @@ hecho=true;enviar(0);}
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Sitio"><a class="sitio-marca" href="/"><b>Enrique</b> de la Hoz</a><a href="/docencia/ar1/">Arquitectura de Redes I</a><a href="/docencia/ar1/lab-retardos/01-anatomy-of-delay.html" hreflang="en" lang="en">English</a></div><!-- barra-sitio:fin -->
+
 <div class="page">
   <header class="top">
     <h1>Anatomía del retardo</h1>
@@ -920,6 +932,6 @@ const RT = (() => {
   if (!reduced) setTimeout(() => clock.play(), 600);
 })();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Animación a escala de un paquete que se transmite por un enlace de A a B, basada en el problema P6 de Kurose. Muestra dónde están el primer y el último bit en cada instante, junto con un diagrama espacio-tiempo. El estudiante ajusta el tamaño del paquete, la tasa de transmisión, la longitud del enlace y la velocidad de propagación (o elige un caso predefinido), salta a los instantes clave, usa la lupa y el modo predicción. Una calculadora resuelve cualquier enunciado. La idea central es que el retardo de transmisión depende de L/R y el de propagación de l/v_p, y que su comparación indica si el paquete cabe entero en el enlace.</p><p><b>Conceptos:</b> retardo de transmisión, retardo de propagación, retardo extremo a extremo, tasa de transmisión, velocidad de propagación, longitud del paquete en el medio, diagrama espacio-tiempo, punto de equilibrio.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = l / v_p</code></li><li><code>extremo a extremo = d_trans + d_prop</code></li><li><code>longitud del paquete = v_p·L / R</code></li><li><code>equilibrio (d_prop = d_trans): l = v_p·L / R</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Laboratorio 1.2, problema P6 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Animación a escala de un paquete que se transmite por un enlace de A a B, basada en el problema P6 de Kurose. Muestra dónde están el primer y el último bit en cada instante, junto con un diagrama espacio-tiempo. El estudiante ajusta el tamaño del paquete, la tasa de transmisión, la longitud del enlace y la velocidad de propagación (o elige un caso predefinido), salta a los instantes clave, usa la lupa y el modo predicción. Una calculadora resuelve cualquier enunciado. La idea central es que el retardo de transmisión depende de L/R y el de propagación de l/v_p, y que su comparación indica si el paquete cabe entero en el enlace.</p><p><b>Conceptos:</b> retardo de transmisión, retardo de propagación, retardo extremo a extremo, tasa de transmisión, velocidad de propagación, longitud del paquete en el medio, diagrama espacio-tiempo, punto de equilibrio.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = L / R</code></li><li><code>d_prop = l / v_p</code></li><li><code>extremo a extremo = d_trans + d_prop</code></li><li><code>longitud del paquete = v_p·L / R</code></li><li><code>equilibrio (d_prop = d_trans): l = v_p·L / R</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Laboratorio 1.2, problema P6 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

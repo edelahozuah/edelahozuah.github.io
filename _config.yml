@@ -13,6 +13,15 @@ google_site_verification: Wr9r7mM0Jaiybv0ZN333GUJNGCzKawIkAz7SeMFCKRs
 # Lo usan _layouts/base.html y scripts/estilo_visualizaciones.py.
 goatcounter: https://edelahozuah.goatcounter.com/count
 
+# Repositorio con el original de las visualizaciones (fuente de verdad; la web
+# recibe copias con scripts/importar_visualizaciones.py). «doi» es el DOI de
+# concepto de Zenodo, cuando exista; lo usan el JSON-LD y el pie de cada
+# visualización.
+visualizaciones:
+  repo: https://github.com/edelahozuah/computer-networks-visualizations
+  pages: https://edelahozuah.github.io/computer-networks-visualizations
+  doi: ""
+
 autor:
   nombre: Enrique de la Hoz
   puesto: Profesor Titular de Universidad

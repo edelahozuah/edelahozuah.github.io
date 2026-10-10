@@ -2,6 +2,9 @@
 # cinco primeras. El texto admite Markdown (enlaces, cursiva…). «texto_en» es
 # la versión para /en/; si falta, la noticia no aparece en inglés.
 - fecha: 2026-10-10
+  texto: "Las [visualizaciones interactivas de Arquitectura de Redes I](/docencia/proyectos/#computer-networks-visualizations) tienen ya repositorio propio en GitHub, con todas las piezas en español e inglés, su catálogo de metadatos y el código fuente, para que cualquier docente pueda reutilizarlas."
+  texto_en: "The [interactive visualizations of Network Architecture I](/en/teaching/projects/#computer-networks-visualizations) now have their own GitHub repository, with every piece in Spanish and English, a metadata catalogue and the source code, so that any lecturer can reuse them."
+- fecha: 2026-10-10
   texto: "Publicados los [horarios y asignaturas de la Escuela Politécnica en datos abiertos](/docencia/proyectos/#horarios-eps): una aplicación para consultarlos y los ficheros CSV y JSON del curso 2026/27, extraídos de los PDF oficiales."
   texto_en: "Published the [Polytechnic School timetables and courses as open data](/en/teaching/projects/#horarios-eps): an application to browse them and the CSV and JSON files for 2026/27, extracted from the official PDFs."
 - fecha: 2026-09-28

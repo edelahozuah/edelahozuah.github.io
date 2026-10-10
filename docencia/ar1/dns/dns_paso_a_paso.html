@@ -183,19 +183,30 @@ body { background: var(--bg); color: var(--fg); font-family: var(--body); margin
   "diagrama de secuencia"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/dns_paso_a_paso.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Arquitectura de Redes I",
+   "url": "https://edelahozuah.github.io/docencia/ar1/",
+   "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "workTranslation": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_step_by_step_en.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/02-application-layer/dns/dns-step-by-step.es.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -1146,6 +1157,6 @@ iniciar();
 })();
 </script>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Animación por pasos que cuenta el DNS desde el porqué en seis actos y 27 pasos. La dirección IP dice dónde está un equipo y depende de su proveedor, así que al mudarse se rompe todo lo que la tenía apuntada; un nombre añade un nivel de indirección que administra su dueño. La tabla de nombres empieza como un fichero central (HOSTS.TXT) que no escala y pasa a ser una base de datos distribuida, jerárquica y delegada en zonas, cuyo árbol no coincide con el de direcciones. El equipo final solo hace una pregunta al resolutor local y espera; detrás, el resolutor local recorre raíz, TLD .es y servidor autoritativo para resolver www.rediris.es, con referencias, pegamento (glue), los bits RD, RA y AA y la caché, en un mapa y un diagrama de secuencia que se construyen a la vez. Después muestra que recursiva e iterativa se dice de cada pareja consulta-respuesta, qué pasaría si todo fuese recursivo o todo iterativo, y termina con los ocho mensajes, su destino y sus secciones (Question, Answer, Authority, Additional).</p><p><b>Conceptos:</b> dirección IP, nivel de indirección, nombre de dominio, registro A, TTL, HOSTS.TXT, árbol de nombres, zona, delegación, resolutor del sistema (stub), resolutor local, servidor raíz, servidor TLD, servidor autoritativo, referencia, registro de pegamento (glue), caché, consulta recursiva, consulta iterativa, bit RD, bit RA, bit AA, diagrama de secuencia.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.2 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Animación por pasos que cuenta el DNS desde el porqué en seis actos y 27 pasos. La dirección IP dice dónde está un equipo y depende de su proveedor, así que al mudarse se rompe todo lo que la tenía apuntada; un nombre añade un nivel de indirección que administra su dueño. La tabla de nombres empieza como un fichero central (HOSTS.TXT) que no escala y pasa a ser una base de datos distribuida, jerárquica y delegada en zonas, cuyo árbol no coincide con el de direcciones. El equipo final solo hace una pregunta al resolutor local y espera; detrás, el resolutor local recorre raíz, TLD .es y servidor autoritativo para resolver www.rediris.es, con referencias, pegamento (glue), los bits RD, RA y AA y la caché, en un mapa y un diagrama de secuencia que se construyen a la vez. Después muestra que recursiva e iterativa se dice de cada pareja consulta-respuesta, qué pasaría si todo fuese recursivo o todo iterativo, y termina con los ocho mensajes, su destino y sus secciones (Question, Answer, Authority, Additional).</p><p><b>Conceptos:</b> dirección IP, nivel de indirección, nombre de dominio, registro A, TTL, HOSTS.TXT, árbol de nombres, zona, delegación, resolutor del sistema (stub), resolutor local, servidor raíz, servidor TLD, servidor autoritativo, referencia, registro de pegamento (glue), caché, consulta recursiva, consulta iterativa, bit RD, bit RA, bit AA, diagrama de secuencia.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.2 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

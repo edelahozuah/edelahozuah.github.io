@@ -21,7 +21,8 @@ compilación propio.
 | Resúmenes de las publicaciones (OpenAlex) | `_data/publicaciones_resumenes.yml` |
 | Página por publicación (generadas) | `_publicaciones/` |
 | PDF de las publicaciones | `publicaciones/<id>/` |
-| Resúmenes de las visualizaciones | `_data/resumenes/*.yml` |
+| Resúmenes de las visualizaciones (generado) | `_data/resumenes/visualizaciones.yml` |
+| Origen de cada visualización en el repositorio (generado) | `_data/visualizaciones.yml` |
 | Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
 | Trabajos dirigidos (TFM y TFG) | `_data/trabajos.yml` |
 | Proyectos docentes (herramientas y datos abiertos) | `_data/proyectos.yml` |
@@ -32,26 +33,36 @@ compilación propio.
 El aspecto sigue las convenciones del tema [al-folio](https://github.com/alshedivat/al-folio).
 El color de acento es la variable `--global-theme-color` de `assets/css/sitio.css`.
 
-## Añadir un recurso
+## Añadir una visualización
 
-1. Copia el HTML autocontenido en `docencia/<asignatura>/<tema>/`, por ejemplo
-   `docencia/ar1/tcp/ventana.html`. Sin cabecera YAML: Jekyll lo publica tal cual.
-2. Adáptala al aspecto de la web:
-   `python3 scripts/estilo_visualizaciones.py docencia/ar1/tcp`. Añade la barra
-   superior y cambia fondo, tipografía y acento sin tocar los colores con
-   significado. Reconoce las familias de estilo existentes (DNS, capas/colas,
-   laboratorio, retardos, diagrama de retardos); si avisa de «sin familia», hay
-   que enseñarle la nueva.
-   `--quitar` deshace el cambio.
-3. Guarda una captura de 720 px de ancho en `assets/img/recursos/`.
-4. Añade una entrada en `_data/recursos.yml` (título, url, imagen, descripción,
-   sesión y, si la hay, versión en inglés).
-5. Escribe su resumen en `_data/resumenes/` (uno por idioma, con la URL como
-   clave): `resumen` (3–5 frases), `conceptos` y, si las hay, `formulas`.
-6. Vuelve a ejecutar el script del paso 2: con los datos de los pasos 4 y 5
-   añade a la visualización su descripción, URL canónica, `hreflang`, Open
-   Graph y JSON-LD, y un bloque final «Sobre esta visualización» en texto
-   estático. Es idempotente; ejecútalo cada vez que cambies esos datos.
+Las visualizaciones no se editan aquí: su original está en el repositorio
+[computer-networks-visualizations](https://github.com/edelahozuah/computer-networks-visualizations)
+(en local, `../Visualizaciones`), con su catálogo `catalog.yml`. La web recibe
+copias.
+
+1. En el repositorio: crea los dos HTML (`<id>.es.html` y `<id>.en.html`),
+   añade su entrada a `catalog.yml` (título, descripción, resumen, conceptos y
+   fórmulas en los dos idiomas) y su miniatura, y pasa `scripts/check.py`.
+2. Aquí, en `_data/recursos.yml`, añade el recurso en su tema con `id:` (el del
+   catálogo), `url:` y `en:` (las rutas que tendrá en la web, dentro de
+   `docencia/<asignatura>/…`), `imagen:` (captura de 720 px en
+   `assets/img/recursos/`) y `sesion:` o `etiqueta:`. Título y descripción los
+   rellena el paso 3; puedes dejarlos vacíos o poner cualquier cosa.
+3. `python3 scripts/importar_visualizaciones.py`: copia los HTML del
+   repositorio a `url` y `en`, actualiza títulos y descripciones en
+   `_data/recursos.yml`, regenera `_data/resumenes/visualizaciones.yml` y
+   `_data/visualizaciones.yml`, y aplica `scripts/estilo_visualizaciones.py`
+   (barra, estilo, metadatos, JSON-LD con `sameAs` al original y el bloque
+   «Sobre esta visualización»). Con `--comprobar` solo verifica que cada copia,
+   sin el estilo, coincide con el repositorio.
+
+Cuando el repositorio tenga DOI en Zenodo, ponlo en `visualizaciones.doi` de
+`_config.yml` y vuelve a ejecutar el paso 3: sale en el pie y en el JSON-LD de
+cada visualización.
+
+`scripts/estilo_visualizaciones.py` reconoce las familias de estilo existentes
+(DNS, capas/colas, laboratorio, retardos, diagrama de retardos); si avisa de
+«sin familia», hay que enseñarle la nueva. `--quitar` deshace el cambio.
 
 Aparece solo en la página de la asignatura y en `/recursos/`.
 

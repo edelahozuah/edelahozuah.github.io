@@ -172,19 +172,30 @@ svg text{font-family:inherit;fill:var(--ink)}
   "segmentation"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/capas_logica_vs_real.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Network Architecture I",
-  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
-  "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "University of Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Network Architecture I",
+   "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+   "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "translationOfWork": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/capas/capas_logica_vs_real.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/logical-vs-real-communication.en.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -213,6 +224,7 @@ hecho=true;enviar(0);}
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Site"><a class="sitio-marca" href="/en/"><b>Enrique</b> de la Hoz</a><a href="/en/teaching/ar1/">Network Architecture I</a><a href="/docencia/ar1/capas/capas_logica_vs_real.html" hreflang="es" lang="es">Español</a></div><!-- barra-sitio:fin -->
+
 <main>
 <h1>Logical (horizontal) vs real (vertical) communication</h1>
 <p class="sub">Network Architecture I · S1.2 · Every entity believes it exchanges its PDU directly with its peer. None of them does.</p>
@@ -717,6 +729,6 @@ document.addEventListener('keydown',ev=>{
 });
 setK(4);render2();render3();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Explains in three views that communication between peer layers is only logical and that the only thing actually transmitted is signals over the physical medium. The first animates a PDU between a Wi-Fi host, a router and an Ethernet host: the student picks each layer&#x27;s point of view, opens the black box of the underlying service and can segment a 4000-byte message into three TCP segments. The second tells service, protocol and interface (SAP) apart step by step and lets the student swap the layer&#x27;s protocol. The third shows which entity writes and which reads each header of the frame.</p><p><b>Concepts:</b> logical communication, encapsulation, PDU, SDU, PCI, service, protocol, interface, SAP, segmentation.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 1.2 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Explains in three views that communication between peer layers is only logical and that the only thing actually transmitted is signals over the physical medium. The first animates a PDU between a Wi-Fi host, a router and an Ethernet host: the student picks each layer&#x27;s point of view, opens the black box of the underlying service and can segment a 4000-byte message into three TCP segments. The second tells service, protocol and interface (SAP) apart step by step and lets the student swap the layer&#x27;s protocol. The third shows which entity writes and which reads each header of the frame.</p><p><b>Concepts:</b> logical communication, encapsulation, PDU, SDU, PCI, service, protocol, interface, SAP, segmentation.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 1.2 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

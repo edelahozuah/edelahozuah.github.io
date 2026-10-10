@@ -172,19 +172,30 @@ svg text{font-family:inherit;fill:var(--ink)}
   "segmentación"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/capas_logica_vs_real.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Arquitectura de Redes I",
+   "url": "https://edelahozuah.github.io/docencia/ar1/",
+   "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "workTranslation": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/capas/layers_logical_vs_real.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/logical-vs-real-communication.es.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -213,6 +224,7 @@ hecho=true;enviar(0);}
 </head>
 <body>
 <!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Sitio"><a class="sitio-marca" href="/"><b>Enrique</b> de la Hoz</a><a href="/docencia/ar1/">Arquitectura de Redes I</a><a href="/docencia/ar1/capas/layers_logical_vs_real.html" hreflang="en" lang="en">English</a></div><!-- barra-sitio:fin -->
+
 <main>
 <h1>Comunicación lógica (horizontal) y comunicación real (vertical)</h1>
 <p class="sub">Arquitectura de Redes I · S1.2 · Cada entidad cree que intercambia su PDU directamente con su par. Ninguna lo hace.</p>
@@ -717,6 +729,6 @@ document.addEventListener('keydown',ev=>{
 });
 setK(4);render2();render3();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Explica en tres vistas que la comunicación entre capas homólogas es lógica y que solo se transmiten señales por el medio físico. La primera anima una PDU entre un host Wi-Fi, un router y un host Ethernet: el estudiante elige el punto de vista de cada capa, abre la caja negra del servicio inferior y puede segmentar un mensaje de 4000 octetos en tres segmentos TCP. La segunda distingue servicio, protocolo e interfaz (SAP) paso a paso y permite cambiar el protocolo de la capa. La tercera indica qué entidad escribe y cuál lee cada cabecera de la trama.</p><p><b>Conceptos:</b> comunicación lógica, encapsulado, PDU, SDU, PCI, servicio, protocolo, interfaz, SAP, segmentación.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 1.2 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Explica en tres vistas que la comunicación entre capas homólogas es lógica y que solo se transmiten señales por el medio físico. La primera anima una PDU entre un host Wi-Fi, un router y un host Ethernet: el estudiante elige el punto de vista de cada capa, abre la caja negra del servicio inferior y puede segmentar un mensaje de 4000 octetos en tres segmentos TCP. La segunda distingue servicio, protocolo e interfaz (SAP) paso a paso y permite cambiar el protocolo de la capa. La tercera indica qué entidad escribe y cuál lee cada cabecera de la trama.</p><p><b>Conceptos:</b> comunicación lógica, encapsulado, PDU, SDU, PCI, servicio, protocolo, interfaz, SAP, segmentación.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 1.2 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

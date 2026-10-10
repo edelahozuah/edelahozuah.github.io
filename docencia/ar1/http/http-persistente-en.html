@@ -185,19 +185,30 @@ details.sup ul { margin: 0; padding: 0 14px 14px 34px; font-size: 0.86rem; displ
   "link utilization"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/http-persistente.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Network Architecture I",
-  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
-  "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "University of Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Network Architecture I",
+   "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+   "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "translationOfWork": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/http/http-persistente.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/02-application-layer/http/http-persistent.en.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -982,6 +993,6 @@ if (typeof module !== 'undefined') module.exports = MotorHTTP;
 })();
 </script>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Delay diagrams for downloading a web page with N objects stored on the same server as the HTML base file, over a single persistent TCP connection, with HTTP/1.1 without pipelining and with pipelining. The browser first downloads the HTML and then requests the objects: without pipelining, each GET is sent once the previous object has arrived; with pipelining, all the GETs leave at once and the server sends the responses back to back. The student adjusts the link rate, the propagation delay, the size of the HTML and of the objects (equal or different), the TCP handshake and the server processing time, and sees both diagrams on the same time scale, with RTT and transmission-time dimension lines, the gaps where the link sits idle, the formula with the values substituted and a table of instants. The download can be played step by step, practised with random exercises and exported as SVG or PNG. It shows that pipelining saves (N−1)·(RTT + t_proc).</p><p><b>Concepts:</b> persistent HTTP, pipelining, TCP connection, connection setup, round-trip time (RTT), transmission delay, propagation delay, referenced object, HTML base file, delay diagram, link utilization.</p><p><b>Formulas:</b></p><ul><li><code>RTT = 2·d_prop</code></li><li><code>X = L / R</code></li><li><code>without pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + N·(RTT + t_proc + X)</code></li><li><code>with pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + RTT + t_proc + N·X</code></li><li><code>saving = (N−1)·(RTT + t_proc)</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.2 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Delay diagrams for downloading a web page with N objects stored on the same server as the HTML base file, over a single persistent TCP connection, with HTTP/1.1 without pipelining and with pipelining. The browser first downloads the HTML and then requests the objects: without pipelining, each GET is sent once the previous object has arrived; with pipelining, all the GETs leave at once and the server sends the responses back to back. The student adjusts the link rate, the propagation delay, the size of the HTML and of the objects (equal or different), the TCP handshake and the server processing time, and sees both diagrams on the same time scale, with RTT and transmission-time dimension lines, the gaps where the link sits idle, the formula with the values substituted and a table of instants. The download can be played step by step, practised with random exercises and exported as SVG or PNG. It shows that pipelining saves (N−1)·(RTT + t_proc).</p><p><b>Concepts:</b> persistent HTTP, pipelining, TCP connection, connection setup, round-trip time (RTT), transmission delay, propagation delay, referenced object, HTML base file, delay diagram, link utilization.</p><p><b>Formulas:</b></p><ul><li><code>RTT = 2·d_prop</code></li><li><code>X = L / R</code></li><li><code>without pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + N·(RTT + t_proc + X)</code></li><li><code>with pipelining: T = [RTT]_TCP + (RTT + t_proc + X_html) + RTT + t_proc + N·X</code></li><li><code>saving = (N−1)·(RTT + t_proc)</code></li></ul><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.2 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

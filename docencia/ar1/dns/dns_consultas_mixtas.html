@@ -212,19 +212,30 @@ table.load td:nth-child(2){white-space:nowrap}
   "consulta pendiente"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/dns_consultas_mixtas.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Arquitectura de Redes I",
+   "url": "https://edelahozuah.github.io/docencia/ar1/",
+   "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "workTranslation": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_queries_mixed_en.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/02-application-layer/dns/dns-queries-mixed.es.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -291,7 +302,7 @@ hecho=true;enviar(0);}
   <footer>Ampliación de las figuras 2.19 y 2.20 de Kurose y Ross. Modelo simplificado: un servidor «recursivo» resuelve por su cuenta lo que le preguntan (RD = 1 y RA = 1); uno «iterativo» contesta solo con lo que sabe, normalmente una referencia. También puedes cambiar el modo pulsando la etiqueta junto a cada servidor del dibujo. La configuración queda en la dirección de la página, para compartirla. Las direcciones IP de los servidores de .edu y de umass.edu son ilustrativas. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio reiniciar.</footer>
 </div>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Amplía las figuras 2.19 y 2.20 de Kurose y Ross: la resolución de gaia.cs.umass.edu con las cachés vacías, pero el estudiante decide si cada servidor (local, raíz, TLD .edu y autoritativo) atiende las consultas que recibe de forma recursiva o iterativa, en el panel o pulsando la etiqueta de cada servidor en el dibujo. La animación genera los 8 mensajes de esa configuración, con su tipo (consulta, referencia o respuesta), los campos RD, RA y AA y lo que se guarda en caché, y marca qué servidores tienen que recordar una consulta ajena. Al final, una tabla compara cuántos mensajes y consultas ha enviado cada equipo y quién ha esperado. Muestra que el número de mensajes no cambia, sino quién hace el trabajo, y por qué en la práctica solo el servidor local es recursivo.</p><p><b>Conceptos:</b> consulta iterativa, consulta recursiva, resolutor local, referencia, servidor raíz, servidor TLD, servidor autoritativo, caché, bit RD, bit RA, bit AA, consulta pendiente.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Amplía las figuras 2.19 y 2.20 de Kurose y Ross: la resolución de gaia.cs.umass.edu con las cachés vacías, pero el estudiante decide si cada servidor (local, raíz, TLD .edu y autoritativo) atiende las consultas que recibe de forma recursiva o iterativa, en el panel o pulsando la etiqueta de cada servidor en el dibujo. La animación genera los 8 mensajes de esa configuración, con su tipo (consulta, referencia o respuesta), los campos RD, RA y AA y lo que se guarda en caché, y marca qué servidores tienen que recordar una consulta ajena. Al final, una tabla compara cuántos mensajes y consultas ha enviado cada equipo y quién ha esperado. Muestra que el número de mensajes no cambia, sino quién hace el trabajo, y por qué en la práctica solo el servidor local es recursivo.</p><p><b>Conceptos:</b> consulta iterativa, consulta recursiva, resolutor local, referencia, servidor raíz, servidor TLD, servidor autoritativo, caché, bit RD, bit RA, bit AA, consulta pendiente.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
 <script>
 (() => {
 const NODES = {

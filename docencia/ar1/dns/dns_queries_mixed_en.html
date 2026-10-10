@@ -212,19 +212,30 @@ table.load td:nth-child(2){white-space:nowrap}
   "pending query"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/dns_consultas_mixtas.jpg",
- "isPartOf": {
-  "@type": "Course",
-  "name": "Network Architecture I",
-  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
-  "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
-  "provider": {
-   "@type": "CollegeOrUniversity",
-   "name": "University of Alcalá"
+ "isPartOf": [
+  {
+   "@type": "Course",
+   "name": "Network Architecture I",
+   "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+   "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
+   "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Alcalá"
+   }
+  },
+  {
+   "@type": "Collection",
+   "name": "Interactive visualizations for computer networks courses",
+   "url": "https://github.com/edelahozuah/computer-networks-visualizations",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0/"
   }
- },
+ ],
  "translationOfWork": {
   "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_consultas_mixtas.html"
- }
+ },
+ "sameAs": [
+  "https://edelahozuah.github.io/computer-networks-visualizations/02-application-layer/dns/dns-queries-mixed.en.html"
+ ]
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -291,7 +302,7 @@ hecho=true;enviar(0);}
   <footer>An extension of Figs. 2.19 and 2.20 in Kurose &amp; Ross. Simplified model: a “recursive” server resolves whatever it is asked on its own (RD = 1 and RA = 1); an “iterative” one replies only with what it knows, usually a referral. You can also change a server’s mode by clicking the label next to it in the diagram. The configuration is stored in the page address, so you can share it. The IP addresses of the .edu and umass.edu servers are illustrative. Keyboard: → next, ← previous, space play/pause, Home restart.</footer>
 </div>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>An extension of Figs. 2.19 and 2.20 in Kurose and Ross: resolving gaia.cs.umass.edu with every cache empty, but the student decides whether each server (local, root, .edu TLD and authoritative) handles the queries it receives recursively or iteratively, in the panel or by clicking the label next to each server in the diagram. The animation builds the 8 messages for that configuration, with their type (query, referral or answer), the RD, RA and AA fields and what gets cached, and marks which servers have to remember someone else&#x27;s query. At the end, a table compares how many messages and queries each device sent and who had to wait. It shows that the number of messages does not change, only who does the work, and why in practice only the local server is recursive.</p><p><b>Concepts:</b> iterative query, recursive query, local DNS server, referral, root server, TLD server, authoritative server, cache, RD bit, RA bit, AA bit, pending query.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>An extension of Figs. 2.19 and 2.20 in Kurose and Ross: resolving gaia.cs.umass.edu with every cache empty, but the student decides whether each server (local, root, .edu TLD and authoritative) handles the queries it receives recursively or iteratively, in the panel or by clicking the label next to each server in the diagram. The animation builds the 8 messages for that configuration, with their type (query, referral or answer), the RD, RA and AA fields and what gets cached, and marks which servers have to remember someone else&#x27;s query. At the end, a table compares how many messages and queries each device sent and who had to wait. It shows that the number of messages does not change, only who does the work, and why in practice only the local server is recursive.</p><p><b>Concepts:</b> iterative query, recursive query, local DNS server, referral, root server, TLD server, authoritative server, cache, RD bit, RA bit, AA bit, pending query.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Source and catalogue on GitHub</a></p></section><!-- acerca-sitio:fin -->
 <script>
 (() => {
 const NODES = {
