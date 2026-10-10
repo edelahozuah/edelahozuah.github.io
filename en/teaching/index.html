@@ -13,7 +13,7 @@ entradilla: Courses I teach at the University of Alcalá.
   {% for a in site.data.asignaturas %}
   <li>
     {% if a.pagina_en %}
-      {% assign temas = site.data.recursos[a.id] %}
+      {% assign rid = a.recursos_de | default: a.id %}{% assign temas = site.data.recursos[rid] %}
       {% assign total = 0 %}
       {% for t in temas %}{% assign total = total | plus: t.recursos.size %}{% endfor %}
       <a href="{{ a.pagina_en | relative_url }}">{{ a.nombre_en | default: a.nombre }}</a>

@@ -12,7 +12,7 @@ entradilla: Asignaturas que imparto en la Universidad de Alcalá.
   {% for a in site.data.asignaturas %}
   <li>
     {% if a.pagina %}
-      {% assign temas = site.data.recursos[a.id] %}
+      {% assign rid = a.recursos_de | default: a.id %}{% assign temas = site.data.recursos[rid] %}
       {% assign total = 0 %}{% for t in temas %}{% assign total = total | plus: t.recursos.size %}{% endfor %}
       <a href="{{ a.pagina | relative_url }}">{{ a.nombre }}</a>
       <span class="nota">({{ total }} recurso{% if total != 1 %}s{% endif %})</span>

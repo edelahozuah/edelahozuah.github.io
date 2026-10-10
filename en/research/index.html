@@ -43,5 +43,8 @@ entradilla: Research lines at the NetIS (Networks and Intelligent Systems) group
     <li><a href="https://orcid.org/{{ site.autor.orcid }}">ORCID {{ site.autor.orcid }}</a></li>
     <li><a href="{{ site.autor.scholar }}">Google Scholar</a></li>
     <li><a href="{{ site.autor.portal_uah }}">UAH research profile</a></li>
+    <li>Scopus: {% for s in site.autor.scopus %}<a href="https://www.scopus.com/authid/detail.uri?authorId={{ s }}">{{ s }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</li>
+    <li><a href="https://www.webofscience.com/wos/author/record/{{ site.autor.researcherid }}">Web of Science ResearcherID {{ site.autor.researcherid }}</a></li>
+    <li><a href="https://dialnet.unirioja.es/servlet/autor?codigo={{ site.autor.dialnet }}">Dialnet</a> (<a href="https://dialnet.unirioja.es/metricas/investigadores/{{ site.autor.dialnet }}">metrics</a>)</li>
   </ul>
 </section>

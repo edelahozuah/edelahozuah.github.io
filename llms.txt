@@ -18,7 +18,7 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 - [Investigación]({{ '/investigacion/' | absolute_url }}): líneas de investigación con sus publicaciones ([English]({{ '/en/research/' | absolute_url }}))
 - [Proyectos de investigación]({{ '/investigacion/' | absolute_url }}#proyectos): {{ site.data.proyectos_investigacion | size }} proyectos como investigador principal{% for p in site.data.proyectos_investigacion %}; {% if p.acronimo %}{{ p.acronimo }} ({% endif %}{{ p.referencia }}{% if p.acronimo %}){% endif %}, {{ p.inicio | date: "%Y" }}–{{ p.fin | date: "%Y" }}{% endfor %}
 - [Publicaciones]({{ '/publicaciones/' | absolute_url }}): {{ site.data.publicaciones | size }} publicaciones, con DOI y citas ([English]({{ '/en/publications/' | absolute_url }}))
-- [ORCID](https://orcid.org/{{ a.orcid }}), [Google Scholar]({{ a.scholar }}), [Portal científico UAH]({{ a.portal_uah }}), [GitHub](https://github.com/{{ a.github }})
+- [ORCID](https://orcid.org/{{ a.orcid }}), [Google Scholar]({{ a.scholar }}), [Portal científico UAH]({{ a.portal_uah }}), [GitHub](https://github.com/{{ a.github }}), Scopus {{ a.scopus | join: " y " }}, [Web of Science ResearcherID {{ a.researcherid }}](https://www.webofscience.com/wos/author/record/{{ a.researcherid }}), [Dialnet](https://dialnet.unirioja.es/servlet/autor?codigo={{ a.dialnet }})
 - Contacto: {{ a.email }}
 
 ## Docencia

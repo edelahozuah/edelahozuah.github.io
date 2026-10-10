@@ -8,8 +8,19 @@
   pagina: /docencia/ar1/
   pagina_en: /en/teaching/ar1/
   # «descripcion» y «descripcion_en» se usan en los datos estructurados (Course).
-  descripcion: Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS.
-  descripcion_en: Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS.
+  descripcion: Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.
+  descripcion_en: Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.
+- id: ar
+  nombre: Arquitectura de Redes
+  nombre_en: Network Architecture
+  # Asignatura hermana de Arquitectura de Redes I (mismo contenido y mismos
+  # exámenes) en los grados de Informática; «recursos_de» hace que enlace a la
+  # página y los recursos de ar1 sin duplicarlos.
+  recursos_de: ar1
+  pagina: /docencia/ar1/
+  pagina_en: /en/teaching/ar1/
+  nivel: Grados en Ingeniería Informática y en Ingeniería de Computadores; misma asignatura que Arquitectura de Redes I
+  nivel_en: Computer Engineering degrees; same course as Network Architecture I
 - id: ar2
   nombre: Arquitectura de Redes II
   nombre_en: Network Architecture II
