@@ -6,8 +6,9 @@
   {% if p.imagen %}<a href="{{ p.url }}" class="proyecto__captura"><img src="{{ p.imagen | relative_url }}" alt="" width="1200" height="630" loading="lazy"></a>{% endif %}
   {% if en %}{{ p.descripcion_en | markdownify }}{% else %}{{ p.descripcion | markdownify }}{% endif %}
   <p class="proyecto__enlaces">
-    <a href="{{ p.url }}">{% if en %}Open the application{% else %}Abrir la aplicación{% endif %}</a>
+    {%- if p.url != p.repo %}<a href="{{ p.url }}">{% if en %}Open the application{% else %}Abrir la aplicación{% endif %}</a>{% endif %}
     <a href="{{ p.repo }}">{% if en %}Code and documentation{% else %}Código y documentación{% endif %}</a>
+    {%- if p.doi %} <a href="https://doi.org/{{ p.doi }}">DOI {{ p.doi }}</a>{% endif %}
     {%- if p.fuente %} <a href="{{ p.fuente.url }}">{% if en %}Source: {{ p.fuente.nombre_en | default: p.fuente.nombre }}{% else %}Fuente: {{ p.fuente.nombre }}{% endif %}</a>{% endif %}
   </p>
   {% if p.datos %}
@@ -32,6 +33,6 @@
     {%- endif -%}
   </p>
   {% elsif p.licencia_codigo %}
-  <p class="nota">{% if en %}Published under the <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a> license.{% else %}Publicado con licencia <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a>.{% endif %}</p>
+  <p class="nota">{% if p.autores %}{% if en %}By{% else %}De{% endif %} {{ p.autores | join: ", " }}. {% endif %}{% if en %}Published under the <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a> license.{% else %}Publicado con licencia <a href="{{ p.licencia_codigo.url }}" rel="license">{{ p.licencia_codigo.nombre }}</a>.{% endif %}</p>
   {% endif %}
 </section>

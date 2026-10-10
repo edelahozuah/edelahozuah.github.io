@@ -102,12 +102,20 @@ English — {{ r.titulo_en | default: r.titulo }}: {% if res_en %}{{ res_en.resu
 {%- endif -%}{%- endfor %}
 ## Proyectos docentes / Teaching projects
 
-Herramientas y datos abiertos de uso general, no ligados a una asignatura. Fuente: {{ '/docencia/proyectos/' | absolute_url }}
+Herramientas, software y datos abiertos reutilizables fuera de la asignatura en la que nacen. Fuente: {{ '/docencia/proyectos/' | absolute_url }}
 {% for p in site.data.proyectos %}
 ### {{ p.titulo }}
 
+{%- if p.url != p.repo %}
 - Aplicación: {{ p.url }}
+{%- endif %}
 - Código ({{ p.licencia_codigo.nombre }}): {{ p.repo }}
+{%- if p.doi %}
+- DOI: https://doi.org/{{ p.doi }}
+{%- endif %}
+{%- if p.autores %}
+- Autores: {{ p.autores | join: ", " }}
+{%- endif %}
 {%- if p.datos %}
 - Datos ({{ p.licencia_datos.nombre }}{% if p.curso %}, curso {{ p.curso }}{% endif %}):
 {%- for f in p.datos.ficheros %}
