@@ -211,7 +211,12 @@ svg text.muted { fill: var(--ink-2); font-size: 13px; }
  },
  "sameAs": [
   "https://edelahozuah.github.io/computer-networks-visualizations/01-introduction/delay-lab/03-continuous-vs-stop-and-wait.es.html"
- ]
+ ],
+ "identifier": {
+  "@type": "PropertyValue",
+  "propertyID": "DOI",
+  "value": "10.5281/zenodo.23285664"
+ }
 }
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
@@ -653,6 +658,6 @@ const RT = (() => {
   applyPreset(PRESET_P28);
 })();
 </script>
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Compara dos formas de enviar el mismo fichero entre A y B, según el problema P28 de Kurose (20 000 km, 2 Mbps, 800 000 bits): como un único mensaje continuo y dividido en N paquetes con parada y espera, donde cada paquete espera su reconocimiento (ACK) antes de enviar el siguiente. Muestra ambos escenarios animados, sus diagramas espacio-tiempo, la utilización del enlace y el tiempo total. El estudiante cambia el tamaño del fichero, la tasa, la distancia y N, y puede probar una ventana de varios paquetes sin reconocer. El resultado muestra que el RTT domina el tiempo y deja el enlace casi ocioso.</p><p><b>Conceptos:</b> parada y espera, envío continuo, tiempo de ida y vuelta (RTT), reconocimiento (ACK), utilización del enlace, retardo de transmisión, retardo de propagación, ventana.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = F / R</code></li><li><code>d_prop = distancia / v_p</code></li><li><code>RTT = 2·d_prop</code></li><li><code>tiempo continuo = F/R + d_prop</code></li><li><code>tiempo con parada y espera (ventana 1, ACK despreciable) = N·(F/(N·R) + RTT)</code></li><li><code>utilización = d_trans total / tiempo total</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Laboratorio 1.2, problema P28 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Compara dos formas de enviar el mismo fichero entre A y B, según el problema P28 de Kurose (20 000 km, 2 Mbps, 800 000 bits): como un único mensaje continuo y dividido en N paquetes con parada y espera, donde cada paquete espera su reconocimiento (ACK) antes de enviar el siguiente. Muestra ambos escenarios animados, sus diagramas espacio-tiempo, la utilización del enlace y el tiempo total. El estudiante cambia el tamaño del fichero, la tasa, la distancia y N, y puede probar una ventana de varios paquetes sin reconocer. El resultado muestra que el RTT domina el tiempo y deja el enlace casi ocioso.</p><p><b>Conceptos:</b> parada y espera, envío continuo, tiempo de ida y vuelta (RTT), reconocimiento (ACK), utilización del enlace, retardo de transmisión, retardo de propagación, ventana.</p><p><b>Fórmulas:</b></p><ul><li><code>d_trans = F / R</code></li><li><code>d_prop = distancia / v_p</code></li><li><code>RTT = 2·d_prop</code></li><li><code>tiempo continuo = F/R + d_prop</code></li><li><code>tiempo con parada y espera (ventana 1, ACK despreciable) = N·(F/(N·R) + RTT)</code></li><li><code>utilización = d_trans total / tiempo total</code></li></ul><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Laboratorio 1.2, problema P28 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · <a href="https://github.com/edelahozuah/computer-networks-visualizations">Original y catálogo en GitHub</a> · DOI <a href="https://doi.org/10.5281/zenodo.23285664">10.5281/zenodo.23285664</a></p></section><!-- acerca-sitio:fin -->
 </body>
 </html>

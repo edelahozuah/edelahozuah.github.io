@@ -5,7 +5,7 @@
 
 repositorio: https://github.com/edelahozuah/computer-networks-visualizations
 pages: https://edelahozuah.github.io/computer-networks-visualizations
-version: c36eae0
+version: 6a556c4
 visualizaciones:
   /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
     id: bit-time-line-coding
