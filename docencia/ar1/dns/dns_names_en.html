@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Anatomía de un nombre: de las etiquetas al árbol</title>
+<title>Anatomy of a name: from labels to the tree</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 :root{
   --bg:#EEF0F2; --surface:#FFFFFF; --surface2:#F6F7F8; --ink:#1B2129; --muted:#5E6873; --line:#D5DAE0;
   --rust:#B5541F; --ans:#1D66A8; --ok:#1F8A4C; --err:#B3261E; --warn:#9A6E00;
-  /* una tinta por nivel del árbol */
+  /* one ink per tree level */
   --l0:#6F7B88; --l1:#B5541F; --l2:#1D66A8; --l3:#2E8B4A; --l4:#7E5FB0; --l5:#2C8686; --l6:#A8457A; --l7:#857314;
   --f-disp:"Archivo","Helvetica Neue",Arial,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -63,7 +63,7 @@ button:focus-visible,input:focus-visible,.hit:focus-visible{outline:3px solid va
 .chips button:hover{border-color:var(--muted)}
 .chips span{font-size:13px;color:var(--muted);align-self:center}
 
-/* Nombre y corchetes: fuente monoespaciada para que 1ch = 1 carácter */
+/* Name and brackets: monospace so that 1ch = 1 character */
 .namebox{overflow-x:auto;padding:18px 4px 8px;margin-top:10px}
 .name,.brs{font:500 clamp(20px,3.2vw,32px)/1.25 var(--f-mono);white-space:pre}
 .name{display:inline-block;padding-bottom:6px}
@@ -138,32 +138,32 @@ footer{font-size:12.5px;color:var(--muted);margin-top:14px;max-width:95ch}
 @media (prefers-reduced-motion:reduce){ .row.fresh{animation:none} .row,.br,.name .lab{transition:none} }
 </style>
 <!-- estilo-sitio:inicio -->
-<meta name="description" content="Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.">
+<meta name="description" content="Break any name into labels and domains and see it in the tree, from the root or from the name. Check the rules, 63 characters, trailing dot, case and punycode.">
 <meta name="author" content="Enrique de la Hoz">
-<link rel="canonical" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
-<link rel="alternate" hreflang="es" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
+<link rel="canonical" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html">
 <link rel="alternate" hreflang="en" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html">
+<link rel="alternate" hreflang="es" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
 <link rel="alternate" hreflang="x-default" href="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Enrique de la Hoz">
-<meta property="og:title" content="Anatomía de un nombre: de las etiquetas al árbol">
-<meta property="og:description" content="Descompón cualquier nombre en etiquetas y dominios y míralo en el árbol, desde la raíz o desde el nombre. Comprueba las reglas, 63 caracteres, punto final, mayúsculas y punycode.">
-<meta property="og:url" content="https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html">
-<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Anatomy of a name: from labels to the tree">
+<meta property="og:description" content="Break any name into labels and domains and see it in the tree, from the root or from the name. Check the rules, 63 characters, trailing dot, case and punycode.">
+<meta property="og:url" content="https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://edelahozuah.github.io/assets/img/recursos/dns_nombres.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "LearningResource",
- "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html",
- "url": "https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html",
- "name": "Anatomía de un nombre: de las etiquetas al árbol",
- "description": "Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.",
- "inLanguage": "es",
- "learningResourceType": "visualización interactiva",
+ "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html",
+ "url": "https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html",
+ "name": "Anatomy of a name: from labels to the tree",
+ "description": "Breaks a domain name into its labels and places it in the DNS tree. The student types a name or picks an example, and walks the levels from the root downwards or from the name upwards, with an optional pause to predict. Each suffix is shown as a domain, with its parent and an explanation of the TLD and of the second-level domain. A panel checks the rules: 63 characters per label, 253 in total, letters, digits and hyphens, trailing dot, case and punycode. It teaches that a name is written from the specific to the general and the tree is walked from the root.",
+ "inLanguage": "en",
+ "learningResourceType": "interactive visualization",
  "interactivityType": "active",
- "educationalLevel": "Grado universitario",
+ "educationalLevel": "Undergraduate",
  "isAccessibleForFree": true,
  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
  "author": {
@@ -176,28 +176,28 @@ footer{font-size:12.5px;color:var(--muted);margin-top:14px;max-width:95ch}
   ]
  },
  "teaches": [
-  "etiqueta",
-  "dominio",
-  "árbol de nombres",
-  "raíz",
-  "dominio de nivel superior (TLD)",
-  "nombre completo (FQDN)",
+  "label",
+  "domain",
+  "name tree",
+  "root",
+  "top-level domain (TLD)",
+  "fully qualified domain name (FQDN)",
   "punycode",
   "host"
  ],
  "image": "https://edelahozuah.github.io/assets/img/recursos/dns_nombres.jpg",
  "isPartOf": {
   "@type": "Course",
-  "name": "Arquitectura de Redes I",
-  "url": "https://edelahozuah.github.io/docencia/ar1/",
-  "description": "Asignatura de los grados de Telecomunicación e Informática de la Universidad de Alcalá sobre la arquitectura de las redes de comunicaciones. Estudia retardos, capas y encapsulado, conmutación de paquetes y colas, y el DNS. Se imparte también, con el mismo contenido y los mismos exámenes, como Arquitectura de Redes en los grados de Ingeniería Informática y de Ingeniería de Computadores.",
+  "name": "Network Architecture I",
+  "url": "https://edelahozuah.github.io/en/teaching/ar1/",
+  "description": "Course in the Telecommunication and Computer Engineering degrees at the University of Alcalá on the architecture of communication networks. It covers delays, layering and encapsulation, packet switching and queueing, and DNS. It is also taught, with the same content and exams, as Network Architecture in the Computer Engineering degrees.",
   "provider": {
    "@type": "CollegeOrUniversity",
-   "name": "Universidad de Alcalá"
+   "name": "University of Alcalá"
   }
  },
- "workTranslation": {
-  "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_names_en.html"
+ "translationOfWork": {
+  "@id": "https://edelahozuah.github.io/docencia/ar1/dns/dns_nombres.html"
  }
 }
 </script>
@@ -215,7 +215,7 @@ header{border-top:0}
 </style>
 <script data-goatcounter="https://edelahozuah.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script>(function(){var hecho=false,sel='button,input,select,textarea,label,summary,a,canvas,svg,[role],[tabindex],[onclick],[contenteditable]';
-function enviar(n){var g=window.goatcounter;if(g&&g.count){g.count({path:'uso:/docencia/ar1/dns/dns_nombres.html',title:document.title,event:true});}
+function enviar(n){var g=window.goatcounter;if(g&&g.count){g.count({path:'uso:/docencia/ar1/dns/dns_names_en.html',title:document.title,event:true});}
 else if(n<20){setTimeout(function(){enviar(n+1)},500);}}
 function uso(e){if(hecho)return;var t=e.target;if(!(t instanceof Element))return;
 if(t.closest('.sitio-barra,.sitio-acerca'))return;
@@ -224,91 +224,92 @@ if(e.type==='keydown'&&(e.key==='Tab'||e.key==='Shift'||e.key==='Meta'||e.key===
 hecho=true;enviar(0);}
 ['click','input','change','keydown'].forEach(function(t){document.addEventListener(t,uso,{capture:true,passive:true});});})();</script>
 <!-- estilo-sitio:fin -->
-<!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Sitio"><a class="sitio-marca" href="/"><b>Enrique</b> de la Hoz</a><a href="/docencia/ar1/">Arquitectura de Redes I</a><a href="/docencia/ar1/dns/dns_names_en.html" hreflang="en" lang="en">English</a></div><!-- barra-sitio:fin -->
+<!-- barra-sitio:inicio --><div class="sitio-barra" role="navigation" aria-label="Site"><a class="sitio-marca" href="/en/"><b>Enrique</b> de la Hoz</a><a href="/en/teaching/ar1/">Network Architecture I</a><a href="/docencia/ar1/dns/dns_nombres.html" hreflang="es" lang="es">Español</a></div><!-- barra-sitio:fin -->
+
 <div class="wrap">
   <header>
     <div>
-      <div class="eyebrow">Tema 2 · GG21 · DNS</div>
-      <h1>Anatomía de un nombre: de las etiquetas al árbol</h1>
+      <div class="eyebrow">Unit 2 · GG21 · DNS</div>
+      <h1>Anatomy of a name: from labels to the tree</h1>
     </div>
-    <p class="rule">Un nombre se escribe <b>de lo particular a lo general</b>; el árbol se recorre <b>de la raíz hacia abajo</b>. Cada sufijo del nombre es un dominio, y cada dominio es un nodo del árbol.</p>
+    <p class="rule">A name is written <b>from the specific to the general</b>; the tree is walked <b>from the root downwards</b>. Every suffix of the name is a domain, and every domain is a node of the tree.</p>
   </header>
 
-  <div class="toolbar" role="toolbar" aria-label="Controles de la animación">
-    <div class="seg" role="group" aria-label="Sentido del recorrido">
-      <button data-dir="down" aria-pressed="true">Desde la raíz ↓</button>
-      <button data-dir="up" aria-pressed="false">Desde el nombre ↑</button>
+  <div class="toolbar" role="toolbar" aria-label="Animation controls">
+    <div class="seg" role="group" aria-label="Direction of the walk">
+      <button data-dir="down" aria-pressed="true">From the root ↓</button>
+      <button data-dir="up" aria-pressed="false">From the name ↑</button>
     </div>
     <div class="ctrls">
-      <button class="btn" id="b-reset" title="Volver al principio del recorrido (Inicio)" aria-label="Volver al principio">⏮</button>
-      <button class="btn" id="b-prev" title="Nivel anterior (←)" aria-label="Nivel anterior">◀</button>
-      <button class="btn primary" id="b-next" title="Siguiente nivel (→)">Bajar un nivel ▶</button>
-      <button class="btn" id="b-play" title="Reproducir / pausar (espacio)" aria-label="Reproducir">▶▶</button>
-      <label class="opt" for="o-ask"><input type="checkbox" id="o-ask"> Pausa para predecir</label>
+      <button class="btn" id="b-reset" title="Back to the start of the walk (Home)" aria-label="Back to the start">⏮</button>
+      <button class="btn" id="b-prev" title="Previous level (←)" aria-label="Previous level">◀</button>
+      <button class="btn primary" id="b-next" title="Next level (→)">Go down one level ▶</button>
+      <button class="btn" id="b-play" title="Play / pause (space)" aria-label="Play">▶▶</button>
+      <label class="opt" for="o-ask"><input type="checkbox" id="o-ask"> Pause to predict</label>
     </div>
-    <div class="counter" aria-live="polite">nivel <b id="c-k">0</b> / <span id="c-n">0</span></div>
+    <div class="counter" aria-live="polite">level <b id="c-k">0</b> / <span id="c-n">0</span></div>
   </div>
 
   <section class="panel">
-    <h2>El nombre <small>cada color es un nivel del árbol</small></h2>
+    <h2>The name <small>each colour is one level of the tree</small></h2>
     <div class="inrow">
-      <input id="in" type="text" value="cisneros.aut.uah.es" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Nombre de dominio">
-      <div class="chips" id="chips"><span>Prueba:</span></div>
+      <input id="in" type="text" value="cisneros.aut.uah.es" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Domain name">
+      <div class="chips" id="chips"><span>Try:</span></div>
     </div>
     <div class="namebox"><div class="name" id="name"></div><div class="brs" id="brs"></div></div>
-    <div class="readdir"><span>← <b>se escribe</b>: de lo particular (izquierda) a lo general (derecha)</span><span><b>el árbol</b>: de la raíz (el punto final) hacia la izquierda →</span></div>
+    <div class="readdir"><span>← <b>written</b>: from the specific (left) to the general (right)</span><span><b>the tree</b>: from the root (the trailing dot) leftwards →</span></div>
   </section>
 
   <section class="stage">
     <div class="panel" style="margin:0">
-      <h2>El mismo nombre en el árbol <small>el camino desde la raíz; en gris, otras ramas</small></h2>
-      <div class="svgbox"><svg class="tree" id="tree" viewBox="0 0 820 500" role="img" aria-label="Camino del nombre en el árbol de dominios"></svg></div>
-      <p class="legend">Pulsa cualquier etiqueta, corchete o nodo para ir a ese nivel.</p>
+      <h2>The same name in the tree <small>the path from the root; other branches in grey</small></h2>
+      <div class="svgbox"><svg class="tree" id="tree" viewBox="0 0 820 500" role="img" aria-label="Path of the name in the domain tree"></svg></div>
+      <p class="legend">Click any label, bracket or node to jump to that level.</p>
     </div>
     <div class="side">
       <div class="card" id="card" aria-live="polite"></div>
-      <div class="card"><div class="kind">Reglas del nombre</div><ul class="rules" id="rules"></ul></div>
+      <div class="card"><div class="kind">Name rules</div><ul class="rules" id="rules"></ul></div>
     </div>
   </section>
 
-  <footer>Reglas: RFC 1035 (63 caracteres por etiqueta; 255 octetos en total en el mensaje, que son 253 caracteres escritos), RFC 1123 (letras, cifras y guion en nombres de host) y RFC 5890 (nombres internacionalizados, codificados en punycode). Las ramas grises son solo contexto. Teclado: → siguiente, ← anterior, espacio reproducir/pausar, Inicio volver al principio.</footer>
+  <footer>Rules: RFC 1035 (63 characters per label; 255 octets in total in the message, which is 253 written characters), RFC 1123 (letters, digits and hyphen in host names) and RFC 5890 (internationalized names, encoded in punycode). Grey branches are context only. Keyboard: → next, ← previous, space play/pause, Home back to the start.</footer>
 </div>
 
-<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">Sobre esta visualización</h2><p>Descompone un nombre de dominio en sus etiquetas y lo sitúa en el árbol del DNS. El estudiante escribe un nombre o elige un ejemplo, y recorre los niveles desde la raíz hacia abajo o desde el nombre hacia arriba, con una pausa opcional para predecir. Cada sufijo se muestra como un dominio, con su padre y una explicación del TLD y del dominio de segundo nivel. Un panel comprueba las reglas: 63 caracteres por etiqueta, 253 en total, letras, cifras y guiones, punto final, mayúsculas y punycode. Enseña que un nombre se escribe de lo particular a lo general y el árbol se recorre desde la raíz.</p><p><b>Conceptos:</b> etiqueta, dominio, árbol de nombres, raíz, dominio de nivel superior (TLD), nombre completo (FQDN), punycode, host.</p><p class="sitio-pie"><a href="/docencia/ar1/">Arquitectura de Redes I</a>, Sesión 2.1 · Enrique de la Hoz, Universidad de Alcalá · Licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
+<!-- acerca-sitio:inicio --><section class="sitio-acerca" aria-labelledby="sitio-acerca-t"><h2 id="sitio-acerca-t">About this visualization</h2><p>Breaks a domain name into its labels and places it in the DNS tree. The student types a name or picks an example, and walks the levels from the root downwards or from the name upwards, with an optional pause to predict. Each suffix is shown as a domain, with its parent and an explanation of the TLD and of the second-level domain. A panel checks the rules: 63 characters per label, 253 in total, letters, digits and hyphens, trailing dot, case and punycode. It teaches that a name is written from the specific to the general and the tree is walked from the root.</p><p><b>Concepts:</b> label, domain, name tree, root, top-level domain (TLD), fully qualified domain name (FQDN), punycode, host.</p><p class="sitio-pie"><a href="/en/teaching/ar1/">Network Architecture I</a>, Session 2.1 · Enrique de la Hoz, University of Alcalá · License <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a></p></section><!-- acerca-sitio:fin -->
 <script>
 (() => {
-/* ---------- Conocimiento del ejemplo ---------- */
+/* ---------- Example knowledge ---------- */
 const EXAMPLES = ['cisneros.aut.uah.es', 'www.uah.es.', 'gaia.cs.umass.edu', 'www.bbc.co.uk', 'turismo.madrid', 'WWW.UAH.ES', 'año.es', 'www..uah.es'];
 const TLD = {
-  es:'Dominio de nivel superior de país (ccTLD) de España. Lo gestiona Red.es, que es quien cede los dominios de segundo nivel como uah.es.',
-  com:'Dominio de nivel superior genérico (gTLD) histórico, abierto a cualquiera. Lo gestiona Verisign.',
-  org:'gTLD histórico, pensado para organizaciones. Lo gestiona Public Interest Registry.',
-  net:'gTLD histórico, pensado para redes. Lo gestiona Verisign.',
-  edu:'gTLD reservado a instituciones de educación superior de EE. UU. Lo gestiona EDUCAUSE.',
-  gov:'gTLD reservado al gobierno de EE. UU.',
-  uk:'ccTLD del Reino Unido. Lo gestiona Nominet.',
-  fr:'ccTLD de Francia.', de:'ccTLD de Alemania.', pt:'ccTLD de Portugal.', eu:'ccTLD de la Unión Europea.',
-  io:'ccTLD del Territorio Británico del Océano Índico, muy usado por empresas tecnológicas porque «io» recuerda a entrada/salida.',
-  madrid:'Uno de los más de 1 200 gTLD nuevos aprobados desde 2012; este lo gestiona la Comunidad de Madrid.',
-  cat:'gTLD de la lengua y la cultura catalanas; fue de los primeros temáticos, en 2005.',
-  eus:'gTLD nuevo de la lengua y la cultura vascas.', gal:'gTLD nuevo de la lengua y la cultura gallegas.',
-  app:'gTLD nuevo de Google: los navegadores obligan a usar HTTPS en todos sus nombres.', dev:'gTLD nuevo de Google para desarrolladores: obliga a usar HTTPS.',
-  arpa:'Dominio de infraestructura de Internet. De él cuelga in-addr.arpa, que sirve para la resolución inversa (de dirección a nombre).',
+  es:'Country-code top-level domain (ccTLD) of Spain. It is run by Red.es, which hands out second-level domains such as uah.es.',
+  com:'Historic generic top-level domain (gTLD), open to anyone. Run by Verisign.',
+  org:'Historic gTLD, intended for organisations. Run by Public Interest Registry.',
+  net:'Historic gTLD, intended for networks. Run by Verisign.',
+  edu:'gTLD reserved for US higher-education institutions. Run by EDUCAUSE.',
+  gov:'gTLD reserved for the US government.',
+  uk:'ccTLD of the United Kingdom. Run by Nominet.',
+  fr:'ccTLD of France.', de:'ccTLD of Germany.', pt:'ccTLD of Portugal.', eu:'ccTLD of the European Union.',
+  io:'ccTLD of the British Indian Ocean Territory, popular with tech companies because "io" suggests input/output.',
+  madrid:'One of the more than 1,200 new gTLDs approved since 2012; this one is run by the Madrid regional government.',
+  cat:'gTLD for the Catalan language and culture; one of the first thematic ones, in 2005.',
+  eus:'New gTLD for the Basque language and culture.', gal:'New gTLD for the Galician language and culture.',
+  app:'New gTLD run by Google: browsers enforce HTTPS on all of its names.', dev:'New gTLD run by Google for developers: HTTPS is mandatory.',
+  arpa:'Internet infrastructure domain. in-addr.arpa hangs from it and is used for reverse resolution (from address to name).',
 };
 const DOM = {
-  'uah.es':'La Universidad de Alcalá registró uah.es a través de un agente registrador acreditado por Red.es. Todo lo que cuelga de aquí lo decide la UAH.',
-  'upm.es':'Dominio de la Universidad Politécnica de Madrid, registrado ante Red.es.',
-  'aut.uah.es':'Subdominio del Departamento de Automática. Lo creó la UAH dentro de uah.es sin pedir permiso a nadie por encima.',
-  'cc.uah.es':'Subdominio de Ciencias de la Computación, creado por la UAH dentro de uah.es.',
-  'umass.edu':'Dominio de la Universidad de Massachusetts, registrado ante EDUCAUSE.',
-  'cs.umass.edu':'Subdominio del departamento de Computer Science, creado por UMass dentro de umass.edu.',
-  'google.com':'Dominio de Google, registrado ante Verisign a través de un agente registrador.',
-  'co.uk':'En .uk el propio registro usa el segundo nivel para clasificar: co.uk (empresas), ac.uk (universidades), gov.uk… Por eso aquí el dominio de la organización queda en el nivel 3.',
-  'ac.uk':'Segundo nivel reservado a universidades británicas, dentro de .uk.',
-  'bbc.co.uk':'Dominio de la BBC dentro de co.uk: en Reino Unido, el de la organización está en el nivel 3.',
-  'in-addr.arpa':'Rama de la resolución inversa IPv4: debajo, las direcciones se escriben al revés, un byte por etiqueta.',
+  'uah.es':'The University of Alcalá registered uah.es through a registrar accredited by Red.es. Everything below this point is decided by the UAH.',
+  'upm.es':'Domain of the Technical University of Madrid, registered with Red.es.',
+  'aut.uah.es':'Subdomain of the Department of Automation. The UAH created it inside uah.es without asking anyone above for permission.',
+  'cc.uah.es':'Subdomain of Computer Science, created by the UAH inside uah.es.',
+  'umass.edu':'Domain of the University of Massachusetts, registered with EDUCAUSE.',
+  'cs.umass.edu':'Subdomain of the Computer Science department, created by UMass inside umass.edu.',
+  'google.com':'Google\'s domain, registered with Verisign through a registrar.',
+  'co.uk':'In .uk the registry itself uses the second level to classify: co.uk (companies), ac.uk (universities), gov.uk… That is why the organisation\'s domain sits at level 3 here.',
+  'ac.uk':'Second level reserved for British universities, inside .uk.',
+  'bbc.co.uk':'The BBC\'s domain inside co.uk: in the UK, the organisation\'s domain is at level 3.',
+  'in-addr.arpa':'IPv4 reverse-resolution branch: below it, addresses are written backwards, one byte per label.',
 };
-// Hermanos de contexto para dibujar el árbol (clave: dominio padre, '' es la raíz)
+// Context siblings for drawing the tree (key: parent domain, '' is the root)
 const SIB = {
   '':['com','org','net','edu','es','uk'],
   'es':['upm','uah','gob'], 'uah.es':['www','aut','cc'], 'aut.uah.es':['cisneros','dns','lab'], 'cc.uah.es':['lab','web'],
@@ -317,7 +318,7 @@ const SIB = {
   'uk':['ac','co','gov'], 'co.uk':['bbc'], 'ac.uk':['ox','cam'],
 };
 
-/* ---------- Análisis del nombre ---------- */
+/* ---------- Parsing the name ---------- */
 const LDH = /^[a-z0-9]([a-z0-9-]*[a-z0-9])?$/i;
 function puny(label){ try { return new URL('http://' + label + '.x').hostname.split('.')[0]; } catch { return null; } }
 function parse(raw){
@@ -331,23 +332,23 @@ function parse(raw){
   return {typed, fqdn, labels, ascii, empty, n: labels.length};
 }
 
-/* ---------- Estado ---------- */
+/* ---------- State ---------- */
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const lc = d => d === 0 ? 'var(--l0)' : `var(--l${1 + (d - 1) % 7})`;
 const app = {P:null, cur:0, dir:'down', asking:false, playing:false, timer:null, fresh:-1, hov:null};
 window.app = app;
-// Dominio de profundidad d: las d etiquetas de la derecha
+// Domain at depth d: the d rightmost labels
 const suffix = d => d === 0 ? '.' : app.P.labels.slice(app.P.n - d).join('.') + '.';
 const suffixKey = d => app.P.ascii.slice(app.P.n - d).join('.');
-// En la prosa, sin el punto final para no chocar con la puntuación
-const prose = d => d === 0 ? 'la raíz' : `<span class="mono">${esc(suffix(d).slice(0, -1))}</span>`;
+// In prose, without the trailing dot so it does not clash with punctuation
+const prose = d => d === 0 ? 'the root' : `<span class="mono">${esc(suffix(d).slice(0, -1))}</span>`;
 const labelAt = d => app.P.labels[app.P.n - d];
-const levelName = d => d === 0 ? 'raíz' : d === 1 ? 'nivel 1 · TLD' : `nivel ${d}`;
+const levelName = d => d === 0 ? 'root' : d === 1 ? 'level 1 · TLD' : `level ${d}`;
 const hidden = d => app.dir === 'down' && d > app.cur;
 const dimmed = d => app.dir === 'up' && d > app.cur;
 
-/* ---------- Nombre y corchetes ---------- */
+/* ---------- Name and brackets ---------- */
 function drawName(){
   const P = app.P, box = $('name'), brs = $('brs');
   let html = '', pos = 0; const start = [];
@@ -359,13 +360,13 @@ function drawName(){
   });
   start[0] = pos;
   const rc = ['root', 'hit']; if (!P.fqdn) rc.push('ghost'); if (app.cur === 0) rc.push('cur'); if (app.hov === 0) rc.push('hov');
-  html += `<span class="${rc.join(' ')}" data-d="0" style="--c:var(--l0)" title="${P.fqdn ? 'El punto final: la raíz' : 'Punto final implícito: la raíz siempre está'}">.</span>`;
+  html += `<span class="${rc.join(' ')}" data-d="0" style="--c:var(--l0)" title="${P.fqdn ? 'The trailing dot: the root' : 'Implicit trailing dot: the root is always there'}">.</span>`;
   box.innerHTML = html;
   const L = pos + 1;
   let bh = '';
   for (let d = 0; d <= P.n; d++){
     const cls = ['br', 'hit']; if (hidden(d)) cls.push('hide'); if (dimmed(d)) cls.push('off'); if (d === app.cur) cls.push('cur'); if (d === app.hov) cls.push('hov');
-    const what = d === 0 ? 'etiqueta vacía: el punto final' : d === P.n && P.n > 1 ? 'el nombre completo' : 'dominio';
+    const what = d === 0 ? 'empty label: the trailing dot' : d === P.n && P.n > 1 ? 'the full name' : 'domain';
     bh += `<div class="${cls.join(' ')}" data-d="${d}" style="--c:${lc(d)};left:${start[d]}ch;width:${L - start[d]}ch;top:${d * 32}px"><span class="bl"><b>${esc(suffix(d))}</b> · ${levelName(d)} · ${what}</span></div>`;
   }
   brs.innerHTML = bh;
@@ -373,7 +374,7 @@ function drawName(){
   brs.style.width = `calc(${L}ch + 400px)`;
 }
 
-/* ---------- Árbol ---------- */
+/* ---------- Tree ---------- */
 const SVGNS = 'http://www.w3.org/2000/svg';
 const el = (n, a={}, p) => { const e = document.createElementNS(SVGNS, n); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
 const W = 820, LEFT = 140, RIGHT = 20, TOP = 44, LEVEL = 84, GAP = 22;
@@ -390,7 +391,7 @@ function treeRows(){
       if (!sib.includes(lab)) sib.splice(Math.ceil(sib.length / 2), 0, lab);
       nodes = sib.map(l => ({l: l === lab ? shown : l, path: l === lab}));
     } else nodes = [{l:'…', ghost:true}, {l:shown, path:true}, {l:'…', ghost:true}];
-    // Si no caben, quitamos hermanos por los extremos
+    // If they do not fit, drop siblings from the ends
     const width = ns => ns.reduce((s, x) => s + pw(x.l), 0) + GAP * (ns.length - 1);
     while (nodes.length > 1 && width(nodes) > W - LEFT - RIGHT){
       const pi = nodes.findIndex(x => x.path);
@@ -436,75 +437,75 @@ function drawTree(){
   });
 }
 
-/* ---------- Tarjeta explicativa ---------- */
+/* ---------- Explanation card ---------- */
 function drawCard(){
   const P = app.P, c = $('card'), d = app.cur;
   if (app.asking){
     const q = app.dir === 'down'
-      ? `¿Qué dominio hay un nivel por debajo de ${prose(d)} en el camino hacia ${prose(P.n)}?`
-      : `¿Cuál es el dominio padre de ${prose(d)}?`;
-    c.innerHTML = `<div class="kind">Antes de seguir</div><h3 class="ask">${q}</h3><p class="note">Piénsalo y pulsa «${app.dir === 'down' ? 'Bajar' : 'Subir'} un nivel» para comprobarlo.</p>`;
+      ? `Which domain is one level below ${prose(d)} on the path to ${prose(P.n)}?`
+      : `What is the parent domain of ${prose(d)}?`;
+    c.innerHTML = `<div class="kind">Before going on</div><h3 class="ask">${q}</h3><p class="note">Think about it and press "Go ${app.dir === 'down' ? 'down' : 'up'} one level" to check.</p>`;
     return;
   }
   if (P.n === 0){
-    c.innerHTML = `<div class="kind" style="color:var(--l0)"><i></i>Raíz</div><h3 class="mono">.</h3><p class="say">Solo la raíz. Escribe un nombre arriba, por ejemplo <span class="mono">cisneros.aut.uah.es</span>.</p>`;
+    c.innerHTML = `<div class="kind" style="color:var(--l0)"><i></i>Root</div><h3 class="mono">.</h3><p class="say">Only the root. Type a name above, for example <span class="mono">cisneros.aut.uah.es</span>.</p>`;
     return;
   }
   const key = suffixKey(d), lab = labelAt(d);
   let kind, say;
   if (d === 0){
-    kind = 'Raíz';
-    say = 'La raíz no tiene etiqueta: es la etiqueta vacía, y por eso se escribe como un punto al final. Casi nunca se escribe, pero siempre está: el nombre completo (FQDN) de ' + `<span class="mono">${esc(P.labels.join('.'))}</span> es <span class="mono">${esc(suffix(P.n))}</span>. Todos los nombres de Internet cuelgan de ella.`;
+    kind = 'Root';
+    say = 'The root has no label: it is the empty label, which is why it is written as a trailing dot. It is almost never written, but it is always there: the fully qualified name (FQDN) of ' + `<span class="mono">${esc(P.labels.join('.'))}</span> is <span class="mono">${esc(suffix(P.n))}</span>. Every name on the Internet hangs from it.`;
   } else if (d === 1){
-    kind = 'Nivel 1 · dominio de nivel superior (TLD)';
-    say = TLD[key] || `Esta página no conoce el TLD «${esc(lab)}». Si no existe en la zona raíz, la raíz contestará que el nombre no existe (NXDOMAIN).`;
+    kind = 'Level 1 · top-level domain (TLD)';
+    say = TLD[key] || `This page does not know the TLD "${esc(lab)}". If it does not exist in the root zone, the root will answer that the name does not exist (NXDOMAIN).`;
   } else {
-    kind = d === 2 ? 'Nivel 2 · dominio de segundo nivel' : `Nivel ${d}`;
+    kind = d === 2 ? 'Level 2 · second-level domain' : `Level ${d}`;
     say = DOM[key] || (d === 2
-      ? `Dominio de segundo nivel: una organización lo registra ante quien gestiona ${prose(1)}, y a partir de aquí decide ella qué nombres crea debajo.`
-      : `${d === P.n ? 'Nombre dentro' : 'Subdominio'} de ${prose(d - 1)}: lo crea quien gestiona ${prose(d - 1)}, sin pedir permiso a nadie por encima.`);
+      ? `Second-level domain: an organisation registers it with whoever runs ${prose(1)}, and from here on it decides which names to create below.`
+      : `${d === P.n ? 'Name inside' : 'Subdomain of'} ${prose(d - 1)}: created by whoever runs ${prose(d - 1)}, without asking anyone above for permission.`);
   }
   const fields = [];
   if (d > 0){
-    fields.push(`etiqueta «${esc(lab)}» · ${[...lab].length} ${[...lab].length === 1 ? 'carácter' : 'caracteres'}`);
-    fields.push(`padre: ${esc(suffix(d - 1))}`);
+    fields.push(`label "${esc(lab)}" · ${[...lab].length} ${[...lab].length === 1 ? 'character' : 'characters'}`);
+    fields.push(`parent: ${esc(suffix(d - 1))}`);
   }
-  if (d < P.n) fields.push(`contiene a: ${esc(suffix(d + 1))}`);
+  if (d < P.n) fields.push(`contains: ${esc(suffix(d + 1))}`);
   let note = app.dir === 'down'
-    ? (d === 0 ? 'Bajar un nivel en el árbol = <b>añadir una etiqueta por la izquierda</b>.' : `Para llegar aquí desde ${prose(d - 1)} se ha añadido «${esc(lab)}» por la izquierda.`)
-    : (d === 0 ? 'Ya no quedan etiquetas: has llegado a la raíz.' : `Subir un nivel = <b>quitar la etiqueta de la izquierda</b>: el padre de ${prose(d)} es ${prose(d - 1)}.`);
-  if (d === P.n && P.n >= 2) note += ` <b>«${esc(lab)}»</b> es la etiqueta de más a la izquierda: aquí seguramente nombra un host, un equipo concreto. Pero el nombre no lo dice: un nombre es un host si tiene una dirección (registro A), y a la vez puede ser un dominio con nombres debajo.`;
+    ? (d === 0 ? 'Going down one level in the tree = <b>adding a label on the left</b>.' : `To get here from ${prose(d - 1)}, "${esc(lab)}" was added on the left.`)
+    : (d === 0 ? 'No labels left: you have reached the root.' : `Going up one level = <b>removing the leftmost label</b>: the parent of ${prose(d)} is ${prose(d - 1)}.`);
+  if (d === P.n && P.n >= 2) note += ` <b>"${esc(lab)}"</b> is the leftmost label: here it probably names a host, a specific machine. But the name itself does not say so: a name is a host if it has an address (A record), and at the same time it can be a domain with names below it.`;
   c.innerHTML = `<div class="kind" style="color:${lc(d)}"><i></i>${kind}</div><h3 class="mono" style="color:${lc(d)}">${esc(suffix(d))}</h3><p class="say">${say}</p><div class="fields">${fields.map(f => `<span>${f}</span>`).join('')}</div><p class="note">${note}</p>`;
 }
 
-/* ---------- Reglas ---------- */
+/* ---------- Rules ---------- */
 function drawRules(){
   const P = app.P, R = [];
   const add = (st, html) => R.push(`<li class="${st}"><i>${st === 'ok' ? '✓' : st === 'err' ? '✕' : st === 'warn' ? '!' : 'i'}</i><span>${html}</span></li>`);
-  add('info', `${P.n} ${P.n === 1 ? 'etiqueta' : 'etiquetas'} + la raíz → <b>${P.n + 1} niveles</b> en el árbol, de la raíz al nombre.`);
-  if (P.empty) add('err', 'Hay dos puntos seguidos o un punto al principio: una etiqueta vacía. La única etiqueta vacía permitida es la de la raíz, al final.');
+  add('info', `${P.n} ${P.n === 1 ? 'label' : 'labels'} + the root → <b>${P.n + 1} levels</b> in the tree, from the root to the name.`);
+  if (P.empty) add('err', 'There are two dots in a row or a leading dot: an empty label. The only empty label allowed is the root one, at the end.');
   const lens = P.ascii.map(l => l.length), maxL = Math.max(0, ...lens);
-  add(maxL <= 63 ? 'ok' : 'err', `Cada etiqueta tiene como mucho <b>63 caracteres</b>. La más larga aquí: ${maxL}.`);
+  add(maxL <= 63 ? 'ok' : 'err', `Each label has at most <b>63 characters</b>. The longest one here: ${maxL}.`);
   const total = P.ascii.join('.').length;
-  add(total <= 253 ? 'ok' : 'err', `El nombre entero, como mucho <b>255</b> octetos en el mensaje DNS (253 caracteres escritos). Aquí: ${total}.`);
+  add(total <= 253 ? 'ok' : 'err', `The whole name, at most <b>255</b> octets in the DNS message (253 written characters). Here: ${total}.`);
   const bad = P.ascii.filter(l => !LDH.test(l));
   if (P.n) add(bad.length ? 'warn' : 'ok', bad.length
-    ? `Para nombres de host solo valen letras, cifras y guiones, sin guion al principio ni al final. No lo cumple: ${bad.map(b => `<code>${esc(b)}</code>`).join(' ')}${bad.some(b => b.startsWith('_')) ? ' (el guion bajo se usa en nombres de servicio, como <code>_sip._tcp</code>, que no son hosts)' : ''}.`
-    : 'Solo letras, cifras y guiones, sin guion al principio ni al final: sirve como nombre de host.');
+    ? `Host names may only use letters, digits and hyphens, with no leading or trailing hyphen. Not met by: ${bad.map(b => `<code>${esc(b)}</code>`).join(' ')}${bad.some(b => b.startsWith('_')) ? ' (the underscore is used in service names, such as <code>_sip._tcp</code>, which are not hosts)' : ''}.`
+    : 'Only letters, digits and hyphens, with no leading or trailing hyphen: valid as a host name.');
   const idn = P.labels.map((l, i) => [l, P.ascii[i]]).filter(([l, a]) => l.toLowerCase() !== a);
-  if (idn.length) add('info', `Nombre internacionalizado: DNS solo transporta ASCII, así que ${idn.map(([l, a]) => `<code>${esc(l)}</code> viaja como <code>${esc(a)}</code>`).join(', ')} (punycode).`);
-  if (/[A-Z]/.test(P.labels.join(''))) add('info', `DNS no distingue mayúsculas: <code>${esc(P.labels.join('.'))}</code> y <code>${esc(P.ascii.join('.'))}</code> son el mismo nombre.`);
+  if (idn.length) add('info', `Internationalized name: DNS only carries ASCII, so ${idn.map(([l, a]) => `<code>${esc(l)}</code> travels as <code>${esc(a)}</code>`).join(', ')} (punycode).`);
+  if (/[A-Z]/.test(P.labels.join(''))) add('info', `DNS is case-insensitive: <code>${esc(P.labels.join('.'))}</code> and <code>${esc(P.ascii.join('.'))}</code> are the same name.`);
   add('info', P.fqdn
-    ? 'Termina en punto: es un nombre completo (FQDN), con la raíz escrita. Así lo muestran herramientas como <code>dig</code>.'
-    : 'Sin punto final: la raíz está implícita (el punto punteado). El nombre completo sería <code>' + esc(suffix(P.n)) + '</code>.');
+    ? 'Ends with a dot: it is a fully qualified name (FQDN), with the root written out. This is how tools such as <code>dig</code> display it.'
+    : 'No trailing dot: the root is implicit (the dotted dot). The full name would be <code>' + esc(suffix(P.n)) + '</code>.');
   $('rules').innerHTML = R.join('');
 }
 
-/* ---------- Render y controles ---------- */
+/* ---------- Render and controls ---------- */
 function render(){
   const P = app.P;
   drawName(); drawTree(); drawCard(); drawRules();
-  // En pantallas estrechas, desplazar el árbol para que se vea el nodo actual
+  // On narrow screens, scroll the tree so the current node is visible
   const box = document.querySelector('.svgbox'), cn = document.querySelector('#tree .nd.cur');
   if (box.scrollWidth > box.clientWidth && cn){ const r = cn.getBoundingClientRect(), b = box.getBoundingClientRect(); box.scrollLeft += (r.left + r.width/2) - (b.left + b.width/2); }
   $('c-k').textContent = app.cur; $('c-n').textContent = P.n;
@@ -512,9 +513,9 @@ function render(){
   const atStart = app.dir === 'down' ? app.cur <= 0 : app.cur >= P.n;
   $('b-next').disabled = atEnd && !app.asking;
   $('b-prev').disabled = atStart && !app.asking;
-  $('b-next').textContent = app.dir === 'down' ? 'Bajar un nivel ▶' : 'Subir un nivel ▶';
+  $('b-next').textContent = app.dir === 'down' ? 'Go down one level ▶' : 'Go up one level ▶';
   $('b-play').textContent = app.playing ? '❚❚' : '▶▶';
-  $('b-play').setAttribute('aria-label', app.playing ? 'Pausar' : 'Reproducir');
+  $('b-play').setAttribute('aria-label', app.playing ? 'Pause' : 'Play');
   document.querySelectorAll('[data-dir]').forEach(b => b.setAttribute('aria-pressed', b.dataset.dir === app.dir));
   app.fresh = -1;
 }
@@ -571,7 +572,7 @@ for (const ex of EXAMPLES){
   b.addEventListener('click', () => { $('in').value = ex; load(ex); });
   chips.appendChild(b);
 }
-// Pulsar o pasar por encima de una etiqueta, un corchete o un nodo enlaza las tres vistas
+// Clicking or hovering a label, a bracket or a node links the three views
 const hitD = e => { const h = e.target.closest('.hit'); return h && h.dataset.d != null ? +h.dataset.d : null; };
 for (const id of ['name', 'brs', 'tree']){
   const host = $(id);
