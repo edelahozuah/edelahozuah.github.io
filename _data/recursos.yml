@@ -195,7 +195,7 @@ ar1:
         en: https://github.com/edelahozuah/TCP-Trace-Generator#english
         tipo: repositorio
         lenguaje: Python
-        doi: 10.5281/zenodo.23285054
+        doi: 10.5281/zenodo.23293176
         autores: [Enrique de la Hoz, Sandra Machado Zurita, Luis de la Cruz Piris]
         imagen: /assets/img/recursos/tcp-trace-generator.jpg
         sesion: "3.4"
