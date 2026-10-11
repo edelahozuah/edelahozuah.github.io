@@ -15,9 +15,10 @@ description: Associate Professor at the University of Alcalá (Spain). Teaching 
   <div class="about">
     <div class="profile">
       <div class="address">
-        <p>Escuela Politécnica Superior</p>
-        <p>Ctra. Madrid-Barcelona, km 33,600</p>
-        <p>28805 Alcalá de Henares, Spain</p>
+        <p>{{ site.autor.direccion.edificio }}</p>
+        <p>Office {{ site.autor.despacho }}</p>
+        <p>{{ site.autor.direccion.calle }}</p>
+        <p>{{ site.autor.direccion.cp }} {{ site.autor.direccion.ciudad }}, Spain</p>
       </div>
     </div>
 
@@ -56,7 +57,7 @@ description: Associate Professor at the University of Alcalá (Spain). Teaching 
       <a href="{{ site.autor.scholar }}">Google Scholar</a>
       <a href="{{ site.autor.portal_uah }}">UAH research profile</a>
       <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
-      <p class="contact-note">The fastest way to reach me is by email.</p>
+      <p class="contact-note">The fastest way to reach me is by email. My office hours and class timetable are on the <a href="{{ '/en/teaching/timetable/' | relative_url }}">timetable</a> page.</p>
     </div>
   </div>
 </article>

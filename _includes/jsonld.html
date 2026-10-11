@@ -25,6 +25,11 @@ el sitio en todas; además, según el front matter:
       "jobTitle": [{% if en %}{{ a.puesto_en | jsonify }}, {{ a.cargo_en | jsonify }}{% else %}{{ a.puesto | jsonify }}, {{ a.cargo | jsonify }}{% endif %}],
       "hasOccupation": { "@type": "Role", "roleName": {% if en %}{{ a.cargo_en | jsonify }}{% else %}{{ a.cargo | jsonify }}{% endif %}, "url": {% if en %}{{ a.master_url_en | jsonify }}{% else %}{{ a.master_url | jsonify }}{% endif %} },
       "worksFor": { "@id": "{{ u }}/#uah" },
+      "workLocation": {
+        "@type": "Place",
+        "name": {% if en %}"Office {{ a.despacho }}, {{ a.direccion.edificio }}"{% else %}"Despacho {{ a.despacho }}, {{ a.direccion.edificio }}"{% endif %},
+        "address": { "@type": "PostalAddress", "streetAddress": "{{ a.direccion.edificio }}, {{ a.direccion.calle }}", "postalCode": "{{ a.direccion.cp }}", "addressLocality": "{{ a.direccion.ciudad }}", "addressRegion": "{{ a.direccion.region }}", "addressCountry": "ES" }
+      },
       "affiliation": [
         { "@id": "{{ u }}/#uah" },
         { "@type": "ResearchOrganization", "name": {{ a.grupo | jsonify }}, "parentOrganization": { "@id": "{{ u }}/#uah" } }
