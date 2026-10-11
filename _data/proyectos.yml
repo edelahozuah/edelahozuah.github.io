@@ -131,6 +131,6 @@
   lenguaje: Python
   imagen: /assets/img/tcp-trace-generator.jpg
   fecha: 2026-10-10
-  doi: 10.5281/zenodo.23285054
+  doi: 10.5281/zenodo.23293176
   autores: [Enrique de la Hoz, Sandra Machado Zurita, Luis de la Cruz Piris]
   licencia_codigo: { nombre: MIT, url: https://github.com/edelahozuah/TCP-Trace-Generator/blob/main/LICENSE }
