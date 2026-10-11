@@ -28,15 +28,9 @@ periodos:
   - id: c2
     nombre: Segundo cuatrimestre
     nombre_en: Second semester
-    tutorias:
-      - { dia: Lunes, inicio: "9:00", fin: "10:00" }
-      - { dia: Lunes, inicio: "12:00", fin: "13:00" }
-      - { dia: Lunes, inicio: "15:00", fin: "16:00" }
-      - { dia: Miércoles, inicio: "9:00", fin: "10:00" }
-      - { dia: Miércoles, inicio: "12:00", fin: "13:00" }
-      - { dia: Miércoles, inicio: "15:00", fin: "16:00" }
+    tutorias: []  # pendientes de fijar
     clases:
-      # El horario oficial no indica aula para Security ni para el máster.
+      # El horario oficial no indica aula para el grupo grande de Security ni para el máster.
       - { asignatura: seguridad, grupo: 4E, dia: Lunes, inicio: "15:00", fin: "16:55", aula: "", idioma: en }
-      - { asignatura: seguridad, grupo: 4E1, dia: Lunes, inicio: "17:00", fin: "18:55", aula: "", idioma: en }
+      - { asignatura: seguridad, grupo: 4E1, dia: Lunes, inicio: "17:00", fin: "18:55", aula: EL11, idioma: en }
       - { asignatura: ddss, grupo: "", dia: Jueves, inicio: "16:00", fin: "19:00", aula: "" }
