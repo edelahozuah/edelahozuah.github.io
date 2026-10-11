@@ -13,9 +13,10 @@ description: Profesor Titular de Universidad en la Universidad de Alcalá y dire
   <div class="about">
     <div class="profile">
       <div class="address">
-        <p>Escuela Politécnica Superior</p>
-        <p>Ctra. Madrid-Barcelona, km 33,600</p>
-        <p>28805 Alcalá de Henares, Madrid</p>
+        <p>{{ site.autor.direccion.edificio }}</p>
+        <p>Despacho {{ site.autor.despacho }}</p>
+        <p>{{ site.autor.direccion.calle }}</p>
+        <p>{{ site.autor.direccion.cp }} {{ site.autor.direccion.ciudad }}, {{ site.autor.direccion.region }}</p>
       </div>
     </div>
 
@@ -53,7 +54,7 @@ description: Profesor Titular de Universidad en la Universidad de Alcalá y dire
       <a href="{{ site.autor.scholar }}">Google Scholar</a>
       <a href="{{ site.autor.portal_uah }}">Portal científico UAH</a>
       <a href="https://github.com/{{ site.autor.github }}">GitHub</a>
-      <p class="contact-note">La forma más rápida de contactar conmigo es el correo electrónico.</p>
+      <p class="contact-note">La forma más rápida de contactar conmigo es el correo electrónico. El horario de tutorías y de clase está en la página de <a href="{{ '/docencia/horario/' | relative_url }}">horario</a>.</p>
     </div>
   </div>
 </article>

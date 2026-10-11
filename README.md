@@ -25,6 +25,7 @@ compilación propio.
 | Origen de cada visualización en el repositorio (generado) | `_data/visualizaciones.yml` |
 | Vídeos de YouTube (una página por vídeo e idioma) | `_videos/<asignatura>/` |
 | Trabajos dirigidos (TFM y TFG) | `_data/trabajos.yml` |
+| Horario (tutorías y clases por cuatrimestre) | `_data/horario.yml` |
 | Proyectos docentes (herramientas y datos abiertos) | `_data/proyectos.yml` |
 | Metadatos y JSON-LD de las páginas | `_includes/metadatos.html`, `_includes/jsonld.html` |
 | Versión para modelos de lenguaje | `llms.txt`, `llms-full.txt` |
@@ -103,6 +104,18 @@ relacionadas, la transcripción y los datos estructurados `VideoObject`.
 2. Copia `docencia/ar1/index.html` a `docencia/<id>/index.html` y cambia
    `title`, `permalink` y `asignatura`.
 3. Añade sus temas y recursos en `_data/recursos.yml` bajo la clave `<id>`.
+
+## Cambiar el horario
+
+El despacho y la dirección están en `_config.yml` (`autor.despacho`,
+`autor.direccion`). Las tutorías y las clases de cada cuatrimestre están en
+`_data/horario.yml`; `asignatura` es el id de `_data/asignaturas.yml` y el
+grupo y el aula son los del horario oficial de la Escuela; `idioma: en`
+marca los grupos en inglés
+(<https://edelahozuah.github.io/HorariosEPS/>). Al cambiar de curso,
+actualiza `curso` y las dos listas. Se muestran en `/docencia/horario/` y
+`/en/teaching/timetable/` (`_includes/horario.html`), en la portada y en
+`llms.txt`.
 
 ## Añadir un proyecto docente
 

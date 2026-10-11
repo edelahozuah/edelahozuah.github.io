@@ -180,6 +180,11 @@ h3.category { font-size: 1.6rem; }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
 
 /* Docencia e investigación */
+.horario { border-collapse: collapse; margin: 0 0 1rem; }
+.horario th, .horario td { text-align: left; vertical-align: top; padding: .3rem 1.2rem .3rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.horario th { font-weight: 700; }
+.horario td:nth-child(2) { white-space: nowrap; }
+
 .asignaturas { padding-left: 1.2rem; }
 .asignaturas li { margin-bottom: .4rem; }
 .linea { margin-top: 1rem; }

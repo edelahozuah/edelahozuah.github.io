@@ -1,0 +1,6 @@
+{%- comment -%}Día de la semana: en español tal cual; en inglés, traducido. Parámetros: dia, en.{%- endcomment -%}
+{%- if include.en -%}
+{%- case include.dia -%}
+{%- when 'Lunes' -%}Monday{%- when 'Martes' -%}Tuesday{%- when 'Miércoles' -%}Wednesday{%- when 'Jueves' -%}Thursday{%- when 'Viernes' -%}Friday{%- when 'Sábado' -%}Saturday{%- when 'Domingo' -%}Sunday{%- else -%}{{ include.dia }}
+{%- endcase -%}
+{%- else -%}{{ include.dia }}{%- endif -%}

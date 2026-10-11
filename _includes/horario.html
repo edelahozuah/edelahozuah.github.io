@@ -1,0 +1,43 @@
+{%- comment -%}
+Página de horario (/docencia/horario/ y /en/teaching/timetable/): despacho,
+y por cada periodo de _data/horario.yml sus tutorías y sus clases.
+Parámetros: en (true en la versión inglesa).
+{%- endcomment -%}
+{%- assign en = include.en -%}
+{%- assign a = site.autor -%}
+{%- assign h = site.data.horario -%}
+<p>{% if en %}My office is <strong>{{ a.despacho }}</strong>, in the {{ a.direccion.edificio }} ({{ a.direccion.calle }}, {{ a.direccion.cp }} {{ a.direccion.ciudad }}). The office hours and the class timetable below are for the {{ h.curso }} academic year. If none of the slots suits you, write to <a href="mailto:{{ a.email }}">{{ a.email }}</a> and we will find a time.{% else %}Mi despacho es el <strong>{{ a.despacho }}</strong>, en la {{ a.direccion.edificio }} ({{ a.direccion.calle }}, {{ a.direccion.cp }} {{ a.direccion.ciudad }}). Las tutorías y el horario de clase que siguen son los del curso {{ h.curso }}. Si ninguna franja te viene bien, escríbeme a <a href="mailto:{{ a.email }}">{{ a.email }}</a> y buscamos otra.{% endif %}</p>
+
+{%- for per in h.periodos %}
+{%- assign ntut = per.tutorias | size -%}{%- assign ncla = per.clases | size -%}
+{%- if ntut > 0 or ncla > 0 %}
+<h2 id="{{ per.id }}">{% if en %}{{ per.nombre_en | default: per.nombre }}{% else %}{{ per.nombre }}{% endif %}</h2>
+{%- if ntut > 0 %}
+<h3>{% if en %}office hours{% else %}tutorías{% endif %}</h3>
+<table class="horario">
+  <thead><tr><th scope="col">{% if en %}Day{% else %}Día{% endif %}</th><th scope="col">{% if en %}Time{% else %}Hora{% endif %}</th><th scope="col">{% if en %}Where{% else %}Lugar{% endif %}</th></tr></thead>
+  <tbody>
+  {%- for t in per.tutorias %}
+  <tr><td>{% include dia.html dia=t.dia en=en %}</td><td>{{ t.inicio }}–{{ t.fin }}</td><td>{% if t.lugar %}{{ t.lugar }}{% else %}{% if en %}Office{% else %}Despacho{% endif %} {{ a.despacho }}{% endif %}</td></tr>
+  {%- endfor %}
+  </tbody>
+</table>
+{%- if per.nota %}<p class="nota">{% if en %}{{ per.nota_en | default: per.nota }}{% else %}{{ per.nota }}{% endif %}</p>{% endif %}
+{%- endif %}
+{%- if ncla > 0 %}
+<h3>{% if en %}classes{% else %}clases{% endif %}</h3>
+<table class="horario">
+  <thead><tr><th scope="col">{% if en %}Day{% else %}Día{% endif %}</th><th scope="col">{% if en %}Time{% else %}Hora{% endif %}</th><th scope="col">{% if en %}Course{% else %}Asignatura{% endif %}</th><th scope="col">{% if en %}Group{% else %}Grupo{% endif %}</th><th scope="col">{% if en %}Room{% else %}Aula{% endif %}</th></tr></thead>
+  <tbody>
+  {%- for c in per.clases %}
+  {%- assign asig = site.data.asignaturas | where: "id", c.asignatura | first %}
+  {%- if en %}{% assign nombre = asig.nombre_en | default: asig.nombre %}{% assign pag = asig.pagina_en %}{% else %}{% assign nombre = asig.nombre %}{% assign pag = asig.pagina %}{% endif %}
+  <tr><td>{% include dia.html dia=c.dia en=en %}</td><td>{{ c.inicio }}–{{ c.fin }}</td><td>{% if pag %}<a href="{{ pag | relative_url }}">{{ nombre | default: c.asignatura }}</a>{% else %}{{ nombre | default: c.asignatura }}{% endif %}{% if c.idioma == "en" %} <span class="nota">({% if en %}in English{% else %}en inglés{% endif %})</span>{% endif %}</td><td>{{ c.grupo }}</td><td>{{ c.aula }}</td></tr>
+  {%- endfor %}
+  </tbody>
+</table>
+{%- endif %}
+{%- endif %}
+{%- endfor %}
+
+<p class="nota">{% if en %}The official timetables of every degree are on the <a href="https://edelahozuah.github.io/HorariosEPS/">Polytechnic School timetables</a> application, which I maintain.{% else %}Los horarios oficiales de todas las titulaciones están en la aplicación de <a href="https://edelahozuah.github.io/HorariosEPS/">horarios de la Escuela Politécnica</a>, que mantengo yo.{% endif %}</p>

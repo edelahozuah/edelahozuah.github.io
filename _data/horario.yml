@@ -1,0 +1,42 @@
+# Horario del curso: tutorías y clases de cada periodo (cuatrimestre). Lo usan
+# /docencia/horario/ y /en/teaching/timetable/ (vía _includes/horario.html) y
+# llms.txt. El despacho y la dirección están en _config.yml (autor.despacho).
+#
+# «asignatura» es el id de _data/asignaturas.yml. «dia» en español (Lunes…
+# Viernes); el inglés se deduce. Las horas con comillas ("10:00"). «grupo» y
+# «aula» son los del horario oficial de la Escuela (https://edelahozuah.github.io/HorariosEPS/).
+# «idioma: en» marca los grupos que se imparten en inglés.
+# Un periodo sin tutorías o sin clases no muestra esa parte; «nota» (y
+# «nota_en») es un texto libre opcional bajo las tutorías del periodo.
+curso: 2026/27
+periodos:
+  - id: c1
+    nombre: Primer cuatrimestre
+    nombre_en: First semester
+    tutorias:
+      - { dia: Lunes, inicio: "9:00", fin: "10:00" }
+      - { dia: Lunes, inicio: "12:00", fin: "13:00" }
+      - { dia: Lunes, inicio: "15:00", fin: "16:00" }
+      - { dia: Miércoles, inicio: "9:00", fin: "10:00" }
+      - { dia: Miércoles, inicio: "12:00", fin: "13:00" }
+      - { dia: Miércoles, inicio: "15:00", fin: "16:00" }
+    clases:
+      - { asignatura: ar, grupo: 2A, dia: Lunes, inicio: "10:00", fin: "11:55", aula: NA4 }
+      - { asignatura: ar1, grupo: 2A, dia: Miércoles, inicio: "10:00", fin: "11:55", aula: SA2 }
+      - { asignatura: ar, grupo: 2E1, dia: Viernes, inicio: "10:00", fin: "11:55", aula: EL11, idioma: en }
+      - { asignatura: ar, grupo: 2E, dia: Viernes, inicio: "12:00", fin: "13:55", aula: SA6, idioma: en }
+  - id: c2
+    nombre: Segundo cuatrimestre
+    nombre_en: Second semester
+    tutorias:
+      - { dia: Lunes, inicio: "9:00", fin: "10:00" }
+      - { dia: Lunes, inicio: "12:00", fin: "13:00" }
+      - { dia: Lunes, inicio: "15:00", fin: "16:00" }
+      - { dia: Miércoles, inicio: "9:00", fin: "10:00" }
+      - { dia: Miércoles, inicio: "12:00", fin: "13:00" }
+      - { dia: Miércoles, inicio: "15:00", fin: "16:00" }
+    clases:
+      # El horario oficial no indica aula para Security ni para el máster.
+      - { asignatura: seguridad, grupo: 4E, dia: Lunes, inicio: "15:00", fin: "16:55", aula: "", idioma: en }
+      - { asignatura: seguridad, grupo: 4E1, dia: Lunes, inicio: "17:00", fin: "18:55", aula: "", idioma: en }
+      - { asignatura: ddss, grupo: "", dia: Jueves, inicio: "16:00", fin: "19:00", aula: "" }

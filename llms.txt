@@ -19,11 +19,12 @@ La versión completa, con el texto de cada línea de investigación, los resúme
 - [Proyectos de investigación]({{ '/investigacion/' | absolute_url }}#proyectos): {{ site.data.proyectos_investigacion | size }} proyectos como investigador principal{% for p in site.data.proyectos_investigacion %}; {% if p.acronimo %}{{ p.acronimo }} ({% endif %}{{ p.referencia }}{% if p.acronimo %}){% endif %}, {{ p.inicio | date: "%Y" }}–{{ p.fin | date: "%Y" }}{% endfor %}
 - [Publicaciones]({{ '/publicaciones/' | absolute_url }}): {{ site.data.publicaciones | size }} publicaciones, con DOI y citas ([English]({{ '/en/publications/' | absolute_url }}))
 - [ORCID](https://orcid.org/{{ a.orcid }}), [Google Scholar]({{ a.scholar }}), [Portal científico UAH]({{ a.portal_uah }}), [GitHub](https://github.com/{{ a.github }}), Scopus {{ a.scopus | join: " y " }}, [Web of Science ResearcherID {{ a.researcherid }}](https://www.webofscience.com/wos/author/record/{{ a.researcherid }}), [Dialnet](https://dialnet.unirioja.es/servlet/autor?codigo={{ a.dialnet }})
-- Contacto: {{ a.email }}
+- Contacto: {{ a.email }}. Despacho {{ a.despacho }}, {{ a.direccion.edificio }}, {{ a.direccion.calle }}, {{ a.direccion.cp }} {{ a.direccion.ciudad }}
 
 ## Docencia
 
 - [Docencia]({{ '/docencia/' | absolute_url }}): asignaturas que imparte ([English]({{ '/en/teaching/' | absolute_url }}))
+- [Horario]({{ '/docencia/horario/' | absolute_url }}): despacho, tutorías y clases del curso {{ site.data.horario.curso }} ([English]({{ '/en/teaching/timetable/' | absolute_url }})){% for per in site.data.horario.periodos %}{% if per.tutorias.size > 0 %}; tutorías, {{ per.nombre | downcase }}: {% for t in per.tutorias %}{{ t.dia | downcase }} {{ t.inicio }}–{{ t.fin }}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}{% endfor %}
 - [Recursos docentes]({{ '/recursos/' | absolute_url }}): todas las visualizaciones, por asignatura y tema ([English]({{ '/en/resources/' | absolute_url }}))
 - [Proyectos docentes]({{ '/docencia/proyectos/' | absolute_url }}): herramientas, software y datos abiertos reutilizables ([English]({{ '/en/teaching/projects/' | absolute_url }}))
 {%- for p in site.data.proyectos %}
