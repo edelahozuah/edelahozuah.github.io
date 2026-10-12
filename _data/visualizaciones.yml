@@ -5,7 +5,7 @@
 
 repositorio: https://github.com/edelahozuah/computer-networks-visualizations
 pages: https://edelahozuah.github.io/computer-networks-visualizations
-version: 7910add
+version: b39a687
 visualizaciones:
   /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
     id: bit-time-line-coding
@@ -118,4 +118,12 @@ visualizaciones:
   /docencia/ar1/http/http-persistente-en.html:
     id: http-persistent
     fichero: 02-application-layer/http/http-persistent.en.html
+    idioma: en
+  /docencia/ar1/http/cache-navegador.html:
+    id: http-cache
+    fichero: 02-application-layer/http/http-cache.es.html
+    idioma: es
+  /docencia/ar1/http/cache-navegador-en.html:
+    id: http-cache
+    fichero: 02-application-layer/http/http-cache.en.html
     idioma: en
