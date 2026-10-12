@@ -185,6 +185,15 @@ ar1:
         sesion: "2.2"
         descripcion: Una página con N objetos descargada por una única conexión TCP persistente. Compara a la misma escala los diagramas de retardos sin y con canalización, mira cuándo se queda ocioso el enlace y practica con ejercicios aleatorios.
         descripcion_en: A page with N objects downloaded over a single persistent TCP connection. Compare the delay diagrams without and with pipelining on the same time scale, see when the link sits idle and practise with random exercises.
+      - titulo: "Caché del navegador: ¿caché o servidor?"
+        url: /docencia/ar1/http/cache-navegador.html
+        id: http-cache
+        imagen: /assets/img/recursos/cache-navegador.jpg
+        en: /docencia/ar1/http/cache-navegador-en.html
+        titulo_en: "Browser cache: cache or server?"
+        sesion: "2.3"
+        descripcion: "Una página con varios objetos visitada varias veces. Para cada objeto, el navegador aplica el árbol de decisión: servirlo de la caché, revalidarlo con un GET condicional (304 o 200) o descargarlo de nuevo. Sigue el camino en el árbol, los mensajes y el estado de la caché, y practica con ejercicios."
+        descripcion_en: "A page with several objects visited several times. For each object, the browser follows the decision tree: serve it from the cache, revalidate it with a conditional GET (304 or 200) or download it again. Follow the path in the tree, the messages and the cache state, and practise with exercises."
   - tema: 3
     titulo: la capa de transporte
     titulo_en: the transport layer
