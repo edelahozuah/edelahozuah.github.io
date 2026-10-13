@@ -31,6 +31,8 @@
   fin: 2029-08-31
   importe: 85000
   url: https://portalcientifico.uah.es/proyectos/1908138/detalle
+  web: https://gnosis-uah.github.io/mesh/
+  web_en: https://gnosis-uah.github.io/mesh/en/
   linea: negociacion
 - id: credenciales-evidencia-digital
   referencia: IUICP-2026/03
