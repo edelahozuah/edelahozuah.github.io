@@ -198,7 +198,12 @@ el sitio en todas; además, según el front matter:
       "alternateName": {{ p.acronimo | jsonify }},
       {%- endif %}
       "identifier": {{ p.referencia | jsonify }},
+      {%- if p.web %}
+      "url": {% if en %}{{ p.web_en | default: p.web | jsonify }}{% else %}{{ p.web | jsonify }}{% endif %},
+      "sameAs": [{{ p.url | jsonify }}],
+      {%- else %}
       "url": {{ p.url | jsonify }},
+      {%- endif %}
       "foundingDate": "{{ p.inicio }}",
       "dissolutionDate": "{{ p.fin }}",
       "parentOrganization": { "@id": "{{ u }}/#uah" },

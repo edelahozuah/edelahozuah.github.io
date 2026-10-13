@@ -1,6 +1,9 @@
 # Noticias de la portada, de la más reciente a la más antigua. Se muestran las
 # cinco primeras. El texto admite Markdown (enlaces, cursiva…). «texto_en» es
 # la versión para /en/; si falta, la noticia no aparece en inglés.
+- fecha: 2026-10-13
+  texto: "Estrenamos la [web del proyecto APT-GRAN](https://gnosis-uah.github.io/apt-gran/), sobre atribución de amenazas persistentes avanzadas con redes neuronales de grafos: resultados, publicaciones, software abierto y los TFM realizados en su marco."
+  texto_en: "The [APT-GRAN project website](https://gnosis-uah.github.io/apt-gran/en/) is live: attribution of advanced persistent threats with graph neural networks, with results, publications, open-source software and the master's theses carried out within the project."
 - fecha: 2026-10-10
   texto: "Las [visualizaciones interactivas de Arquitectura de Redes I](/docencia/proyectos/#computer-networks-visualizations) tienen ya repositorio propio en GitHub, con todas las piezas en español e inglés, su catálogo de metadatos y el código fuente, para que cualquier docente pueda reutilizarlas."
   texto_en: "The [interactive visualizations of Network Architecture I](/en/teaching/projects/#computer-networks-visualizations) now have their own GitHub repository, with every piece in Spanish and English, a metadata catalogue and the source code, so that any lecturer can reuse them."

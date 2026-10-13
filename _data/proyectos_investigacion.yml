@@ -14,6 +14,7 @@
 #     inicio / fin:  AAAA-MM-DD
 #     importe:       euros (omitir si no procede)
 #     url:           ficha en el portal científico de la UAH
+#     web / web_en:  web propia del proyecto, si la tiene (opcional)
 #     linea:         id de _data/lineas.yml con la que se relaciona (opcional)
 - id: mesh
   referencia: PID2025-174033NA-I00
@@ -60,4 +61,6 @@
   fin: 2026-12-18
   importe: 7605
   url: https://portalcientifico.uah.es/proyectos/1528321/detalle
+  web: https://gnosis-uah.github.io/apt-gran/
+  web_en: https://gnosis-uah.github.io/apt-gran/en/
   linea: seguridad

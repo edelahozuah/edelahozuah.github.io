@@ -41,6 +41,9 @@ Proyectos en los que {{ a.nombre }} es investigador principal. Fuente: {{ '/inve
 - Investigador{% if p.ip.size > 1 %}es{% endif %} principal{% if p.ip.size > 1 %}es{% endif %}: {{ p.ip | join: ', ' }}
 - Duración: {{ p.inicio }} a {{ p.fin }}{% if p.importe %}. Importe: {{ p.importe }} €{% endif %}
 - Ficha: {{ p.url }}
+{%- if p.web %}
+- Web del proyecto: {{ p.web }}
+{%- endif %}
 {%- if p.texto %}
 
 {{ p.texto }}

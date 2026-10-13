@@ -7,4 +7,5 @@
   <div class="periodical"><em>{% if en %}{{ p.financiador_en | default: p.financiador }}{% else %}{{ p.financiador }}{% endif %}</em>, {{ p.referencia }} · {{ ini }}{% if fin != ini %}–{{ fin }}{% endif %}{% if p.importe %} · {% if p.importe >= 1000 %}{{ p.importe | divided_by: 1000 }}.{{ p.importe | modulo: 1000 | prepend: '000' | slice: -3, 3 }}{% else %}{{ p.importe }}{% endif %}&nbsp;€{% endif %}</div>
   {% if p.texto %}<p>{% if en %}{{ p.texto_en | default: p.texto }}{% else %}{{ p.texto }}{% endif %}</p>{% endif %}
   <p class="nota">{% if en %}{{ p.convocatoria_en | default: p.convocatoria }}{% else %}{{ p.convocatoria }}{% endif %}{% if en and p.titulo_en %} <span class="nota">(in Spanish: <span lang="es">{{ p.titulo }}</span>)</span>{% endif %}</p>
+  {% if p.web %}<div class="links"><a class="btn" href="{% if en %}{{ p.web_en | default: p.web }}{% else %}{{ p.web }}{% endif %}">{% if en %}Project website{% else %}Web del proyecto{% endif %}</a> <a class="btn" href="{{ p.url }}">{% if en %}UAH research portal{% else %}Portal científico UAH{% endif %}</a></div>{% endif %}
 </li>
