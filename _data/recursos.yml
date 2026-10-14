@@ -194,6 +194,15 @@ ar1:
         sesion: "2.3"
         descripcion: "Una página con varios objetos visitada varias veces. Para cada objeto, el navegador aplica el árbol de decisión: servirlo de la caché, revalidarlo con un GET condicional (304 o 200) o descargarlo de nuevo. Sigue el camino en el árbol, los mensajes y el estado de la caché, y practica con ejercicios."
         descripcion_en: "A page with several objects visited several times. For each object, the browser follows the decision tree: serve it from the cache, revalidate it with a conditional GET (304 or 200) or download it again. Follow the path in the tree, the messages and the cache state, and practise with exercises."
+      - titulo: "Cookies: estado por encima de HTTP"
+        url: /docencia/ar1/http/cookies.html
+        id: http-cookies
+        imagen: /assets/img/recursos/cookies.jpg
+        en: /docencia/ar1/http/cookies-en.html
+        titulo_en: "Cookies: state on top of HTTP"
+        sesion: "2.3"
+        descripcion: "Varios sitios, algunos con cookies, visitados varias veces. Para cada petición, el navegador mira su almacén: si tiene una cookie viva de ese sitio envía Cookie; si no, el servidor puede responder con Set-Cookie. Sigue la decisión, los mensajes, el almacén y lo que sabe cada servidor; practica con ejercicios."
+        descripcion_en: "Several sites, some of which use cookies, visited several times. For each request the browser looks in its cookie store: if it has a live cookie for that site it sends Cookie; if not, the server may answer with Set-Cookie. Follow the decision, the messages, the store and what each server knows; practise with exercises."
   - tema: 3
     titulo: la capa de transporte
     titulo_en: the transport layer
