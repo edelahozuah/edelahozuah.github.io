@@ -5,7 +5,7 @@
 
 repositorio: https://github.com/edelahozuah/computer-networks-visualizations
 pages: https://edelahozuah.github.io/computer-networks-visualizations
-version: 36fd794
+version: v0.1.0-15-gd712bbd
 visualizaciones:
   /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
     id: bit-time-line-coding
@@ -134,4 +134,28 @@ visualizaciones:
   /docencia/ar1/http/cookies-en.html:
     id: http-cookies
     fichero: 02-application-layer/http/http-cookies.en.html
+    idioma: en
+  /docencia/ar1/transporte/demultiplexacion.html:
+    id: transport-demultiplexing
+    fichero: 03-transport-layer/transport-demultiplexing.es.html
+    idioma: es
+  /docencia/ar1/transporte/demultiplexacion-en.html:
+    id: transport-demultiplexing
+    fichero: 03-transport-layer/transport-demultiplexing.en.html
+    idioma: en
+  /docencia/ar1/transporte/checksum-udp.html:
+    id: udp-checksum
+    fichero: 03-transport-layer/udp-checksum.es.html
+    idioma: es
+  /docencia/ar1/transporte/checksum-udp-en.html:
+    id: udp-checksum
+    fichero: 03-transport-layer/udp-checksum.en.html
+    idioma: en
+  /docencia/ar1/transporte/datagrama-udp.html:
+    id: udp-datagram
+    fichero: 03-transport-layer/udp-datagram.es.html
+    idioma: es
+  /docencia/ar1/transporte/datagrama-udp-en.html:
+    id: udp-datagram
+    fichero: 03-transport-layer/udp-datagram.en.html
     idioma: en
