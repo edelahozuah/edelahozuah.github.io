@@ -207,6 +207,33 @@ ar1:
     titulo: la capa de transporte
     titulo_en: the transport layer
     recursos:
+      - titulo: ¿A qué socket va? Demultiplexación UDP y TCP
+        url: /docencia/ar1/transporte/demultiplexacion.html
+        id: transport-demultiplexing
+        imagen: /assets/img/recursos/demultiplexacion.jpg
+        en: /docencia/ar1/transporte/demultiplexacion-en.html
+        titulo_en: Which socket? UDP and TCP demultiplexing
+        sesion: "3.1"
+        descripcion: "Los clientes A, B y D envían segmentos al servidor C, que elige el socket con la cabecera: UDP solo mira el destino (IP_D, PD); TCP, los cuatro valores. Socket de bienvenida y de conexión, respuesta con los puertos intercambiados, puertos efímeros, modo predicción y ejercicios."
+        descripcion_en: "Clients A, B and D send segments to server C, which chooses the socket from the header: UDP only looks at the destination (IP_D, PD); TCP at the four values. Welcome and connection sockets, the reply with swapped ports, ephemeral ports, prediction mode and exercises."
+      - titulo: Checksum UDP paso a paso
+        url: /docencia/ar1/transporte/checksum-udp.html
+        id: udp-checksum
+        imagen: /assets/img/recursos/checksum-udp.jpg
+        en: /docencia/ar1/transporte/checksum-udp-en.html
+        titulo_en: UDP checksum step by step
+        sesion: "3.1"
+        descripcion: "Suma en complemento a 1 de palabras de 16 bits, columna a columna: el acarreo que sale por la izquierda da la vuelta y se suma por la derecha, y al final se invierten los bits. Comprueba el checksum como receptor de las dos formas y cambia bits en el canal para ver qué errores se detectan."
+        descripcion_en: "One's complement sum of 16-bit words, column by column: the carry that leaves on the left wraps around and is added on the right, and at the end the bits are inverted. Check the checksum as the receiver in both ways and flip bits in the channel to see which errors are detected."
+      - titulo: El datagrama UDP y su pseudocabecera
+        url: /docencia/ar1/transporte/datagrama-udp.html
+        id: udp-datagram
+        imagen: /assets/img/recursos/datagrama-udp.jpg
+        en: /docencia/ar1/transporte/datagrama-udp-en.html
+        titulo_en: The UDP datagram and its pseudo-header
+        sesion: "3.1"
+        descripcion: "La cabecera UDP en filas de 32 bits, con la explicación de cada campo. Cambia la carga útil y mira cómo se actualiza la Longitud y dónde están los límites; construye la pseudocabecera a partir de la cabecera IPv4 y sigue los tres niveles de direccionamiento: IP, protocolo 6/17 y puerto."
+        descripcion_en: "The UDP header in 32-bit rows, with an explanation of each field. Change the payload and watch the Length update and where the limits are; build the pseudo-header from the IPv4 header and follow the three levels of addressing: IP, protocol 6/17 and port."
       - titulo: Generador de trazas TCP
         titulo_en: TCP trace generator
         url: https://github.com/edelahozuah/TCP-Trace-Generator
