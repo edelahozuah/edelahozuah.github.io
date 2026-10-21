@@ -234,6 +234,15 @@ ar1:
         sesion: "3.1"
         descripcion: "La cabecera UDP en filas de 32 bits, con la explicación de cada campo. Cambia la carga útil y mira cómo se actualiza la Longitud y dónde están los límites; construye la pseudocabecera a partir de la cabecera IPv4 y sigue los tres niveles de direccionamiento: IP, protocolo 6/17 y puerto."
         descripcion_en: "The UDP header in 32-bit rows, with an explanation of each field. Change the payload and watch the Length update and where the limits are; build the pseudo-header from the IPv4 header and follow the three levels of addressing: IP, protocol 6/17 and port."
+      - titulo: "Transferencia fiable: parada y espera, GBN y SR"
+        url: /docencia/ar1/transporte/transferencia-fiable.html
+        id: reliable-data-transfer
+        imagen: /assets/img/recursos/transferencia-fiable.jpg
+        en: /docencia/ar1/transporte/transferencia-fiable-en.html
+        titulo_en: "Reliable data transfer: stop-and-wait, GBN and SR"
+        sesion: "3.2"
+        descripcion: "Diagrama espacio-tiempo de rdt3.0, Retroceder N y Repetición selectiva sobre un canal que pierde, corrompe o retrasa paquetes: haz clic en cualquier paquete o ACK para provocar la incidencia y mira las ventanas, los temporizadores y las retransmisiones. Modo predicción y ejercicios."
+        descripcion_en: "Space-time diagram of rdt3.0, Go-Back-N and Selective Repeat over a channel that loses, corrupts or delays packets: click on any packet or ACK to cause the incident and watch the windows, the timers and the retransmissions. Prediction mode and exercises."
       - titulo: Generador de trazas TCP
         titulo_en: TCP trace generator
         url: https://github.com/edelahozuah/TCP-Trace-Generator
