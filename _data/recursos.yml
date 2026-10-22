@@ -12,7 +12,8 @@
 #     tipo:           «video» para los vídeos de YouTube (su página la crea
 #                     scripts/importar_video.py; imagen = miniatura de YouTube);
 #                     «repositorio» para un repositorio de código (url externa,
-#                     p. ej. GitHub; «lenguaje» opcional para el JSON-LD)
+#                     p. ej. GitHub; «lenguaje» opcional para el JSON-LD);
+#                     «ejercicios» para una aplicación web de ejercicios (url externa)
 #     doi:            DOI del recurso (p. ej. el de Zenodo); se enlaza en la tarjeta
 #     autores:        lista de autores si no es solo el titular del sitio (JSON-LD)
 #     titulo_en:      título en inglés (para /en/)
@@ -26,6 +27,19 @@
 # enlazando la versión en español y con la nota «Spanish only».
 
 ar1:
+  - titulo: ejercicios
+    titulo_en: exercises
+    recursos:
+      - titulo: Ejercicios de Arquitectura de Redes
+        titulo_en: Network Architecture exercises
+        url: https://ejerciciosredes.web.uah.es/
+        en: https://ejerciciosredes.web.uah.es/?lang=en
+        tipo: ejercicios
+        imagen: /assets/img/recursos/ejercicios-redes.jpg
+        etiqueta: Temas 1 a 3
+        etiqueta_en: Units 1 to 3
+        descripcion: "Aplicación web con ejercicios que se generan y se corrigen al momento: test de conceptos, cálculo de retardos, diagramas de tiempos, análisis de capturas DNS y HTTP y secuencias de mensajes DNS, HTTP y TCP. Se puede practicar sin cuenta; los matriculados pueden entrar para guardar su progreso."
+        descripcion_en: "Web application with exercises that are generated and graded on the spot: concept tests, delay calculations, timing diagrams, analysis of DNS and HTTP captures and DNS, HTTP and TCP message sequences. You can practise without an account; enrolled students can log in to save their progress."
   - tema: 1
     recursos:
       - titulo: Codificación de línea y tiempo de bit

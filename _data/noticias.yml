@@ -1,6 +1,9 @@
 # Noticias de la portada, de la más reciente a la más antigua. Se muestran las
 # cinco primeras. El texto admite Markdown (enlaces, cursiva…). «texto_en» es
 # la versión para /en/; si falta, la noticia no aparece en inglés.
+- fecha: 2026-10-22
+  texto: "Disponible la [web de ejercicios de Arquitectura de Redes](https://ejerciciosredes.web.uah.es/): test de conceptos, cálculo de retardos, diagramas, análisis de capturas y secuencias DNS, HTTP y TCP, generados y corregidos al momento. Se puede practicar sin cuenta."
+  texto_en: "The [Network Architecture exercises website](https://ejerciciosredes.web.uah.es/?lang=en) is live: concept tests, delay calculations, diagrams, capture analysis and DNS, HTTP and TCP sequences, generated and graded on the spot. No account needed to practise."
 - fecha: 2026-10-13
   texto: "Estrenamos la [web del proyecto APT-GRAN](https://gnosis-uah.github.io/apt-gran/), sobre atribución de amenazas persistentes avanzadas con redes neuronales de grafos: resultados, publicaciones, software abierto y los TFM realizados en su marco."
   texto_en: "The [APT-GRAN project website](https://gnosis-uah.github.io/apt-gran/en/) is live: attribution of advanced persistent threats with graph neural networks, with results, publications, open-source software and the master's theses carried out within the project."
