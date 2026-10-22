@@ -73,6 +73,8 @@ Visualizaciones interactivas (páginas HTML autocontenidas que funcionan en el n
 {%- endif %}
 {%- if r.tipo == 'repositorio' %}
 - Repositorio de código en GitHub{% if r.lenguaje %} ({{ r.lenguaje }}){% endif %}
+{%- elsif r.tipo == 'ejercicios' %}
+- Aplicación web de ejercicios autocorregidos, en español e inglés; se puede usar sin cuenta
 {%- endif %}
 {%- if r.en %}
 - English version: {{ r.en | absolute_url }}
