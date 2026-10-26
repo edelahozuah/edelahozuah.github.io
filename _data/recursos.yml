@@ -255,8 +255,8 @@ ar1:
         en: /docencia/ar1/transporte/transferencia-fiable-en.html
         titulo_en: "Reliable data transfer: stop-and-wait, GBN and SR"
         sesion: "3.2"
-        descripcion: "Diagrama espacio-tiempo de rdt3.0, Retroceder N y Repetición selectiva sobre un canal que pierde, corrompe o retrasa paquetes: haz clic en cualquier paquete o ACK para provocar la incidencia y mira las ventanas, los temporizadores y las retransmisiones. Modo predicción y ejercicios."
-        descripcion_en: "Space-time diagram of rdt3.0, Go-Back-N and Selective Repeat over a channel that loses, corrupts or delays packets: click on any packet or ACK to cause the incident and watch the windows, the timers and the retransmissions. Prediction mode and exercises."
+        descripcion: "Diagrama espacio-tiempo de rdt2.0, rdt2.1, rdt2.2, rdt3.0, Retroceder N y Repetición selectiva sobre un canal que pierde, corrompe o retrasa paquetes: haz clic en cualquier paquete o ACK para provocar la incidencia y mira las ventanas, los temporizadores y las retransmisiones. Modo predicción y ejercicios."
+        descripcion_en: "Space-time diagram of rdt2.0, rdt2.1, rdt2.2, rdt3.0, Go-Back-N and Selective Repeat over a channel that loses, corrupts or delays packets: click on any packet or ACK to cause the incident and watch the windows, the timers and the retransmissions. Prediction mode and exercises."
       - titulo: Generador de trazas TCP
         titulo_en: TCP trace generator
         url: https://github.com/edelahozuah/TCP-Trace-Generator
