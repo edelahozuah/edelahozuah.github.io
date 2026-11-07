@@ -257,6 +257,15 @@ ar1:
         sesion: "3.2"
         descripcion: "Diagrama espacio-tiempo de rdt2.0, rdt2.1, rdt2.2, rdt3.0, Retroceder N y Repetición selectiva sobre un canal que pierde, corrompe o retrasa paquetes: haz clic en cualquier paquete o ACK para provocar la incidencia y mira las ventanas, los temporizadores y las retransmisiones. Modo predicción y ejercicios."
         descripcion_en: "Space-time diagram of rdt2.0, rdt2.1, rdt2.2, rdt3.0, Go-Back-N and Selective Repeat over a channel that loses, corrupts or delays packets: click on any packet or ACK to cause the incident and watch the windows, the timers and the retransmissions. Prediction mode and exercises."
+      - titulo: Plantilla para diagramas TCP
+        url: /docencia/ar1/transporte/plantilla-tcp.html
+        id: tcp-diagram-template
+        imagen: /assets/img/recursos/plantilla-tcp.jpg
+        en: /docencia/ar1/transporte/plantilla-tcp-en.html
+        titulo_en: TCP diagram template
+        sesion: "3.3"
+        descripcion: "La plantilla de los ejercicios de TCP, en el navegador: una fila por tic, la tabla de campos de cada segmento (SN, AN, Flags, W, MSS y Datos) a cada lado y las dos líneas de tiempo. Dibuja los segmentos, que llegan medio tic después, marca los perdidos y guarda o exporta tus ejercicios."
+        descripcion_en: "The worksheet for the TCP exercises, in the browser: one row per tick, the table of fields of each segment (SN, AN, Flags, W, MSS and Data) on each side and the two time lines. Draw the segments, which arrive half a tick later, mark the lost ones and save or export your exercises."
       - titulo: Generador de trazas TCP
         titulo_en: TCP trace generator
         url: https://github.com/edelahozuah/TCP-Trace-Generator

@@ -5,7 +5,7 @@
 
 repositorio: https://github.com/edelahozuah/computer-networks-visualizations
 pages: https://edelahozuah.github.io/computer-networks-visualizations
-version: v0.1.0-23-g959fb37
+version: v0.1.0-24-gbcfe5d4
 visualizaciones:
   /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
     id: bit-time-line-coding
@@ -166,4 +166,12 @@ visualizaciones:
   /docencia/ar1/transporte/transferencia-fiable-en.html:
     id: reliable-data-transfer
     fichero: 03-transport-layer/reliable-data-transfer.en.html
+    idioma: en
+  /docencia/ar1/transporte/plantilla-tcp.html:
+    id: tcp-diagram-template
+    fichero: 03-transport-layer/tcp-diagram-template.es.html
+    idioma: es
+  /docencia/ar1/transporte/plantilla-tcp-en.html:
+    id: tcp-diagram-template
+    fichero: 03-transport-layer/tcp-diagram-template.en.html
     idioma: en
