@@ -266,6 +266,14 @@ ar1:
         sesion: "3.3"
         descripcion: "La plantilla de los ejercicios de TCP, en el navegador: una fila por tic, la tabla de campos de cada segmento (SN, AN, Flags, W, MSS y Datos) a cada lado y las dos líneas de tiempo. Dibuja los segmentos, que llegan medio tic después, marca los perdidos y guarda o exporta tus ejercicios."
         descripcion_en: "The worksheet for the TCP exercises, in the browser: one row per tick, the table of fields of each segment (SN, AN, Flags, W, MSS and Data) on each side and the two time lines. Draw the segments, which arrive half a tick later, mark the lost ones and save or export your exercises."
+      - titulo: "TCPGame: juega un extremo de una conexión TCP"
+        titulo_en: "TCPGame: play one end of a TCP connection"
+        url: https://edelahozuah.github.io/tcpgame/
+        tipo: ejercicios
+        imagen: /assets/img/recursos/tcpgame.jpg
+        sesion: "3.3"
+        descripcion: "Haces de emisor o de receptor TCP y decides en cada tic solo con lo que te ha llegado y lo que llevas apuntado: si cabe otro segmento en la ventana, cuándo enviar el ACK y con qué AN y W, qué retransmitir. Control de flujo, pérdidas, temporizador, ACK duplicados y retransmisión rápida; al final, el diagrama completo frente a lo que creías. Incluye reglamento para jugarlo en papel."
+        descripcion_en: "You play the TCP sender or receiver and decide at each tick using only what has reached you and what you have written down: whether another segment fits in the window, when to send the ACK and with which AN and W, what to retransmit. Flow control, losses, timer, duplicate ACKs and fast retransmit; at the end, the full diagram against what you believed. Includes rules to play it on paper."
       - titulo: Generador de trazas TCP
         titulo_en: TCP trace generator
         url: https://github.com/edelahozuah/TCP-Trace-Generator
