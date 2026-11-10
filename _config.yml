@@ -94,6 +94,9 @@ defaults:
     values: { layout: video }
   - scope: { path: "", type: publicaciones }
     values: { layout: publicacion }
+  # Planos de aula de PEI1 para proyectar: fuera del sitemap (y noindex).
+  - scope: { path: "pei1" }
+    values: { sitemap: false }
 
 exclude:
   - README.md
