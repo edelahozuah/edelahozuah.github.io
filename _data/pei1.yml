@@ -1,0 +1,12 @@
+# PEI1 (AR1) · planos de aula para proyectar en /pei1/.
+# Solo números de puesto: sin nombres ni otros datos de estudiantes.
+# Los SVG salen del PDF de proyección (una página por aula, recortada con
+# pdfcrop y convertida con pdftocairo -svg).
+titulo: PEI1 · ¿En qué aula está mi puesto?
+fecha: 10 de noviembre de 2026
+aulas:
+  - { id: ea5, nombre: EA5, puestos: "1 – 70 y 315" }
+  - { id: sa1, nombre: SA1, puestos: "71 – 111" }
+  - { id: sa2, nombre: SA2, puestos: "112 – 176 y 313" }
+  - { id: sa4, nombre: SA4, puestos: "177 – 246" }
+  - { id: sa7, nombre: SA7, puestos: "247 – 312" }
