@@ -1,7 +1,9 @@
 # PEI1 (AR1) · planos de aula para proyectar en /pei1/.
 # Solo números de puesto: sin nombres ni otros datos de estudiantes.
 # Los SVG salen del PDF de proyección (una página por aula, recortada con
-# pdfcrop y convertida con pdftocairo -svg).
+# pdfcrop y convertida con pdftocairo -svg) y se giran 180° con
+# scripts/girar_plano_pei1.py para que la mesa del profesor quede arriba a la
+# izquierda, como la ven los estudiantes desde sus puestos.
 titulo: PEI1 · ¿En qué aula está mi puesto?
 fecha: 10 de noviembre de 2026
 aulas:
