@@ -79,7 +79,7 @@ Teclas: ← → cambian de aula, 0 o Inicio vuelve al índice, 1–9 van a cada 
     {%- for a in d.aulas %}
     <a href="{{ '/pei1/' | append: a.id | append: '/' | relative_url }}"{% if a.id == page.aula %} aria-current="page"{% endif %}>{{ a.nombre }}</a>
     {%- endfor %}
-    <a href="{{ '/pei1/PEI1-aulas.pdf' | relative_url }}">PDF</a>
+    <a href="{{ '/pei1/PEI1-aulas-girado.pdf' | relative_url }}">PDF</a>
   </span>
   {% if next %}<a href="{{ '/pei1/' | append: next.id | append: '/' | relative_url }}" rel="next">{{ next.nombre }} →</a>{% elsif actual %}<span class="hueco">→</span>{% else %}<a href="{{ '/pei1/' | append: d.aulas[0].id | append: '/' | relative_url }}" rel="next">{{ d.aulas[0].nombre }} →</a>{% endif %}
 </nav>
