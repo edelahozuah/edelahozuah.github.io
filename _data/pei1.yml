@@ -5,10 +5,8 @@
 # scripts/girar_plano_pei1.py para que la mesa del profesor quede arriba a la
 # izquierda, como la ven los estudiantes desde sus puestos.
 titulo: PEI1 · ¿En qué aula está mi puesto?
-fecha: 10 de noviembre de 2026
+fecha: 16 de noviembre de 2026
 aulas:
-  - { id: ea5, nombre: EA5, puestos: "1 – 70 y 315" }
-  - { id: sa1, nombre: SA1, puestos: "71 – 111" }
-  - { id: sa2, nombre: SA2, puestos: "112 – 176 y 313" }
-  - { id: sa4, nombre: SA4, puestos: "177 – 246" }
-  - { id: sa7, nombre: SA7, puestos: "247 – 312" }
+  - { id: ea5, nombre: EA5, puestos: "1 – 70" }
+  - { id: ea7, nombre: EA7, puestos: "71 – 129" }
+  - { id: ea8, nombre: EA8, puestos: "130 – 164" }
