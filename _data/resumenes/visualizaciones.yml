@@ -1033,11 +1033,13 @@
     en ese tic (SN, AN, Flags, W, MSS y Datos) y, en medio, las líneas de tiempo de los dos hosts. Al
     pulsar un punto de la línea del emisor se dibuja el segmento, que llega al otro extremo medio tic
     después; cada flecha se puede marcar como perdida (se corta con una cruz), etiquetar (por ejemplo,
-    RTO o ACK duplicado), invertir o borrar. Los nombres de los hosts y el número de tics se pueden cambiar,
-    y cada ejercicio lleva un nombre y un cuadro para el enunciado y las anotaciones. No corrige ni da
-    la solución: es el soporte en el que el estudiante razona. Los ejercicios se guardan en el navegador,
-    se exportan e importan como ficheros JSON para cambiar de equipo o entregarlos, y se imprimen en A4.
-    Incluye un ejemplo con el establecimiento en tres pasos y un segmento de datos con su ACK.
+    RTO o ACK duplicado), colorear, invertir o borrar. Sobre la línea de un host se dibujan temporizadores
+    (como el RTO) en pasos de medio tic, con su inicio, duración y etiqueta. Los nombres de los hosts
+    y el número de tics se pueden cambiar, y cada ejercicio lleva un nombre y un cuadro para el enunciado
+    y las anotaciones. No corrige ni da la solución: es el soporte en el que el estudiante razona. Los
+    ejercicios se guardan en el navegador, se exportan e importan como ficheros JSON para cambiar de equipo
+    o entregarlos, y se imprimen en A4. Incluye un ejemplo con el establecimiento en tres pasos y un segmento
+    de datos con su ACK y su RTO.
   conceptos:
   - segmento TCP
   - número de secuencia
@@ -1048,6 +1050,7 @@
   - ventana de recepción
   - MSS
   - pérdida y retransmisión
+  - temporizador de retransmisión (RTO)
   - diagrama de tiempos
 /docencia/ar1/transporte/plantilla-tcp-en.html:
   resumen: >-
@@ -1056,12 +1059,13 @@
     each row has, on each side, the table of fields of the segment that host sends in that tick (SN, AN,
     Flags, W, MSS and Data) and, in the middle, the time lines of the two hosts. Clicking a point on the
     sender's line draws the segment, which reaches the other end half a tick later; each arrow can be
-    marked as lost (it is cut with a cross), labelled (for example, RTO or duplicate ACK), reversed or
-    deleted. The host names and the number of ticks can be changed, and each exercise has a name and a
-    box for the statement and notes. It neither grades nor gives the solution: it is the medium in which
-    the student reasons. Exercises are saved in the browser, exported and imported as JSON files to move
-    them to another computer or hand them in, and printed on A4. It includes an example with the three-way
-    handshake and one data segment with its ACK.
+    marked as lost (it is cut with a cross), labelled (for example, RTO or duplicate ACK), coloured, reversed
+    or deleted. Timers (such as the RTO) are drawn on a host's line in half-tick steps, with their start,
+    duration and label. The host names and the number of ticks can be changed, and each exercise has a
+    name and a box for the statement and notes. It neither grades nor gives the solution: it is the medium
+    in which the student reasons. Exercises are saved in the browser, exported and imported as JSON files
+    to move them to another computer or hand them in, and printed on A4. It includes an example with the
+    three-way handshake and one data segment with its ACK and its RTO.
   conceptos:
   - TCP segment
   - sequence number
@@ -1072,4 +1076,5 @@
   - receive window
   - MSS
   - loss and retransmission
+  - retransmission timer (RTO)
   - timing diagram
