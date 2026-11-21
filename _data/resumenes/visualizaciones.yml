@@ -1078,3 +1078,77 @@
   - loss and retransmission
   - retransmission timer (RTO)
   - timing diagram
+/docencia/ar1/transporte/flujo-octetos-tcp.html:
+  resumen: >-
+    Simulación paso a paso de una transferencia TCP vista como flujo de octetos. Cinco bandas comparten
+    el mismo eje de números de secuencia: el fichero de la aplicación emisora en trozos de un MSS, el
+    emisor TCP con las zonas reconocido, enviado sin reconocer y usable y su ventana deslizante, los segmentos
+    y ACK en vuelo, el búfer del receptor con lo recibido en secuencia, lo guardado fuera de secuencia
+    y el espacio libre, y lo que ya ha leído la aplicación receptora. En cada paso se muestran y se explican
+    las variables de Kurose (BaseEmision, SigNumSec, UltimoByteEnviado, UltimoByteReconocido, VentRecepcion,
+    BufferRecepcion, UltimoByteLeido, UltimoByteRecibido), el temporizador, los ACK duplicados y, con
+    control de congestión, la ventana de congestión, el umbral, el modo y Cvc. Debajo se dibujan el diagrama
+    de secuencia en tics (los segmentos tardan medio tic) y la tabla de segmentos con SN, AN, W y Datos.
+    Nueve escenarios: transferencia sin incidencias, aplicación receptora lenta con ventana cero y actualización
+    de ventana, pérdida con vencimiento del temporizador, tres ACK duplicados y retransmisión rápida,
+    ACK perdido cubierto por el acumulativo, arranque lento y evitación de la congestión, ventana del
+    emisor como mínimo de la ventana de congestión y la de recepción, recuperación rápida y vuelta a arranque
+    lento tras un vencimiento. El modelo es el de los ejercicios de clase: un segmento por lado y tic,
+    ACK retardado de un tic, un único temporizador y TCP Reno. Se pueden cambiar el tamaño del fichero,
+    el MSS, el búfer, el temporizador, los segmentos y ACK que se pierden y el ritmo de lectura, y enlazar
+    un escenario y un paso con el fragmento de la URL (por ejemplo, #rapida/24).
+  conceptos:
+  - flujo de octetos y números de secuencia
+  - ventana deslizante
+  - BaseEmision y SigNumSec
+  - control de flujo y ventana de recepción
+  - búfer de recepción
+  - ventana cero y actualización de ventana
+  - ACK acumulativo, retardado y duplicado
+  - temporizador de retransmisión
+  - retransmisión rápida
+  - ventana de congestión y umbral
+  - arranque lento, evitación de la congestión y recuperación rápida
+  - diagrama de secuencia
+  formulas:
+  - VentRecepcion = BufferRecepcion − (UltimoByteRecibido − UltimoByteLeido)
+  - UltimoByteEnviado − UltimoByteReconocido ≤ mín{VentCongestion, VentRecepcion}
+  - usable = borde derecho − SigNumSec
+  - Cvc = VC − segmentos pendientes de reconocer
+/docencia/ar1/transporte/flujo-octetos-tcp-en.html:
+  resumen: >-
+    Step-by-step simulation of a TCP transfer seen as a byte stream. Five bands share the same axis of
+    sequence numbers: the file of the sending application in MSS-sized pieces, the sender TCP with the
+    acknowledged, sent-but-unacknowledged and usable zones and its sliding window, the segments and ACKs
+    in flight, the receive buffer with the data received in sequence, the data stored out of order and
+    the free space, and what the receiving application has already read. Every step shows and explains
+    Kurose's variables (SendBase, NextSeqNum, LastByteSent, LastByteAcked, rwnd, RcvBuffer, LastByteRead,
+    LastByteRcvd), the timer, the duplicate ACKs and, with congestion control, the congestion window,
+    ssthresh, the mode and the number of segments congestion still allows. Below, the sequence diagram
+    in ticks (segments take half a tick) and the table of segments with SN, AN, W and Data. Nine scenarios:
+    a transfer with no incidents, a slow receiving application with a zero window and a window update,
+    a loss recovered by the retransmission timer, three duplicate ACKs and fast retransmit, a lost ACK
+    covered by the next cumulative one, slow start and congestion avoidance, the sender window as the
+    minimum of the congestion and receive windows, fast recovery, and back to slow start after a timeout.
+    The model is the one used in the course exercises: one segment per host and tick, a one-tick delayed
+    ACK, a single timer and TCP Reno. The file size, MSS, buffer, timer, lost segments and ACKs and the
+    reading pace can be changed, and a scenario and step can be linked with the URL fragment (for example,
+    #rapida/24).
+  conceptos:
+  - byte stream and sequence numbers
+  - sliding window
+  - SendBase and NextSeqNum
+  - flow control and receive window
+  - receive buffer
+  - zero window and window update
+  - cumulative, delayed and duplicate ACKs
+  - retransmission timer
+  - fast retransmit
+  - congestion window and ssthresh
+  - slow start, congestion avoidance and fast recovery
+  - sequence diagram
+  formulas:
+  - rwnd = RcvBuffer − (LastByteRcvd − LastByteRead)
+  - LastByteSent − LastByteAcked ≤ min{cwnd, rwnd}
+  - usable = right edge − NextSeqNum
+  - segments allowed by congestion = cwnd − unacknowledged segments

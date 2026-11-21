@@ -266,6 +266,15 @@ ar1:
         sesion: "3.3"
         descripcion: "La plantilla de los ejercicios de TCP, en el navegador: una fila por tic, la tabla de campos de cada segmento (SN, AN, Flags, W, MSS y Datos) a cada lado y las dos líneas de tiempo. Dibuja los segmentos, que llegan medio tic después, marca los perdidos, añade temporizadores y guarda o exporta tus ejercicios."
         descripcion_en: "The worksheet for the TCP exercises, in the browser: one row per tick, the table of fields of each segment (SN, AN, Flags, W, MSS and Data) on each side and the two time lines. Draw the segments, which arrive half a tick later, mark the lost ones, add timers and save or export your exercises."
+      - titulo: "TCP: el flujo de octetos y sus ventanas"
+        url: /docencia/ar1/transporte/flujo-octetos-tcp.html
+        id: tcp-byte-stream
+        imagen: /assets/img/recursos/flujo-octetos-tcp.jpg
+        en: /docencia/ar1/transporte/flujo-octetos-tcp-en.html
+        titulo_en: "TCP: the byte stream and its windows"
+        sesion: "3.3"
+        descripcion: TCP numera los octetos de la aplicación y desliza una ventana sobre ellos. El fichero, la ventana del emisor, la red, el búfer del receptor y lo que recoge la aplicación comparten un mismo eje de octetos; avanza paso a paso por nueve escenarios (control de flujo, pérdidas y control de congestión) y sigue las variables de Kurose y el diagrama de secuencia.
+        descripcion_en: TCP numbers the bytes of the application and slides a window over them. The file, the sender window, the network, the receive buffer and what the application reads share a single byte axis; step through nine scenarios (flow control, losses and congestion control) and follow Kurose's variables and the sequence diagram.
       - titulo: "TCPGame: juega un extremo de una conexión TCP"
         titulo_en: "TCPGame: play one end of a TCP connection"
         url: https://edelahozuah.github.io/tcpgame/
