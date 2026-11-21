@@ -5,7 +5,7 @@
 
 repositorio: https://github.com/edelahozuah/computer-networks-visualizations
 pages: https://edelahozuah.github.io/computer-networks-visualizations
-version: v0.1.0-26-g9d2535c
+version: v0.1.0-28-g864b679
 visualizaciones:
   /docencia/ar1/retardos/codificacion-tiempo-de-bit.html:
     id: bit-time-line-coding
@@ -174,4 +174,12 @@ visualizaciones:
   /docencia/ar1/transporte/plantilla-tcp-en.html:
     id: tcp-diagram-template
     fichero: 03-transport-layer/tcp-diagram-template.en.html
+    idioma: en
+  /docencia/ar1/transporte/flujo-octetos-tcp.html:
+    id: tcp-byte-stream
+    fichero: 03-transport-layer/tcp-byte-stream.es.html
+    idioma: es
+  /docencia/ar1/transporte/flujo-octetos-tcp-en.html:
+    id: tcp-byte-stream
+    fichero: 03-transport-layer/tcp-byte-stream.en.html
     idioma: en
